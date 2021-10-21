@@ -112,5 +112,10 @@ namespace Augustus_Fashion.View
             lc.ShowDialog();
             this.Close();
         }
+
+        private void AlterarCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

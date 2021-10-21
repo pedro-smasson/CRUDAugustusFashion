@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
+using Augustus_Fashion.Model;
+using Augustus_Fashion.Controller;
 
 namespace Augustus_Fashion.View
 {
     public partial class ListarCliente : Form
     {
+        ClienteModel clientemodel = new ClienteModel();
+        ClienteControl clientecontrol = new ClienteControl();
+
         public ListarCliente()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace Augustus_Fashion.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = clientecontrol.BuscarLista(textBox1.Text);
         }
     }
 }

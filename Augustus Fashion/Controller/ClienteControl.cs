@@ -77,6 +77,24 @@ namespace Augustus_Fashion.Controller
                 return ClienteDao.Buscar(conexao, id);
             }
         }
+
+        public List<ClienteModel> BuscarLista(string nome)
+        {
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var lista = ClienteDao.BuscarLista(conexao, nome);
+                    return lista;
+                }
+            }
+            catch (Exception excecao)
+            {
+                MessageBox.Show(excecao.Message);
+            }
+            return null;
+        }
     }
 }
 

@@ -53,5 +53,15 @@ namespace Augustus_Fashion.DAO
             var resultado = conexao.QueryFirstOrDefault<ClienteModel>(query, parametros);
             return resultado;
         }
+
+        public static List<ClienteModel> BuscarLista(IDbConnection conexao, string nome)
+        {
+            var query = @"select * from cliente where nome=@nome";
+            var parametros = new DynamicParameters();
+            parametros.Add("@nome", nome, System.Data.DbType.String);
+
+            var resultado = conexao.Query<ClienteModel>(query, parametros).ToList();
+            return resultado;
+        }
     }
 }

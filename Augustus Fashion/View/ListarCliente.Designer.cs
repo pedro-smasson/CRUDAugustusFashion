@@ -49,7 +49,7 @@ namespace Augustus_Fashion.View
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.crudDataSet = new Augustus_Fashion.crudDataSet();
             this.clienteTableAdapter = new Augustus_Fashion.crudDataSetTableAdapters.clienteTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buscarNome = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -189,16 +189,16 @@ namespace Augustus_Fashion.View
             // 
             this.clienteTableAdapter.ClearBeforeFill = true;
             // 
-            // button1
+            // buscarNome
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(584, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 40);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "BUSCAR";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buscarNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buscarNome.Location = new System.Drawing.Point(518, 12);
+            this.buscarNome.Name = "buscarNome";
+            this.buscarNome.Size = new System.Drawing.Size(125, 40);
+            this.buscarNome.TabIndex = 1;
+            this.buscarNome.Text = "BUSCAR";
+            this.buscarNome.UseVisualStyleBackColor = true;
+            this.buscarNome.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -206,16 +206,16 @@ namespace Augustus_Fashion.View
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 20);
+            this.label1.Size = new System.Drawing.Size(197, 20);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Infome o ID do Cliente:";
+            this.label1.Text = "Infome o Nome do Cliente:";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(190, 15);
+            this.textBox1.Location = new System.Drawing.Point(215, 15);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(285, 31);
+            this.textBox1.Size = new System.Drawing.Size(247, 31);
             this.textBox1.TabIndex = 3;
             // 
             // ListarCliente
@@ -225,7 +225,7 @@ namespace Augustus_Fashion.View
             this.ClientSize = new System.Drawing.Size(745, 361);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buscarNome);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ListarCliente";
             this.Text = "ListarCliente";
@@ -259,7 +259,7 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.DataGridViewTextBoxColumn celularDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cpfDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buscarNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
     }

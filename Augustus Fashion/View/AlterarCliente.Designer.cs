@@ -502,14 +502,14 @@ namespace Augustus_Fashion.View
             // cLIENTESToolStripMenuItem
             // 
             this.cLIENTESToolStripMenuItem.Name = "cLIENTESToolStripMenuItem";
-            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.cLIENTESToolStripMenuItem.Text = "CLIENTES";
             this.cLIENTESToolStripMenuItem.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem_Click);
             // 
             // fUNCIONÁRIOSToolStripMenuItem
             // 
             this.fUNCIONÁRIOSToolStripMenuItem.Name = "fUNCIONÁRIOSToolStripMenuItem";
-            this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOSToolStripMenuItem.Text = "FUNCIONÁRIOS";
             this.fUNCIONÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem_Click);
             // 
@@ -525,7 +525,7 @@ namespace Augustus_Fashion.View
             // cLIENTESToolStripMenuItem1
             // 
             this.cLIENTESToolStripMenuItem1.Name = "cLIENTESToolStripMenuItem1";
-            this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.cLIENTESToolStripMenuItem1.Text = "CLIENTES";
             this.cLIENTESToolStripMenuItem1.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem1_Click);
             // 
@@ -586,6 +586,7 @@ namespace Augustus_Fashion.View
             this.Name = "AlterarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AlterarCliente";
+            this.Load += new System.EventHandler(this.AlterarCliente_Load);
             this.groupBoxCliente.ResumeLayout(false);
             this.groupBoxCliente.PerformLayout();
             this.enderecoCliente.ResumeLayout(false);
