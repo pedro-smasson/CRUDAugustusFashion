@@ -61,16 +61,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>crudDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="crudDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crudDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="crudDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crudDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\conexao.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\FuncionarioModel.cs" />
+    <Compile Include="Model\Pessoa.cs" />
     <Compile Include="View\AlterarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\AlterarCliente.Designer.cs">
       <DependentUpon>AlterarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AlterarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AlterarFuncionario.Designer.cs">
+      <DependentUpon>AlterarFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="View\CadastroCliente.cs">
       <SubType>Form</SubType>
@@ -86,11 +103,23 @@
     <Compile Include="View\CadastroFuncionario.Designer.cs">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ExcluirCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ExcluirCliente.Designer.cs">
+      <DependentUpon>ExcluirCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ListarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\ListarCliente.Designer.cs">
       <DependentUpon>ListarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ListarFuncionario.Designer.cs">
+      <DependentUpon>ListarFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="View\TelaInicial.cs">
       <SubType>Form</SubType>
@@ -100,6 +129,9 @@
     </Compile>
     <EmbeddedResource Include="View\AlterarCliente.resx">
       <DependentUpon>AlterarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AlterarFuncionario.resx">
+      <DependentUpon>AlterarFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroCliente.resx">
       <DependentUpon>CadastroCliente.cs</DependentUpon>
@@ -116,8 +148,14 @@
     <EmbeddedResource Include="View\CadastroFuncionario.resx">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ExcluirCliente.resx">
+      <DependentUpon>ExcluirCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ListarCliente.resx">
       <DependentUpon>ListarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ListarFuncionario.resx">
+      <DependentUpon>ListarFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>
@@ -132,6 +170,28 @@
     </None>
     <None Include="crudDataSet.xss">
       <DependentUpon>crudDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="crudDataSet1.xsc">
+      <DependentUpon>crudDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="crudDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>crudDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="crudDataSet1.xss">
+      <DependentUpon>crudDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="crudDataSet2.xsc">
+      <DependentUpon>crudDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="crudDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>crudDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="crudDataSet2.xss">
+      <DependentUpon>crudDataSet2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

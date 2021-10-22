@@ -110,12 +110,50 @@ namespace Augustus_Fashion.View
 
         private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            ListarCliente lc = new ListarCliente();
+            lc.ShowDialog();
+            this.Close();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            Hide();
+            AlterarFuncionario af = new AlterarFuncionario();
+            af.ShowDialog();
+            this.Close();
+        }
 
+        private void cLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            AlterarCliente ac = new AlterarCliente();
+            ac.ShowDialog();
+            this.Close();
+        }
+
+        private void cLIENTESToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ExcluirCliente ec = new ExcluirCliente();
+            ec.ShowDialog();
+            this.Close();
+        }
+
+        private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            AlterarFuncionario af = new AlterarFuncionario();
+            af.ShowDialog();
+            this.Close();
+        }
+
+        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ListarFuncionario lf = new ListarFuncionario();
+            lf.ShowDialog();
+            this.Close();
         }
     }
 }

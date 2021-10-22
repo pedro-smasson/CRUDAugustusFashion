@@ -28,5 +28,71 @@ namespace Augustus_Fashion.View
         {
             dataGridView1.DataSource = clientecontrol.BuscarLista(textBox1.Text);
         }
+
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            telaInicial ti = new telaInicial();
+            ti.ShowDialog();
+            this.Close();
+        }
+
+        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            cadastroCliente cc = new cadastroCliente();
+            cc.ShowDialog();
+            this.Close();
+        }
+
+        private void fUNCIONÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            CadastroFuncionario cf = new CadastroFuncionario();
+            cf.ShowDialog();
+            this.Close();
+        }
+
+        private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
+        }
+
+        private void cLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            AlterarCliente ac = new AlterarCliente();
+            ac.ShowDialog();
+            this.Close();
+        }
+
+        private void cLIENTESToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ExcluirCliente ec = new ExcluirCliente();
+            ec.ShowDialog();
+            this.Close();
+        }
+
+        private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            AlterarFuncionario af = new AlterarFuncionario();
+            af.ShowDialog();
+            this.Close();
+        }
+
+        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ListarFuncionario lf = new ListarFuncionario();
+            lf.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -1,17 +1,17 @@
 ﻿
-namespace Augustus_Fashion
+namespace Augustus_Fashion.View
 {
-    partial class cadastroCliente
+    partial class ExcluirCliente
     {
         /// <summary>
-        /// Variável de designer necessária.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpar os recursos que estão sendo usados.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,32 +21,14 @@ namespace Augustus_Fashion
             base.Dispose(disposing);
         }
 
-        #region Código gerado pelo Windows Form Designer
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Método necessário para suporte ao Designer - não modifique 
-        /// o conteúdo deste método com o editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cADASTROToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aLTERARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eXCLUIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTESToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOSToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBoxCliente = new System.Windows.Forms.GroupBox();
             this.enderecoCliente = new System.Windows.Forms.GroupBox();
             this.valorLimiteCliente = new System.Windows.Forms.TextBox();
@@ -79,165 +61,30 @@ namespace Augustus_Fashion
             this.label2 = new System.Windows.Forms.Label();
             this.nomeCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.excluirCliente = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.buscarCliente = new System.Windows.Forms.Button();
+            this.idCliente = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cADASTROToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fUNCIONÁRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cLIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aLTERARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fUNCIONÁRIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eXCLUIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cLIENTESToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fUNCIONÁRIOSToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxCliente.SuspendLayout();
             this.enderecoCliente.SuspendLayout();
             this.sexoCliente.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hOMEToolStripMenuItem,
-            this.cADASTROToolStripMenuItem,
-            this.cONSULTAToolStripMenuItem,
-            this.aLTERARToolStripMenuItem,
-            this.eXCLUIRToolStripMenuItem,
-            this.FecharToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(799, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // hOMEToolStripMenuItem
-            // 
-            this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
-            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.hOMEToolStripMenuItem.Text = "HOME";
-            this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
-            // 
-            // cADASTROToolStripMenuItem
-            // 
-            this.cADASTROToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTESToolStripMenuItem,
-            this.fUNCIONÁRIOSToolStripMenuItem});
-            this.cADASTROToolStripMenuItem.Name = "cADASTROToolStripMenuItem";
-            this.cADASTROToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.cADASTROToolStripMenuItem.Text = "CADASTRO";
-            // 
-            // cLIENTESToolStripMenuItem
-            // 
-            this.cLIENTESToolStripMenuItem.Name = "cLIENTESToolStripMenuItem";
-            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTESToolStripMenuItem.Text = "CLIENTES";
-            this.cLIENTESToolStripMenuItem.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem_Click);
-            // 
-            // fUNCIONÁRIOSToolStripMenuItem
-            // 
-            this.fUNCIONÁRIOSToolStripMenuItem.Name = "fUNCIONÁRIOSToolStripMenuItem";
-            this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOSToolStripMenuItem.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem_Click);
-            // 
-            // cONSULTAToolStripMenuItem
-            // 
-            this.cONSULTAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTESToolStripMenuItem1,
-            this.fUNCIONÁRIOSToolStripMenuItem1});
-            this.cONSULTAToolStripMenuItem.Name = "cONSULTAToolStripMenuItem";
-            this.cONSULTAToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.cONSULTAToolStripMenuItem.Text = "LISTAR";
-            // 
-            // cLIENTESToolStripMenuItem1
-            // 
-            this.cLIENTESToolStripMenuItem1.Name = "cLIENTESToolStripMenuItem1";
-            this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.cLIENTESToolStripMenuItem1.Text = "CLIENTES";
-            this.cLIENTESToolStripMenuItem1.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem1_Click);
-            // 
-            // fUNCIONÁRIOSToolStripMenuItem1
-            // 
-            this.fUNCIONÁRIOSToolStripMenuItem1.Name = "fUNCIONÁRIOSToolStripMenuItem1";
-            this.fUNCIONÁRIOSToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
-            // 
-            // aLTERARToolStripMenuItem
-            // 
-            this.aLTERARToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTEToolStripMenuItem,
-            this.fUNCIONÁRIOToolStripMenuItem});
-            this.aLTERARToolStripMenuItem.Name = "aLTERARToolStripMenuItem";
-            this.aLTERARToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.aLTERARToolStripMenuItem.Text = "ALTERAR";
-            // 
-            // cLIENTEToolStripMenuItem
-            // 
-            this.cLIENTEToolStripMenuItem.Name = "cLIENTEToolStripMenuItem";
-            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTEToolStripMenuItem.Text = "CLIENTES";
-            this.cLIENTEToolStripMenuItem.Click += new System.EventHandler(this.cLIENTEToolStripMenuItem_Click);
-            // 
-            // fUNCIONÁRIOToolStripMenuItem
-            // 
-            this.fUNCIONÁRIOToolStripMenuItem.Name = "fUNCIONÁRIOToolStripMenuItem";
-            this.fUNCIONÁRIOToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOToolStripMenuItem.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOToolStripMenuItem_Click);
-            // 
-            // eXCLUIRToolStripMenuItem
-            // 
-            this.eXCLUIRToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTESToolStripMenuItem2,
-            this.fUNCIONÁRIOSToolStripMenuItem2});
-            this.eXCLUIRToolStripMenuItem.Name = "eXCLUIRToolStripMenuItem";
-            this.eXCLUIRToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.eXCLUIRToolStripMenuItem.Text = "EXCLUIR";
-            // 
-            // cLIENTESToolStripMenuItem2
-            // 
-            this.cLIENTESToolStripMenuItem2.Name = "cLIENTESToolStripMenuItem2";
-            this.cLIENTESToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTESToolStripMenuItem2.Text = "CLIENTES";
-            this.cLIENTESToolStripMenuItem2.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem2_Click);
-            // 
-            // fUNCIONÁRIOSToolStripMenuItem2
-            // 
-            this.fUNCIONÁRIOSToolStripMenuItem2.Name = "fUNCIONÁRIOSToolStripMenuItem2";
-            this.fUNCIONÁRIOSToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOSToolStripMenuItem2.Text = "FUNCIONÁRIOS";
-            // 
-            // FecharToolStripMenuItem
-            // 
-            this.FecharToolStripMenuItem.Name = "FecharToolStripMenuItem";
-            this.FecharToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.FecharToolStripMenuItem.Text = "FECHAR";
-            this.FecharToolStripMenuItem.Click += new System.EventHandler(this.FecharToolStripMenuItem_Click);
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLimpar.Location = new System.Drawing.Point(407, 409);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(150, 50);
-            this.btnLimpar.TabIndex = 16;
-            this.btnLimpar.Text = "LIMPAR";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAlterar.Location = new System.Drawing.Point(47, 409);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(150, 50);
-            this.btnAlterar.TabIndex = 17;
-            this.btnAlterar.Text = "ALTERAR";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(227, 409);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(150, 50);
-            this.btnSalvar.TabIndex = 15;
-            this.btnSalvar.Text = "SALVAR";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // groupBoxCliente
             // 
@@ -252,10 +99,10 @@ namespace Augustus_Fashion
             this.groupBoxCliente.Controls.Add(this.nomeCliente);
             this.groupBoxCliente.Controls.Add(this.label1);
             this.groupBoxCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBoxCliente.Location = new System.Drawing.Point(12, 29);
+            this.groupBoxCliente.Location = new System.Drawing.Point(3, 77);
             this.groupBoxCliente.Name = "groupBoxCliente";
             this.groupBoxCliente.Size = new System.Drawing.Size(776, 356);
-            this.groupBoxCliente.TabIndex = 7;
+            this.groupBoxCliente.TabIndex = 21;
             this.groupBoxCliente.TabStop = false;
             // 
             // enderecoCliente
@@ -618,41 +465,190 @@ namespace Augustus_Fashion
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome do Cliente: ";
             // 
-            // excluirCliente
+            // buscarCliente
             // 
-            this.excluirCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.excluirCliente.Location = new System.Drawing.Point(593, 409);
-            this.excluirCliente.Name = "excluirCliente";
-            this.excluirCliente.Size = new System.Drawing.Size(150, 50);
-            this.excluirCliente.TabIndex = 18;
-            this.excluirCliente.Text = "EXCLUIR";
-            this.excluirCliente.UseVisualStyleBackColor = true;
-            this.excluirCliente.Click += new System.EventHandler(this.excluirCliente_Click);
+            this.buscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buscarCliente.Location = new System.Drawing.Point(420, 31);
+            this.buscarCliente.Name = "buscarCliente";
+            this.buscarCliente.Size = new System.Drawing.Size(125, 40);
+            this.buscarCliente.TabIndex = 31;
+            this.buscarCliente.Text = "BUSCAR";
+            this.buscarCliente.UseVisualStyleBackColor = true;
+            this.buscarCliente.Click += new System.EventHandler(this.buscarCliente_Click);
             // 
-            // cadastroCliente
+            // idCliente
+            // 
+            this.idCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idCliente.Location = new System.Drawing.Point(229, 36);
+            this.idCliente.Multiline = true;
+            this.idCliente.Name = "idCliente";
+            this.idCliente.Size = new System.Drawing.Size(137, 28);
+            this.idCliente.TabIndex = 30;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label14.Location = new System.Drawing.Point(11, 38);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(206, 24);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "Informe o ID do Cliente:";
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnExcluir.Location = new System.Drawing.Point(568, 31);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(125, 40);
+            this.btnExcluir.TabIndex = 28;
+            this.btnExcluir.Text = "EXCLUIR";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hOMEToolStripMenuItem,
+            this.cADASTROToolStripMenuItem,
+            this.cONSULTAToolStripMenuItem,
+            this.aLTERARToolStripMenuItem,
+            this.eXCLUIRToolStripMenuItem,
+            this.FecharToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(783, 24);
+            this.menuStrip1.TabIndex = 27;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // hOMEToolStripMenuItem
+            // 
+            this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
+            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.hOMEToolStripMenuItem.Text = "HOME";
+            this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
+            // 
+            // cADASTROToolStripMenuItem
+            // 
+            this.cADASTROToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cLIENTESToolStripMenuItem,
+            this.fUNCIONÁRIOSToolStripMenuItem});
+            this.cADASTROToolStripMenuItem.Name = "cADASTROToolStripMenuItem";
+            this.cADASTROToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.cADASTROToolStripMenuItem.Text = "CADASTRO";
+            // 
+            // cLIENTESToolStripMenuItem
+            // 
+            this.cLIENTESToolStripMenuItem.Name = "cLIENTESToolStripMenuItem";
+            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.cLIENTESToolStripMenuItem.Text = "CLIENTES";
+            this.cLIENTESToolStripMenuItem.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem_Click);
+            // 
+            // fUNCIONÁRIOSToolStripMenuItem
+            // 
+            this.fUNCIONÁRIOSToolStripMenuItem.Name = "fUNCIONÁRIOSToolStripMenuItem";
+            this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.fUNCIONÁRIOSToolStripMenuItem.Text = "FUNCIONÁRIOS";
+            this.fUNCIONÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem_Click);
+            // 
+            // cONSULTAToolStripMenuItem
+            // 
+            this.cONSULTAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cLIENTESToolStripMenuItem1,
+            this.fUNCIONÁRIOSToolStripMenuItem1});
+            this.cONSULTAToolStripMenuItem.Name = "cONSULTAToolStripMenuItem";
+            this.cONSULTAToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.cONSULTAToolStripMenuItem.Text = "LISTAR";
+            // 
+            // cLIENTESToolStripMenuItem1
+            // 
+            this.cLIENTESToolStripMenuItem1.Name = "cLIENTESToolStripMenuItem1";
+            this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTESToolStripMenuItem1.Text = "CLIENTES";
+            this.cLIENTESToolStripMenuItem1.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem1_Click);
+            // 
+            // fUNCIONÁRIOSToolStripMenuItem1
+            // 
+            this.fUNCIONÁRIOSToolStripMenuItem1.Name = "fUNCIONÁRIOSToolStripMenuItem1";
+            this.fUNCIONÁRIOSToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
+            this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
+            // 
+            // aLTERARToolStripMenuItem
+            // 
+            this.aLTERARToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cLIENTEToolStripMenuItem,
+            this.fUNCIONÁRIOToolStripMenuItem});
+            this.aLTERARToolStripMenuItem.Name = "aLTERARToolStripMenuItem";
+            this.aLTERARToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.aLTERARToolStripMenuItem.Text = "ALTERAR";
+            // 
+            // cLIENTEToolStripMenuItem
+            // 
+            this.cLIENTEToolStripMenuItem.Name = "cLIENTEToolStripMenuItem";
+            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.cLIENTEToolStripMenuItem.Text = "CLIENTES";
+            this.cLIENTEToolStripMenuItem.Click += new System.EventHandler(this.cLIENTEToolStripMenuItem_Click);
+            // 
+            // fUNCIONÁRIOToolStripMenuItem
+            // 
+            this.fUNCIONÁRIOToolStripMenuItem.Name = "fUNCIONÁRIOToolStripMenuItem";
+            this.fUNCIONÁRIOToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.fUNCIONÁRIOToolStripMenuItem.Text = "FUNCIONÁRIOS";
+            this.fUNCIONÁRIOToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOToolStripMenuItem_Click);
+            // 
+            // eXCLUIRToolStripMenuItem
+            // 
+            this.eXCLUIRToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cLIENTESToolStripMenuItem2,
+            this.fUNCIONÁRIOSToolStripMenuItem2});
+            this.eXCLUIRToolStripMenuItem.Name = "eXCLUIRToolStripMenuItem";
+            this.eXCLUIRToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.eXCLUIRToolStripMenuItem.Text = "EXCLUIR";
+            // 
+            // cLIENTESToolStripMenuItem2
+            // 
+            this.cLIENTESToolStripMenuItem2.Name = "cLIENTESToolStripMenuItem2";
+            this.cLIENTESToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
+            this.cLIENTESToolStripMenuItem2.Text = "CLIENTES";
+            this.cLIENTESToolStripMenuItem2.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem2_Click);
+            // 
+            // fUNCIONÁRIOSToolStripMenuItem2
+            // 
+            this.fUNCIONÁRIOSToolStripMenuItem2.Name = "fUNCIONÁRIOSToolStripMenuItem2";
+            this.fUNCIONÁRIOSToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
+            this.fUNCIONÁRIOSToolStripMenuItem2.Text = "FUNCIONÁRIOS";
+            // 
+            // FecharToolStripMenuItem
+            // 
+            this.FecharToolStripMenuItem.Name = "FecharToolStripMenuItem";
+            this.FecharToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.FecharToolStripMenuItem.Text = "FECHAR";
+            this.FecharToolStripMenuItem.Click += new System.EventHandler(this.FecharToolStripMenuItem_Click);
+            // 
+            // ExcluirCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 471);
-            this.Controls.Add(this.excluirCliente);
-            this.Controls.Add(this.btnLimpar);
-            this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.groupBoxCliente);
+            this.ClientSize = new System.Drawing.Size(783, 435);
+            this.Controls.Add(this.buscarCliente);
+            this.Controls.Add(this.idCliente);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "cadastroCliente";
+            this.Controls.Add(this.groupBoxCliente);
+            this.Name = "ExcluirCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CADASTRO DE CLIENTES";
-            this.Load += new System.EventHandler(this.cadastroCliente_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Text = "EXCLUIR CLIENTE";
+            this.Load += new System.EventHandler(this.ExcluirCliente_Load);
             this.groupBoxCliente.ResumeLayout(false);
             this.groupBoxCliente.PerformLayout();
             this.enderecoCliente.ResumeLayout(false);
             this.enderecoCliente.PerformLayout();
             this.sexoCliente.ResumeLayout(false);
             this.sexoCliente.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -660,13 +656,14 @@ namespace Augustus_Fashion
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
-        private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button btnAlterar;
-        private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.GroupBox groupBoxCliente;
         private System.Windows.Forms.GroupBox enderecoCliente;
+        private System.Windows.Forms.TextBox valorLimiteCliente;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox numeroCliente;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.MaskedTextBox celularCliente;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox estadoCliente;
         private System.Windows.Forms.TextBox complementoCliente;
         private System.Windows.Forms.Label label10;
@@ -691,26 +688,24 @@ namespace Augustus_Fashion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox nomeCliente;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.MaskedTextBox celularCliente;
-        private System.Windows.Forms.TextBox numeroCliente;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button buscarCliente;
+        private System.Windows.Forms.TextBox idCliente;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cADASTROToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cONSULTAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
-        private System.Windows.Forms.TextBox valorLimiteCliente;
-        private System.Windows.Forms.Button excluirCliente;
         private System.Windows.Forms.ToolStripMenuItem aLTERARToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eXCLUIRToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem2;
     }
 }
-

@@ -1,30 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Augustus_Fashion.Model;
+using Augustus_Fashion.Controller;
 
 namespace Augustus_Fashion.View
 {
-    public partial class telaInicial : Form
+    public partial class ListarFuncionario : Form
     {
-        public telaInicial()
+        FuncionarioModel funcmodel = new FuncionarioModel();
+        FuncionarioControl funccontrol = new FuncionarioControl();
+        public ListarFuncionario()
         {
             InitializeComponent();
         }
 
-        private void TelaInicial_Load(object sender, EventArgs e)
+        private void ListarFuncionario_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'crudDataSet1.funcionario'. Você pode movê-la ou removê-la conforme necessário.
+            this.funcionarioTableAdapter.Fill(this.crudDataSet2.funcionario);
 
+        }
+
+        private void buscarNome_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ListarFuncionario_Load_1(object sender, EventArgs e)
+        {
+            // TODO: esta linha de código carrega dados na tabela 'crudDataSet2.funcionario'. Você pode movê-la ou removê-la conforme necessário.
+            this.funcionarioTableAdapter.Fill(this.crudDataSet2.funcionario);
+
+        }
+
+        private void buscarNome_Click_1(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funccontrol.BuscarLista(textBox1.Text);
         }
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Refresh();
+            Hide();
+            telaInicial ti = new telaInicial();
+            ti.ShowDialog();
+            this.Close();
         }
 
         private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,11 +62,6 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
-        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Hide();
@@ -56,17 +70,22 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
+        }
+
         private void cLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
             AlterarCliente ac = new AlterarCliente();
             ac.ShowDialog();
             this.Close();
-        }
-
-        private void eXCLUIRToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void cLIENTESToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -82,14 +101,6 @@ namespace Augustus_Fashion.View
             Hide();
             AlterarFuncionario af = new AlterarFuncionario();
             af.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarFuncionario lf = new ListarFuncionario();
-            lf.ShowDialog();
             this.Close();
         }
     }

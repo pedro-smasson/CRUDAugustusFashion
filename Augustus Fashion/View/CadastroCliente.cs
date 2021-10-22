@@ -48,7 +48,7 @@ namespace Augustus_Fashion
         {
             clientemodel.nome = nomeCliente.Text;
             clientemodel.email = emailCliente.Text;
-            clientemodel.nascimento =datanascCliente.Text;
+            clientemodel.nascimento = datanascCliente.Text;
             clientemodel.cpf = cpfCliente.Text;
             clientemodel.rua = ruaCliente.Text;
             clientemodel.bairro = bairroCliente.Text;
@@ -112,10 +112,50 @@ namespace Augustus_Fashion
 
         private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //Hide();
-            //ConsultaCliente cc = new ConsultaCliente();
-            //cc.ShowDialog();
-            //this.Close();
+            Hide();
+            ListarCliente lc = new ListarCliente();
+            lc.ShowDialog();
+            this.Close();
+        }
+
+        private void cLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            AlterarCliente ac = new AlterarCliente();
+            ac.ShowDialog();
+            this.Close();
+        }
+
+        private void excluirCliente_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ExcluirCliente ec = new ExcluirCliente();
+            ec.ShowDialog();
+            this.Close();
+        }
+
+        private void cLIENTESToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ExcluirCliente ec = new ExcluirCliente();
+            ec.ShowDialog();
+            this.Close();
+        }
+
+        private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            AlterarFuncionario af = new AlterarFuncionario();
+            af.ShowDialog();
+            this.Close();
+        }
+
+        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ListarFuncionario lf = new ListarFuncionario();
+            lf.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -56,9 +56,9 @@ namespace Augustus_Fashion.Controller
                     return lista;
                 }
             }
-            catch (Exception excecao)
+            catch (Exception ex)
             {
-                MessageBox.Show(excecao.Message);
+                MessageBox.Show(ex.Message);
             }
 
             return new List<ClienteModel>();
@@ -66,7 +66,17 @@ namespace Augustus_Fashion.Controller
 
         public void ExcluirCliente(ClienteModel clienteModel)
         {
-
+            try 
+            {
+                using (var conexao = new conexao().Connection())
+                ClienteDao.ExcluirCliente(conexao, clienteModel);
+                MessageBox.Show("Cliente deletado com sucesso!");
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         public ClienteModel Buscar(int id)
