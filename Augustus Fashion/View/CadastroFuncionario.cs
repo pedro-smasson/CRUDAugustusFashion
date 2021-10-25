@@ -68,7 +68,7 @@ namespace Augustus_Fashion.View
         {
             funcmodel.nome = nomeFuncionario.Text;
             funcmodel.email = emailFuncionario.Text;
-            funcmodel.nascimento = datanascFuncionario.Text;
+            funcmodel.nascimento = Convert.ToDateTime(datanascFuncionario.Text);
             funcmodel.cpf = cpfFuncionario.Text;
             funcmodel.rua = ruaFuncionario.Text;
             funcmodel.bairro = bairroFuncionario.Text;

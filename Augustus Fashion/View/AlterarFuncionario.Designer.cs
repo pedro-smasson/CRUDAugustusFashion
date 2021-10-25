@@ -696,7 +696,7 @@ namespace Augustus_Fashion.View
             this.idFuncionario.Multiline = true;
             this.idFuncionario.Name = "idFuncionario";
             this.idFuncionario.Size = new System.Drawing.Size(137, 28);
-            this.idFuncionario.TabIndex = 31;
+            this.idFuncionario.TabIndex = 1;
             // 
             // label18
             // 

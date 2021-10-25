@@ -48,7 +48,7 @@ namespace Augustus_Fashion
         {
             clientemodel.nome = nomeCliente.Text;
             clientemodel.email = emailCliente.Text;
-            clientemodel.nascimento = datanascCliente.Text;
+            clientemodel.nascimento = Convert.ToDateTime(datanascCliente.Text);
             clientemodel.cpf = cpfCliente.Text;
             clientemodel.rua = ruaCliente.Text;
             clientemodel.bairro = bairroCliente.Text;

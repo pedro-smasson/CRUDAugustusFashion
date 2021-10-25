@@ -26,7 +26,7 @@ namespace Augustus_Fashion.View
         {
             clientemodel.nome = nomeCliente.Text;
             clientemodel.email = emailCliente.Text;
-            clientemodel.nascimento = datanascCliente.Text;
+            clientemodel.nascimento = Convert.ToDateTime(datanascCliente.Text);
             clientemodel.cpf = cpfCliente.Text;
             clientemodel.rua = ruaCliente.Text;
             clientemodel.bairro = bairroCliente.Text;
@@ -78,7 +78,7 @@ namespace Augustus_Fashion.View
 
                     nomeCliente.Text = clientemodel.nome;
                     emailCliente.Text = clientemodel.email;
-                    datanascCliente.Text = clientemodel.nascimento;
+                    datanascCliente.Text = clientemodel.nascimento.ToString("dd/MM/yyyy");
                     cpfCliente.Text = clientemodel.cpf;
                     ruaCliente.Text = clientemodel.rua;
                     bairroCliente.Text = clientemodel.bairro;

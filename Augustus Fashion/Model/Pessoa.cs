@@ -21,7 +21,7 @@ namespace Augustus_Fashion.Model
         public int id { get; set; }
         public string nome { get; set; }
         public string sexo { get; set; }
-        public string nascimento { get; set; }
+        public DateTime nascimento { get; set; }
 
     }
 }

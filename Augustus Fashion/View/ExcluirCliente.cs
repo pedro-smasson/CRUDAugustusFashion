@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Augustus_Fashion.View
 {
@@ -79,10 +80,9 @@ namespace Augustus_Fashion.View
 
             if (clientemodel != null)
             {
-
                 nomeCliente.Text = clientemodel.nome;
                 emailCliente.Text = clientemodel.email;
-                datanascCliente.Text = clientemodel.nascimento;
+                datanascCliente.Text = clientemodel.nascimento.ToString("dd/MM/yyyy");
                 cpfCliente.Text = clientemodel.cpf;
                 ruaCliente.Text = clientemodel.rua;
                 bairroCliente.Text = clientemodel.bairro;

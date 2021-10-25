@@ -105,7 +105,7 @@ namespace Augustus_Fashion.View
 
                     nomeFuncionario.Text = funcionariomodel.nome;
                     emailFuncionario.Text = funcionariomodel.email;
-                    datanascFuncionario.Text = funcionariomodel.nascimento;
+                    datanascFuncionario.Text = funcionariomodel.nascimento.ToString("dd/MM/yyyy");
                     cpfFuncionario.Text = funcionariomodel.cpf;
                     ruaFuncionario.Text = funcionariomodel.rua;
                     bairroFuncionario.Text = funcionariomodel.bairro;
@@ -144,7 +144,7 @@ namespace Augustus_Fashion.View
 
             funcionariomodel.nome = nomeFuncionario.Text;
             funcionariomodel.email = emailFuncionario.Text;
-            funcionariomodel.nascimento = datanascFuncionario.Text;
+            funcionariomodel.nascimento = Convert.ToDateTime(datanascFuncionario.Text);
             funcionariomodel.cpf = cpfFuncionario.Text;
             funcionariomodel.rua = ruaFuncionario.Text;
             funcionariomodel.bairro = bairroFuncionario.Text;
