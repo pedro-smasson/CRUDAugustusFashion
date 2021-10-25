@@ -24,7 +24,11 @@ namespace Augustus_Fashion.View
 
         private void buscarCliente_Click(object sender, EventArgs e)
         {
-            funcionariomodel = funcionariocontrol.Buscar(Int32.Parse(idFuncionario.Text));
+            if (!String.IsNullOrEmpty(idFuncionario.Text))
+            {
+                funcionariomodel = funcionariocontrol.Buscar(Int32.Parse(idFuncionario.Text));
+                btnExcluir.Enabled = true;
+            }
 
             if (funcionariomodel != null)
             {
@@ -56,7 +60,6 @@ namespace Augustus_Fashion.View
                 else if (funcionariomodel.sexo == "O")
                     sexOtherFuncionario.Checked = true;
 
-                btnExcluir.Enabled = true;
             }
             else
             {

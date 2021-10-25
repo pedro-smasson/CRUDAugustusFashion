@@ -69,40 +69,45 @@ namespace Augustus_Fashion.View
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
 
-            clientemodel = clientecontrol.Buscar(Int32.Parse(idCliente.Text));
-
-            if (clientemodel != null)
+            if (!String.IsNullOrEmpty(idCliente.Text))
             {
-                
-                nomeCliente.Text = clientemodel.nome;
-                emailCliente.Text = clientemodel.email;
-                datanascCliente.Text = clientemodel.nascimento;
-                cpfCliente.Text = clientemodel.cpf;
-                ruaCliente.Text = clientemodel.rua;
-                bairroCliente.Text = clientemodel.bairro;
-                cepCliente.Text = clientemodel.cep;
-                numeroCliente.Text = clientemodel.numero;
-                cidadeCliente.Text = clientemodel.cidade;
-                estadoCliente.Text = clientemodel.estado;
-                complementoCliente.Text = clientemodel.complemento;
-                celularCliente.Text = clientemodel.celular;
-                valorLimiteCliente.Text = clientemodel.limite;
+                clientemodel = clientecontrol.Buscar(Int32.Parse(idCliente.Text));
 
-                if (clientemodel.sexo == "M")
-                    sexoMascCliente.Checked = true;
+                if (clientemodel != null)
+                {
 
-                else if (clientemodel.sexo == "F")
-                    sexoFemCliente.Checked = true;
+                    nomeCliente.Text = clientemodel.nome;
+                    emailCliente.Text = clientemodel.email;
+                    datanascCliente.Text = clientemodel.nascimento;
+                    cpfCliente.Text = clientemodel.cpf;
+                    ruaCliente.Text = clientemodel.rua;
+                    bairroCliente.Text = clientemodel.bairro;
+                    cepCliente.Text = clientemodel.cep;
+                    numeroCliente.Text = clientemodel.numero;
+                    cidadeCliente.Text = clientemodel.cidade;
+                    estadoCliente.Text = clientemodel.estado;
+                    complementoCliente.Text = clientemodel.complemento;
+                    celularCliente.Text = clientemodel.celular;
+                    valorLimiteCliente.Text = clientemodel.limite;
 
-                else if (clientemodel.sexo == "O")
-                    sexOtherCliente.Checked = true;
+                    if (clientemodel.sexo == "M")
+                        sexoMascCliente.Checked = true;
 
-                btnAlterar.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("ID não cadastrado!");
-            }
+                    else if (clientemodel.sexo == "F")
+                        sexoFemCliente.Checked = true;
+
+                    else if (clientemodel.sexo == "O")
+                        sexOtherCliente.Checked = true;
+
+                    btnAlterar.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("ID não cadastrado!");
+                }
+            } 
+
+            
         }
 
             private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)

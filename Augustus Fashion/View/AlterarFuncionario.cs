@@ -95,43 +95,47 @@ namespace Augustus_Fashion.View
 
         private void buscarCliente_Click(object sender, EventArgs e)
         {
-            funcionariomodel = funcionariocontrol.Buscar(Int32.Parse(idFuncionario.Text));
 
-            if (funcionariomodel != null)
+            if (!String.IsNullOrEmpty(idFuncionario.Text))
             {
+                funcionariomodel = funcionariocontrol.Buscar(Int32.Parse(idFuncionario.Text));
 
-                nomeFuncionario.Text = funcionariomodel.nome;
-                emailFuncionario.Text = funcionariomodel.email;
-                datanascFuncionario.Text = funcionariomodel.nascimento;
-                cpfFuncionario.Text = funcionariomodel.cpf;
-                ruaFuncionario.Text = funcionariomodel.rua;
-                bairroFuncionario.Text = funcionariomodel.bairro;
-                cepFuncionario.Text = funcionariomodel.cep;
-                numeroFuncionario.Text = funcionariomodel.numero;
-                cidadeFuncionario.Text = funcionariomodel.cidade;
-                estadoFuncionario.Text = funcionariomodel.estado;
-                complementoFuncionario.Text = funcionariomodel.complemento;
-                celularFuncionario.Text = funcionariomodel.celular;
-                salarioFuncionario.Text = funcionariomodel.salario;
-                agenciaFuncionario.Text = funcionariomodel.agencia;
-                comissaoFuncionario.Text = funcionariomodel.comissao;
-                codContaFuncionario.Text = funcionariomodel.codConta;
-                numContaFuncionario.Text = funcionariomodel.numConta;
+                if (funcionariomodel != null)
+                {
 
-                if (funcionariomodel.sexo == "M")
-                    sexoMascFuncionario.Checked = true;
+                    nomeFuncionario.Text = funcionariomodel.nome;
+                    emailFuncionario.Text = funcionariomodel.email;
+                    datanascFuncionario.Text = funcionariomodel.nascimento;
+                    cpfFuncionario.Text = funcionariomodel.cpf;
+                    ruaFuncionario.Text = funcionariomodel.rua;
+                    bairroFuncionario.Text = funcionariomodel.bairro;
+                    cepFuncionario.Text = funcionariomodel.cep;
+                    numeroFuncionario.Text = funcionariomodel.numero;
+                    cidadeFuncionario.Text = funcionariomodel.cidade;
+                    estadoFuncionario.Text = funcionariomodel.estado;
+                    complementoFuncionario.Text = funcionariomodel.complemento;
+                    celularFuncionario.Text = funcionariomodel.celular;
+                    salarioFuncionario.Text = funcionariomodel.salario;
+                    agenciaFuncionario.Text = funcionariomodel.agencia;
+                    comissaoFuncionario.Text = funcionariomodel.comissao;
+                    codContaFuncionario.Text = funcionariomodel.codConta;
+                    numContaFuncionario.Text = funcionariomodel.numConta;
 
-                else if (funcionariomodel.sexo == "F")
-                    sexoFemFuncionario.Checked = true;
+                    if (funcionariomodel.sexo == "M")
+                        sexoMascFuncionario.Checked = true;
 
-                else if (funcionariomodel.sexo == "O")
-                    sexOtherFuncionario.Checked = true;
+                    else if (funcionariomodel.sexo == "F")
+                        sexoFemFuncionario.Checked = true;
 
-                btnAlterar.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("ID não cadastrado!");
+                    else if (funcionariomodel.sexo == "O")
+                        sexOtherFuncionario.Checked = true;
+
+                    btnAlterar.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("ID não cadastrado!");
+                }
             }
         }
 

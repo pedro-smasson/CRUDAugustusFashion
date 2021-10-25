@@ -71,9 +71,11 @@ namespace Augustus_Fashion.View
 
         private void buscarCliente_Click(object sender, EventArgs e)
         {
-
-            clientemodel = clientecontrol.Buscar(Int32.Parse(idCliente.Text));
-
+            if (!String.IsNullOrEmpty(idCliente.Text))
+            {
+                clientemodel = clientecontrol.Buscar(Int32.Parse(idCliente.Text));
+                btnExcluir.Enabled = true;
+            }
 
             if (clientemodel != null)
             {
@@ -101,7 +103,6 @@ namespace Augustus_Fashion.View
                 else if (clientemodel.sexo == "O")
                     sexOtherCliente.Checked = true;
 
-                btnExcluir.Enabled = true;
             }
             else
             {
