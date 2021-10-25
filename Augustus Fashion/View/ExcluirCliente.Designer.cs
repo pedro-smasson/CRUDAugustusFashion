@@ -29,6 +29,7 @@ namespace Augustus_Fashion.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExcluirCliente));
             this.groupBoxCliente = new System.Windows.Forms.GroupBox();
             this.enderecoCliente = new System.Windows.Forms.GroupBox();
             this.valorLimiteCliente = new System.Windows.Forms.TextBox();
@@ -641,6 +642,7 @@ namespace Augustus_Fashion.View
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBoxCliente);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ExcluirCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -29,6 +29,7 @@ namespace Augustus_Fashion.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlterarFuncionario));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.codContaFuncionario = new System.Windows.Forms.TextBox();
             this.numContaFuncionario = new System.Windows.Forms.TextBox();
@@ -733,6 +734,7 @@ namespace Augustus_Fashion.View
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxFuncionario);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AlterarFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -30,6 +30,7 @@ namespace Augustus_Fashion.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarCliente));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -368,6 +369,7 @@ namespace Augustus_Fashion.View
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buscarNome);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ListarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -30,6 +30,7 @@ namespace Augustus_Fashion.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarFuncionario));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cADASTROToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -400,6 +401,7 @@ namespace Augustus_Fashion.View
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buscarNome);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ListarFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

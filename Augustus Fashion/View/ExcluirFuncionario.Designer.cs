@@ -29,6 +29,7 @@ namespace Augustus_Fashion.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExcluirFuncionario));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cADASTROToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -733,6 +734,7 @@ namespace Augustus_Fashion.View
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxFuncionario);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ExcluirFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
