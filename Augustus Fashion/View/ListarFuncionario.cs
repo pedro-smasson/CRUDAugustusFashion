@@ -103,5 +103,13 @@ namespace Augustus_Fashion.View
             af.ShowDialog();
             this.Close();
         }
+
+        private void fUNCIONÁRIOSToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ExcluirFuncionario ef = new ExcluirFuncionario();
+            ef.ShowDialog();
+            Close();
+        }
     }
 }

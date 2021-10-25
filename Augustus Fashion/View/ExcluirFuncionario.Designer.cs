@@ -1,7 +1,7 @@
 ﻿
 namespace Augustus_Fashion.View
 {
-    partial class CadastroFuncionario
+    partial class ExcluirFuncionario
     {
         /// <summary>
         /// Required designer variable.
@@ -44,9 +44,19 @@ namespace Augustus_Fashion.View
             this.cLIENTESToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.fUNCIONÁRIOSToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.buscarCliente = new System.Windows.Forms.Button();
+            this.idFuncionario = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.codContaFuncionario = new System.Windows.Forms.TextBox();
+            this.numContaFuncionario = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.agenciaFuncionario = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.comissaoFuncionario = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBoxFuncionario = new System.Windows.Forms.GroupBox();
             this.enderecoFuncionario = new System.Windows.Forms.GroupBox();
             this.salarioFuncionario = new System.Windows.Forms.TextBox();
@@ -79,20 +89,11 @@ namespace Augustus_Fashion.View
             this.label2 = new System.Windows.Forms.Label();
             this.nomeFuncionario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.codContaFuncionario = new System.Windows.Forms.TextBox();
-            this.numContaFuncionario = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.agenciaFuncionario = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.comissaoFuncionario = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBoxFuncionario.SuspendLayout();
             this.enderecoFuncionario.SuspendLayout();
             this.sexoFuncionario.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -106,8 +107,8 @@ namespace Augustus_Fashion.View
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(799, 24);
-            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Size = new System.Drawing.Size(785, 24);
+            this.menuStrip1.TabIndex = 24;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // hOMEToolStripMenuItem
@@ -216,38 +217,128 @@ namespace Augustus_Fashion.View
             this.FecharToolStripMenuItem.Text = "FECHAR";
             this.FecharToolStripMenuItem.Click += new System.EventHandler(this.FecharToolStripMenuItem_Click);
             // 
-            // btnLimpar
+            // buscarCliente
             // 
-            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLimpar.Location = new System.Drawing.Point(498, 532);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(150, 50);
-            this.btnLimpar.TabIndex = 20;
-            this.btnLimpar.Text = "LIMPAR";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            this.buscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buscarCliente.Location = new System.Drawing.Point(420, 31);
+            this.buscarCliente.Name = "buscarCliente";
+            this.buscarCliente.Size = new System.Drawing.Size(125, 40);
+            this.buscarCliente.TabIndex = 38;
+            this.buscarCliente.Text = "BUSCAR";
+            this.buscarCliente.UseVisualStyleBackColor = true;
+            this.buscarCliente.Click += new System.EventHandler(this.buscarCliente_Click);
             // 
-            // btnAlterar
+            // idFuncionario
             // 
-            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAlterar.Location = new System.Drawing.Point(138, 532);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(150, 50);
-            this.btnAlterar.TabIndex = 21;
-            this.btnAlterar.Text = "ALTERAR";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            this.idFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idFuncionario.Location = new System.Drawing.Point(229, 36);
+            this.idFuncionario.Multiline = true;
+            this.idFuncionario.Name = "idFuncionario";
+            this.idFuncionario.Size = new System.Drawing.Size(137, 28);
+            this.idFuncionario.TabIndex = 37;
             // 
-            // btnSalvar
+            // label18
             // 
-            this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(318, 532);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(150, 50);
-            this.btnSalvar.TabIndex = 19;
-            this.btnSalvar.Text = "SALVAR";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label18.Location = new System.Drawing.Point(11, 38);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(206, 24);
+            this.label18.TabIndex = 36;
+            this.label18.Text = "Informe o ID do Cliente:";
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnExcluir.Location = new System.Drawing.Point(568, 31);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(125, 40);
+            this.btnExcluir.TabIndex = 35;
+            this.btnExcluir.Text = "EXCLUIR";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.codContaFuncionario);
+            this.groupBox1.Controls.Add(this.numContaFuncionario);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.agenciaFuncionario);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.comissaoFuncionario);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.groupBox1.Location = new System.Drawing.Point(4, 432);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(770, 132);
+            this.groupBox1.TabIndex = 34;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dados Bancários e Comissão";
+            // 
+            // codContaFuncionario
+            // 
+            this.codContaFuncionario.Location = new System.Drawing.Point(478, 84);
+            this.codContaFuncionario.Name = "codContaFuncionario";
+            this.codContaFuncionario.Size = new System.Drawing.Size(274, 29);
+            this.codContaFuncionario.TabIndex = 18;
+            // 
+            // numContaFuncionario
+            // 
+            this.numContaFuncionario.Location = new System.Drawing.Point(486, 39);
+            this.numContaFuncionario.Name = "numContaFuncionario";
+            this.numContaFuncionario.Size = new System.Drawing.Size(266, 29);
+            this.numContaFuncionario.TabIndex = 17;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(316, 87);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(156, 24);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Código da Conta:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(316, 42);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(164, 24);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Número da Conta:";
+            // 
+            // agenciaFuncionario
+            // 
+            this.agenciaFuncionario.Location = new System.Drawing.Point(97, 84);
+            this.agenciaFuncionario.Name = "agenciaFuncionario";
+            this.agenciaFuncionario.Size = new System.Drawing.Size(180, 29);
+            this.agenciaFuncionario.TabIndex = 16;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 87);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(85, 24);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Agência:";
+            // 
+            // comissaoFuncionario
+            // 
+            this.comissaoFuncionario.Location = new System.Drawing.Point(115, 39);
+            this.comissaoFuncionario.Name = "comissaoFuncionario";
+            this.comissaoFuncionario.Size = new System.Drawing.Size(162, 29);
+            this.comissaoFuncionario.TabIndex = 15;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 42);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(103, 24);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Comissão: ";
             // 
             // groupBoxFuncionario
             // 
@@ -262,10 +353,10 @@ namespace Augustus_Fashion.View
             this.groupBoxFuncionario.Controls.Add(this.nomeFuncionario);
             this.groupBoxFuncionario.Controls.Add(this.label1);
             this.groupBoxFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBoxFuncionario.Location = new System.Drawing.Point(12, 29);
+            this.groupBoxFuncionario.Location = new System.Drawing.Point(4, 70);
             this.groupBoxFuncionario.Name = "groupBoxFuncionario";
             this.groupBoxFuncionario.Size = new System.Drawing.Size(776, 356);
-            this.groupBoxFuncionario.TabIndex = 18;
+            this.groupBoxFuncionario.TabIndex = 33;
             this.groupBoxFuncionario.TabStop = false;
             // 
             // enderecoFuncionario
@@ -627,117 +718,35 @@ namespace Augustus_Fashion.View
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome do Funcionário: ";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.codContaFuncionario);
-            this.groupBox1.Controls.Add(this.numContaFuncionario);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.agenciaFuncionario);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.comissaoFuncionario);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBox1.Location = new System.Drawing.Point(12, 391);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(770, 132);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dados Bancários e Comissão";
-            // 
-            // codContaFuncionario
-            // 
-            this.codContaFuncionario.Location = new System.Drawing.Point(478, 84);
-            this.codContaFuncionario.Name = "codContaFuncionario";
-            this.codContaFuncionario.Size = new System.Drawing.Size(274, 29);
-            this.codContaFuncionario.TabIndex = 18;
-            // 
-            // numContaFuncionario
-            // 
-            this.numContaFuncionario.Location = new System.Drawing.Point(486, 39);
-            this.numContaFuncionario.Name = "numContaFuncionario";
-            this.numContaFuncionario.Size = new System.Drawing.Size(266, 29);
-            this.numContaFuncionario.TabIndex = 17;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(316, 87);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(156, 24);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Código da Conta:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(316, 42);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(164, 24);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Número da Conta:";
-            // 
-            // agenciaFuncionario
-            // 
-            this.agenciaFuncionario.Location = new System.Drawing.Point(97, 84);
-            this.agenciaFuncionario.Name = "agenciaFuncionario";
-            this.agenciaFuncionario.Size = new System.Drawing.Size(180, 29);
-            this.agenciaFuncionario.TabIndex = 16;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 87);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(85, 24);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Agência:";
-            // 
-            // comissaoFuncionario
-            // 
-            this.comissaoFuncionario.Location = new System.Drawing.Point(115, 39);
-            this.comissaoFuncionario.Name = "comissaoFuncionario";
-            this.comissaoFuncionario.Size = new System.Drawing.Size(162, 29);
-            this.comissaoFuncionario.TabIndex = 15;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 42);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(103, 24);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Comissão: ";
-            // 
-            // CadastroFuncionario
+            // ExcluirFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(799, 591);
+            this.ClientSize = new System.Drawing.Size(785, 570);
+            this.Controls.Add(this.buscarCliente);
+            this.Controls.Add(this.idFuncionario);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnLimpar);
-            this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBoxFuncionario);
             this.Controls.Add(this.menuStrip1);
             this.MaximizeBox = false;
-            this.Name = "CadastroFuncionario";
+            this.Name = "ExcluirFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CADASTRO DE FUNCIONÁRIOS";
-            this.Load += new System.EventHandler(this.CadastroFuncionario_Load);
+            this.Text = "EXCLUIR FUNCIONÁRIO";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBoxFuncionario.ResumeLayout(false);
             this.groupBoxFuncionario.PerformLayout();
             this.enderecoFuncionario.ResumeLayout(false);
             this.enderecoFuncionario.PerformLayout();
             this.sexoFuncionario.ResumeLayout(false);
             this.sexoFuncionario.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -752,9 +761,27 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cONSULTAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem1;
-        private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button btnAlterar;
-        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aLTERARToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eXCLUIRToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
+        private System.Windows.Forms.Button buscarCliente;
+        private System.Windows.Forms.TextBox idFuncionario;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox codContaFuncionario;
+        private System.Windows.Forms.TextBox numContaFuncionario;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox agenciaFuncionario;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox comissaoFuncionario;
+        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBoxFuncionario;
         private System.Windows.Forms.GroupBox enderecoFuncionario;
         private System.Windows.Forms.TextBox salarioFuncionario;
@@ -787,22 +814,5 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox nomeFuncionario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
-        private System.Windows.Forms.TextBox codContaFuncionario;
-        private System.Windows.Forms.TextBox numContaFuncionario;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox agenciaFuncionario;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox comissaoFuncionario;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aLTERARToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eXCLUIRToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem2;
     }
 }

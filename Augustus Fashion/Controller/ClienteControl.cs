@@ -15,12 +15,9 @@ namespace Augustus_Fashion.Controller
         {
             try
             {
-                using (var conexao = new conexao().Connection())
-                {
-                    conexao.Open();
-                    ClienteDao.CadastrarCliente(conexao, clienteModel);
+                    ClienteDao.CadastrarCliente(clienteModel);
                     MessageBox.Show("Cliente Cadastrado com Sucesso!");
-                }
+
             }
             catch (Exception ex)
             {
@@ -32,12 +29,8 @@ namespace Augustus_Fashion.Controller
         {
             try
             {
-                using (var conexao = new conexao().Connection())
-                {
-                    conexao.Open();
-                    ClienteDao.AlterarCliente(conexao, clienteModel);
+                    ClienteDao.AlterarCliente(clienteModel);
                     MessageBox.Show("Cliente Alterado com Sucesso!");
-                }
             }
             catch (Exception ex)
             {
@@ -49,12 +42,8 @@ namespace Augustus_Fashion.Controller
         {
             try
             {
-                using (var conexao = new conexao().Connection())
-                {
-                    conexao.Open();
-                    var lista = ClienteDao.ListarCliente(conexao);
+                    var lista = ClienteDao.ListarCliente();
                     return lista;
-                }
             }
             catch (Exception ex)
             {
@@ -68,8 +57,7 @@ namespace Augustus_Fashion.Controller
         {
             try 
             {
-                using (var conexao = new conexao().Connection())
-                ClienteDao.ExcluirCliente(conexao, clienteModel);
+                ClienteDao.ExcluirCliente(clienteModel);
                 MessageBox.Show("Cliente deletado com sucesso!");
             }
             catch (Exception ex) 
@@ -81,10 +69,8 @@ namespace Augustus_Fashion.Controller
 
         public ClienteModel Buscar(int id)
         {
-            using (var conexao = new conexao().Connection())
             {
-                conexao.Open();
-                return ClienteDao.Buscar(conexao, id);
+                return ClienteDao.Buscar(id);
             }
         }
 
@@ -92,12 +78,8 @@ namespace Augustus_Fashion.Controller
         {
             try
             {
-                using (var conexao = new conexao().Connection())
-                {
-                    conexao.Open();
-                    var lista = ClienteDao.BuscarLista(conexao, nome);
+                    var lista = ClienteDao.BuscarLista(nome);
                     return lista;
-                }
             }
             catch (Exception excecao)
             {

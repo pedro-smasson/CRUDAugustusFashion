@@ -668,6 +668,7 @@ namespace Augustus_Fashion.View
             this.fUNCIONÁRIOSToolStripMenuItem2.Name = "fUNCIONÁRIOSToolStripMenuItem2";
             this.fUNCIONÁRIOSToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOSToolStripMenuItem2.Text = "FUNCIONÁRIOS";
+            this.fUNCIONÁRIOSToolStripMenuItem2.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem2_Click);
             // 
             // FecharToolStripMenuItem
             // 
@@ -721,6 +722,9 @@ namespace Augustus_Fashion.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(785, 570);
             this.Controls.Add(this.buscarCliente);
             this.Controls.Add(this.idFuncionario);
@@ -729,9 +733,10 @@ namespace Augustus_Fashion.View
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxFuncionario);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
             this.Name = "AlterarFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AlterarFuncionario";
+            this.Text = "ALTERAR FUNCIONÁRIOS";
             this.Load += new System.EventHandler(this.AlterarFuncionario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

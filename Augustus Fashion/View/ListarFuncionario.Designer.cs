@@ -111,14 +111,14 @@ namespace Augustus_Fashion.View
             // cLIENTESToolStripMenuItem
             // 
             this.cLIENTESToolStripMenuItem.Name = "cLIENTESToolStripMenuItem";
-            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.cLIENTESToolStripMenuItem.Text = "CLIENTES";
             this.cLIENTESToolStripMenuItem.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem_Click);
             // 
             // fUNCIONÁRIOSToolStripMenuItem
             // 
             this.fUNCIONÁRIOSToolStripMenuItem.Name = "fUNCIONÁRIOSToolStripMenuItem";
-            this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOSToolStripMenuItem.Text = "FUNCIONÁRIOS";
             this.fUNCIONÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem_Click);
             // 
@@ -134,14 +134,14 @@ namespace Augustus_Fashion.View
             // cLIENTESToolStripMenuItem1
             // 
             this.cLIENTESToolStripMenuItem1.Name = "cLIENTESToolStripMenuItem1";
-            this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.cLIENTESToolStripMenuItem1.Text = "CLIENTES";
             this.cLIENTESToolStripMenuItem1.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem1_Click);
             // 
             // fUNCIONÁRIOSToolStripMenuItem1
             // 
             this.fUNCIONÁRIOSToolStripMenuItem1.Name = "fUNCIONÁRIOSToolStripMenuItem1";
-            this.fUNCIONÁRIOSToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.fUNCIONÁRIOSToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
             this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
             // 
@@ -157,14 +157,14 @@ namespace Augustus_Fashion.View
             // cLIENTEToolStripMenuItem
             // 
             this.cLIENTEToolStripMenuItem.Name = "cLIENTEToolStripMenuItem";
-            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.cLIENTEToolStripMenuItem.Text = "CLIENTES";
             this.cLIENTEToolStripMenuItem.Click += new System.EventHandler(this.cLIENTEToolStripMenuItem_Click);
             // 
             // fUNCIONÁRIOToolStripMenuItem
             // 
             this.fUNCIONÁRIOToolStripMenuItem.Name = "fUNCIONÁRIOToolStripMenuItem";
-            this.fUNCIONÁRIOToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fUNCIONÁRIOToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOToolStripMenuItem.Text = "FUNCIONÁRIOS";
             this.fUNCIONÁRIOToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOToolStripMenuItem_Click);
             // 
@@ -180,7 +180,7 @@ namespace Augustus_Fashion.View
             // cLIENTESToolStripMenuItem2
             // 
             this.cLIENTESToolStripMenuItem2.Name = "cLIENTESToolStripMenuItem2";
-            this.cLIENTESToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTESToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
             this.cLIENTESToolStripMenuItem2.Text = "CLIENTES";
             this.cLIENTESToolStripMenuItem2.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem2_Click);
             // 
@@ -189,6 +189,7 @@ namespace Augustus_Fashion.View
             this.fUNCIONÁRIOSToolStripMenuItem2.Name = "fUNCIONÁRIOSToolStripMenuItem2";
             this.fUNCIONÁRIOSToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOSToolStripMenuItem2.Text = "FUNCIONÁRIOS";
+            this.fUNCIONÁRIOSToolStripMenuItem2.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem2_Click);
             // 
             // FecharToolStripMenuItem
             // 
@@ -390,15 +391,19 @@ namespace Augustus_Fashion.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(745, 361);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buscarNome);
+            this.MaximizeBox = false;
             this.Name = "ListarFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ListarFuncionario";
+            this.Text = "LISTAR FUNCIONÁRIO";
             this.Load += new System.EventHandler(this.ListarFuncionario_Load_1);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

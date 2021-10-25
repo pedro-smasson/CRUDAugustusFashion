@@ -165,6 +165,36 @@ namespace Augustus_Fashion.View
 
             funcionariocontrol.AlterarFuncionario(funcionariomodel);
 
+            nomeFuncionario.Text = "";
+            emailFuncionario.Text = "";
+            datanascFuncionario.Text = "";
+            cpfFuncionario.Text = "";
+            ruaFuncionario.Text = "";
+            bairroFuncionario.Text = "";
+            cepFuncionario.Text = "";
+            numeroFuncionario.Text = "";
+            celularFuncionario.Text = "";
+            cidadeFuncionario.Text = "";
+            estadoFuncionario.Text = "";
+            complementoFuncionario.Text = "";
+            salarioFuncionario.Text = "";
+            comissaoFuncionario.Text = "";
+            agenciaFuncionario.Text = "";
+            numContaFuncionario.Text = "";
+            codContaFuncionario.Text = "";
+            sexoMascFuncionario.Checked = false;
+            sexoFemFuncionario.Checked = false;
+            sexOtherFuncionario.Checked = false;
+            idFuncionario.Text = "";
+
+        }
+
+        private void fUNCIONÁRIOSToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ExcluirFuncionario ef = new ExcluirFuncionario();
+            ef.ShowDialog();
+            Close();
         }
     }
 }

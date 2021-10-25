@@ -69,6 +69,23 @@ namespace Augustus_Fashion
 
 
             clientecontrol.CadastrarCliente(clientemodel);
+
+            nomeCliente.Text = "";
+            emailCliente.Text = "";
+            datanascCliente.Text = "";
+            cpfCliente.Text = "";
+            ruaCliente.Text = "";
+            bairroCliente.Text = "";
+            cepCliente.Text = "";
+            numeroCliente.Text = "";
+            celularCliente.Text = "";
+            cidadeCliente.Text = "";
+            estadoCliente.Text = "";
+            complementoCliente.Text = "";
+            valorLimiteCliente.Text = "";
+            sexoMascCliente.Checked = false;
+            sexoFemCliente.Checked = false;
+            sexOtherCliente.Checked = false;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -156,6 +173,14 @@ namespace Augustus_Fashion
             ListarFuncionario lf = new ListarFuncionario();
             lf.ShowDialog();
             this.Close();
+        }
+
+        private void fUNCIONÁRIOSToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ExcluirFuncionario ef = new ExcluirFuncionario();
+            ef.ShowDialog();
+            Close();
         }
     }
 }

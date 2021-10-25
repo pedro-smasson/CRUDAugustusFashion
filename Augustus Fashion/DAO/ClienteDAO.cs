@@ -14,16 +14,18 @@ namespace Augustus_Fashion.DAO
 {
     public class ClienteDao
     {
-        public static void CadastrarCliente(IDbConnection conexao, ClienteModel cliente)
+        public static void CadastrarCliente(ClienteModel cliente)
         {
+            var conexao = new conexao().Connection();
             var query = @"insert into cliente values(@nome, @sexo, @nascimento, @limite,
             @cep, @rua, @numero, @bairro, @cidade, @estado, @complemento, @celular,
             @email, @cpf)";
             conexao.Query<ClienteModel>(query, cliente);
         }
 
-        public static void AlterarCliente(IDbConnection conexao, ClienteModel cliente) 
+        public static void AlterarCliente(ClienteModel cliente) 
         {
+            var conexao = new conexao().Connection();
             var query = @"update cliente set nome = @nome, sexo = @sexo, nascimento = @nascimento,
             limite = @limite, cep = @cep, rua = @rua, numero = @numero, bairro = @bairro,
             cidade = @cidade, estado = @estado, complemento = @complemento, celular = @celular,
@@ -31,21 +33,24 @@ namespace Augustus_Fashion.DAO
             conexao.Query<ClienteModel>(query, cliente);
         }
 
-        public static void ExcluirCliente(IDbConnection conexao, ClienteModel cliente) 
+        public static void ExcluirCliente(ClienteModel cliente) 
         {
+            var conexao = new conexao().Connection();
             var query = @"delete from cliente where id=@id";
             conexao.Query<ClienteModel>(query, cliente);
         }
 
-        public static List<ClienteModel> ListarCliente(IDbConnection conexao) 
+        public static List<ClienteModel> ListarCliente() 
         {
+            var conexao = new conexao().Connection();
             var query = @"select * from cliente";
             var resultado = conexao.Query<ClienteModel>(query);
             return resultado.ToList(); 
         }
 
-        public static ClienteModel Buscar(IDbConnection conexao, int id)
+        public static ClienteModel Buscar(int id)
         {
+            var conexao = new conexao().Connection();
             var query = @"select * from cliente where id=@id";
             var parametros = new DynamicParameters();
             parametros.Add("@id", id, System.Data.DbType.Int32);
@@ -54,8 +59,9 @@ namespace Augustus_Fashion.DAO
             return resultado;
         }
 
-        public static List<ClienteModel> BuscarLista(IDbConnection conexao, string nome)
+        public static List<ClienteModel> BuscarLista(string nome)
         {
+            var conexao = new conexao().Connection();
             var query = @"select * from cliente where nome=@nome";
             var parametros = new DynamicParameters();
             parametros.Add("@nome", nome, System.Data.DbType.String);
