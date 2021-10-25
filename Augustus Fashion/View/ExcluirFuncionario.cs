@@ -164,5 +164,10 @@ namespace Augustus_Fashion.View
         {
             Application.Exit();
         }
+
+        private void ExcluirFuncionario_Load(object sender, EventArgs e)
+        {
+            btnExcluir.Enabled = false;
+        }
     }
 }

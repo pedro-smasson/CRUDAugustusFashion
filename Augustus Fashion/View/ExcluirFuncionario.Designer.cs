@@ -737,6 +737,7 @@ namespace Augustus_Fashion.View
             this.Name = "ExcluirFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EXCLUIR FUNCIONÁRIO";
+            this.Load += new System.EventHandler(this.ExcluirFuncionario_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
