@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Augustus_Fashion.View
 {
@@ -208,12 +209,12 @@ namespace Augustus_Fashion.View
                 MessageBox.Show("Email inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(datanascFuncionario.Text))
+            else if (!new Regex(@"[0-3][0-9][\/][0-1][0-9][\/][0-9]{4}").Match(datanascFuncionario.Text).Success)
             {
                 MessageBox.Show("Data de Nascimento inválida");
                 return false;
             }
-            else if (string.IsNullOrEmpty(cpfFuncionario.Text))
+            else if (!new Regex("[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}").Match(cpfFuncionario.Text).Success)
             {
                 MessageBox.Show("CPF inválido");
                 return false;
