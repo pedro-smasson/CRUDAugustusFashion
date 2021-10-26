@@ -19,7 +19,7 @@ namespace Augustus_Fashion.Controller
                     MessageBox.Show("Cliente Cadastrado com Sucesso!");
 
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

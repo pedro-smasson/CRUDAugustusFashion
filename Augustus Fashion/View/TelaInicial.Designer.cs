@@ -367,6 +367,7 @@ namespace Augustus_Fashion.View
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cambria", 28F);
+            this.label9.ForeColor = System.Drawing.Color.Blue;
             this.label9.Location = new System.Drawing.Point(177, 32);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(314, 44);
