@@ -95,67 +95,79 @@ namespace Augustus_Fashion
         private bool Validar()
         {
 
-            if (string.IsNullOrEmpty(nomeCliente.Text))
+            if (!new Regex(@"^[a-zA-z]+").Match(nomeCliente.Text).Success)
             {
                 MessageBox.Show("Nome inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(emailCliente.Text))
+
+            else if (!new Regex(@"^[a-zA-Z0-9._-]+[@][a-z]+[.]([a-zA-Z]{2,3})+").Match(emailCliente.Text).Success)
             {
                 MessageBox.Show("Email inválido");
                 return false;
             }
+
             else if (!new Regex(@"[0-3][0-9][\/][0-1][0-9][\/][0-9]{4}").Match(datanascCliente.Text).Success)
             {
                 MessageBox.Show("Data de Nascimento inválida");
                 return false;
             }
+
             else if (!new Regex("[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}").Match(cpfCliente.Text).Success)
             {
                 MessageBox.Show("CPF inválido");
                 return false;
             }
+
             else if (!ValidarSexo())
             {
                 MessageBox.Show("Sexo inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(ruaCliente.Text))
+
+            else if (!new Regex(@"^[0-9a-zA-Z]+").Match(ruaCliente.Text).Success)
             {
                 MessageBox.Show("Rua inválida");
                 return false;
             }
-            else if (string.IsNullOrEmpty(bairroCliente.Text))
+
+            else if (!new Regex(@"^[a-zA-Z]+").Match(bairroCliente.Text).Success)
             {
                 MessageBox.Show("Bairro inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(cepCliente.Text))
+
+            else if (!new Regex(@"^[0-9]{2}[0-9]{3}[0-9]{3}").Match(cepCliente.Text).Success)
             {
                 MessageBox.Show("CEP inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(numeroCliente.Text))
+
+            else if (!new Regex(@"^[0-9]+").Match(numeroCliente.Text).Success)
             {
                 MessageBox.Show("Número inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(celularCliente.Text))
+
+            else if (!new Regex(@"^[0-9]+").Match(celularCliente.Text).Success)
             {
                 MessageBox.Show("Celular inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(cidadeCliente.Text))
+
+            else if (!new Regex(@"^[a-zA-Z]+").Match(cidadeCliente.Text).Success)
             {
                 MessageBox.Show("Cidade inválida");
                 return false;
             }
+
             else if (string.IsNullOrEmpty(estadoCliente.Text))
             {
                 MessageBox.Show("Estado inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(valorLimiteCliente.Text))
+
+            else if (!new Regex(@"^[0-9]+").Match(valorLimiteCliente.Text).Success)
             {
                 MessageBox.Show("Valor limite inválido");
                 return false;

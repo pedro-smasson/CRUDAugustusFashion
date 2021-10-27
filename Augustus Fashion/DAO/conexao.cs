@@ -1,9 +1,5 @@
-﻿using Augustus_Fashion.Controller;
-using Augustus_Fashion.Model;
-using System;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace Augustus_Fashion.DAO
 {

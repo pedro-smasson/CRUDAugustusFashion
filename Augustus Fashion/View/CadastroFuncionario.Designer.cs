@@ -563,6 +563,7 @@ namespace Augustus_Fashion.View
             this.emailFuncionario.Name = "emailFuncionario";
             this.emailFuncionario.Size = new System.Drawing.Size(295, 29);
             this.emailFuncionario.TabIndex = 2;
+            this.emailFuncionario.ValidatingType = typeof(System.DateTime);
             // 
             // label4
             // 

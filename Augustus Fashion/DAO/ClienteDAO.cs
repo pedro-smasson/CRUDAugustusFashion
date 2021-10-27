@@ -1,14 +1,7 @@
 ﻿using Augustus_Fashion.Model;
-using Augustus_Fashion.Controller;
-using Augustus_Fashion.View;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using Dapper;
-using System.Data;
 
 namespace Augustus_Fashion.DAO
 {

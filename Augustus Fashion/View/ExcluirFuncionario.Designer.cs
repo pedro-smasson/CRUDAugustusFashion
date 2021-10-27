@@ -221,7 +221,7 @@ namespace Augustus_Fashion.View
             // buscarCliente
             // 
             this.buscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buscarCliente.Location = new System.Drawing.Point(420, 31);
+            this.buscarCliente.Location = new System.Drawing.Point(434, 31);
             this.buscarCliente.Name = "buscarCliente";
             this.buscarCliente.Size = new System.Drawing.Size(125, 40);
             this.buscarCliente.TabIndex = 38;
@@ -232,7 +232,7 @@ namespace Augustus_Fashion.View
             // idFuncionario
             // 
             this.idFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idFuncionario.Location = new System.Drawing.Point(229, 36);
+            this.idFuncionario.Location = new System.Drawing.Point(266, 36);
             this.idFuncionario.Multiline = true;
             this.idFuncionario.Name = "idFuncionario";
             this.idFuncionario.Size = new System.Drawing.Size(137, 28);
@@ -244,14 +244,14 @@ namespace Augustus_Fashion.View
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label18.Location = new System.Drawing.Point(11, 38);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(206, 24);
+            this.label18.Size = new System.Drawing.Size(249, 24);
             this.label18.TabIndex = 36;
-            this.label18.Text = "Informe o ID do Cliente:";
+            this.label18.Text = "Informe o ID do Funcionário:";
             // 
             // btnExcluir
             // 
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnExcluir.Location = new System.Drawing.Point(568, 31);
+            this.btnExcluir.Location = new System.Drawing.Point(582, 31);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(125, 40);
             this.btnExcluir.TabIndex = 35;
