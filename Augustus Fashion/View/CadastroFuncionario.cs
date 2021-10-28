@@ -3,7 +3,6 @@ using Augustus_Fashion.Controller;
 using System;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using Augustus_Fashion.Validações;
 
 namespace Augustus_Fashion.View
 {
