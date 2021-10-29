@@ -333,7 +333,7 @@ namespace Augustus_Fashion.View
             // celularFuncionario
             // 
             this.celularFuncionario.Location = new System.Drawing.Point(281, 162);
-            this.celularFuncionario.Mask = "(00) 00000-0000";
+            this.celularFuncionario.Mask = "00000000000";
             this.celularFuncionario.Name = "celularFuncionario";
             this.celularFuncionario.Size = new System.Drawing.Size(156, 29);
             this.celularFuncionario.TabIndex = 13;

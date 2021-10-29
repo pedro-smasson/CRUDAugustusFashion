@@ -144,7 +144,7 @@ namespace Augustus_Fashion
                 return false;
             }
 
-            else if (!Testes.ValidarNumeric(celularCliente.Text))
+            else if (!Testes.validarCelular(celularCliente.Text))
             {
                 MessageBox.Show("Celular inválido");
                 return false;

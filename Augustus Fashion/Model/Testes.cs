@@ -28,6 +28,12 @@ namespace Augustus_Fashion.Model
             new Regex(@"^[0-9a-zA-Z\s]+$").Match(valor).Success;
 
         public static bool validarCep(this string valor) =>
-            new Regex(@"^[0-9]{2}[0-9]{3}[0-9]{3}$").Match(valor).Success;
+            new Regex(@"^[0-9]{2}[.][0-9]{3}[-][0-9]{3}$").Match(valor).Success;
+
+        public static bool validarComissao(this string valor) =>
+            new Regex(@"^[0-9]+[%]$").Match(valor).Success;
+
+        public static bool validarCelular(this string valor) =>
+            new Regex(@"^[0-9]{11}$").Match(valor).Success;
     }
 }

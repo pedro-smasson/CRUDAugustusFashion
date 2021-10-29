@@ -93,11 +93,98 @@ namespace TestProject1
             Assert.IsTrue(variavel);
         }
 
-        //[DataTestMethod]
-        //[DataRow("24/10/2077", true)]
-        //[DataRow("573987598"), false]
-        //[DataRow]
-        //[DataRow]
-        //[DataRow]
+        [DataTestMethod]
+        [DataRow("24/10/2020", true)]
+        [DataRow("24102077", false)]
+        [DataRow("24/110/2077", false)]
+        [DataRow("243/10/2077", false)]
+        [DataRow("24/10/20577", false)]
+        [DataRow("242/102/2077", false)]
+        [DataRow("242/02/20577", false)]
+        [DataRow("22/0h2/20577", false)]
+        public void validar_se_data_de_nasc_eh_valida_ou_nao(string a, bool resultado) 
+        {
+            Assert.AreEqual(Testes.validarDataNasc(a), resultado);
+        }
+
+        [TestMethod]
+        public void validar_se_campo_string_e_numerico_eh_valido()
+        {
+            string campo = "teste 7";
+
+            var variavel = Testes.validarStringENumeric(campo);
+
+            Assert.IsTrue(variavel);
+        }
+
+        [DataTestMethod]
+        [DataRow("oughds", true)]
+        [DataRow("8498", true)]
+        [DataRow("5847gdfgfdgfd", true)]
+        [DataRow("@#$%!*&", false)]
+        public void validar_se_campo_string_e_numeric_eh_valido_ou_nao(string a, bool resultado) 
+        {
+            Assert.AreEqual(Testes.validarStringENumeric(a), resultado);
+        }
+
+        [TestMethod]
+        public void validar_se_cep_eh_valido() 
+        {
+            string cep = "15706402";
+
+            var variavel = Testes.validarCep(cep);
+
+            Assert.IsTrue(variavel);
+        }
+
+        [DataTestMethod]
+        [DataRow("15706402", true)]
+        [DataRow("157064021", false)]
+        [DataRow("1570640", false)]
+        [DataRow("gasdgds", false)]
+
+        public void validar_se_cep_eh_valido_ou_nao(string a, bool resultado) 
+        {
+            Assert.AreEqual(Testes.validarCep(a), resultado);
+        }
+
+        [TestMethod]
+        public void validar_se_comissao_eh_valida() 
+        {
+            string comissao = "10%";
+
+            var variavel = Testes.validarComissao(comissao);
+
+            Assert.IsTrue(variavel);
+        }
+
+        [DataTestMethod]
+        [DataRow("1%", true)]
+        [DataRow("10%", true)]
+        [DataRow("100%", true)]
+        [DataRow("gdfgdf", false)]
+        public void validar_se_comissao_eh_valida_ou_nao(string a, bool resultado) 
+        {
+            Assert.AreEqual(Testes.validarComissao(a), resultado);
+        }
+
+        [TestMethod]
+        public void validar_se_celular_eh_valido() 
+        {
+            string celular = "17996331695";
+
+            var variavel = Testes.validarCelular(celular);
+
+            Assert.IsTrue(variavel);
+        }
+
+        [DataTestMethod]
+        [DataRow("17996331695", true)]
+        [DataRow("7774", false)]
+        [DataRow("uifdhuigd", false)]
+        public void validar_se_celular_eh_valido_ou_nao(string a, bool resultado) 
+        {
+            Assert.AreEqual(Testes.validarCelular(a), resultado);
+        }
     }
 }

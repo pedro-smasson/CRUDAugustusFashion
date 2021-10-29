@@ -112,11 +112,6 @@ namespace Augustus_Fashion.View
                 sexoFemFuncionario.Checked = false;
                 sexOtherFuncionario.Checked = false;
             }
-
-            else 
-            {
-                MessageBox.Show("Corrija os Campos Incorretos!");
-            }
             
         }
 
@@ -206,25 +201,25 @@ namespace Augustus_Fashion.View
         private bool Validar()
         {
 
-            if (!new Regex(@"^[a-zA-z]+").Match(nomeFuncionario.Text).Success)
+            if (!Testes.ValidarString(nomeFuncionario.Text))
             {
                 MessageBox.Show("Nome inválido");
                 return false;
             }
 
-            else if (!new Regex(@"^[a-zA-Z0-9._-]+[@][a-z]+[.]([a-zA-Z]{2,3})+").Match(emailFuncionario.Text).Success)
+            else if (!Testes.validarEmail(emailFuncionario.Text))
             {
                 MessageBox.Show("Email inválido");
                 return false;
             }
 
-            else if (!new Regex(@"[0-3][0-9][\/][0-1][0-9][\/][0-9]{4}").Match(datanascFuncionario.Text).Success)
+            else if (!Testes.validarDataNasc(datanascFuncionario.Text))
             {
                 MessageBox.Show("Data de Nascimento inválida");
                 return false;
             }
 
-            else if (!new Regex(@"[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}").Match(cpfFuncionario.Text).Success)
+            else if (!Testes.validarCpf(cpfFuncionario.Text))
             {
                 MessageBox.Show("CPF inválido");
                 return false;
@@ -236,37 +231,37 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!new Regex(@"^[0-9a-zA-Z]+").Match(ruaFuncionario.Text).Success)
+            else if (!Testes.validarStringENumeric(ruaFuncionario.Text))
             {
                 MessageBox.Show("Rua inválida");
                 return false;
             }
 
-            else if (!new Regex(@"^[a-zA-Z]+").Match(bairroFuncionario.Text).Success)
+            else if (!Testes.ValidarString(bairroFuncionario.Text))
             {
                 MessageBox.Show("Bairro inválido");
                 return false;
             }
 
-            else if (!new Regex(@"^[0-9]{2}[.][0-9]{3}[-][0-9]{3}").Match(cepFuncionario.Text).Success)
+            else if (!Testes.validarCep(cepFuncionario.Text))
             {
                 MessageBox.Show("CEP inválido");
                 return false;
             }
 
-            else if (!new Regex(@"^[0-9]+").Match(numeroFuncionario.Text).Success)
+            else if (!Testes.ValidarNumeric(numeroFuncionario.Text))
             {
                 MessageBox.Show("Número inválido");
                 return false;
             }
 
-            else if (!new Regex(@"^[0-9]+").Match(celularFuncionario.Text).Success)
+            else if (!Testes.validarCelular(celularFuncionario.Text))
             {
                 MessageBox.Show("Celular inválido");
                 return false;
             }
 
-            else if (!new Regex(@"^[a-zA-Z]+").Match(cidadeFuncionario.Text).Success)
+            else if (!Testes.ValidarString(cidadeFuncionario.Text))
             {
                 MessageBox.Show("Cidade inválida");
                 return false;
@@ -278,31 +273,31 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!new Regex(@"^[0-9]+").Match(salarioFuncionario.Text).Success)
+            else if (!Testes.ValidarNumeric(salarioFuncionario.Text))
             {
                 MessageBox.Show("Salário inválido");
                 return false;
             }
 
-            else if (!new Regex(@"^[0-9]+[%]").Match(comissaoFuncionario.Text).Success)
+            else if (!Testes.validarComissao(comissaoFuncionario.Text))
             {
                 MessageBox.Show("Comissão inválida");
                 return false;
             }
 
-            else if (!new Regex(@"^[0-9]+").Match(agenciaFuncionario.Text).Success)
+            else if (!Testes.ValidarNumeric(agenciaFuncionario.Text))
             {
                 MessageBox.Show("Agência inválida");
                 return false;
             }
 
-            else if (!new Regex(@"^[0-9]+").Match(numContaFuncionario.Text).Success)
+            else if (!Testes.ValidarNumeric(numContaFuncionario.Text))
             {
                 MessageBox.Show("Número da Conta inválido");
                 return false;
             }
 
-            else if (!new Regex(@"^[0-9]+").Match(codContaFuncionario.Text).Success)
+            else if (!Testes.ValidarNumeric(codContaFuncionario.Text))
             {
                 MessageBox.Show("Código da Conta inválido");
                 return false;

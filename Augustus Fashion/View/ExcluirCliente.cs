@@ -104,7 +104,7 @@ namespace Augustus_Fashion.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-                clientecontrol.ExcluirCliente(clientemodel);
+            clientecontrol.ExcluirCliente(clientemodel);
 
             nomeCliente.Text = "";
             emailCliente.Text = "";

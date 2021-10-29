@@ -48,7 +48,7 @@ namespace Augustus_Fashion.DAO
             var parametros = new DynamicParameters();
             parametros.Add("@id", id, System.Data.DbType.Int32);
 
-            var resultado = conexao.QueryFirstOrDefault<ClienteModel>(query, parametros);
+            var resultado = conexao.QueryFirstOrDefault<ClienteModel>(query, parametros/*new { id }*/);
             return resultado;
         }
 
