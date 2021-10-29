@@ -10,7 +10,7 @@ namespace Augustus_Fashion.Model
     public static class Testes
     {
         public static bool ValidarString(this string valor) => 
-            new Regex(@"^[a-zA-Z]+$").Match(valor).Success;
+            new Regex(@"^[a-zA-Z\s]+$").Match(valor).Success;
 
         public static bool ValidarNumeric(this string valor) => 
             new Regex(@"^[0-9]+$").Match(valor).Success;

@@ -18,13 +18,21 @@ namespace Augustus_Fashion.View
         private void ListarCliente_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'crudDataSet.cliente'. Você pode movê-la ou removê-la conforme necessário.
-            this.clienteTableAdapter.Fill(this.crudDataSet.cliente);
+            //this.clienteTableAdapter.Fill(this.crudDataSet.cliente);
+            dataGridView1.DataSource = clientecontrol.ListarClientes();
+
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = clientecontrol.BuscarLista(textBox1.Text);
+
+            if(textBox1.Text == "%")
+            {
+                dataGridView1.DataSource = clientecontrol.ListarClientes();
+                textBox1.Text = "";
+            }
         }
 
         private void FecharToolStripMenuItem_Click(object sender, EventArgs e)

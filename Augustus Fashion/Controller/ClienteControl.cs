@@ -11,6 +11,8 @@ namespace Augustus_Fashion.Controller
 {
     class ClienteControl
     {
+
+
         public void CadastrarCliente(ClienteModel clienteModel)
         {
             try
@@ -38,19 +40,10 @@ namespace Augustus_Fashion.Controller
             }
         }
 
-        public List<ClienteModel> ListarClientes(ClienteModel clienteModel)
+        public List<ClienteListagem> ListarClientes()
         {
-            try
-            {
-                    var lista = ClienteDao.ListarCliente();
-                    return lista;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
-            return new List<ClienteModel>();
+            return ClienteDao.ListarCliente();
         }
 
         public void ExcluirCliente(ClienteModel clienteModel)
@@ -74,7 +67,7 @@ namespace Augustus_Fashion.Controller
             }
         }
 
-        public List<ClienteModel> BuscarLista(string nome)
+        public List<ClienteListagem> BuscarLista(string nome)
         {
             try
             {
@@ -87,6 +80,7 @@ namespace Augustus_Fashion.Controller
             }
             return null;
         }
+
     }
 }
 

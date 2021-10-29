@@ -33,11 +33,11 @@ namespace Augustus_Fashion.DAO
             conexao.Query<ClienteModel>(query, cliente);
         }
 
-        public static List<ClienteModel> ListarCliente() 
+        public static List<ClienteListagem> ListarCliente() 
         {
             var conexao = new conexao().Connection();
-            var query = @"select * from cliente";
-            var resultado = conexao.Query<ClienteModel>(query);
+            var query = @"select id, nome, cidade, celular, nascimento from cliente";
+            var resultado = conexao.Query<ClienteListagem>(query);
             return resultado.ToList(); 
         }
 
@@ -52,14 +52,14 @@ namespace Augustus_Fashion.DAO
             return resultado;
         }
 
-        public static List<ClienteModel> BuscarLista(string nome)
+        public static List<ClienteListagem> BuscarLista(string nome)
         {
             var conexao = new conexao().Connection();
-            var query = @"select * from cliente where nome=@nome";
+            var query = @"select id, nome, cidade, celular, nascimento from cliente where nome=@nome";
             var parametros = new DynamicParameters();
             parametros.Add("@nome", nome, System.Data.DbType.String);
 
-            var resultado = conexao.Query<ClienteModel>(query, parametros).ToList();
+            var resultado = conexao.Query<ClienteListagem>(query, parametros).ToList();
             return resultado;
         }
     }

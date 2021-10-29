@@ -29,7 +29,7 @@ namespace Augustus_Fashion.View
         private void ListarFuncionario_Load_1(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'crudDataSet2.funcionario'. Você pode movê-la ou removê-la conforme necessário.
-            this.funcionarioTableAdapter.Fill(this.crudDataSet2.funcionario);
+            //this.funcionarioTableAdapter.Fill(this.crudDataSet2.funcionario);
 
         }
 
