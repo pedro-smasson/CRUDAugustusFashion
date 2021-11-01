@@ -70,23 +70,10 @@ namespace Augustus_Fashion.View
 
                 clientecontrol.AlterarCliente(clientemodel);
 
-                nomeCliente.Text = "";
-                emailCliente.Text = "";
-                datanascCliente.Text = "";
-                cpfCliente.Text = "";
-                ruaCliente.Text = "";
-                bairroCliente.Text = "";
-                cepCliente.Text = "";
-                numeroCliente.Text = "";
-                celularCliente.Text = "";
-                cidadeCliente.Text = "";
-                estadoCliente.Text = "";
-                complementoCliente.Text = "";
-                valorLimiteCliente.Text = "";
-                sexoMascCliente.Checked = false;
-                sexoFemCliente.Checked = false;
-                sexOtherCliente.Checked = false;
-                idCliente.Text = "";
+                Hide();
+                ListarCliente lc = new ListarCliente();
+                lc.ShowDialog();
+                this.Close();
             }
 
             else 
@@ -102,23 +89,10 @@ namespace Augustus_Fashion.View
             {
                 clientecontrol.ExcluirCliente(clientemodel);
 
-                nomeCliente.Text = "";
-                emailCliente.Text = "";
-                datanascCliente.Text = "";
-                cpfCliente.Text = "";
-                ruaCliente.Text = "";
-                bairroCliente.Text = "";
-                cepCliente.Text = "";
-                numeroCliente.Text = "";
-                celularCliente.Text = "";
-                cidadeCliente.Text = "";
-                estadoCliente.Text = "";
-                complementoCliente.Text = "";
-                valorLimiteCliente.Text = "";
-                sexoMascCliente.Checked = false;
-                sexoFemCliente.Checked = false;
-                sexOtherCliente.Checked = false;
-                idCliente.Text = "";
+                Hide();
+                ListarCliente lc = new ListarCliente();
+                lc.ShowDialog();
+                this.Close();
             }
 
             else 

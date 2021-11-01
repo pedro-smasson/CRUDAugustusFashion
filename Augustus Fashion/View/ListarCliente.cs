@@ -108,7 +108,6 @@ namespace Augustus_Fashion.View
             var cliente = clientecontrol.Buscar(id);           
             ac.dadosDe(cliente);
             ac.Show();
-            
         }
 
     }
