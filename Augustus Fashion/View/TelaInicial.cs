@@ -64,14 +64,6 @@ namespace Augustus_Fashion.View
             
         }
 
-        private void cLIENTESToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirCliente ec = new ExcluirCliente();
-            ec.ShowDialog();
-            this.Close();
-        }
-
         private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
@@ -86,14 +78,6 @@ namespace Augustus_Fashion.View
             ListarFuncionario lf = new ListarFuncionario();
             lf.ShowDialog();
             this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirFuncionario ef = new ExcluirFuncionario();
-            ef.ShowDialog();
-            Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -142,22 +126,6 @@ namespace Augustus_Fashion.View
             AlterarFuncionario af = new AlterarFuncionario();
             af.ShowDialog();
             this.Close();
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirCliente ec = new ExcluirCliente();
-            ec.ShowDialog();
-            this.Close();
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirFuncionario ef = new ExcluirFuncionario();
-            ef.ShowDialog();
-            Close();
         }
     }
 }

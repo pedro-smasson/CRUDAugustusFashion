@@ -15,6 +15,34 @@ namespace Augustus_Fashion.View
             InitializeComponent();
         }
 
+        public void dadosDe(ClienteModel cliente)
+        {
+            idCliente.Text = cliente.id.ToString();
+            nomeCliente.Text = cliente.nome;
+            emailCliente.Text = cliente.email;
+            datanascCliente.Text = cliente.nascimento.ToString();
+            cpfCliente.Text = cliente.cpf;
+            ruaCliente.Text = cliente.rua;
+            bairroCliente.Text = cliente.bairro;
+            cepCliente.Text = cliente.cep;
+            numeroCliente.Text = cliente.numero;
+            celularCliente.Text = cliente.celular;
+            cidadeCliente.Text = cliente.cidade;
+            estadoCliente.Text = cliente.estado;
+            complementoCliente.Text = cliente.complemento;
+            valorLimiteCliente.Text = cliente.limite;
+
+            if (cliente.sexo == "M")
+                sexoMascCliente.Checked = true;
+            else if (cliente.sexo == "F")
+                sexoFemCliente.Checked = true;
+            else if (cliente.sexo == "O")
+                sexOtherCliente.Checked = true;
+
+            clientemodel = cliente;
+
+        }
+
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             if (Validar()) 
@@ -68,48 +96,36 @@ namespace Augustus_Fashion.View
             
         }
 
-        private void BuscarCliente_Click(object sender, EventArgs e)
+        public void ExcluirCliente_Click(object sender, EventArgs e)
         {
-
-            if (!String.IsNullOrEmpty(idCliente.Text))
+            if (Validar())
             {
-                clientemodel = clientecontrol.Buscar(Int32.Parse(idCliente.Text));
+                clientecontrol.ExcluirCliente(clientemodel);
 
-                if (clientemodel != null)
-                {
+                nomeCliente.Text = "";
+                emailCliente.Text = "";
+                datanascCliente.Text = "";
+                cpfCliente.Text = "";
+                ruaCliente.Text = "";
+                bairroCliente.Text = "";
+                cepCliente.Text = "";
+                numeroCliente.Text = "";
+                celularCliente.Text = "";
+                cidadeCliente.Text = "";
+                estadoCliente.Text = "";
+                complementoCliente.Text = "";
+                valorLimiteCliente.Text = "";
+                sexoMascCliente.Checked = false;
+                sexoFemCliente.Checked = false;
+                sexOtherCliente.Checked = false;
+                idCliente.Text = "";
+            }
 
-                    nomeCliente.Text = clientemodel.nome;
-                    emailCliente.Text = clientemodel.email;
-                    datanascCliente.Text = clientemodel.nascimento.ToString("dd/MM/yyyy");
-                    cpfCliente.Text = clientemodel.cpf;
-                    ruaCliente.Text = clientemodel.rua;
-                    bairroCliente.Text = clientemodel.bairro;
-                    cepCliente.Text = clientemodel.cep;
-                    numeroCliente.Text = clientemodel.numero;
-                    cidadeCliente.Text = clientemodel.cidade;
-                    estadoCliente.Text = clientemodel.estado;
-                    complementoCliente.Text = clientemodel.complemento;
-                    celularCliente.Text = clientemodel.celular;
-                    valorLimiteCliente.Text = clientemodel.limite;
+            else 
+            {
+                MessageBox.Show("Falha na Exclusão");
+            }
 
-                    if (clientemodel.sexo == "M")
-                        sexoMascCliente.Checked = true;
-
-                    else if (clientemodel.sexo == "F")
-                        sexoFemCliente.Checked = true;
-
-                    else if (clientemodel.sexo == "O")
-                        sexOtherCliente.Checked = true;
-
-                    btnAlterar.Enabled = true;
-                }
-                else
-                {
-                    MessageBox.Show("ID não cadastrado!");
-                }
-            } 
-
-            
         }
 
             private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,20 +167,12 @@ namespace Augustus_Fashion.View
 
         private void AlterarCliente_Load(object sender, EventArgs e)
         {
-            btnAlterar.Enabled = false;
+            btnAlterar.Enabled = true;
         }
 
         private void cLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Refresh();
-        }
-
-        private void cLIENTESToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirCliente ec = new ExcluirCliente();
-            ec.ShowDialog();
-            this.Close();
         }
 
         private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,14 +189,6 @@ namespace Augustus_Fashion.View
             ListarFuncionario lf = new ListarFuncionario();
             lf.ShowDialog();
             this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirFuncionario ef = new ExcluirFuncionario();
-            ef.ShowDialog();
-            Close();
         }
 
         private bool Validar()

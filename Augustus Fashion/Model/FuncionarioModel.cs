@@ -2,7 +2,7 @@
 
 namespace Augustus_Fashion.Model
 {
-    class FuncionarioModel : Pessoa
+    public class FuncionarioModel : Pessoa
     {
 
         public string salario { get; set; }

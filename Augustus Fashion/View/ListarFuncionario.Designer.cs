@@ -39,27 +39,21 @@ namespace Augustus_Fashion.View
             this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aLTERARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eXCLUIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTESToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOSToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buscarNome = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.crudDataSet2 = new Augustus_Fashion.crudDataSet2();
-            this.funcionarioTableAdapter = new Augustus_Fashion.crudDataSet2TableAdapters.funcionarioTableAdapter();
+            this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.crudDataSet2 = new Augustus_Fashion.crudDataSet2();
+            this.funcionarioTableAdapter = new Augustus_Fashion.crudDataSet2TableAdapters.funcionarioTableAdapter();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudDataSet2)).BeginInit();
             this.SuspendLayout();
@@ -71,8 +65,6 @@ namespace Augustus_Fashion.View
             this.hOMEToolStripMenuItem,
             this.cADASTROToolStripMenuItem,
             this.cONSULTAToolStripMenuItem,
-            this.aLTERARToolStripMenuItem,
-            this.eXCLUIRToolStripMenuItem,
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -133,52 +125,6 @@ namespace Augustus_Fashion.View
             this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
             this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
             // 
-            // aLTERARToolStripMenuItem
-            // 
-            this.aLTERARToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTEToolStripMenuItem,
-            this.fUNCIONÁRIOToolStripMenuItem});
-            this.aLTERARToolStripMenuItem.Name = "aLTERARToolStripMenuItem";
-            this.aLTERARToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.aLTERARToolStripMenuItem.Text = "ALTERAR";
-            // 
-            // cLIENTEToolStripMenuItem
-            // 
-            this.cLIENTEToolStripMenuItem.Name = "cLIENTEToolStripMenuItem";
-            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTEToolStripMenuItem.Text = "CLIENTES";
-            this.cLIENTEToolStripMenuItem.Click += new System.EventHandler(this.cLIENTEToolStripMenuItem_Click);
-            // 
-            // fUNCIONÁRIOToolStripMenuItem
-            // 
-            this.fUNCIONÁRIOToolStripMenuItem.Name = "fUNCIONÁRIOToolStripMenuItem";
-            this.fUNCIONÁRIOToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOToolStripMenuItem.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOToolStripMenuItem_Click);
-            // 
-            // eXCLUIRToolStripMenuItem
-            // 
-            this.eXCLUIRToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTESToolStripMenuItem2,
-            this.fUNCIONÁRIOSToolStripMenuItem2});
-            this.eXCLUIRToolStripMenuItem.Name = "eXCLUIRToolStripMenuItem";
-            this.eXCLUIRToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.eXCLUIRToolStripMenuItem.Text = "EXCLUIR";
-            // 
-            // cLIENTESToolStripMenuItem2
-            // 
-            this.cLIENTESToolStripMenuItem2.Name = "cLIENTESToolStripMenuItem2";
-            this.cLIENTESToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTESToolStripMenuItem2.Text = "CLIENTES";
-            this.cLIENTESToolStripMenuItem2.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem2_Click);
-            // 
-            // fUNCIONÁRIOSToolStripMenuItem2
-            // 
-            this.fUNCIONÁRIOSToolStripMenuItem2.Name = "fUNCIONÁRIOSToolStripMenuItem2";
-            this.fUNCIONÁRIOSToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOSToolStripMenuItem2.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOSToolStripMenuItem2.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem2_Click);
-            // 
             // FecharToolStripMenuItem
             // 
             this.FecharToolStripMenuItem.Name = "FecharToolStripMenuItem";
@@ -215,22 +161,60 @@ namespace Augustus_Fashion.View
             this.buscarNome.UseVisualStyleBackColor = true;
             this.buscarNome.Click += new System.EventHandler(this.buscarNome_Click_1);
             // 
-            // dataGridView1
+            // dgvFuncionario
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.LavenderBlush;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFuncionario.AutoGenerateColumns = false;
+            this.dgvFuncionario.BackgroundColor = System.Drawing.Color.LavenderBlush;
+            this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFuncionario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.nomeDataGridViewTextBoxColumn,
             this.cidade,
             this.celular,
             this.nascimento});
-            this.dataGridView1.DataSource = this.funcionarioBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 78);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(603, 218);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvFuncionario.DataSource = this.funcionarioBindingSource;
+            this.dgvFuncionario.Location = new System.Drawing.Point(0, 78);
+            this.dgvFuncionario.Name = "dgvFuncionario";
+            this.dgvFuncionario.ReadOnly = true;
+            this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFuncionario.Size = new System.Drawing.Size(603, 218);
+            this.dgvFuncionario.TabIndex = 9;
+            this.dgvFuncionario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cidade
+            // 
+            this.cidade.DataPropertyName = "cidade";
+            this.cidade.HeaderText = "cidade";
+            this.cidade.Name = "cidade";
+            this.cidade.ReadOnly = true;
+            // 
+            // celular
+            // 
+            this.celular.DataPropertyName = "celular";
+            this.celular.HeaderText = "celular";
+            this.celular.Name = "celular";
+            this.celular.ReadOnly = true;
+            // 
+            // nascimento
+            // 
+            this.nascimento.DataPropertyName = "nascimento";
+            this.nascimento.HeaderText = "nascimento";
+            this.nascimento.Name = "nascimento";
+            this.nascimento.ReadOnly = true;
             // 
             // funcionarioBindingSource
             // 
@@ -246,37 +230,6 @@ namespace Augustus_Fashion.View
             // 
             this.funcionarioTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            // 
-            // cidade
-            // 
-            this.cidade.DataPropertyName = "cidade";
-            this.cidade.HeaderText = "cidade";
-            this.cidade.Name = "cidade";
-            // 
-            // celular
-            // 
-            this.celular.DataPropertyName = "celular";
-            this.celular.HeaderText = "celular";
-            this.celular.Name = "celular";
-            // 
-            // nascimento
-            // 
-            this.nascimento.DataPropertyName = "nascimento";
-            this.nascimento.HeaderText = "nascimento";
-            this.nascimento.Name = "nascimento";
-            // 
             // ListarFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,7 +238,7 @@ namespace Augustus_Fashion.View
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(610, 299);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvFuncionario);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -298,7 +251,7 @@ namespace Augustus_Fashion.View
             this.Load += new System.EventHandler(this.ListarFuncionario_Load_1);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudDataSet2)).EndInit();
             this.ResumeLayout(false);
@@ -316,17 +269,11 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.ToolStripMenuItem cONSULTAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aLTERARToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eXCLUIRToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buscarNome;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFuncionario;
         private crudDataSet2 crudDataSet2;
         private System.Windows.Forms.BindingSource funcionarioBindingSource;
         private crudDataSet2TableAdapters.funcionarioTableAdapter funcionarioTableAdapter;

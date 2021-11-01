@@ -15,9 +15,41 @@ namespace Augustus_Fashion.View
             InitializeComponent();
         }
 
+        public void dadosDe(FuncionarioModel func)
+        {
+            idFuncionario.Text = func.id.ToString();
+            nomeFuncionario.Text = func.nome;
+            emailFuncionario.Text = func.email;
+            datanascFuncionario.Text = func.nascimento.ToString();
+            cpfFuncionario.Text = func.cpf;
+            ruaFuncionario.Text = func.rua;
+            bairroFuncionario.Text = func.bairro;
+            cepFuncionario.Text = func.cep;
+            numeroFuncionario.Text = func.numero;
+            celularFuncionario.Text = func.celular;
+            cidadeFuncionario.Text = func.cidade;
+            estadoFuncionario.Text = func.estado;
+            complementoFuncionario.Text = func.complemento;
+            salarioFuncionario.Text = func.salario;
+            comissaoFuncionario.Text = func.comissao;
+            agenciaFuncionario.Text = func.agencia;
+            numContaFuncionario.Text = func.numConta;
+            codContaFuncionario.Text = func.codConta;
+
+            if (func.sexo == "M")
+                sexoMascFuncionario.Checked = true;
+            else if (func.sexo == "F")
+                sexoFemFuncionario.Checked = true;
+            else if (func.sexo == "O")
+                sexOtherFuncionario.Checked = true;
+
+            funcionariomodel = func;
+
+        }
+
         private void AlterarFuncionario_Load(object sender, EventArgs e)
         {
-            btnAlterar.Enabled = false;
+            btnAlterar.Enabled = true;
         }
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,62 +105,43 @@ namespace Augustus_Fashion.View
             this.Refresh();
         }
 
-        private void cLIENTESToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirCliente ec = new ExcluirCliente();
-            ec.ShowDialog();
-            this.Close();
-        }
-
         private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void buscarCliente_Click(object sender, EventArgs e)
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
-
-            if (!String.IsNullOrEmpty(idFuncionario.Text))
+            if (Validar())
             {
-                funcionariomodel = funcionariocontrol.Buscar(Int32.Parse(idFuncionario.Text));
+                funcionariocontrol.ExcluirFuncionario(funcionariomodel);
 
-                if (funcionariomodel != null)
-                {
+                nomeFuncionario.Text = "";
+                emailFuncionario.Text = "";
+                datanascFuncionario.Text = "";
+                cpfFuncionario.Text = "";
+                ruaFuncionario.Text = "";
+                bairroFuncionario.Text = "";
+                cepFuncionario.Text = "";
+                numeroFuncionario.Text = "";
+                celularFuncionario.Text = "";
+                cidadeFuncionario.Text = "";
+                estadoFuncionario.Text = "";
+                complementoFuncionario.Text = "";
+                salarioFuncionario.Text = "";
+                comissaoFuncionario.Text = "";
+                agenciaFuncionario.Text = "";
+                numContaFuncionario.Text = "";
+                codContaFuncionario.Text = "";
+                sexoMascFuncionario.Checked = false;
+                sexoFemFuncionario.Checked = false;
+                sexOtherFuncionario.Checked = false;
+                idFuncionario.Text = "";
+            }
 
-                    nomeFuncionario.Text = funcionariomodel.nome;
-                    emailFuncionario.Text = funcionariomodel.email;
-                    datanascFuncionario.Text = funcionariomodel.nascimento.ToString("dd/MM/yyyy");
-                    cpfFuncionario.Text = funcionariomodel.cpf;
-                    ruaFuncionario.Text = funcionariomodel.rua;
-                    bairroFuncionario.Text = funcionariomodel.bairro;
-                    cepFuncionario.Text = funcionariomodel.cep;
-                    numeroFuncionario.Text = funcionariomodel.numero;
-                    cidadeFuncionario.Text = funcionariomodel.cidade;
-                    estadoFuncionario.Text = funcionariomodel.estado;
-                    complementoFuncionario.Text = funcionariomodel.complemento;
-                    celularFuncionario.Text = funcionariomodel.celular;
-                    salarioFuncionario.Text = funcionariomodel.salario;
-                    agenciaFuncionario.Text = funcionariomodel.agencia;
-                    comissaoFuncionario.Text = funcionariomodel.comissao;
-                    codContaFuncionario.Text = funcionariomodel.codConta;
-                    numContaFuncionario.Text = funcionariomodel.numConta;
-
-                    if (funcionariomodel.sexo == "M")
-                        sexoMascFuncionario.Checked = true;
-
-                    else if (funcionariomodel.sexo == "F")
-                        sexoFemFuncionario.Checked = true;
-
-                    else if (funcionariomodel.sexo == "O")
-                        sexOtherFuncionario.Checked = true;
-
-                    btnAlterar.Enabled = true;
-                }
-                else
-                {
-                    MessageBox.Show("ID não cadastrado!");
-                }
+            else
+            {
+                MessageBox.Show("Falha na Exclusão");
             }
         }
 
@@ -193,15 +206,6 @@ namespace Augustus_Fashion.View
             }
 
         }
-
-        private void fUNCIONÁRIOSToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirFuncionario ef = new ExcluirFuncionario();
-            ef.ShowDialog();
-            Close();
-        }
-
         private bool Validar()
         {
 

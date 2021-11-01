@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Augustus_Fashion.Model;
 using Augustus_Fashion.Controller;
+using Augustus_Fashion.View;
 
 namespace Augustus_Fashion.View
 {
@@ -77,14 +78,6 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
-        private void cLIENTESToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirCliente ec = new ExcluirCliente();
-            ec.ShowDialog();
-            this.Close();
-        }
-
         private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
@@ -101,31 +94,22 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
-        private void fUNCIONÁRIOSToolStripMenuItem2_Click(object sender, EventArgs e)
+        public int SelecionarClienteModel()
         {
-            Hide();
-            ExcluirFuncionario ef = new ExcluirFuncionario();
-            ef.ShowDialog();
-            Close();
+            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            return id;
         }
 
-        //public int SelecionarClienteModel() 
-        //{
-        //    int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-        //    return id;
-        //}
-
-        //public void AbrirFormAlterar()
-        //{
-        //    new ClienteControl().AbrirFormulario(clientemodel);
+        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            AlterarCliente ac = new AlterarCliente();
+            ac.Show();
+            var id = SelecionarClienteModel();
+            var cliente = clientecontrol.Buscar(id);           
+            ac.dadosDe(cliente);
+            ac.Show();
             
-        //}
+        }
 
-        //private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    var id = SelecionarClienteModel();
-        //    clientecontrol.Buscar(id);
-        //    AbrirFormAlterar();
-        //}
     }
 }

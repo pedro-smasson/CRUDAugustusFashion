@@ -79,14 +79,8 @@ namespace Augustus_Fashion.View
             this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aLTERARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eXCLUIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTESToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOSToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarCliente = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.idFuncionario = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnAlterar = new System.Windows.Forms.Button();
@@ -563,8 +557,6 @@ namespace Augustus_Fashion.View
             this.hOMEToolStripMenuItem,
             this.cADASTROToolStripMenuItem,
             this.cONSULTAToolStripMenuItem,
-            this.aLTERARToolStripMenuItem,
-            this.eXCLUIRToolStripMenuItem,
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -625,52 +617,6 @@ namespace Augustus_Fashion.View
             this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
             this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
             // 
-            // aLTERARToolStripMenuItem
-            // 
-            this.aLTERARToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTEToolStripMenuItem,
-            this.fUNCIONÁRIOToolStripMenuItem});
-            this.aLTERARToolStripMenuItem.Name = "aLTERARToolStripMenuItem";
-            this.aLTERARToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.aLTERARToolStripMenuItem.Text = "ALTERAR";
-            // 
-            // cLIENTEToolStripMenuItem
-            // 
-            this.cLIENTEToolStripMenuItem.Name = "cLIENTEToolStripMenuItem";
-            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTEToolStripMenuItem.Text = "CLIENTES";
-            this.cLIENTEToolStripMenuItem.Click += new System.EventHandler(this.cLIENTEToolStripMenuItem_Click);
-            // 
-            // fUNCIONÁRIOToolStripMenuItem
-            // 
-            this.fUNCIONÁRIOToolStripMenuItem.Name = "fUNCIONÁRIOToolStripMenuItem";
-            this.fUNCIONÁRIOToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOToolStripMenuItem.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOToolStripMenuItem_Click);
-            // 
-            // eXCLUIRToolStripMenuItem
-            // 
-            this.eXCLUIRToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTESToolStripMenuItem2,
-            this.fUNCIONÁRIOSToolStripMenuItem2});
-            this.eXCLUIRToolStripMenuItem.Name = "eXCLUIRToolStripMenuItem";
-            this.eXCLUIRToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.eXCLUIRToolStripMenuItem.Text = "EXCLUIR";
-            // 
-            // cLIENTESToolStripMenuItem2
-            // 
-            this.cLIENTESToolStripMenuItem2.Name = "cLIENTESToolStripMenuItem2";
-            this.cLIENTESToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTESToolStripMenuItem2.Text = "CLIENTES";
-            this.cLIENTESToolStripMenuItem2.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem2_Click);
-            // 
-            // fUNCIONÁRIOSToolStripMenuItem2
-            // 
-            this.fUNCIONÁRIOSToolStripMenuItem2.Name = "fUNCIONÁRIOSToolStripMenuItem2";
-            this.fUNCIONÁRIOSToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOSToolStripMenuItem2.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOSToolStripMenuItem2.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem2_Click);
-            // 
             // FecharToolStripMenuItem
             // 
             this.FecharToolStripMenuItem.Name = "FecharToolStripMenuItem";
@@ -678,16 +624,16 @@ namespace Augustus_Fashion.View
             this.FecharToolStripMenuItem.Text = "FECHAR";
             this.FecharToolStripMenuItem.Click += new System.EventHandler(this.FecharToolStripMenuItem_Click);
             // 
-            // buscarCliente
+            // btnExcluir
             // 
-            this.buscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buscarCliente.Location = new System.Drawing.Point(420, 31);
-            this.buscarCliente.Name = "buscarCliente";
-            this.buscarCliente.Size = new System.Drawing.Size(125, 40);
-            this.buscarCliente.TabIndex = 32;
-            this.buscarCliente.Text = "BUSCAR";
-            this.buscarCliente.UseVisualStyleBackColor = true;
-            this.buscarCliente.Click += new System.EventHandler(this.buscarCliente_Click);
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnExcluir.Location = new System.Drawing.Point(420, 31);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(125, 40);
+            this.btnExcluir.TabIndex = 32;
+            this.btnExcluir.Text = "EXCLUIR";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // idFuncionario
             // 
@@ -701,12 +647,12 @@ namespace Augustus_Fashion.View
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label18.Location = new System.Drawing.Point(11, 38);
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label18.Location = new System.Drawing.Point(11, 39);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(206, 24);
+            this.label18.Size = new System.Drawing.Size(219, 22);
             this.label18.TabIndex = 30;
-            this.label18.Text = "Informe o ID do Cliente:";
+            this.label18.Text = "ID do Cliente selecionado:";
             // 
             // btnAlterar
             // 
@@ -727,7 +673,7 @@ namespace Augustus_Fashion.View
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(785, 570);
-            this.Controls.Add(this.buscarCliente);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.idFuncionario);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.btnAlterar);
@@ -806,14 +752,8 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.ToolStripMenuItem cONSULTAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aLTERARToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eXCLUIRToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
-        private System.Windows.Forms.Button buscarCliente;
+        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.TextBox idFuncionario;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnAlterar;

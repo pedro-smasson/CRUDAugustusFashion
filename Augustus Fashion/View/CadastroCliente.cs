@@ -243,22 +243,6 @@ namespace Augustus_Fashion
             this.Close();
         }
 
-        private void excluirCliente_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirCliente ec = new ExcluirCliente();
-            ec.ShowDialog();
-            this.Close();
-        }
-
-        private void cLIENTESToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirCliente ec = new ExcluirCliente();
-            ec.ShowDialog();
-            this.Close();
-        }
-
         private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
@@ -275,12 +259,5 @@ namespace Augustus_Fashion
             this.Close();
         }
 
-        private void fUNCIONÁRIOSToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirFuncionario ef = new ExcluirFuncionario();
-            ef.ShowDialog();
-            Close();
-        }
     }
 }

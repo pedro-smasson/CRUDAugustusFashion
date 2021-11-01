@@ -38,12 +38,6 @@ namespace Augustus_Fashion.View
             this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aLTERARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eXCLUIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTESToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOSToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
@@ -102,8 +96,6 @@ namespace Augustus_Fashion.View
             this.hOMEToolStripMenuItem,
             this.cADASTROToolStripMenuItem,
             this.cONSULTAToolStripMenuItem,
-            this.aLTERARToolStripMenuItem,
-            this.eXCLUIRToolStripMenuItem,
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -163,52 +155,6 @@ namespace Augustus_Fashion.View
             this.fUNCIONÁRIOSToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
             this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
-            // 
-            // aLTERARToolStripMenuItem
-            // 
-            this.aLTERARToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTEToolStripMenuItem,
-            this.fUNCIONÁRIOToolStripMenuItem});
-            this.aLTERARToolStripMenuItem.Name = "aLTERARToolStripMenuItem";
-            this.aLTERARToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.aLTERARToolStripMenuItem.Text = "ALTERAR";
-            // 
-            // cLIENTEToolStripMenuItem
-            // 
-            this.cLIENTEToolStripMenuItem.Name = "cLIENTEToolStripMenuItem";
-            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTEToolStripMenuItem.Text = "CLIENTES";
-            this.cLIENTEToolStripMenuItem.Click += new System.EventHandler(this.cLIENTEToolStripMenuItem_Click);
-            // 
-            // fUNCIONÁRIOToolStripMenuItem
-            // 
-            this.fUNCIONÁRIOToolStripMenuItem.Name = "fUNCIONÁRIOToolStripMenuItem";
-            this.fUNCIONÁRIOToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOToolStripMenuItem.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOToolStripMenuItem_Click);
-            // 
-            // eXCLUIRToolStripMenuItem
-            // 
-            this.eXCLUIRToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTESToolStripMenuItem2,
-            this.fUNCIONÁRIOSToolStripMenuItem2});
-            this.eXCLUIRToolStripMenuItem.Name = "eXCLUIRToolStripMenuItem";
-            this.eXCLUIRToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.eXCLUIRToolStripMenuItem.Text = "EXCLUIR";
-            // 
-            // cLIENTESToolStripMenuItem2
-            // 
-            this.cLIENTESToolStripMenuItem2.Name = "cLIENTESToolStripMenuItem2";
-            this.cLIENTESToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTESToolStripMenuItem2.Text = "CLIENTES";
-            this.cLIENTESToolStripMenuItem2.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem2_Click);
-            // 
-            // fUNCIONÁRIOSToolStripMenuItem2
-            // 
-            this.fUNCIONÁRIOSToolStripMenuItem2.Name = "fUNCIONÁRIOSToolStripMenuItem2";
-            this.fUNCIONÁRIOSToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOSToolStripMenuItem2.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOSToolStripMenuItem2.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem2_Click);
             // 
             // FecharToolStripMenuItem
             // 
@@ -801,11 +747,5 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.TextBox comissaoFuncionario;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aLTERARToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eXCLUIRToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem2;
     }
 }

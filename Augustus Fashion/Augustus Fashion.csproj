@@ -106,18 +106,6 @@
     <Compile Include="View\CadastroFuncionario.Designer.cs">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ExcluirCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\ExcluirCliente.Designer.cs">
-      <DependentUpon>ExcluirCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\ExcluirFuncionario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\ExcluirFuncionario.Designer.cs">
-      <DependentUpon>ExcluirFuncionario.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\ListarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,12 +144,6 @@
     </Compile>
     <EmbeddedResource Include="View\CadastroFuncionario.resx">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\ExcluirCliente.resx">
-      <DependentUpon>ExcluirCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\ExcluirFuncionario.resx">
-      <DependentUpon>ExcluirFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ListarCliente.resx">
       <DependentUpon>ListarCliente.cs</DependentUpon>

@@ -18,30 +18,25 @@ namespace Augustus_Fashion.View
         {
             // TODO: esta linha de código carrega dados na tabela 'crudDataSet1.funcionario'. Você pode movê-la ou removê-la conforme necessário.
             //this.funcionarioTableAdapter.Fill(this.crudDataSet2.funcionario);
-            dataGridView1.DataSource = funccontrol.ListarFuncionarios();
+            dgvFuncionario.DataSource = funccontrol.ListarFuncionarios();
 
-        }
-
-        private void buscarNome_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void ListarFuncionario_Load_1(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'crudDataSet2.funcionario'. Você pode movê-la ou removê-la conforme necessário.
             //this.funcionarioTableAdapter.Fill(this.crudDataSet2.funcionario);
-            dataGridView1.DataSource = funccontrol.ListarFuncionarios();
+            dgvFuncionario.DataSource = funccontrol.ListarFuncionarios();
 
         }
 
         private void buscarNome_Click_1(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funccontrol.BuscarLista(textBox1.Text);
+            dgvFuncionario.DataSource = funccontrol.BuscarLista(textBox1.Text);
 
             if (textBox1.Text == "%")
             {
-                dataGridView1.DataSource = funccontrol.ListarFuncionarios();
+                dgvFuncionario.DataSource = funccontrol.ListarFuncionarios();
                 textBox1.Text = "";
             }
         }
@@ -96,14 +91,6 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
-        private void cLIENTESToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ExcluirCliente ec = new ExcluirCliente();
-            ec.ShowDialog();
-            this.Close();
-        }
-
         private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
@@ -112,12 +99,20 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
-        private void fUNCIONÁRIOSToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Hide();
-            ExcluirFuncionario ef = new ExcluirFuncionario();
-            ef.ShowDialog();
-            Close();
+            AlterarFuncionario af = new AlterarFuncionario();
+            af.Show();
+            var id = SelecionarFuncModel();
+            var cliente = funccontrol.Buscar(id);
+            af.dadosDe(cliente);
+            af.Show();
+        }
+
+        public int SelecionarFuncModel()
+        {
+            int id = Convert.ToInt32(dgvFuncionario.SelectedRows[0].Cells[0].Value);
+            return id;
         }
     }
 }
