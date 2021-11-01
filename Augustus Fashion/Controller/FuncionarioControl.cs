@@ -71,5 +71,11 @@ namespace Augustus_Fashion.Controller
         }
 
     }
-  }
+
+    public List<FuncionarioListagem> ListarFuncionarios()
+        {
+
+            return FuncionarioDAO.ListarFuncionario();
+        }
+    }
 }

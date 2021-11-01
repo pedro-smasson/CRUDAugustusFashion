@@ -54,5 +54,13 @@ namespace Augustus_Fashion.DAO
             var query = @"delete from funcionario where id=@id";
             conexao.Query<ClienteModel>(query, func);
         }
+
+        public static List<FuncionarioListagem> ListarFuncionario()
+        {
+            var conexao = new conexao().Connection();
+            var query = @"select id, nome, cidade, celular, nascimento from funcionario";
+            var resultado = conexao.Query<FuncionarioListagem>(query);
+            return resultado.ToList();
+        }
     }
 }

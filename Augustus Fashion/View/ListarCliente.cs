@@ -108,5 +108,24 @@ namespace Augustus_Fashion.View
             ef.ShowDialog();
             Close();
         }
+
+        //public int SelecionarClienteModel() 
+        //{
+        //    int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+        //    return id;
+        //}
+
+        //public void AbrirFormAlterar()
+        //{
+        //    new ClienteControl().AbrirFormulario(clientemodel);
+            
+        //}
+
+        //private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    var id = SelecionarClienteModel();
+        //    clientecontrol.Buscar(id);
+        //    AbrirFormAlterar();
+        //}
     }
 }

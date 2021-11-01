@@ -1,5 +1,6 @@
 ﻿using Augustus_Fashion.Model;
 using Augustus_Fashion.DAO;
+using Augustus_Fashion.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,13 @@ namespace Augustus_Fashion.Controller
     class ClienteControl
     {
 
+        //public void AbrirFormulario() => new AlterarCliente(this).Show();
+
+        //public void AbrirFormulario(ClienteModel clienteModelSelecionado)
+        //{
+        //    ClienteControl clienteControl = new ClienteControl();
+        //    new AlterarCliente(this, clienteModelSelecionado, clienteControl).Show();
+        //}
 
         public void CadastrarCliente(ClienteModel clienteModel)
         {
