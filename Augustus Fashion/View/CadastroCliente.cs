@@ -2,7 +2,6 @@
 using Augustus_Fashion.Model;
 using Augustus_Fashion.View;
 using System;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion
@@ -10,8 +9,8 @@ namespace Augustus_Fashion
 
     public partial class cadastroCliente : Form
     {
-        ClienteModel clientemodel = new ClienteModel();
-        ClienteControl clientecontrol = new ClienteControl();
+        ClienteModel _clientemodel = new ClienteModel();
+        ClienteControl _clientecontrol = new ClienteControl();
 
         public cadastroCliente()
         {
@@ -44,28 +43,28 @@ namespace Augustus_Fashion
             if (Validar())
             {
 
-                clientemodel.nome = nomeCliente.Text;
-                clientemodel.email = emailCliente.Text;
-                clientemodel.nascimento = Convert.ToDateTime(datanascCliente.Text);
-                clientemodel.cpf = cpfCliente.Text;
-                clientemodel.rua = ruaCliente.Text;
-                clientemodel.bairro = bairroCliente.Text;
-                clientemodel.cep = cepCliente.Text;
-                clientemodel.numero = numeroCliente.Text;
-                clientemodel.cidade = cidadeCliente.Text;
-                clientemodel.estado = estadoCliente.Text;
-                clientemodel.complemento = complementoCliente.Text;
-                clientemodel.celular = celularCliente.Text;
-                clientemodel.limite = valorLimiteCliente.Text;
+                _clientemodel.Nome = nomeCliente.Text;
+                _clientemodel.Email = emailCliente.Text;
+                _clientemodel.Nascimento = Convert.ToDateTime(datanascCliente.Text);
+                _clientemodel.Cpf = cpfCliente.Text;
+                _clientemodel.Rua = ruaCliente.Text;
+                _clientemodel.Bairro = bairroCliente.Text;
+                _clientemodel.Cep = cepCliente.Text;
+                _clientemodel.Numero = numeroCliente.Text;
+                _clientemodel.Cidade = cidadeCliente.Text;
+                _clientemodel.Estado = estadoCliente.Text;
+                _clientemodel.Complemento = complementoCliente.Text;
+                _clientemodel.Celular = celularCliente.Text;
+                _clientemodel.Limite = valorLimiteCliente.Text;
 
                 if (sexoMascCliente.Checked == true)
-                    clientemodel.sexo = "M";
+                    _clientemodel.Sexo = "M";
                 else if (sexoFemCliente.Checked == true)
-                    clientemodel.sexo = "F";
+                    _clientemodel.Sexo = "F";
                 else if (sexOtherCliente.Checked == true)
-                    clientemodel.sexo = "O";
+                    _clientemodel.Sexo = "O";
 
-                clientecontrol.CadastrarCliente(clientemodel);
+                _clientecontrol.CadastrarCliente(_clientemodel);
 
                 nomeCliente.Text = "";
                 emailCliente.Text = "";
@@ -96,19 +95,19 @@ namespace Augustus_Fashion
                 return false;
             }
 
-            else if (!Testes.validarEmail(emailCliente.Text))
+            else if (!Testes.ValidarEmail(emailCliente.Text))
             {
                 MessageBox.Show("Email inválido");
                 return false;
             }
 
-            else if (!Testes.validarDataNasc(datanascCliente.Text))
+            else if (!Testes.ValidarDataNasc(datanascCliente.Text))
             {
                 MessageBox.Show("Data de Nascimento inválida");
                 return false;
             }
 
-            else if (!Testes.validarCpf(cpfCliente.Text))
+            else if (!Testes.ValidarCpf(cpfCliente.Text))
             {
                 MessageBox.Show("CPF inválido");
                 return false;
@@ -120,7 +119,7 @@ namespace Augustus_Fashion
                 return false;
             }
 
-            else if (!Testes.validarStringENumeric(ruaCliente.Text))
+            else if (!Testes.ValidarStringENumeric(ruaCliente.Text))
             {
                 MessageBox.Show("Rua inválida");
                 return false;
@@ -132,7 +131,7 @@ namespace Augustus_Fashion
                 return false;
             }
 
-            else if (!Testes.validarCep(cepCliente.Text))
+            else if (!Testes.ValidarCep(cepCliente.Text))
             {
                 MessageBox.Show("CEP inválido");
                 return false;
@@ -144,7 +143,7 @@ namespace Augustus_Fashion
                 return false;
             }
 
-            else if (!Testes.validarCelular(celularCliente.Text))
+            else if (!Testes.ValidarCelular(celularCliente.Text))
             {
                 MessageBox.Show("Celular inválido");
                 return false;

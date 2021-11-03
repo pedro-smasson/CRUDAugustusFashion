@@ -2,14 +2,13 @@
 using System.Windows.Forms;
 using Augustus_Fashion.Model;
 using Augustus_Fashion.Controller;
-using Augustus_Fashion.View;
 
 namespace Augustus_Fashion.View
 {
     public partial class ListarCliente : Form
     {
-        ClienteModel clientemodel = new ClienteModel();
-        ClienteControl clientecontrol = new ClienteControl();
+        ClienteModel _clientemodel = new ClienteModel();
+        ClienteControl _clientecontrol = new ClienteControl();
 
         public ListarCliente()
         {
@@ -20,18 +19,18 @@ namespace Augustus_Fashion.View
         {
             // TODO: esta linha de código carrega dados na tabela 'crudDataSet.cliente'. Você pode movê-la ou removê-la conforme necessário.
             //this.clienteTableAdapter.Fill(this.crudDataSet.cliente);
-            dataGridView1.DataSource = clientecontrol.ListarClientes();
+            dataGridView1.DataSource = _clientecontrol.ListarClientes();
 
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clientecontrol.BuscarLista(textBox1.Text);
+            dataGridView1.DataSource = _clientecontrol.BuscarLista(textBox1.Text);
 
             if(textBox1.Text == "%")
             {
-                dataGridView1.DataSource = clientecontrol.ListarClientes();
+                dataGridView1.DataSource = _clientecontrol.ListarClientes();
                 textBox1.Text = "";
             }
         }
@@ -105,7 +104,7 @@ namespace Augustus_Fashion.View
             AlterarCliente ac = new AlterarCliente();
             ac.Show();
             var id = SelecionarClienteModel();
-            var cliente = clientecontrol.Buscar(id);           
+            var cliente = _clientecontrol.Buscar(id);           
             ac.dadosDe(cliente);
             ac.Show();
         }

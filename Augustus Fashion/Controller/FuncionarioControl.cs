@@ -1,9 +1,7 @@
 ﻿using Augustus_Fashion.DAO;
 using Augustus_Fashion.Model;
-using Augustus_Fashion.View;
 using System;
 using System.Collections.Generic;
-
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.Controller

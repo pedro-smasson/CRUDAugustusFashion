@@ -2,14 +2,13 @@
 using Augustus_Fashion.Controller;
 using System;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 namespace Augustus_Fashion.View
 {
     public partial class CadastroFuncionario : Form
     {
-        FuncionarioModel funcmodel = new FuncionarioModel();
-        FuncionarioControl funccontrol = new FuncionarioControl();
+        FuncionarioModel _funcmodel = new FuncionarioModel();
+        FuncionarioControl _funccontrol = new FuncionarioControl();
 
         public CadastroFuncionario()
         {
@@ -63,33 +62,33 @@ namespace Augustus_Fashion.View
 
             if (Validar()) 
             {
-                funcmodel.nome = nomeFuncionario.Text;
-                funcmodel.email = emailFuncionario.Text;
-                funcmodel.nascimento = Convert.ToDateTime(datanascFuncionario.Text);
-                funcmodel.cpf = cpfFuncionario.Text;
-                funcmodel.rua = ruaFuncionario.Text;
-                funcmodel.bairro = bairroFuncionario.Text;
-                funcmodel.cep = cepFuncionario.Text;
-                funcmodel.numero = numeroFuncionario.Text;
-                funcmodel.cidade = cidadeFuncionario.Text;
-                funcmodel.estado = estadoFuncionario.Text;
-                funcmodel.complemento = complementoFuncionario.Text;
-                funcmodel.celular = celularFuncionario.Text;
-                funcmodel.salario = salarioFuncionario.Text;
-                funcmodel.agencia = agenciaFuncionario.Text;
-                funcmodel.comissao = comissaoFuncionario.Text;
-                funcmodel.numConta = numContaFuncionario.Text;
-                funcmodel.codConta = codContaFuncionario.Text;
+                _funcmodel.Nome = nomeFuncionario.Text;
+                _funcmodel.Email = emailFuncionario.Text;
+                _funcmodel.Nascimento = Convert.ToDateTime(datanascFuncionario.Text);
+                _funcmodel.Cpf = cpfFuncionario.Text;
+                _funcmodel.Rua = ruaFuncionario.Text;
+                _funcmodel.Bairro = bairroFuncionario.Text;
+                _funcmodel.Cep = cepFuncionario.Text;
+                _funcmodel.Numero = numeroFuncionario.Text;
+                _funcmodel.Cidade = cidadeFuncionario.Text;
+                _funcmodel.Estado = estadoFuncionario.Text;
+                _funcmodel.Complemento = complementoFuncionario.Text;
+                _funcmodel.Celular = celularFuncionario.Text;
+                _funcmodel.Salario = salarioFuncionario.Text;
+                _funcmodel.Agencia = agenciaFuncionario.Text;
+                _funcmodel.Comissao = comissaoFuncionario.Text;
+                _funcmodel.NumConta = numContaFuncionario.Text;
+                _funcmodel.CodConta = codContaFuncionario.Text;
 
                 if (sexoMascFuncionario.Checked == true)
-                    funcmodel.sexo = "M";
+                    _funcmodel.Sexo = "M";
                 else if (sexoFemFuncionario.Checked == true)
-                    funcmodel.sexo = "F";
+                    _funcmodel.Sexo = "F";
                 else
-                    funcmodel.sexo = "O";
+                    _funcmodel.Sexo = "O";
 
 
-                funccontrol.CadastrarFuncionario(funcmodel);
+                _funccontrol.CadastrarFuncionario(_funcmodel);
 
                 nomeFuncionario.Text = "";
                 emailFuncionario.Text = "";
@@ -191,19 +190,19 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!Testes.validarEmail(emailFuncionario.Text))
+            else if (!Testes.ValidarEmail(emailFuncionario.Text))
             {
                 MessageBox.Show("Email inválido");
                 return false;
             }
 
-            else if (!Testes.validarDataNasc(datanascFuncionario.Text))
+            else if (!Testes.ValidarDataNasc(datanascFuncionario.Text))
             {
                 MessageBox.Show("Data de Nascimento inválida");
                 return false;
             }
 
-            else if (!Testes.validarCpf(cpfFuncionario.Text))
+            else if (!Testes.ValidarCpf(cpfFuncionario.Text))
             {
                 MessageBox.Show("CPF inválido");
                 return false;
@@ -215,7 +214,7 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!Testes.validarStringENumeric(ruaFuncionario.Text))
+            else if (!Testes.ValidarStringENumeric(ruaFuncionario.Text))
             {
                 MessageBox.Show("Rua inválida");
                 return false;
@@ -227,7 +226,7 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!Testes.validarCep(cepFuncionario.Text))
+            else if (!Testes.ValidarCep(cepFuncionario.Text))
             {
                 MessageBox.Show("CEP inválido");
                 return false;
@@ -239,7 +238,7 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!Testes.validarCelular(celularFuncionario.Text))
+            else if (!Testes.ValidarCelular(celularFuncionario.Text))
             {
                 MessageBox.Show("Celular inválido");
                 return false;
@@ -263,7 +262,7 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!Testes.validarComissao(comissaoFuncionario.Text))
+            else if (!Testes.ValidarComissao(comissaoFuncionario.Text))
             {
                 MessageBox.Show("Comissão inválida");
                 return false;

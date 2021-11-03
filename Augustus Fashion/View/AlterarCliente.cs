@@ -7,8 +7,8 @@ namespace Augustus_Fashion.View
 {
     public partial class AlterarCliente : Form
     {
-        ClienteModel clientemodel = new ClienteModel();
-        ClienteControl clientecontrol = new ClienteControl();
+        ClienteModel _clientemodel = new ClienteModel();
+        ClienteControl _clientecontrol = new ClienteControl();
 
         public AlterarCliente()
         {
@@ -17,29 +17,29 @@ namespace Augustus_Fashion.View
 
         public void dadosDe(ClienteModel cliente)
         {
-            idCliente.Text = cliente.id.ToString();
-            nomeCliente.Text = cliente.nome;
-            emailCliente.Text = cliente.email;
-            datanascCliente.Text = cliente.nascimento.ToString();
-            cpfCliente.Text = cliente.cpf;
-            ruaCliente.Text = cliente.rua;
-            bairroCliente.Text = cliente.bairro;
-            cepCliente.Text = cliente.cep;
-            numeroCliente.Text = cliente.numero;
-            celularCliente.Text = cliente.celular;
-            cidadeCliente.Text = cliente.cidade;
-            estadoCliente.Text = cliente.estado;
-            complementoCliente.Text = cliente.complemento;
-            valorLimiteCliente.Text = cliente.limite;
+            idCliente.Text = cliente.Id.ToString();
+            nomeCliente.Text = cliente.Nome;
+            emailCliente.Text = cliente.Email;
+            datanascCliente.Text = cliente.Nascimento.ToString();
+            cpfCliente.Text = cliente.Cpf;
+            ruaCliente.Text = cliente.Rua;
+            bairroCliente.Text = cliente.Bairro;
+            cepCliente.Text = cliente.Cep;
+            numeroCliente.Text = cliente.Numero;
+            celularCliente.Text = cliente.Celular;
+            cidadeCliente.Text = cliente.Cidade;
+            estadoCliente.Text = cliente.Estado;
+            complementoCliente.Text = cliente.Complemento;
+            valorLimiteCliente.Text = cliente.Limite;
 
-            if (cliente.sexo == "M")
+            if (cliente.Sexo == "M")
                 sexoMascCliente.Checked = true;
-            else if (cliente.sexo == "F")
+            else if (cliente.Sexo == "F")
                 sexoFemCliente.Checked = true;
-            else if (cliente.sexo == "O")
+            else if (cliente.Sexo == "O")
                 sexOtherCliente.Checked = true;
 
-            clientemodel = cliente;
+            _clientemodel = cliente;
 
         }
 
@@ -47,28 +47,28 @@ namespace Augustus_Fashion.View
         {
             if (Validar()) 
             {
-                clientemodel.nome = nomeCliente.Text;
-                clientemodel.email = emailCliente.Text;
-                clientemodel.nascimento = Convert.ToDateTime(datanascCliente.Text);
-                clientemodel.cpf = cpfCliente.Text;
-                clientemodel.rua = ruaCliente.Text;
-                clientemodel.bairro = bairroCliente.Text;
-                clientemodel.cep = cepCliente.Text;
-                clientemodel.numero = numeroCliente.Text;
-                clientemodel.cidade = cidadeCliente.Text;
-                clientemodel.estado = estadoCliente.Text;
-                clientemodel.complemento = complementoCliente.Text;
-                clientemodel.celular = celularCliente.Text;
-                clientemodel.limite = valorLimiteCliente.Text;
+                _clientemodel.Nome = nomeCliente.Text;
+                _clientemodel.Email = emailCliente.Text;
+                _clientemodel.Nascimento = Convert.ToDateTime(datanascCliente.Text);
+                _clientemodel.Cpf = cpfCliente.Text;
+                _clientemodel.Rua = ruaCliente.Text;
+                _clientemodel.Bairro = bairroCliente.Text;
+                _clientemodel.Cep = cepCliente.Text;
+                _clientemodel.Numero = numeroCliente.Text;
+                _clientemodel.Cidade = cidadeCliente.Text;
+                _clientemodel.Estado = estadoCliente.Text;
+                _clientemodel.Complemento = complementoCliente.Text;
+                _clientemodel.Celular = celularCliente.Text;
+                _clientemodel.Limite = valorLimiteCliente.Text;
 
                 if (sexoMascCliente.Checked == true)
-                    clientemodel.sexo = "M";
+                    _clientemodel.Sexo = "M";
                 else if (sexoFemCliente.Checked == true)
-                    clientemodel.sexo = "F";
+                    _clientemodel.Sexo = "F";
                 else if (sexOtherCliente.Checked == true)
-                    clientemodel.sexo = "O";
+                    _clientemodel.Sexo = "O";
 
-                clientecontrol.AlterarCliente(clientemodel);
+                _clientecontrol.AlterarCliente(_clientemodel);
 
                 Hide();
                 ListarCliente lc = new ListarCliente();
@@ -87,7 +87,7 @@ namespace Augustus_Fashion.View
         {
             if (Validar())
             {
-                clientecontrol.ExcluirCliente(clientemodel);
+                _clientecontrol.ExcluirCliente(_clientemodel);
 
                 Hide();
                 ListarCliente lc = new ListarCliente();

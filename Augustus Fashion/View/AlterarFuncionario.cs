@@ -7,8 +7,8 @@ namespace Augustus_Fashion.View
 {
     public partial class AlterarFuncionario : Form
     {
-        FuncionarioModel funcionariomodel = new FuncionarioModel();
-        FuncionarioControl funcionariocontrol = new FuncionarioControl();
+        FuncionarioModel _funcionariomodel = new FuncionarioModel();
+        FuncionarioControl _funcionariocontrol = new FuncionarioControl();
 
         public AlterarFuncionario()
         {
@@ -17,33 +17,33 @@ namespace Augustus_Fashion.View
 
         public void dadosDe(FuncionarioModel func)
         {
-            idFuncionario.Text = func.id.ToString();
-            nomeFuncionario.Text = func.nome;
-            emailFuncionario.Text = func.email;
-            datanascFuncionario.Text = func.nascimento.ToString();
-            cpfFuncionario.Text = func.cpf;
-            ruaFuncionario.Text = func.rua;
-            bairroFuncionario.Text = func.bairro;
-            cepFuncionario.Text = func.cep;
-            numeroFuncionario.Text = func.numero;
-            celularFuncionario.Text = func.celular;
-            cidadeFuncionario.Text = func.cidade;
-            estadoFuncionario.Text = func.estado;
-            complementoFuncionario.Text = func.complemento;
-            salarioFuncionario.Text = func.salario;
-            comissaoFuncionario.Text = func.comissao;
-            agenciaFuncionario.Text = func.agencia;
-            numContaFuncionario.Text = func.numConta;
-            codContaFuncionario.Text = func.codConta;
+            idFuncionario.Text = func.Id.ToString();
+            nomeFuncionario.Text = func.Nome;
+            emailFuncionario.Text = func.Email;
+            datanascFuncionario.Text = func.Nascimento.ToString();
+            cpfFuncionario.Text = func.Cpf;
+            ruaFuncionario.Text = func.Rua;
+            bairroFuncionario.Text = func.Bairro;
+            cepFuncionario.Text = func.Cep;
+            numeroFuncionario.Text = func.Numero;
+            celularFuncionario.Text = func.Celular;
+            cidadeFuncionario.Text = func.Cidade;
+            estadoFuncionario.Text = func.Estado;
+            complementoFuncionario.Text = func.Complemento;
+            salarioFuncionario.Text = func.Salario;
+            comissaoFuncionario.Text = func.Comissao;
+            agenciaFuncionario.Text = func.Agencia;
+            numContaFuncionario.Text = func.NumConta;
+            codContaFuncionario.Text = func.CodConta;
 
-            if (func.sexo == "M")
+            if (func.Sexo == "M")
                 sexoMascFuncionario.Checked = true;
-            else if (func.sexo == "F")
+            else if (func.Sexo == "F")
                 sexoFemFuncionario.Checked = true;
-            else if (func.sexo == "O")
+            else if (func.Sexo == "O")
                 sexOtherFuncionario.Checked = true;
 
-            funcionariomodel = func;
+            _funcionariomodel = func;
 
         }
 
@@ -114,7 +114,7 @@ namespace Augustus_Fashion.View
         {
             if (Validar())
             {
-                funcionariocontrol.ExcluirFuncionario(funcionariomodel);
+                _funcionariocontrol.ExcluirFuncionario(_funcionariomodel);
 
                 Hide();
                 ListarFuncionario lc = new ListarFuncionario();
@@ -133,32 +133,32 @@ namespace Augustus_Fashion.View
 
             if (Validar())
             {
-                funcionariomodel.nome = nomeFuncionario.Text;
-                funcionariomodel.email = emailFuncionario.Text;
-                funcionariomodel.nascimento = Convert.ToDateTime(datanascFuncionario.Text);
-                funcionariomodel.cpf = cpfFuncionario.Text;
-                funcionariomodel.rua = ruaFuncionario.Text;
-                funcionariomodel.bairro = bairroFuncionario.Text;
-                funcionariomodel.cep = cepFuncionario.Text;
-                funcionariomodel.numero = numeroFuncionario.Text;
-                funcionariomodel.cidade = cidadeFuncionario.Text;
-                funcionariomodel.estado = estadoFuncionario.Text;
-                funcionariomodel.complemento = complementoFuncionario.Text;
-                funcionariomodel.celular = celularFuncionario.Text;
-                funcionariomodel.salario = salarioFuncionario.Text;
-                funcionariomodel.agencia = agenciaFuncionario.Text;
-                funcionariomodel.comissao = comissaoFuncionario.Text;
-                funcionariomodel.codConta = codContaFuncionario.Text;
-                funcionariomodel.numConta = numContaFuncionario.Text;
+                _funcionariomodel.Nome = nomeFuncionario.Text;
+                _funcionariomodel.Email = emailFuncionario.Text;
+                _funcionariomodel.Nascimento = Convert.ToDateTime(datanascFuncionario.Text);
+                _funcionariomodel.Cpf = cpfFuncionario.Text;
+                _funcionariomodel.Rua = ruaFuncionario.Text;
+                _funcionariomodel.Bairro = bairroFuncionario.Text;
+                _funcionariomodel.Cep = cepFuncionario.Text;
+                _funcionariomodel.Numero = numeroFuncionario.Text;
+                _funcionariomodel.Cidade = cidadeFuncionario.Text;
+                _funcionariomodel.Estado = estadoFuncionario.Text;
+                _funcionariomodel.Complemento = complementoFuncionario.Text;
+                _funcionariomodel.Celular = celularFuncionario.Text;
+                _funcionariomodel.Salario = salarioFuncionario.Text;
+                _funcionariomodel.Agencia = agenciaFuncionario.Text;
+                _funcionariomodel.Comissao = comissaoFuncionario.Text;
+                _funcionariomodel.CodConta = codContaFuncionario.Text;
+                _funcionariomodel.NumConta = numContaFuncionario.Text;
 
                 if (sexoMascFuncionario.Checked == true)
-                    funcionariomodel.sexo = "M";
+                    _funcionariomodel.Sexo = "M";
                 else if (sexoFemFuncionario.Checked == true)
-                    funcionariomodel.sexo = "F";
+                    _funcionariomodel.Sexo = "F";
                 else if (sexOtherFuncionario.Checked == true)
-                    funcionariomodel.sexo = "O";
+                    _funcionariomodel.Sexo = "O";
 
-                funcionariocontrol.AlterarFuncionario(funcionariomodel);
+                _funcionariocontrol.AlterarFuncionario(_funcionariomodel);
 
                 Hide();
                 ListarFuncionario lc = new ListarFuncionario();

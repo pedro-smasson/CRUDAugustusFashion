@@ -47,7 +47,7 @@ namespace TestProject1
         {
             string cpf = "176.789.789-82";
 
-            var variavel = Testes.validarCpf(cpf);
+            var variavel = Testes.ValidarCpf(cpf);
 
             Assert.IsTrue(variavel);
         }
@@ -59,7 +59,7 @@ namespace TestProject1
         [DataRow("@-,/", false)]
         public void validar_se_cpf_eh_valido_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.validarCpf(a), resultado);
+            Assert.AreEqual(Testes.ValidarCpf(a), resultado);
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@ namespace TestProject1
         {
             string email = "teste@teste.com";
 
-            var variavel = Testes.validarEmail(email);
+            var variavel = Testes.ValidarEmail(email);
 
             Assert.IsTrue(variavel);
         }
@@ -80,7 +80,7 @@ namespace TestProject1
         [DataRow("?!#%", false)]
         public void validar_se_email_eh_valido_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.validarEmail(a), resultado);
+            Assert.AreEqual(Testes.ValidarEmail(a), resultado);
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@ namespace TestProject1
         {
             string data = "24/10/2077";
 
-            var variavel = Testes.validarDataNasc(data);
+            var variavel = Testes.ValidarDataNasc(data);
 
             Assert.IsTrue(variavel);
         }
@@ -104,7 +104,7 @@ namespace TestProject1
         [DataRow("22/0h2/20577", false)]
         public void validar_se_data_de_nasc_eh_valida_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.validarDataNasc(a), resultado);
+            Assert.AreEqual(Testes.ValidarDataNasc(a), resultado);
         }
 
         [TestMethod]
@@ -112,7 +112,7 @@ namespace TestProject1
         {
             string campo = "teste 7";
 
-            var variavel = Testes.validarStringENumeric(campo);
+            var variavel = Testes.ValidarStringENumeric(campo);
 
             Assert.IsTrue(variavel);
         }
@@ -124,7 +124,7 @@ namespace TestProject1
         [DataRow("@#$%!*&", false)]
         public void validar_se_campo_string_e_numeric_eh_valido_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.validarStringENumeric(a), resultado);
+            Assert.AreEqual(Testes.ValidarStringENumeric(a), resultado);
         }
 
         [TestMethod]
@@ -132,7 +132,7 @@ namespace TestProject1
         {
             string cep = "15706402";
 
-            var variavel = Testes.validarCep(cep);
+            var variavel = Testes.ValidarCep(cep);
 
             Assert.IsTrue(variavel);
         }
@@ -145,7 +145,7 @@ namespace TestProject1
 
         public void validar_se_cep_eh_valido_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.validarCep(a), resultado);
+            Assert.AreEqual(Testes.ValidarCep(a), resultado);
         }
 
         [TestMethod]
@@ -153,7 +153,7 @@ namespace TestProject1
         {
             string comissao = "10%";
 
-            var variavel = Testes.validarComissao(comissao);
+            var variavel = Testes.ValidarComissao(comissao);
 
             Assert.IsTrue(variavel);
         }
@@ -165,7 +165,7 @@ namespace TestProject1
         [DataRow("gdfgdf", false)]
         public void validar_se_comissao_eh_valida_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.validarComissao(a), resultado);
+            Assert.AreEqual(Testes.ValidarComissao(a), resultado);
         }
 
         [TestMethod]
@@ -173,7 +173,7 @@ namespace TestProject1
         {
             string celular = "17996331695";
 
-            var variavel = Testes.validarCelular(celular);
+            var variavel = Testes.ValidarCelular(celular);
 
             Assert.IsTrue(variavel);
         }
@@ -184,7 +184,7 @@ namespace TestProject1
         [DataRow("uifdhuigd", false)]
         public void validar_se_celular_eh_valido_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.validarCelular(a), resultado);
+            Assert.AreEqual(Testes.ValidarCelular(a), resultado);
         }
     }
 }
