@@ -40,7 +40,7 @@ namespace Augustus_Fashion.DAO
         public static List<FuncionarioModel> BuscarLista(string nome)
         {
             var conexao = new conexao().Connection();
-            var query = @"select * from funcionario where nome=@nome";
+            var query = @"select * from funcionario where nome like @nome + '%'";
             var parametros = new DynamicParameters();
             parametros.Add("@nome", nome, System.Data.DbType.String);
 

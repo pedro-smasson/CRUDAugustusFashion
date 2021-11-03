@@ -40,7 +40,6 @@ namespace Augustus_Fashion.View
             this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBoxFuncionario = new System.Windows.Forms.GroupBox();
             this.enderecoFuncionario = new System.Windows.Forms.GroupBox();
@@ -165,35 +164,26 @@ namespace Augustus_Fashion.View
             // 
             // btnLimpar
             // 
+            this.btnLimpar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLimpar.Location = new System.Drawing.Point(498, 532);
+            this.btnLimpar.Location = new System.Drawing.Point(412, 532);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(150, 50);
             this.btnLimpar.TabIndex = 20;
             this.btnLimpar.Text = "LIMPAR";
-            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAlterar.Location = new System.Drawing.Point(138, 532);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(150, 50);
-            this.btnAlterar.TabIndex = 21;
-            this.btnAlterar.Text = "ALTERAR";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnSalvar
             // 
+            this.btnSalvar.BackColor = System.Drawing.Color.LightGreen;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(318, 532);
+            this.btnSalvar.Location = new System.Drawing.Point(232, 532);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(150, 50);
             this.btnSalvar.TabIndex = 19;
             this.btnSalvar.Text = "SALVAR";
-            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // groupBoxFuncionario
@@ -667,7 +657,6 @@ namespace Augustus_Fashion.View
             this.ClientSize = new System.Drawing.Size(799, 591);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLimpar);
-            this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBoxFuncionario);
             this.Controls.Add(this.menuStrip1);
@@ -702,7 +691,6 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.ToolStripMenuItem cONSULTAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem1;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.GroupBox groupBoxFuncionario;
         private System.Windows.Forms.GroupBox enderecoFuncionario;

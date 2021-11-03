@@ -626,13 +626,15 @@ namespace Augustus_Fashion.View
             // 
             // btnExcluir
             // 
+            this.btnExcluir.BackColor = System.Drawing.Color.Crimson;
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnExcluir.Location = new System.Drawing.Point(420, 31);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(125, 40);
             this.btnExcluir.TabIndex = 32;
             this.btnExcluir.Text = "EXCLUIR";
-            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // idFuncionario
@@ -641,6 +643,7 @@ namespace Augustus_Fashion.View
             this.idFuncionario.Location = new System.Drawing.Point(229, 36);
             this.idFuncionario.Multiline = true;
             this.idFuncionario.Name = "idFuncionario";
+            this.idFuncionario.ReadOnly = true;
             this.idFuncionario.Size = new System.Drawing.Size(137, 28);
             this.idFuncionario.TabIndex = 1;
             // 
@@ -656,13 +659,15 @@ namespace Augustus_Fashion.View
             // 
             // btnAlterar
             // 
+            this.btnAlterar.BackColor = System.Drawing.Color.BlueViolet;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnAlterar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAlterar.Location = new System.Drawing.Point(568, 31);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(125, 40);
             this.btnAlterar.TabIndex = 29;
             this.btnAlterar.Text = "ALTERAR";
-            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // AlterarFuncionario

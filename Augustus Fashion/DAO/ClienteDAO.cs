@@ -55,7 +55,7 @@ namespace Augustus_Fashion.DAO
         public static List<ClienteListagem> BuscarLista(string nome)
         {
             var conexao = new conexao().Connection();
-            var query = @"select id, nome, cidade, celular, nascimento from cliente where nome=@nome";
+            var query = @"select id, nome, cidade, celular, nascimento from cliente where nome like @nome + '%'";
             var parametros = new DynamicParameters();
             parametros.Add("@nome", nome, System.Data.DbType.String);
 

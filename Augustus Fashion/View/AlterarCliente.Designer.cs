@@ -83,13 +83,15 @@ namespace Augustus_Fashion.View
             // 
             // btnAlterar
             // 
+            this.btnAlterar.BackColor = System.Drawing.Color.BlueViolet;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnAlterar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAlterar.Location = new System.Drawing.Point(566, 31);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(125, 40);
             this.btnAlterar.TabIndex = 23;
             this.btnAlterar.Text = "ALTERAR";
-            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // groupBoxCliente
@@ -560,18 +562,21 @@ namespace Augustus_Fashion.View
             this.idCliente.Location = new System.Drawing.Point(227, 36);
             this.idCliente.Multiline = true;
             this.idCliente.Name = "idCliente";
+            this.idCliente.ReadOnly = true;
             this.idCliente.Size = new System.Drawing.Size(137, 28);
             this.idCliente.TabIndex = 25;
             // 
             // excluirCliente
             // 
+            this.excluirCliente.BackColor = System.Drawing.Color.Crimson;
             this.excluirCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.excluirCliente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.excluirCliente.Location = new System.Drawing.Point(418, 31);
             this.excluirCliente.Name = "excluirCliente";
             this.excluirCliente.Size = new System.Drawing.Size(125, 40);
             this.excluirCliente.TabIndex = 26;
             this.excluirCliente.Text = "EXCLUIR";
-            this.excluirCliente.UseVisualStyleBackColor = true;
+            this.excluirCliente.UseVisualStyleBackColor = false;
             this.excluirCliente.Click += new System.EventHandler(this.ExcluirCliente_Click);
             // 
             // AlterarCliente

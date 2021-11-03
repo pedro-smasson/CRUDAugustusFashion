@@ -40,7 +40,6 @@ namespace Augustus_Fashion
             this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBoxCliente = new System.Windows.Forms.GroupBox();
             this.enderecoCliente = new System.Windows.Forms.GroupBox();
@@ -74,7 +73,6 @@ namespace Augustus_Fashion
             this.label2 = new System.Windows.Forms.Label();
             this.nomeCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.excluirCliente = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBoxCliente.SuspendLayout();
             this.enderecoCliente.SuspendLayout();
@@ -156,35 +154,26 @@ namespace Augustus_Fashion
             // 
             // btnLimpar
             // 
+            this.btnLimpar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnLimpar.Location = new System.Drawing.Point(407, 409);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(150, 50);
             this.btnLimpar.TabIndex = 16;
             this.btnLimpar.Text = "LIMPAR";
-            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAlterar.Location = new System.Drawing.Point(47, 409);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(150, 50);
-            this.btnAlterar.TabIndex = 17;
-            this.btnAlterar.Text = "ALTERAR";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnSalvar
             // 
+            this.btnSalvar.BackColor = System.Drawing.Color.LightGreen;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnSalvar.Location = new System.Drawing.Point(227, 409);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(150, 50);
             this.btnSalvar.TabIndex = 15;
             this.btnSalvar.Text = "SALVAR";
-            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // groupBoxCliente
@@ -566,16 +555,6 @@ namespace Augustus_Fashion
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome do Cliente: ";
             // 
-            // excluirCliente
-            // 
-            this.excluirCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.excluirCliente.Location = new System.Drawing.Point(593, 409);
-            this.excluirCliente.Name = "excluirCliente";
-            this.excluirCliente.Size = new System.Drawing.Size(150, 50);
-            this.excluirCliente.TabIndex = 18;
-            this.excluirCliente.Text = "EXCLUIR";
-            this.excluirCliente.UseVisualStyleBackColor = true;
-            // 
             // cadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -584,9 +563,7 @@ namespace Augustus_Fashion
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(799, 471);
-            this.Controls.Add(this.excluirCliente);
             this.Controls.Add(this.btnLimpar);
-            this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBoxCliente);
             this.Controls.Add(this.menuStrip1);
@@ -615,7 +592,6 @@ namespace Augustus_Fashion
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.GroupBox groupBoxCliente;
         private System.Windows.Forms.GroupBox enderecoCliente;
@@ -656,7 +632,6 @@ namespace Augustus_Fashion
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
         private System.Windows.Forms.TextBox valorLimiteCliente;
-        private System.Windows.Forms.Button excluirCliente;
     }
 }
 
