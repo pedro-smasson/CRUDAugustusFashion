@@ -5,7 +5,7 @@ namespace Augustus_Fashion.Model
     public static class Testes
     {
         public static bool ValidarString(this string valor) => 
-            new Regex(@"^[a-zA-Z\s]+$").Match(valor).Success;
+            new Regex(@"^[a-zA-ZÀ-úÀ-ÿ\s]+$").Match(valor).Success;
 
         public static bool ValidarNumeric(this string valor) => 
             new Regex(@"^[0-9]+$").Match(valor).Success;
@@ -20,7 +20,7 @@ namespace Augustus_Fashion.Model
             new Regex(@"^[0-3][0-9][\/][0-1][0-9][\/][0-9]{4}$").Match(valor).Success;
 
         public static bool ValidarStringENumeric(this string valor) =>
-            new Regex(@"^[0-9a-zA-Z\s]+$").Match(valor).Success;
+            new Regex(@"^[0-9a-zA-ZÀ-úÀ-ÿ\s]+$").Match(valor).Success;
 
         public static bool ValidarCep(this string valor) =>
             new Regex(@"^[0-9]{2}[.][0-9]{3}[-][0-9]{3}$").Match(valor).Success;

@@ -10,33 +10,33 @@ namespace Augustus_Fashion.DAO
         public static void CadastrarCliente(ClienteModel cliente)
         {
             var conexao = new conexao().Connection();
-            var query = @"insert into cliente values(@nome, @sexo, @nascimento, @limite,
-            @cep, @rua, @numero, @bairro, @cidade, @estado, @complemento, @celular,
-            @email, @cpf)";
+            var query = @"insert into cliente values(@Nome, @Sexo, @Nascimento, @Limite,
+            @Cep, @Rua, @Numero, @Bairro, @Cidade, @Estado, @Complemento, @Celular,
+            @Email, @Cpf)";
             conexao.Query<ClienteModel>(query, cliente);
         }
 
         public static void AlterarCliente(ClienteModel cliente) 
         {
             var conexao = new conexao().Connection();
-            var query = @"update cliente set nome = @nome, sexo = @sexo, nascimento = @nascimento,
-            limite = @limite, cep = @cep, rua = @rua, numero = @numero, bairro = @bairro,
-            cidade = @cidade, estado = @estado, complemento = @complemento, celular = @celular,
-            email = @email, cpf = @cpf where id = @id";
+            var query = @"update cliente set Nome = @Nome, Sexo = @Sexo, Nascimento = @Nascimento,
+            Limite = @Limite, Cep = @Cep, Rua = @Rua, Numero = @Numero, Bairro = @Bairro,
+            Cidade = @Cidade, Estado = @Estado, Complemento = @Complemento, Celular = @Celular,
+            Email = @Email, Cpf = @Cpf where Id = @Id";
             conexao.Query<ClienteModel>(query, cliente);
         }
 
         public static void ExcluirCliente(ClienteModel cliente) 
         {
             var conexao = new conexao().Connection();
-            var query = @"delete from cliente where id=@id";
+            var query = @"delete from cliente where Id = @Id";
             conexao.Query<ClienteModel>(query, cliente);
         }
 
         public static List<ClienteListagem> ListarCliente() 
         {
             var conexao = new conexao().Connection();
-            var query = @"select id, nome, cidade, celular, nascimento from cliente";
+            var query = @"select Id, Nome, Cidade, Celular, Nascimento from cliente";
             var resultado = conexao.Query<ClienteListagem>(query);
             return resultado.ToList(); 
         }
@@ -44,9 +44,9 @@ namespace Augustus_Fashion.DAO
         public static ClienteModel Buscar(int id)
         {
             var conexao = new conexao().Connection();
-            var query = @"select * from cliente where id=@id";
+            var query = @"select * from cliente where Id=@Id";
             var parametros = new DynamicParameters();
-            parametros.Add("@id", id, System.Data.DbType.Int32);
+            parametros.Add("@Id", id, System.Data.DbType.Int32);
 
             var resultado = conexao.QueryFirstOrDefault<ClienteModel>(query, parametros/*new { id }*/);
             return resultado;
@@ -55,7 +55,7 @@ namespace Augustus_Fashion.DAO
         public static List<ClienteListagem> BuscarLista(string nome)
         {
             var conexao = new conexao().Connection();
-            var query = @"select id, nome, cidade, celular, nascimento from cliente where nome like @nome + '%'";
+            var query = @"select Id, Nome, Cidade, Celular, Nascimento from cliente where Nome like @Nome + '%'";
             var parametros = new DynamicParameters();
             parametros.Add("@nome", nome, System.Data.DbType.String);
 

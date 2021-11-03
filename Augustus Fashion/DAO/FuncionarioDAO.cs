@@ -10,18 +10,18 @@ namespace Augustus_Fashion.DAO
         public static void CadastrarFuncionario(FuncionarioModel funcionario)
         {
             var conexao = new conexao().Connection();
-            var query = @"insert into funcionario values(@nome, @sexo, @nascimento, @salario, @comissao,
-            @cep, @rua, @numero, @bairro, @cidade, @estado, @complemento, @celular,
-            @email, @cpf, @agencia, @numConta, @codConta)";
+            var query = @"insert into funcionario values(@Nome, @Sexo, @Nascimento, @Salario, @Comissao,
+            @Cep, @Rua, @Numero, @Bairro, @Cidade, @Estado, @Complemento, @Celular,
+            @Email, @Cpf, @Agencia, @NumConta, @CodConta)";
             conexao.Query<FuncionarioModel>(query, funcionario);
         }
 
         public static FuncionarioModel Buscar(int id) 
         {
             var conexao = new conexao().Connection();
-            var query = @"select * from funcionario where id=@id";
+            var query = @"select * from funcionario where Id = @Id";
             var parametros = new DynamicParameters();
-            parametros.Add("@id", id, System.Data.DbType.Int32);
+            parametros.Add("@Id", id, System.Data.DbType.Int32);
 
             var resultado = conexao.QueryFirstOrDefault<FuncionarioModel>(query, parametros);
             return resultado;
@@ -30,17 +30,17 @@ namespace Augustus_Fashion.DAO
         public static void AlterarFuncionario(FuncionarioModel funcionario)
         {
             var conexao = new conexao().Connection();
-            var query = @"update funcionario set nome = @nome, sexo = @sexo, nascimento = @nascimento,
-            salario = @salario, comissao = @comissao, cep = @cep, rua = @rua, numero = @numero, bairro = @bairro,
-            cidade = @cidade, estado = @estado, complemento = @complemento, celular = @celular,
-            email = @email, cpf = @cpf, agencia = @agencia, numConta = @numConta, codConta = @codConta where id = @id";
+            var query = @"update funcionario set Nome = @Nome, Sexo = @Sexo, Nascimento = @Nascimento,
+            Salario = @Salario, Comissao = @Comissao, Cep = @Cep, Rua = @Rua, Numero = @Numero, Bairro = @Bairro,
+            Cidade = @Cidade, Estado = @Estado, Complemento = @Complemento, Celular = @Celular,
+            Email = @Email, Cpf = @Cpf, Agencia = @Agencia, NumConta = @NumConta, CodConta = @CodConta where Id = @Id";
             conexao.Query<FuncionarioModel>(query, funcionario);
         }
 
         public static List<FuncionarioModel> BuscarLista(string nome)
         {
             var conexao = new conexao().Connection();
-            var query = @"select * from funcionario where nome like @nome + '%'";
+            var query = @"select * from funcionario where Nome like @Nome + '%'";
             var parametros = new DynamicParameters();
             parametros.Add("@nome", nome, System.Data.DbType.String);
 
@@ -51,14 +51,14 @@ namespace Augustus_Fashion.DAO
         public static void ExcluirFuncionario(FuncionarioModel func)
         {
             var conexao = new conexao().Connection();
-            var query = @"delete from funcionario where id=@id";
+            var query = @"delete from funcionario where Id = @Id";
             conexao.Query<ClienteModel>(query, func);
         }
 
         public static List<FuncionarioListagem> ListarFuncionario()
         {
             var conexao = new conexao().Connection();
-            var query = @"select id, nome, cidade, celular, nascimento from funcionario";
+            var query = @"select Id, Nome, Cidade, Celular, Nascimento from funcionario";
             var resultado = conexao.Query<FuncionarioListagem>(query);
             return resultado.ToList();
         }
