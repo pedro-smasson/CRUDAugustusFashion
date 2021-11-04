@@ -19,18 +19,18 @@ namespace Augustus_Fashion.View
         {
             // TODO: esta linha de código carrega dados na tabela 'crudDataSet.cliente'. Você pode movê-la ou removê-la conforme necessário.
             //this.clienteTableAdapter.Fill(this.crudDataSet.cliente);
-            dataGridView1.DataSource = _clientecontrol.ListarClientes();
+            dgvCliente.DataSource = _clientecontrol.ListarClientes();
 
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _clientecontrol.BuscarLista(textBox1.Text);
+            dgvCliente.DataSource = _clientecontrol.BuscarLista(textBox1.Text);
 
             if(textBox1.Text == "%")
             {
-                dataGridView1.DataSource = _clientecontrol.ListarClientes();
+                dgvCliente.DataSource = _clientecontrol.ListarClientes();
                 textBox1.Text = "";
             }
         }
@@ -95,19 +95,28 @@ namespace Augustus_Fashion.View
 
         public int SelecionarClienteModel()
         {
-            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            int id = Convert.ToInt32(dgvCliente.SelectedRows[0].Cells[0].Value);
             return id;
         }
 
-        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        //private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    AlterarCliente ac = new AlterarCliente();
+        //    ac.Show();
+        //    var id = SelecionarClienteModel();
+        //    var cliente = _clientecontrol.Buscar(id);           
+        //    ac.dadosDe(cliente);
+        //    ac.Show();
+        //}
+
+        private void dgvCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             AlterarCliente ac = new AlterarCliente();
             ac.Show();
             var id = SelecionarClienteModel();
-            var cliente = _clientecontrol.Buscar(id);           
+            var cliente = _clientecontrol.Buscar(id);
             ac.dadosDe(cliente);
             ac.Show();
         }
-
     }
 }

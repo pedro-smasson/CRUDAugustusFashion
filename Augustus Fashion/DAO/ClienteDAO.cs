@@ -75,9 +75,32 @@ namespace Augustus_Fashion.DAO
 
         public static void ExcluirCliente(ClienteModel cliente) 
         {
-            var conexao = new conexao().Connection();
-            var query = @"delete from cliente where Id = @Id";
-            conexao.Query<ClienteModel>(query, cliente);
+                      
+            var queryEndereco = @"delete from Endereco where IdPessoa = @IdPessoa";
+            var queryCliente = @"delete from Cliente where IdPessoa = @IdPessoa";
+            var queryPessoa = @"delete from Pessoa where IdPessoa = @IdPessoa";
+
+            try 
+            {
+                var conexao = new conexao().Connection();
+                {
+                    conexao.Open();
+                    using (var transacao = conexao.BeginTransaction()) 
+                    {
+                        conexao.Execute(queryEndereco, new {IdPessoa = cliente.IdPessoa}, transacao);
+                        conexao.Execute(queryCliente, new {IdPessoa = cliente.IdPessoa}, transacao);
+                        conexao.Execute(queryPessoa, new {IdPessoa = cliente.IdPessoa}, transacao);
+
+                        transacao.Commit();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            //conexao.Query<ClienteModel>(queryEndereco, cliente);
         }
 
         public static List<ClienteListagem> ListarCliente() 
@@ -86,15 +109,16 @@ namespace Augustus_Fashion.DAO
             var query = @"select c.IdCliente, c.Limite,
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
             c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
-            Pessoa p inner join Cliente c on p.IdPessoa = c.IdCliente
-            inner join Endereco e on c.IdPessoa = e.IdPessoa";
+            Pessoa p inner join Cliente c on c.IdPessoa = p.IdPessoa
+            inner join Endereco e on c.IdPessoa = e.IdPessoa"; /*where p.IdPessoa = @IdPessoa*/
 
             try 
             {
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    return conexao.Query<ClienteListagem>(query).ToList();
+                    return conexao.Query(query, (ClienteListagem clienteListagem, EnderecoModel enderecoModel)
+                    => Mapear(clienteListagem, enderecoModel), splitOn: "IdPessoa").ToList();
                 }
             }
             catch(Exception ex)
@@ -105,15 +129,46 @@ namespace Augustus_Fashion.DAO
             //return resultado.ToList(); 
         }
 
-        public static ClienteModel Buscar(int id)
+        private static ClienteListagem Mapear(ClienteListagem clienteListagem, EnderecoModel enderecoModel) 
         {
-            var conexao = new conexao().Connection();
-            var query = @"select * from cliente where Id=@Id";
-            var parametros = new DynamicParameters();
-            parametros.Add("@Id", id, System.Data.DbType.Int32);
+            clienteListagem.Endereco = enderecoModel;
+            return clienteListagem;
+        }
 
-            var resultado = conexao.QueryFirstOrDefault<ClienteModel>(query, parametros/*new { id }*/);
-            return resultado;
+        private static ClienteModel MapearBusca(ClienteModel clienteModel, EnderecoModel enderecoModel)
+        {
+            clienteModel.Endereco = enderecoModel;
+            return clienteModel;
+        }
+
+        public static ClienteModel Buscar(int id)
+        {           
+            var query = @"select c.IdCliente, c.Limite,
+            c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
+            c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
+            Pessoa p inner join Cliente c on p.IdPessoa = c.IdPessoa
+            inner join Endereco e on c.IdPessoa = e.IdPessoa where c.IdPessoa = @IdPessoa";
+
+            try 
+            {
+                using (var conexao = new conexao().Connection()) 
+                {
+                    conexao.Open();
+                    return conexao.Query(query, (ClienteModel clienteModel, EnderecoModel enderecoModel)
+                    => MapearBusca(clienteModel, enderecoModel), splitOn: "IdPessoa").FirstOrDefault();
+                }
+            }
+            catch(Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
+
+
+            //var parametros = new DynamicParameters();
+            //parametros.Add("@Id", id, System.Data.DbType.Int32);
+
+            //var resultado = conexao.QueryFirstOrDefault<ClienteModel>(query, parametros/*new { id }*/);
+            //return resultado;
         }
 
         public static List<ClienteListagem> BuscarLista(string nome)

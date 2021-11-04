@@ -9,6 +9,7 @@ namespace Augustus_Fashion.Model
     public class EnderecoModel
     {
         public int IdPessoa { get; set; }
+        public int IdEndereco { get; set; }
         public string Cep { get; set; }
         public string Rua { get; set; }
         public string Numero { get; set; }
