@@ -76,6 +76,7 @@
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="Model\ClienteListagem.cs" />
     <Compile Include="Model\ClienteModel.cs" />
+    <Compile Include="Model\EnderecoModel.cs" />
     <Compile Include="Model\FuncionarioListagem.cs" />
     <Compile Include="Model\FuncionarioModel.cs" />
     <Compile Include="Model\Pessoa.cs" />

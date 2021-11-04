@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dapper;
+using System;
 
 namespace Augustus_Fashion.DAO
 {
@@ -9,11 +10,38 @@ namespace Augustus_Fashion.DAO
     {
         public static void CadastrarCliente(ClienteModel cliente)
         {
-            var conexao = new conexao().Connection();
-            var query = @"insert into cliente values(@Nome, @Sexo, @Nascimento, @Limite,
-            @Cep, @Rua, @Numero, @Bairro, @Cidade, @Estado, @Complemento, @Celular,
+            
+
+            var queryPessoa = @"insert into Pessoa output inserted.IdPessoa values(@Nome, @Sexo, @Nascimento, @Celular,
             @Email, @Cpf)";
-            conexao.Query<ClienteModel>(query, cliente);
+            var queryCliente = @"insert into Cliente (IdPessoa, Limite) values(@IdPessoa, @Limite)";
+            var queryEndereco = @"insert into Endereco (IdPessoa, Cep, Rua, Numero, Bairro, Cidade, Estado, Complemento)
+            values(@IdPessoa, @Cep, @Rua, @Numero, @Bairro, @Cidade, @Estado, @Complemento)";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                conexao.Open();
+                using (var transacao = conexao.BeginTransaction())
+                
+                {
+                    int id = conexao.ExecuteScalar<int>(queryPessoa, cliente, transacao);
+                    cliente.IdPessoa = id;
+                    cliente.Endereco.IdPessoa = id;
+
+                    conexao.Execute(queryCliente, cliente, transacao);
+                    conexao.Execute(queryEndereco, cliente.Endereco, transacao);
+
+                    transacao.Commit();
+                }
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+                //conexao.Query<ClienteModel>(queryPessoa, queryCliente, QueryEndereco, cliente);
         }
 
         public static void AlterarCliente(ClienteModel cliente) 

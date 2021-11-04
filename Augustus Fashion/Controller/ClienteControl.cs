@@ -40,7 +40,7 @@ namespace Augustus_Fashion.Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception(ex.Message);
             }
         }
 

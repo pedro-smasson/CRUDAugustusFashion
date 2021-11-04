@@ -17,19 +17,19 @@ namespace Augustus_Fashion.View
 
         public void dadosDe(FuncionarioModel func)
         {
-            idFuncionario.Text = func.Id.ToString();
+            idFuncionario.Text = func.IdPessoa.ToString();
             nomeFuncionario.Text = func.Nome;
             emailFuncionario.Text = func.Email;
             datanascFuncionario.Text = func.Nascimento.ToString();
             cpfFuncionario.Text = func.Cpf;
-            ruaFuncionario.Text = func.Rua;
-            bairroFuncionario.Text = func.Bairro;
-            cepFuncionario.Text = func.Cep;
-            numeroFuncionario.Text = func.Numero;
+            ruaFuncionario.Text = func.Endereco.Rua;
+            bairroFuncionario.Text = func.Endereco.Bairro;
+            cepFuncionario.Text = func.Endereco.Cep;
+            numeroFuncionario.Text = func.Endereco.Numero;
             celularFuncionario.Text = func.Celular;
-            cidadeFuncionario.Text = func.Cidade;
-            estadoFuncionario.Text = func.Estado;
-            complementoFuncionario.Text = func.Complemento;
+            cidadeFuncionario.Text = func.Endereco.Cidade;
+            estadoFuncionario.Text = func.Endereco.Estado;
+            complementoFuncionario.Text = func.Endereco.Complemento;
             salarioFuncionario.Text = func.Salario;
             comissaoFuncionario.Text = func.Comissao;
             agenciaFuncionario.Text = func.Agencia;
@@ -130,20 +130,20 @@ namespace Augustus_Fashion.View
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-
+            
             if (Validar())
             {
                 _funcionariomodel.Nome = nomeFuncionario.Text;
                 _funcionariomodel.Email = emailFuncionario.Text;
                 _funcionariomodel.Nascimento = Convert.ToDateTime(datanascFuncionario.Text);
                 _funcionariomodel.Cpf = cpfFuncionario.Text;
-                _funcionariomodel.Rua = ruaFuncionario.Text;
-                _funcionariomodel.Bairro = bairroFuncionario.Text;
-                _funcionariomodel.Cep = cepFuncionario.Text;
-                _funcionariomodel.Numero = numeroFuncionario.Text;
-                _funcionariomodel.Cidade = cidadeFuncionario.Text;
-                _funcionariomodel.Estado = estadoFuncionario.Text;
-                _funcionariomodel.Complemento = complementoFuncionario.Text;
+                _funcionariomodel.Endereco.Rua = ruaFuncionario.Text;
+                _funcionariomodel.Endereco.Bairro = bairroFuncionario.Text;
+                _funcionariomodel.Endereco.Cep = cepFuncionario.Text;
+                _funcionariomodel.Endereco.Numero = numeroFuncionario.Text;
+                _funcionariomodel.Endereco.Cidade = cidadeFuncionario.Text;
+                _funcionariomodel.Endereco.Estado = estadoFuncionario.Text;
+                _funcionariomodel.Endereco.Complemento = complementoFuncionario.Text;
                 _funcionariomodel.Celular = celularFuncionario.Text;
                 _funcionariomodel.Salario = salarioFuncionario.Text;
                 _funcionariomodel.Agencia = agenciaFuncionario.Text;

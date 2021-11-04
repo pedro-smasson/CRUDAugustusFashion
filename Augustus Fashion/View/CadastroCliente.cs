@@ -47,13 +47,13 @@ namespace Augustus_Fashion
                 _clientemodel.Email = emailCliente.Text;
                 _clientemodel.Nascimento = Convert.ToDateTime(datanascCliente.Text);
                 _clientemodel.Cpf = cpfCliente.Text;
-                _clientemodel.Rua = ruaCliente.Text;
-                _clientemodel.Bairro = bairroCliente.Text;
-                _clientemodel.Cep = cepCliente.Text;
-                _clientemodel.Numero = numeroCliente.Text;
-                _clientemodel.Cidade = cidadeCliente.Text;
-                _clientemodel.Estado = estadoCliente.Text;
-                _clientemodel.Complemento = complementoCliente.Text;
+                _clientemodel.Endereco.Rua = ruaCliente.Text;
+                _clientemodel.Endereco.Bairro = bairroCliente.Text;
+                _clientemodel.Endereco.Cep = cepCliente.Text;
+                _clientemodel.Endereco.Numero = numeroCliente.Text;
+                _clientemodel.Endereco.Cidade = cidadeCliente.Text;
+                _clientemodel.Endereco.Estado = estadoCliente.Text;
+                _clientemodel.Endereco.Complemento = complementoCliente.Text;
                 _clientemodel.Celular = celularCliente.Text;
                 _clientemodel.Limite = valorLimiteCliente.Text;
 

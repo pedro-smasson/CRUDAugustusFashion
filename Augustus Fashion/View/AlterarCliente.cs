@@ -17,19 +17,19 @@ namespace Augustus_Fashion.View
 
         public void dadosDe(ClienteModel cliente)
         {
-            idCliente.Text = cliente.Id.ToString();
+            idCliente.Text = cliente.IdPessoa.ToString();
             nomeCliente.Text = cliente.Nome;
             emailCliente.Text = cliente.Email;
             datanascCliente.Text = cliente.Nascimento.ToString();
             cpfCliente.Text = cliente.Cpf;
-            ruaCliente.Text = cliente.Rua;
-            bairroCliente.Text = cliente.Bairro;
-            cepCliente.Text = cliente.Cep;
-            numeroCliente.Text = cliente.Numero;
+            ruaCliente.Text = cliente.Endereco.Rua;
+            bairroCliente.Text = cliente.Endereco.Bairro;
+            cepCliente.Text = cliente.Endereco.Cep;
+            numeroCliente.Text = cliente.Endereco.Numero;
             celularCliente.Text = cliente.Celular;
-            cidadeCliente.Text = cliente.Cidade;
-            estadoCliente.Text = cliente.Estado;
-            complementoCliente.Text = cliente.Complemento;
+            cidadeCliente.Text = cliente.Endereco.Cidade;
+            estadoCliente.Text = cliente.Endereco.Estado;
+            complementoCliente.Text = cliente.Endereco.Complemento;
             valorLimiteCliente.Text = cliente.Limite;
 
             if (cliente.Sexo == "M")
@@ -51,13 +51,13 @@ namespace Augustus_Fashion.View
                 _clientemodel.Email = emailCliente.Text;
                 _clientemodel.Nascimento = Convert.ToDateTime(datanascCliente.Text);
                 _clientemodel.Cpf = cpfCliente.Text;
-                _clientemodel.Rua = ruaCliente.Text;
-                _clientemodel.Bairro = bairroCliente.Text;
-                _clientemodel.Cep = cepCliente.Text;
-                _clientemodel.Numero = numeroCliente.Text;
-                _clientemodel.Cidade = cidadeCliente.Text;
-                _clientemodel.Estado = estadoCliente.Text;
-                _clientemodel.Complemento = complementoCliente.Text;
+                _clientemodel.Endereco.Rua = ruaCliente.Text;
+                _clientemodel.Endereco.Bairro = bairroCliente.Text;
+                _clientemodel.Endereco.Cep = cepCliente.Text;
+                _clientemodel.Endereco.Numero = numeroCliente.Text;
+                _clientemodel.Endereco.Cidade = cidadeCliente.Text;
+                _clientemodel.Endereco.Estado = estadoCliente.Text;
+                _clientemodel.Endereco.Complemento = complementoCliente.Text;
                 _clientemodel.Celular = celularCliente.Text;
                 _clientemodel.Limite = valorLimiteCliente.Text;
 
