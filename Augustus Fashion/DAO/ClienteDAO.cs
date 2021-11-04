@@ -9,9 +9,7 @@ namespace Augustus_Fashion.DAO
     public class ClienteDao
     {
         public static void CadastrarCliente(ClienteModel cliente)
-        {
-            
-
+        {          
             var queryPessoa = @"insert into Pessoa output inserted.IdPessoa values(@Nome, @Sexo, @Nascimento, @Celular,
             @Email, @Cpf)";
             var queryCliente = @"insert into Cliente (IdPessoa, Limite) values(@IdPessoa, @Limite)";
@@ -46,12 +44,33 @@ namespace Augustus_Fashion.DAO
 
         public static void AlterarCliente(ClienteModel cliente) 
         {
-            var conexao = new conexao().Connection();
-            var query = @"update cliente set Nome = @Nome, Sexo = @Sexo, Nascimento = @Nascimento,
-            Limite = @Limite, Cep = @Cep, Rua = @Rua, Numero = @Numero, Bairro = @Bairro,
-            Cidade = @Cidade, Estado = @Estado, Complemento = @Complemento, Celular = @Celular,
-            Email = @Email, Cpf = @Cpf where Id = @Id";
-            conexao.Query<ClienteModel>(query, cliente);
+            //var conexao = new conexao().Connection();
+            var queryPessoa = @"update Pessoa set Nome = @Nome, Sexo = @Sexo, Nascimento = @Nascimento,
+            Celular = @Celular, Email = @Email, Cpf = @Cpf where IdPessoa = @IdPessoa";
+            var queryCliente = @"update Cliente set Limite = @Limite where IdPessoa = @IdPessoa";
+            var queryEndereco = @"update Endereco set Cep = @Cep, Rua = @Rua, Numero = @Numero, Bairro = @Bairro,
+            Cidade = @Cidade, Estado = @Estado, Complemento = @Complemento where IdPessoa = @IdPessoa";
+
+            try 
+            {
+                using (var conexao = new conexao().Connection()) 
+                {
+                    conexao.Open();
+                    using (var transacao = conexao.BeginTransaction()) 
+                    {
+                        conexao.Execute(queryPessoa, cliente, transacao);
+                        conexao.Execute(queryCliente, cliente, transacao);
+                        conexao.Execute(queryEndereco, cliente, transacao);
+
+                        transacao.Commit();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            //conexao.Query<ClienteModel>(queryPessoa, cliente);
         }
 
         public static void ExcluirCliente(ClienteModel cliente) 
@@ -63,10 +82,27 @@ namespace Augustus_Fashion.DAO
 
         public static List<ClienteListagem> ListarCliente() 
         {
-            var conexao = new conexao().Connection();
-            var query = @"select Id, Nome, Cidade, Celular, Nascimento from cliente";
-            var resultado = conexao.Query<ClienteListagem>(query);
-            return resultado.ToList(); 
+            
+            var query = @"select c.IdCliente, c.Limite,
+            c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
+            c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
+            Pessoa p inner join Cliente c on p.IdPessoa = c.IdCliente
+            inner join Endereco e on c.IdPessoa = e.IdPessoa";
+
+            try 
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    return conexao.Query<ClienteListagem>(query).ToList();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            //var resultado = conexao.Query<ClienteListagem>(query);
+            //return resultado.ToList(); 
         }
 
         public static ClienteModel Buscar(int id)
