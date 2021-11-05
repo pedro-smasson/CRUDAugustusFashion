@@ -21,7 +21,7 @@ namespace Augustus_Fashion.Model
 
         public override string ToString()
         {
-            return $"Cep: {Cep}, Rua: {Rua}, Número: {Numero}, Bairro: {Bairro}, Cidade: {Cidade}, Estado: {Estado}, Complemento: {Complemento}";
+            return $" Rua: {Rua}, Cep: {Cep}, Número: {Numero}, Bairro: {Bairro}, Cidade: {Cidade}, Estado: {Estado}, Complemento: {Complemento}";
         }
     }
 }

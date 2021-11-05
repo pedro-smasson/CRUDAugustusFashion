@@ -305,7 +305,7 @@ namespace Augustus_Fashion.View
             // cepCliente
             // 
             this.cepCliente.Location = new System.Drawing.Point(72, 121);
-            this.cepCliente.Mask = "00000000";
+            this.cepCliente.Mask = "00,000-000";
             this.cepCliente.Name = "cepCliente";
             this.cepCliente.Size = new System.Drawing.Size(365, 29);
             this.cepCliente.TabIndex = 8;

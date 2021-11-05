@@ -13,6 +13,7 @@ namespace Augustus_Fashion.View
         public ListarCliente()
         {
             InitializeComponent();
+            //_clientecontrol = new ClienteControl();
         }
 
         private void ListarCliente_Load(object sender, EventArgs e)
@@ -95,28 +96,24 @@ namespace Augustus_Fashion.View
 
         public int SelecionarClienteModel()
         {
+            var linha = dgvCliente.Rows;
             int id = Convert.ToInt32(dgvCliente.SelectedRows[0].Cells[0].Value);
             return id;
         }
 
-        //private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    AlterarCliente ac = new AlterarCliente();
-        //    ac.Show();
-        //    var id = SelecionarClienteModel();
-        //    var cliente = _clientecontrol.Buscar(id);           
-        //    ac.dadosDe(cliente);
-        //    ac.Show();
-        //}
-
         private void dgvCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             AlterarCliente ac = new AlterarCliente();
-            ac.Show();
+            //ac.Show();
             var id = SelecionarClienteModel();
             var cliente = _clientecontrol.Buscar(id);
             ac.dadosDe(cliente);
-            ac.Show();
+            ac.ShowDialog();
+        }
+
+        private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

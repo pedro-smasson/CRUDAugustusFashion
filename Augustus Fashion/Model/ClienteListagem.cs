@@ -4,7 +4,7 @@ namespace Augustus_Fashion.Model
 {
     public class ClienteListagem
     {
-        public int Id { get; set; }
+        public int IdPessoa { get; set; }
         public string Nome { get; set; }
         public string Celular { get; set; }
         public DateTime Nascimento { get; set; }

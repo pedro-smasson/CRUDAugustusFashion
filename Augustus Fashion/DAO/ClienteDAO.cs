@@ -60,7 +60,7 @@ namespace Augustus_Fashion.DAO
                     {
                         conexao.Execute(queryPessoa, cliente, transacao);
                         conexao.Execute(queryCliente, cliente, transacao);
-                        conexao.Execute(queryEndereco, cliente, transacao);
+                        conexao.Execute(queryEndereco, cliente.Endereco, transacao);
 
                         transacao.Commit();
                     }
@@ -154,8 +154,12 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection()) 
                 {
                     conexao.Open();
+
+                    //var parametros = new DynamicParameters();
+                    //parametros.Add("IdPessoa", id);
+
                     return conexao.Query(query, (ClienteModel clienteModel, EnderecoModel enderecoModel)
-                    => MapearBusca(clienteModel, enderecoModel), splitOn: "IdPessoa").FirstOrDefault();
+                    => MapearBusca(clienteModel, enderecoModel), splitOn: "IdPessoa", param: new {IdPessoa = id } /*parametros*/).FirstOrDefault();
                 }
             }
             catch(Exception ex) 
@@ -173,13 +177,29 @@ namespace Augustus_Fashion.DAO
 
         public static List<ClienteListagem> BuscarLista(string nome)
         {
-            var conexao = new conexao().Connection();
-            var query = @"select Id, Nome, Cidade, Celular, Nascimento from cliente where Nome like @Nome + '%'";
-            var parametros = new DynamicParameters();
-            parametros.Add("@nome", nome, System.Data.DbType.String);
+            var query = @"select c.IdCliente, c.Limite,
+            c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
+            c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
+            Pessoa p inner join Cliente c on p.IdPessoa = c.IdPessoa
+            inner join Endereco e on c.IdPessoa = e.IdPessoa where p.Nome like @Nome + '%'";
 
-            var resultado = conexao.Query<ClienteListagem>(query, parametros).ToList();
-            return resultado;
+            try 
+            {
+                using (var conexao = new conexao().Connection()) 
+                {
+                    conexao.Open();
+
+                    var parametros = new DynamicParameters();
+                    parametros.Add("Nome", nome, System.Data.DbType.String);
+
+                    var resultado = conexao.Query<ClienteListagem>(query, parametros).ToList();
+                    return resultado;
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }           
         }
     }
 }

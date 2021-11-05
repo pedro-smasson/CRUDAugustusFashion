@@ -165,70 +165,102 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
+        private bool ValidarSexo() 
+        {
+            if(sexoMascCliente.Checked == true) 
+            {
+                return true;
+            }
+            else if(sexoFemCliente.Checked == true) 
+            {
+                return true;
+            }
+            else if(sexOtherCliente.Checked == true) 
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        }
+
         private bool Validar()
         {
 
-            if (string.IsNullOrEmpty(nomeCliente.Text))
+            if (!Testes.ValidarString(nomeCliente.Text))
             {
                 MessageBox.Show("Nome inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(emailCliente.Text))
+
+            else if (!Testes.ValidarEmail(emailCliente.Text))
             {
                 MessageBox.Show("Email inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(datanascCliente.Text))
+
+            else if (!Testes.ValidarDataNasc(datanascCliente.Text))
             {
                 MessageBox.Show("Data de Nascimento inválida");
                 return false;
             }
-            else if (string.IsNullOrEmpty(cpfCliente.Text))
+
+            else if (!Testes.ValidarCpf(cpfCliente.Text))
             {
                 MessageBox.Show("CPF inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(sexoCliente.Text))
+
+            else if (!ValidarSexo())
             {
                 MessageBox.Show("Sexo inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(ruaCliente.Text))
+
+            else if (!Testes.ValidarStringENumeric(ruaCliente.Text))
             {
                 MessageBox.Show("Rua inválida");
                 return false;
             }
-            else if (string.IsNullOrEmpty(bairroCliente.Text))
+
+            else if (!Testes.ValidarString(bairroCliente.Text))
             {
                 MessageBox.Show("Bairro inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(cepCliente.Text))
+
+            else if (!Testes.ValidarCep(cepCliente.Text))
             {
                 MessageBox.Show("CEP inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(numeroCliente.Text))
+
+            else if (!Testes.ValidarNumeric(numeroCliente.Text))
             {
                 MessageBox.Show("Número inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(celularCliente.Text))
+
+            else if (!Testes.ValidarCelular(celularCliente.Text))
             {
                 MessageBox.Show("Celular inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(cidadeCliente.Text))
+
+            else if (!Testes.ValidarString(cidadeCliente.Text))
             {
                 MessageBox.Show("Cidade inválida");
                 return false;
             }
+
             else if (string.IsNullOrEmpty(estadoCliente.Text))
             {
                 MessageBox.Show("Estado inválido");
                 return false;
             }
-            else if (string.IsNullOrEmpty(valorLimiteCliente.Text))
+
+            else if (!Testes.ValidarNumeric(valorLimiteCliente.Text))
             {
                 MessageBox.Show("Valor limite inválido");
                 return false;
