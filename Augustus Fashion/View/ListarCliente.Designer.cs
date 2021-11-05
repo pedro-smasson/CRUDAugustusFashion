@@ -105,7 +105,7 @@ namespace Augustus_Fashion.View
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(609, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -171,6 +171,7 @@ namespace Augustus_Fashion.View
             // 
             // dgvCliente
             // 
+            this.dgvCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCliente.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Location = new System.Drawing.Point(0, 82);
@@ -178,7 +179,7 @@ namespace Augustus_Fashion.View
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(609, 214);
+            this.dgvCliente.Size = new System.Drawing.Size(684, 214);
             this.dgvCliente.TabIndex = 5;
             this.dgvCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellContentClick);
             this.dgvCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellDoubleClick);
@@ -190,7 +191,7 @@ namespace Augustus_Fashion.View
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(609, 296);
+            this.ClientSize = new System.Drawing.Size(684, 296);
             this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.textBox1);

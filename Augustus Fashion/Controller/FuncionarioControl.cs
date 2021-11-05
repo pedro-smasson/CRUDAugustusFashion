@@ -29,12 +29,12 @@ namespace Augustus_Fashion.Controller
 
     
 
-    public void AlterarFuncionario(FuncionarioModel funcModel)
+    public void AlterarFuncionario(FuncionarioModel funcionario)
     {
         try
         {
-            FuncionarioDAO.AlterarFuncionario(funcModel);
-            MessageBox.Show("Cliente Alterado com Sucesso!");
+            FuncionarioDAO.AlterarFuncionario(funcionario);
+            MessageBox.Show("Funcionário Alterado com Sucesso!");
         }
         catch (Exception ex)
         {
@@ -42,7 +42,7 @@ namespace Augustus_Fashion.Controller
         }
     }
 
-    public List<FuncionarioModel> BuscarLista(string nome)
+    public List<FuncionarioListagem> BuscarLista(string nome)
     {
         try
         {

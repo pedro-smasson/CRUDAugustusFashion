@@ -43,19 +43,14 @@ namespace Augustus_Fashion.View
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buscarNome = new System.Windows.Forms.Button();
-            this.dgvFuncionario = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.crudDataSet2 = new Augustus_Fashion.crudDataSet2();
             this.funcionarioTableAdapter = new Augustus_Fashion.crudDataSet2TableAdapters.funcionarioTableAdapter();
+            this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -68,7 +63,7 @@ namespace Augustus_Fashion.View
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(610, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -161,61 +156,6 @@ namespace Augustus_Fashion.View
             this.buscarNome.UseVisualStyleBackColor = true;
             this.buscarNome.Click += new System.EventHandler(this.buscarNome_Click_1);
             // 
-            // dgvFuncionario
-            // 
-            this.dgvFuncionario.AutoGenerateColumns = false;
-            this.dgvFuncionario.BackgroundColor = System.Drawing.Color.LavenderBlush;
-            this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFuncionario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nomeDataGridViewTextBoxColumn,
-            this.cidade,
-            this.celular,
-            this.nascimento});
-            this.dgvFuncionario.DataSource = this.funcionarioBindingSource;
-            this.dgvFuncionario.Location = new System.Drawing.Point(0, 78);
-            this.dgvFuncionario.Name = "dgvFuncionario";
-            this.dgvFuncionario.ReadOnly = true;
-            this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFuncionario.Size = new System.Drawing.Size(603, 218);
-            this.dgvFuncionario.TabIndex = 9;
-            this.dgvFuncionario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cidade
-            // 
-            this.cidade.DataPropertyName = "cidade";
-            this.cidade.HeaderText = "cidade";
-            this.cidade.Name = "cidade";
-            this.cidade.ReadOnly = true;
-            // 
-            // celular
-            // 
-            this.celular.DataPropertyName = "celular";
-            this.celular.HeaderText = "celular";
-            this.celular.Name = "celular";
-            this.celular.ReadOnly = true;
-            // 
-            // nascimento
-            // 
-            this.nascimento.DataPropertyName = "nascimento";
-            this.nascimento.HeaderText = "nascimento";
-            this.nascimento.Name = "nascimento";
-            this.nascimento.ReadOnly = true;
-            // 
             // funcionarioBindingSource
             // 
             this.funcionarioBindingSource.DataMember = "funcionario";
@@ -230,6 +170,19 @@ namespace Augustus_Fashion.View
             // 
             this.funcionarioTableAdapter.ClearBeforeFill = true;
             // 
+            // dgvFuncionario
+            // 
+            this.dgvFuncionario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvFuncionario.BackgroundColor = System.Drawing.Color.LavenderBlush;
+            this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFuncionario.Location = new System.Drawing.Point(0, 82);
+            this.dgvFuncionario.Name = "dgvFuncionario";
+            this.dgvFuncionario.ReadOnly = true;
+            this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFuncionario.Size = new System.Drawing.Size(684, 214);
+            this.dgvFuncionario.TabIndex = 9;
+            this.dgvFuncionario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionario_CellDoubleClick);
+            // 
             // ListarFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,7 +190,7 @@ namespace Augustus_Fashion.View
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(610, 299);
+            this.ClientSize = new System.Drawing.Size(684, 296);
             this.Controls.Add(this.dgvFuncionario);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.textBox1);
@@ -251,9 +204,9 @@ namespace Augustus_Fashion.View
             this.Load += new System.EventHandler(this.ListarFuncionario_Load_1);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,14 +226,9 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buscarNome;
-        private System.Windows.Forms.DataGridView dgvFuncionario;
         private crudDataSet2 crudDataSet2;
         private System.Windows.Forms.BindingSource funcionarioBindingSource;
         private crudDataSet2TableAdapters.funcionarioTableAdapter funcionarioTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn celular;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nascimento;
+        private System.Windows.Forms.DataGridView dgvFuncionario;
     }
 }

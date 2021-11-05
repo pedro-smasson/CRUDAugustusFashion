@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dapper;
+using System;
 
 namespace Augustus_Fashion.DAO
 {
@@ -9,58 +10,186 @@ namespace Augustus_Fashion.DAO
     {
         public static void CadastrarFuncionario(FuncionarioModel funcionario)
         {
-            var conexao = new conexao().Connection();
-            var query = @"insert into funcionario values(@Nome, @Sexo, @Nascimento, @Salario, @Comissao,
-            @Cep, @Rua, @Numero, @Bairro, @Cidade, @Estado, @Complemento, @Celular,
-            @Email, @Cpf, @Agencia, @NumConta, @CodConta)";
-            conexao.Query<FuncionarioModel>(query, funcionario);
+            var queryPessoa = @"insert into Pessoa output inserted.IdPessoa values(@Nome, @Sexo, @Nascimento, @Celular,
+            @Email, @Cpf)";
+            var queryfuncionario = @"insert into Funcionario (IdPessoa, Salario, Comissao, Agencia, NumConta, CodConta)
+            values(@IdPessoa, @Salario, @Comissao, @Agencia, @NumConta, @CodConta)";
+            var queryEndereco = @"insert into Endereco (IdPessoa, Cep, Rua, Numero, Bairro, Cidade, Estado, Complemento)
+            values(@IdPessoa, @Cep, @Rua, @Numero, @Bairro, @Cidade, @Estado, @Complemento)";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    using (var transacao = conexao.BeginTransaction())
+
+                    {
+                        int id = conexao.ExecuteScalar<int>(queryPessoa, funcionario, transacao);
+                        funcionario.IdPessoa = id;
+                        funcionario.Endereco.IdPessoa = id;
+
+                        conexao.Execute(queryfuncionario, funcionario, transacao);
+                        conexao.Execute(queryEndereco, funcionario.Endereco, transacao);
+
+                        transacao.Commit();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public static FuncionarioModel Buscar(int id) 
+        private static FuncionarioModel MapearBusca(FuncionarioModel funcionarioModel, EnderecoModel enderecoModel)
         {
-            var conexao = new conexao().Connection();
-            var query = @"select * from funcionario where Id = @Id";
-            var parametros = new DynamicParameters();
-            parametros.Add("@Id", id, System.Data.DbType.Int32);
+            funcionarioModel.Endereco = enderecoModel;
+            return funcionarioModel;
+        }
 
-            var resultado = conexao.QueryFirstOrDefault<FuncionarioModel>(query, parametros);
-            return resultado;
+        public static FuncionarioModel Buscar(int id)
+        {
+            var query = @"select f.IdFuncionario, f.Salario, f.Comissao, f.Agencia, f.NumConta, f.CodConta,
+            f.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
+            f.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
+            Pessoa p inner join Funcionario f on p.IdPessoa = f.IdPessoa
+            inner join Endereco e on f.IdPessoa = e.IdPessoa where f.IdPessoa = @IdPessoa";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+
+                    var parametros = new DynamicParameters();
+                    parametros.Add("IdPessoa", id);
+
+                    return conexao.Query(query, (FuncionarioModel funcionarioModel, EnderecoModel enderecoModel)
+                    => MapearBusca(funcionarioModel, enderecoModel), splitOn: "IdPessoa", param: parametros).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public static void AlterarFuncionario(FuncionarioModel funcionario)
         {
-            var conexao = new conexao().Connection();
-            var query = @"update funcionario set Nome = @Nome, Sexo = @Sexo, Nascimento = @Nascimento,
-            Salario = @Salario, Comissao = @Comissao, Cep = @Cep, Rua = @Rua, Numero = @Numero, Bairro = @Bairro,
-            Cidade = @Cidade, Estado = @Estado, Complemento = @Complemento, Celular = @Celular,
-            Email = @Email, Cpf = @Cpf, Agencia = @Agencia, NumConta = @NumConta, CodConta = @CodConta where Id = @Id";
-            conexao.Query<FuncionarioModel>(query, funcionario);
+            var queryPessoa = @"update Pessoa set Nome = @Nome, Sexo = @Sexo, Nascimento = @Nascimento,
+            Celular = @Celular, Email = @Email, Cpf = @Cpf where IdPessoa = @IdPessoa";
+            var queryFuncionario = @"update Funcionario set Salario = @Salario, Comissao = @Comissao, Agencia = @Agencia,
+            NumConta = @NumConta, CodConta = @CodConta where IdPessoa = @IdPessoa";
+            var queryEndereco = @"update Endereco set Cep = @Cep, Rua = @Rua, Numero = @Numero, Bairro = @Bairro,
+            Cidade = @Cidade, Estado = @Estado, Complemento = @Complemento where IdPessoa = @IdPessoa";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    using (var transacao = conexao.BeginTransaction())
+                    {
+                        conexao.Execute(queryPessoa, funcionario, transacao);
+                        conexao.Execute(queryFuncionario, funcionario, transacao);
+                        conexao.Execute(queryEndereco, funcionario.Endereco, transacao);
+
+                        transacao.Commit();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public static List<FuncionarioModel> BuscarLista(string nome)
+        public static List<FuncionarioListagem> BuscarLista(string nome)
         {
-            var conexao = new conexao().Connection();
-            var query = @"select * from funcionario where Nome like @Nome + '%'";
-            var parametros = new DynamicParameters();
-            parametros.Add("@nome", nome, System.Data.DbType.String);
+            var query = @"select f.IdFuncionario, f.Comissao, f.Agencia, f.NumConta, f.CodConta,
+            f.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
+            f.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
+            Pessoa p inner join Funcionario f on p.IdPessoa = f.IdPessoa
+            inner join Endereco e on f.IdPessoa = e.IdPessoa where p.Nome like @Nome + '%'";
 
-            var resultado = conexao.Query<FuncionarioModel>(query, parametros).ToList();
-            return resultado;
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+
+                    var parametros = new DynamicParameters();
+                    parametros.Add("Nome", nome, System.Data.DbType.String);
+
+                    var resultado = conexao.Query<FuncionarioListagem>(query, parametros).ToList();
+                    return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public static void ExcluirFuncionario(FuncionarioModel func)
+        public static void ExcluirFuncionario(FuncionarioModel funcionario)
         {
-            var conexao = new conexao().Connection();
-            var query = @"delete from funcionario where Id = @Id";
-            conexao.Query<ClienteModel>(query, func);
+
+            var queryEndereco = @"delete from Endereco where IdPessoa = @IdPessoa";
+            var queryFuncionario = @"delete from Funcionario where IdPessoa = @IdPessoa";
+            var queryPessoa = @"delete from Pessoa where IdPessoa = @IdPessoa";
+
+            try
+            {
+                var conexao = new conexao().Connection();
+                {
+                    conexao.Open();
+                    using (var transacao = conexao.BeginTransaction())
+                    {
+                        conexao.Execute(queryEndereco, new { IdPessoa = funcionario.IdPessoa }, transacao);
+                        conexao.Execute(queryFuncionario, new { IdPessoa = funcionario.IdPessoa }, transacao);
+                        conexao.Execute(queryPessoa, new { IdPessoa = funcionario.IdPessoa }, transacao);
+
+                        transacao.Commit();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            //conexao.Query<ClienteModel>(queryEndereco, cliente);
+        }
+
+        private static FuncionarioListagem Mapear(FuncionarioListagem funcionarioListagem, EnderecoModel enderecoModel)
+        {
+            funcionarioListagem.Endereco = enderecoModel;
+            return funcionarioListagem;
         }
 
         public static List<FuncionarioListagem> ListarFuncionario()
         {
-            var conexao = new conexao().Connection();
-            var query = @"select Id, Nome, Cidade, Celular, Nascimento from funcionario";
-            var resultado = conexao.Query<FuncionarioListagem>(query);
-            return resultado.ToList();
+
+            var query = @"select f.IdFuncionario, f.Comissao, f.Agencia, f.NumConta, f.CodConta,
+            f.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
+            f.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
+            Pessoa p inner join Funcionario f on f.IdPessoa = p.IdPessoa
+            inner join Endereco e on f.IdPessoa = e.IdPessoa";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    return conexao.Query(query, (FuncionarioListagem funcionarioListagem, EnderecoModel enderecoModel)
+                    => Mapear(funcionarioListagem, enderecoModel), splitOn: "IdPessoa").ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

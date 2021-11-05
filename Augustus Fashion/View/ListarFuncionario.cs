@@ -99,20 +99,19 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            AlterarFuncionario af = new AlterarFuncionario();
-            af.Show();
-            var id = SelecionarFuncModel();
-            var cliente = _funccontrol.Buscar(id);
-            af.dadosDe(cliente);
-            af.Show();
-        }
-
         public int SelecionarFuncModel()
         {
             int id = Convert.ToInt32(dgvFuncionario.SelectedRows[0].Cells[0].Value);
             return id;
+        }
+
+        private void dgvFuncionario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AlterarFuncionario af = new AlterarFuncionario();
+            var id = SelecionarFuncModel();
+            var cliente = _funccontrol.Buscar(id);
+            af.dadosDe(cliente);
+            af.Show();
         }
     }
 }
