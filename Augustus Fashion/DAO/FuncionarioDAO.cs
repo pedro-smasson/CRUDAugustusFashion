@@ -25,7 +25,16 @@ namespace Augustus_Fashion.DAO
                     using (var transacao = conexao.BeginTransaction())
 
                     {
-                        int id = conexao.ExecuteScalar<int>(queryPessoa, funcionario, transacao);
+                        int id = conexao.ExecuteScalar<int>(queryPessoa, new 
+                        {
+                            Nome = funcionario.Nome,
+                            Sexo = funcionario.Sexo,
+                            Nascimento = funcionario.Nascimento,
+                            Celular = funcionario.Celular,
+                            Email = funcionario.Email,
+                            Cpf = funcionario.Cpf.LimparCpfFormatado(),
+                        }, transacao);
+
                         funcionario.IdPessoa = id;
                         funcionario.Endereco.IdPessoa = id;
 
@@ -91,7 +100,17 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
-                        conexao.Execute(queryPessoa, funcionario, transacao);
+                        conexao.Execute(queryPessoa, new 
+                        {
+                            Nome = funcionario.Nome,
+                            Sexo = funcionario.Sexo,
+                            Nascimento = funcionario.Nascimento,
+                            Celular = funcionario.Celular,
+                            Email = funcionario.Email,
+                            Cpf = funcionario.Cpf.LimparCpfFormatado(),
+                            IdPessoa = funcionario.IdPessoa,
+                        }, transacao);
+
                         conexao.Execute(queryFuncionario, funcionario, transacao);
                         conexao.Execute(queryEndereco, funcionario.Endereco, transacao);
 

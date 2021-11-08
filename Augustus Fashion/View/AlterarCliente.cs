@@ -21,7 +21,7 @@ namespace Augustus_Fashion.View
             nomeCliente.Text = cliente.Nome;
             emailCliente.Text = cliente.Email;
             datanascCliente.Text = cliente.Nascimento.ToString();
-            cpfCliente.Text = cliente.Cpf;
+            cpfCliente.Text = cliente.Cpf.ToString();
             ruaCliente.Text = cliente.Endereco.Rua;
             bairroCliente.Text = cliente.Endereco.Bairro;
             cepCliente.Text = cliente.Endereco.Cep;

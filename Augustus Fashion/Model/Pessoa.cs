@@ -1,4 +1,5 @@
 ﻿using System;
+using Augustus_Fashion.ValueObjects;
 
 namespace Augustus_Fashion.Model
 {
@@ -11,7 +12,7 @@ namespace Augustus_Fashion.Model
 
         public string Celular { get; set; }
         public string Email { get; set; }
-        public string Cpf { get; set; }
+        public CPF Cpf { get; set; }
         public int IdPessoa { get; set; }
         public string Nome { get; set; }
         public string Sexo { get; set; }

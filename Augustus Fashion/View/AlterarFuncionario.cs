@@ -21,7 +21,7 @@ namespace Augustus_Fashion.View
             nomeFuncionario.Text = func.Nome;
             emailFuncionario.Text = func.Email;
             datanascFuncionario.Text = func.Nascimento.ToString();
-            cpfFuncionario.Text = func.Cpf;
+            cpfFuncionario.Text = func.Cpf.ToString();
             ruaFuncionario.Text = func.Endereco.Rua;
             bairroFuncionario.Text = func.Endereco.Bairro;
             cepFuncionario.Text = func.Endereco.Cep;
