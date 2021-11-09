@@ -169,7 +169,7 @@ namespace Augustus_Fashion.View
             this.btnLimpar.Location = new System.Drawing.Point(412, 532);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(150, 50);
-            this.btnLimpar.TabIndex = 20;
+            this.btnLimpar.TabIndex = 26;
             this.btnLimpar.Text = "LIMPAR";
             this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -181,7 +181,7 @@ namespace Augustus_Fashion.View
             this.btnSalvar.Location = new System.Drawing.Point(232, 532);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(150, 50);
-            this.btnSalvar.TabIndex = 19;
+            this.btnSalvar.TabIndex = 25;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);

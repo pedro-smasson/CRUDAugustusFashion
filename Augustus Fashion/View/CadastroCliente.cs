@@ -1,7 +1,9 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.FluentValidation;
 using Augustus_Fashion.Model;
 using Augustus_Fashion.View;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion
@@ -88,6 +90,8 @@ namespace Augustus_Fashion
 
         private bool Validar()
         {
+            CPFValidation cv = new CPFValidation();
+            var validarCpf = cv.Validate(cpfCliente.Text);
 
             if (!Testes.ValidarString(nomeCliente.Text))
             {
@@ -106,10 +110,10 @@ namespace Augustus_Fashion
                 MessageBox.Show("Data de Nascimento inválida");
                 return false;
             }
-
-            else if (!Testes.ValidarCpf(cpfCliente.Text))
+            
+            else if (!validarCpf.IsValid)
             {
-                MessageBox.Show("CPF inválido");
+                MessageBox.Show(validarCpf.Errors.FirstOrDefault().ToString());
                 return false;
             }
 

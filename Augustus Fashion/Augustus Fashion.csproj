@@ -36,6 +36,9 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.10.3.4\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -74,6 +77,7 @@
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\conexao.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
+    <Compile Include="FluentValidation\CPFValidation.cs" />
     <Compile Include="Model\ClienteListagem.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\EnderecoModel.cs" />
