@@ -1,14 +1,27 @@
-﻿using System;
-using Augustus_Fashion.ValueObjects;
+﻿using Augustus_Fashion.ValueObjects;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Augustus_Fashion.Model
 {
     public class EnderecoModel
     {
+
+        List<string> _mensagens;
+        //public EnderecoModel(string cep, string rua, string numero, string cidade, string estado, string complemento, string bairro)
+        //{
+        //    Cep = cep;
+        //    Rua = rua;
+        //    Numero = numero;
+        //    Cidade = cidade;
+        //    Estado = estado;
+        //    Complemento = complemento;
+        //    Bairro = bairro;
+        //}
+        public EnderecoModel()
+        {
+            _mensagens = new List<string>();
+        }
+
         public int IdPessoa { get; set; }
         public int IdEndereco { get; set; }
         public CEP Cep { get; set; }
@@ -22,7 +35,7 @@ namespace Augustus_Fashion.Model
 
         public override string ToString()
         {
-            return $" Rua: {Rua}, Cep: {Cep.ToString()}, Número: {Numero}, Bairro: {Bairro}, Cidade: {Cidade}, Estado: {Estado}, Complemento: {Complemento}";
+            return $" Rua: {Rua}, Cep: {Cep}, Número: {Numero}, Bairro: {Bairro}, Cidade: {Cidade}, Estado: {Estado}, Complemento: {Complemento}";
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Augustus_Fashion.FluentValidation;
+using FluentValidation.Results;
+using System;
 using System.Linq;
 
 namespace Augustus_Fashion.ValueObjects
@@ -14,8 +16,13 @@ namespace Augustus_Fashion.ValueObjects
 
         public string CepFormatado
         {
-            get => Convert.ToInt32(_cep).ToString(@"00000-000");
+            get => Convert.ToInt32(_cep).ToString(@"00.000-000");
         }
+
+        //public ValidationResult Validar()
+        //{
+        //    return new CEPValidation().Validate(this);
+        //}
 
         public string LimparCepFormatado() 
         {

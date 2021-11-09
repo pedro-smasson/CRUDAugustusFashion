@@ -66,7 +66,25 @@ namespace Augustus_Fashion
                 else if (sexOtherCliente.Checked == true)
                     _clientemodel.Sexo = "O";
 
-                _clientecontrol.CadastrarCliente(_clientemodel);
+               
+
+                try 
+                {
+                    var retornar = new ClienteControl().CadastrarCliente(_clientemodel);
+                    if(retornar == string.Empty) 
+                    {
+                        _clientecontrol.CadastrarCliente(_clientemodel);
+                        MessageBox.Show("Cliente Cadastrado com Sucesso!");
+                    }
+                    else 
+                    {
+                        MessageBox.Show(retornar);
+                    }
+                }
+                catch(Exception ex) 
+                {
+                    MessageBox.Show("Falha no Cadastro!" + ex.Message);
+                }
 
                 nomeCliente.Text = "";
                 emailCliente.Text = "";

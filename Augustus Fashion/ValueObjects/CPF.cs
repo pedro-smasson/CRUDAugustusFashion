@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Augustus_Fashion.FluentValidation;
+using FluentValidation.Results;
+using System;
 using System.Linq;
 
 namespace Augustus_Fashion.ValueObjects
@@ -15,6 +17,11 @@ namespace Augustus_Fashion.ValueObjects
         public string CpfFormatado
         {
             get => Convert.ToInt32(_cpf).ToString(@"000.000.000-00");
+        }
+
+        public ValidationResult Validar()
+        {
+            return new CPFValidation().Validate(this);
         }
 
         public string LimparCpfFormatado()

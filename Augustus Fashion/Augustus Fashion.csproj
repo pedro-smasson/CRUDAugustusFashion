@@ -78,7 +78,10 @@
     <Compile Include="DAO\conexao.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="FluentValidation\CEPValidation.cs" />
+    <Compile Include="FluentValidation\ClienteValidation.cs" />
     <Compile Include="FluentValidation\CPFValidation.cs" />
+    <Compile Include="FluentValidation\EnderecoValidation.cs" />
+    <Compile Include="FluentValidation\PessoaValidation.cs" />
     <Compile Include="Model\ClienteListagem.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\EnderecoModel.cs" />

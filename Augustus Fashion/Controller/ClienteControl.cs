@@ -17,17 +17,21 @@ namespace Augustus_Fashion.Controller
         //    new AlterarCliente(this, clienteModelSelecionado, clienteControl).Show();
         //}
 
-        public void CadastrarCliente(ClienteModel clienteModel)
+        public /*???*/string CadastrarCliente(ClienteModel clienteModel)
         {
             try
             {
-                    ClienteDao.CadastrarCliente(clienteModel);
-                    MessageBox.Show("Cliente Cadastrado com Sucesso!");
+                var retornar = clienteModel.ValidarCliente();
 
+                if(retornar == string.Empty) 
+                {
+                    ClienteDao.CadastrarCliente(clienteModel);
+                }
+                return retornar;   
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception(ex.Message);
             }
         }
 
