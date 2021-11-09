@@ -35,12 +35,17 @@ namespace Augustus_Fashion.Controller
             }
         }
 
-        public void AlterarCliente(ClienteModel clienteModel)
+        public string AlterarCliente(ClienteModel clienteModel)
         {
             try
             {
+                var retornar = clienteModel.ValidarCliente();
+
+                if(retornar == string.Empty) 
+                {
                     ClienteDao.AlterarCliente(clienteModel);
-                    MessageBox.Show("Cliente Alterado com Sucesso!");
+                }
+                return retornar;   
             }
             catch (Exception ex)
             {

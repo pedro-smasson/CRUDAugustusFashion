@@ -13,6 +13,7 @@ namespace Augustus_Fashion.FluentValidation
         public ClienteValidation() 
         {
             RuleFor(x => x).SetValidator(new PessoaValidation());
+            RuleFor(x => x).SetValidator(new LimiteValidation());
         }
     }
 }

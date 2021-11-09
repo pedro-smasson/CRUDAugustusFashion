@@ -67,14 +67,30 @@ namespace Augustus_Fashion
                     _clientemodel.Sexo = "O";
 
                
-
                 try 
                 {
                     var retornar = new ClienteControl().CadastrarCliente(_clientemodel);
                     if(retornar == string.Empty) 
                     {
-                        _clientecontrol.CadastrarCliente(_clientemodel);
+                        //_clientecontrol.CadastrarCliente(_clientemodel);
                         MessageBox.Show("Cliente Cadastrado com Sucesso!");
+
+                        nomeCliente.Text = "";
+                        emailCliente.Text = "";
+                        datanascCliente.Text = "";
+                        cpfCliente.Text = "";
+                        ruaCliente.Text = "";
+                        bairroCliente.Text = "";
+                        cepCliente.Text = "";
+                        numeroCliente.Text = "";
+                        celularCliente.Text = "";
+                        cidadeCliente.Text = "";
+                        estadoCliente.Text = "";
+                        complementoCliente.Text = "";
+                        valorLimiteCliente.Text = "";
+                        sexoMascCliente.Checked = false;
+                        sexoFemCliente.Checked = false;
+                        sexOtherCliente.Checked = false;
                     }
                     else 
                     {
@@ -85,35 +101,13 @@ namespace Augustus_Fashion
                 {
                     MessageBox.Show("Falha no Cadastro!" + ex.Message);
                 }
-
-                nomeCliente.Text = "";
-                emailCliente.Text = "";
-                datanascCliente.Text = "";
-                cpfCliente.Text = "";
-                ruaCliente.Text = "";
-                bairroCliente.Text = "";
-                cepCliente.Text = "";
-                numeroCliente.Text = "";
-                celularCliente.Text = "";
-                cidadeCliente.Text = "";
-                estadoCliente.Text = "";
-                complementoCliente.Text = "";
-                valorLimiteCliente.Text = "";
-                sexoMascCliente.Checked = false;
-                sexoFemCliente.Checked = false;
-                sexOtherCliente.Checked = false;
             }
             
         }
 
         private bool Validar()
         {
-            CPFValidation cpfV = new CPFValidation();
-            var validarCpf = cpfV.Validate(cpfCliente.Text);
-
-            CEPValidation cepV = new CEPValidation();
-            var validarCep = cepV.Validate(cepCliente.Text);
-
+            
             if (!Testes.ValidarString(nomeCliente.Text))
             {
                 MessageBox.Show("Nome inválido");
@@ -132,9 +126,10 @@ namespace Augustus_Fashion
                 return false;
             }
             
-            else if (!validarCpf.IsValid)
+            else if (!Testes.ValidarCpf(cpfCliente.Text))
             {
-                MessageBox.Show(validarCpf.Errors.FirstOrDefault().ToString());
+                //MessageBox.Show(validarCpf.Errors.FirstOrDefault().ToString());
+                MessageBox.Show("CPF inválido");
                 return false;
             }
 
@@ -156,9 +151,10 @@ namespace Augustus_Fashion
                 return false;
             }
 
-            else if (!validarCep.IsValid)
+            else if (!Testes.ValidarCep(cepCliente.Text))
             {
-                MessageBox.Show(validarCep.Errors.FirstOrDefault().ToString());
+                //MessageBox.Show(validarCep.Errors.FirstOrDefault().ToString());
+                MessageBox.Show("CEP inválido");
                 return false;
             }
 

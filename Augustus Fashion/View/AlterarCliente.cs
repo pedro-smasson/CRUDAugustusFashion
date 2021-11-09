@@ -68,17 +68,28 @@ namespace Augustus_Fashion.View
                 else if (sexOtherCliente.Checked == true)
                     _clientemodel.Sexo = "O";
 
-                _clientecontrol.AlterarCliente(_clientemodel);
+                try 
+                {
+                    var retornar = new ClienteControl().AlterarCliente(_clientemodel);
+                    if (retornar == string.Empty)
+                    {
+                        //_clientecontrol.AlterarCliente(_clientemodel);
+                        MessageBox.Show("Cliente Alterado com Sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show(retornar);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Falha na Alteração!" + ex.Message);
+                }
 
                 Hide();
                 ListarCliente lc = new ListarCliente();
                 lc.ShowDialog();
                 this.Close();
-            }
-
-            else 
-            {
-                MessageBox.Show("Corrija os Campos Incorretos!");
             }
             
         }

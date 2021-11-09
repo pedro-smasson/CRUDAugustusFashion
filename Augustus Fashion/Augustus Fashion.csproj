@@ -81,6 +81,7 @@
     <Compile Include="FluentValidation\ClienteValidation.cs" />
     <Compile Include="FluentValidation\CPFValidation.cs" />
     <Compile Include="FluentValidation\EnderecoValidation.cs" />
+    <Compile Include="FluentValidation\LimiteValidation.cs" />
     <Compile Include="FluentValidation\PessoaValidation.cs" />
     <Compile Include="Model\ClienteListagem.cs" />
     <Compile Include="Model\ClienteModel.cs" />
