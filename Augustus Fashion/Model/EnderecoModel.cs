@@ -1,4 +1,5 @@
 ﻿using System;
+using Augustus_Fashion.ValueObjects;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Augustus_Fashion.Model
     {
         public int IdPessoa { get; set; }
         public int IdEndereco { get; set; }
-        public string Cep { get; set; }
+        public CEP Cep { get; set; }
         public string Rua { get; set; }
         public string Numero { get; set; }
         public string Bairro { get; set; }
@@ -21,7 +22,7 @@ namespace Augustus_Fashion.Model
 
         public override string ToString()
         {
-            return $" Rua: {Rua}, Cep: {Cep}, Número: {Numero}, Bairro: {Bairro}, Cidade: {Cidade}, Estado: {Estado}, Complemento: {Complemento}";
+            return $" Rua: {Rua}, Cep: {Cep.ToString()}, Número: {Numero}, Bairro: {Bairro}, Cidade: {Cidade}, Estado: {Estado}, Complemento: {Complemento}";
         }
     }
 }

@@ -38,7 +38,18 @@ namespace Augustus_Fashion.DAO
                     cliente.Endereco.IdPessoa = id;
 
                     conexao.Execute(queryCliente, cliente, transacao);
-                    conexao.Execute(queryEndereco, cliente.Endereco, transacao);
+                    conexao.Execute(queryEndereco, new 
+                    {
+                        IdPessoa = cliente.IdPessoa,
+                        IdEndereco = cliente.Endereco.IdEndereco,
+                        Cep = cliente.Endereco.Cep.LimparCepFormatado(),
+                        Rua = cliente.Endereco.Rua,
+                        Numero = cliente.Endereco.Numero,
+                        Bairro = cliente.Endereco.Bairro,
+                        Cidade = cliente.Endereco.Cidade,
+                        Estado = cliente.Endereco.Estado,
+                        Complemento = cliente.Endereco.Complemento,
+                    }, transacao);
 
                     transacao.Commit();
                 }
@@ -79,7 +90,18 @@ namespace Augustus_Fashion.DAO
                         }, transacao);
 
                         conexao.Execute(queryCliente, cliente, transacao);
-                        conexao.Execute(queryEndereco, cliente.Endereco, transacao);
+                        conexao.Execute(queryEndereco, new 
+                        {
+                            IdPessoa = cliente.IdPessoa,
+                            IdEndereco = cliente.Endereco.IdEndereco,
+                            Cep = cliente.Endereco.Cep.LimparCepFormatado(),
+                            Rua = cliente.Endereco.Rua,
+                            Numero = cliente.Endereco.Numero,
+                            Bairro = cliente.Endereco.Bairro,
+                            Cidade = cliente.Endereco.Cidade,
+                            Estado = cliente.Endereco.Estado,
+                            Complemento = cliente.Endereco.Complemento,
+                        }, transacao);
 
                         transacao.Commit();
                     }

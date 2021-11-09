@@ -39,7 +39,18 @@ namespace Augustus_Fashion.DAO
                         funcionario.Endereco.IdPessoa = id;
 
                         conexao.Execute(queryfuncionario, funcionario, transacao);
-                        conexao.Execute(queryEndereco, funcionario.Endereco, transacao);
+                        conexao.Execute(queryEndereco, new
+                        {
+                            IdPessoa = funcionario.IdPessoa,
+                            IdEndereco = funcionario.Endereco.IdEndereco,
+                            Cep = funcionario.Endereco.Cep.LimparCepFormatado(),
+                            Rua = funcionario.Endereco.Rua,
+                            Numero = funcionario.Endereco.Numero,
+                            Bairro = funcionario.Endereco.Bairro,
+                            Cidade = funcionario.Endereco.Cidade,
+                            Estado = funcionario.Endereco.Estado,
+                            Complemento = funcionario.Endereco.Complemento,
+                        }, transacao);
 
                         transacao.Commit();
                     }
@@ -112,7 +123,18 @@ namespace Augustus_Fashion.DAO
                         }, transacao);
 
                         conexao.Execute(queryFuncionario, funcionario, transacao);
-                        conexao.Execute(queryEndereco, funcionario.Endereco, transacao);
+                        conexao.Execute(queryEndereco, new 
+                        {
+                            IdPessoa = funcionario.IdPessoa,
+                            IdEndereco = funcionario.Endereco.IdEndereco,
+                            Cep = funcionario.Endereco.Cep.LimparCepFormatado(),
+                            Rua = funcionario.Endereco.Rua,
+                            Numero = funcionario.Endereco.Numero,
+                            Bairro = funcionario.Endereco.Bairro,
+                            Cidade = funcionario.Endereco.Cidade,
+                            Estado = funcionario.Endereco.Estado,
+                            Complemento = funcionario.Endereco.Complemento,
+                        }, transacao);
 
                         transacao.Commit();
                     }

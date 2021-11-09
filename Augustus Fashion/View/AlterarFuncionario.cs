@@ -24,7 +24,7 @@ namespace Augustus_Fashion.View
             cpfFuncionario.Text = func.Cpf.ToString();
             ruaFuncionario.Text = func.Endereco.Rua;
             bairroFuncionario.Text = func.Endereco.Bairro;
-            cepFuncionario.Text = func.Endereco.Cep;
+            cepFuncionario.Text = func.Endereco.Cep.ToString();
             numeroFuncionario.Text = func.Endereco.Numero;
             celularFuncionario.Text = func.Celular;
             cidadeFuncionario.Text = func.Endereco.Cidade;

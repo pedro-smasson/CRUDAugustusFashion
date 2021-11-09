@@ -77,6 +77,7 @@
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\conexao.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
+    <Compile Include="FluentValidation\CEPValidation.cs" />
     <Compile Include="FluentValidation\CPFValidation.cs" />
     <Compile Include="Model\ClienteListagem.cs" />
     <Compile Include="Model\ClienteModel.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Model\FuncionarioModel.cs" />
     <Compile Include="Model\Pessoa.cs" />
     <Compile Include="Model\Testes.cs" />
+    <Compile Include="ValueObjects\CEP.cs" />
     <Compile Include="ValueObjects\CPF.cs" />
     <Compile Include="View\AlterarCliente.cs">
       <SubType>Form</SubType>

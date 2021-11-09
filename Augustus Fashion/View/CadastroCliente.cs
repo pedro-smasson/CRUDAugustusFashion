@@ -90,8 +90,11 @@ namespace Augustus_Fashion
 
         private bool Validar()
         {
-            CPFValidation cv = new CPFValidation();
-            var validarCpf = cv.Validate(cpfCliente.Text);
+            CPFValidation cpfV = new CPFValidation();
+            var validarCpf = cpfV.Validate(cpfCliente.Text);
+
+            CEPValidation cepV = new CEPValidation();
+            var validarCep = cepV.Validate(cepCliente.Text);
 
             if (!Testes.ValidarString(nomeCliente.Text))
             {
@@ -135,9 +138,9 @@ namespace Augustus_Fashion
                 return false;
             }
 
-            else if (!Testes.ValidarCep(cepCliente.Text))
+            else if (!validarCep.IsValid)
             {
-                MessageBox.Show("CEP inválido");
+                MessageBox.Show(validarCep.Errors.FirstOrDefault().ToString());
                 return false;
             }
 
