@@ -38,21 +38,21 @@ namespace Augustus_Fashion.View
             this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eSTOQUEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pbFuncionario = new System.Windows.Forms.PictureBox();
+            this.pbProduto = new System.Windows.Forms.PictureBox();
+            this.pbCliente = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFuncionario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -61,12 +61,14 @@ namespace Augustus_Fashion.View
             this.hOMEToolStripMenuItem,
             this.cADASTROToolStripMenuItem,
             this.cONSULTAToolStripMenuItem,
+            this.pRODUTOSToolStripMenuItem,
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(361, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(485, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // hOMEToolStripMenuItem
             // 
@@ -121,6 +123,29 @@ namespace Augustus_Fashion.View
             this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
             this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
             // 
+            // pRODUTOSToolStripMenuItem
+            // 
+            this.pRODUTOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cAToolStripMenuItem,
+            this.eSTOQUEToolStripMenuItem});
+            this.pRODUTOSToolStripMenuItem.Name = "pRODUTOSToolStripMenuItem";
+            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.pRODUTOSToolStripMenuItem.Text = "PRODUTOS";
+            // 
+            // cAToolStripMenuItem
+            // 
+            this.cAToolStripMenuItem.Name = "cAToolStripMenuItem";
+            this.cAToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.cAToolStripMenuItem.Text = "CADASTRO";
+            this.cAToolStripMenuItem.Click += new System.EventHandler(this.cAToolStripMenuItem_Click);
+            // 
+            // eSTOQUEToolStripMenuItem
+            // 
+            this.eSTOQUEToolStripMenuItem.Name = "eSTOQUEToolStripMenuItem";
+            this.eSTOQUEToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.eSTOQUEToolStripMenuItem.Text = "LISTAGEM";
+            this.eSTOQUEToolStripMenuItem.Click += new System.EventHandler(this.eSTOQUEToolStripMenuItem_Click);
+            // 
             // FecharToolStripMenuItem
             // 
             this.FecharToolStripMenuItem.Name = "FecharToolStripMenuItem";
@@ -128,100 +153,79 @@ namespace Augustus_Fashion.View
             this.FecharToolStripMenuItem.Text = "FECHAR";
             this.FecharToolStripMenuItem.Click += new System.EventHandler(this.FecharToolStripMenuItem_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(20, 92);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(198, 92);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(20, 272);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox5.TabIndex = 6;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(198, 272);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox6.TabIndex = 7;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(17, 223);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 20);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Cadastrar Cliente";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(211, 223);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 20);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Listar Cliente";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(7, 403);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(166, 20);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Cadastrar Funcionário";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(195, 403);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 20);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Listar Funcionário";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cambria", 28F);
             this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(12, 36);
+            this.label9.Location = new System.Drawing.Point(79, 36);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(314, 44);
             this.label9.TabIndex = 18;
             this.label9.Text = "Augustu\'s Fashion";
+            // 
+            // pbFuncionario
+            // 
+            this.pbFuncionario.Image = global::Augustus_Fashion.Properties.Resources.funcionario;
+            this.pbFuncionario.Location = new System.Drawing.Point(345, 102);
+            this.pbFuncionario.Name = "pbFuncionario";
+            this.pbFuncionario.Size = new System.Drawing.Size(128, 128);
+            this.pbFuncionario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbFuncionario.TabIndex = 21;
+            this.pbFuncionario.TabStop = false;
+            this.pbFuncionario.Click += new System.EventHandler(this.pbFuncionario_Click);
+            // 
+            // pbProduto
+            // 
+            this.pbProduto.Image = global::Augustus_Fashion.Properties.Resources.produto;
+            this.pbProduto.Location = new System.Drawing.Point(175, 102);
+            this.pbProduto.Name = "pbProduto";
+            this.pbProduto.Size = new System.Drawing.Size(128, 128);
+            this.pbProduto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbProduto.TabIndex = 20;
+            this.pbProduto.TabStop = false;
+            this.pbProduto.Click += new System.EventHandler(this.pbProduto_Click);
+            // 
+            // pbCliente
+            // 
+            this.pbCliente.Image = global::Augustus_Fashion.Properties.Resources.cliente;
+            this.pbCliente.Location = new System.Drawing.Point(12, 102);
+            this.pbCliente.Name = "pbCliente";
+            this.pbCliente.Size = new System.Drawing.Size(128, 128);
+            this.pbCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbCliente.TabIndex = 19;
+            this.pbCliente.TabStop = false;
+            this.pbCliente.Click += new System.EventHandler(this.pbCliente_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label1.Location = new System.Drawing.Point(26, 235);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 24);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "CLIENTE";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label2.Location = new System.Drawing.Point(189, 235);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 24);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "PRODUTO";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label3.Location = new System.Drawing.Point(341, 235);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 24);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "FUNCIONÁRIO";
             // 
             // telaInicial
             // 
@@ -230,16 +234,14 @@ namespace Augustus_Fashion.View
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(361, 450);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(485, 266);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbFuncionario);
+            this.Controls.Add(this.pbProduto);
+            this.Controls.Add(this.pbCliente);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -249,10 +251,9 @@ namespace Augustus_Fashion.View
             this.Load += new System.EventHandler(this.TelaInicial_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFuncionario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProduto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,14 +270,15 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolStripMenuItem pRODUTOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eSTOQUEToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pbCliente;
+        private System.Windows.Forms.PictureBox pbProduto;
+        private System.Windows.Forms.PictureBox pbFuncionario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label3;
     }
 }

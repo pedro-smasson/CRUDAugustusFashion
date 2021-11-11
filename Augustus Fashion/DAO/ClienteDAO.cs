@@ -220,7 +220,7 @@ namespace Augustus_Fashion.DAO
         {
             var query = @"select c.IdCliente, c.Limite,
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
-            c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
+            c.IdPessoa, e.IdPessoa, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
             Pessoa p inner join Cliente c on p.IdPessoa = c.IdPessoa
             inner join Endereco e on c.IdPessoa = e.IdPessoa where p.Nome like @Nome + '%'";
 

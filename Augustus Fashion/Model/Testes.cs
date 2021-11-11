@@ -8,7 +8,7 @@ namespace Augustus_Fashion.Model
             new Regex(@"^[a-zA-ZÀ-úÀ-ÿ\s]+$").Match(valor).Success;
 
         public static bool ValidarNumeric(this string valor) => 
-            new Regex(@"^[0-9]+$").Match(valor).Success;
+            new Regex(@"^[0-9,.]+$").Match(valor).Success;
 
         public static bool ValidarCpf(this string valor) => 
             new Regex(@"^[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}$").Match(valor).Success;
