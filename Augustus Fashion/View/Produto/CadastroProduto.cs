@@ -1,6 +1,7 @@
 ﻿using Augustus_Fashion.Controller;
 using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
+using Augustus_Fashion.View.Produto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,7 +46,7 @@ namespace Augustus_Fashion.View
             precoVendaProduto.Text = "";
             precoCustoProduto.Text = "";
             estoqueProduto.Text = "";
-            statusProduto.Text = "";
+            chkAtivo.Checked = false;
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
@@ -80,11 +81,6 @@ namespace Augustus_Fashion.View
                 MessageBox.Show("Informe um Fabricante válido!");
                 return false;
             }
-            else if (!Testes.ValidarString(statusProduto.Text))
-            {
-                MessageBox.Show("Informe um Status válido!");
-                return false;
-            }
             else if (!Testes.ValidarNumeric(estoqueProduto.Text))
             {
                 MessageBox.Show("Informe uma quantidade de Estoque válida!");
@@ -100,23 +96,16 @@ namespace Augustus_Fashion.View
         {
             if (Validar()) 
             {
-                _produtoModel.CodBarra = Convert.ToInt32(codBarrasProduto.Text);
+                _produtoModel.CodBarra = codBarrasProduto.Text;
                 _produtoModel.PrecoVenda = precoVendaProduto.Text;
                 _produtoModel.PrecoCusto = precoCustoProduto.Text;
                 _produtoModel.Nome = nomeProduto.Text;
                 _produtoModel.Fabricante = fabricanteProduto.Text;
                 _produtoModel.Estoque = Convert.ToInt32(estoqueProduto.Text);
+                
+                _produtoModel.StatusProduto = chkAtivo.Checked;
 
-                if(statusProduto.Text == "Ativo") 
-                {
-                    _produtoModel.StatusProduto = "A";
-                }
-                else 
-                {
-                    _produtoModel.StatusProduto = "I";
-                }
-
-                try 
+                try
                 {
                     _produtoControl.CadastrarProduto(_produtoModel);
                     MessageBox.Show("Produto Cadastrado com Sucesso!");
@@ -128,13 +117,58 @@ namespace Augustus_Fashion.View
                     precoVendaProduto.Text = "";
                     precoCustoProduto.Text = "";
                     estoqueProduto.Text = "";
-                    statusProduto.Text = "";
+                    chkAtivo.Checked = false;
                 }
                 catch(Exception ex)
                 {
                     MessageBox.Show("Falha no Cadastro!" + ex.Message);
                 }
             }
+        }
+
+        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            cadastroCliente cc = new cadastroCliente();
+            cc.ShowDialog();
+            this.Close();
+        }
+
+        private void fUNCIONÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            CadastroFuncionario cf = new CadastroFuncionario();
+            cf.ShowDialog();
+            this.Close();
+        }
+
+        private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ListarCliente lc = new ListarCliente();
+            lc.ShowDialog();
+            this.Close();
+        }
+
+        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ListarFuncionario lf = new ListarFuncionario();
+            lf.ShowDialog();
+            this.Close();
+        }
+
+        private void eSTOQUEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ListarProduto lp = new ListarProduto();
+            lp.ShowDialog();
+            Close();
+        }
+
+        private void cAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
         }
     }
 }

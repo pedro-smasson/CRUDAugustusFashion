@@ -160,11 +160,11 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
 
-                    var parametros = new DynamicParameters();
-                    parametros.Add("Nome", nome, System.Data.DbType.String);
+                    //var parametros = new DynamicParameters();
+                    //parametros.Add("Nome", nome, System.Data.DbType.String);
 
-                    var resultado = conexao.Query<FuncionarioListagem>(query, parametros).ToList();
-                    return resultado;
+                    return conexao.Query(query, (FuncionarioListagem funcionarioListagem, EnderecoModel funcionarioModel)
+                    => Mapear(funcionarioListagem, funcionarioModel), new { Nome = nome}, splitOn: "IdPessoa").ToList();
                 }
             }
             catch (Exception ex)
@@ -199,8 +199,6 @@ namespace Augustus_Fashion.DAO
             {
                 throw new Exception(ex.Message);
             }
-
-            //conexao.Query<ClienteModel>(queryEndereco, cliente);
         }
 
         private static FuncionarioListagem Mapear(FuncionarioListagem funcionarioListagem, EnderecoModel enderecoModel)

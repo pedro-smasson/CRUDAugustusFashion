@@ -200,7 +200,7 @@ namespace Augustus_Fashion.DAO
                     //parametros.Add("IdPessoa", id);
 
                     return conexao.Query(query, (ClienteModel clienteModel, EnderecoModel enderecoModel)
-                    => MapearBusca(clienteModel, enderecoModel), splitOn: "IdPessoa", param: new {IdPessoa = id } /*parametros*/).FirstOrDefault();
+                    => MapearBusca(clienteModel, enderecoModel), splitOn: "IdPessoa", param: new {IdPessoa = id }).FirstOrDefault();
                 }
             }
             catch(Exception ex) 
@@ -220,8 +220,8 @@ namespace Augustus_Fashion.DAO
         {
             var query = @"select c.IdCliente, c.Limite,
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
-            c.IdPessoa, e.IdPessoa, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
-            Pessoa p inner join Cliente c on p.IdPessoa = c.IdPessoa
+            c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento 
+            from Pessoa p inner join Cliente c on c.IdPessoa = p.IdPessoa
             inner join Endereco e on c.IdPessoa = e.IdPessoa where p.Nome like @Nome + '%'";
 
             try 
@@ -230,11 +230,11 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
 
-                    var parametros = new DynamicParameters();
-                    parametros.Add("Nome", nome, System.Data.DbType.String);
+                    //var parametros = new DynamicParameters();
+                    //parametros.Add("Nome", nome, System.Data.DbType.String);
 
-                    var resultado = conexao.Query<ClienteListagem>(query, parametros).ToList();
-                    return resultado;
+                    return conexao.Query(query, (ClienteListagem clienteListagem, EnderecoModel enderecoModel)
+                     => Mapear(clienteListagem, enderecoModel), new { Nome = nome }, splitOn: "IdPessoa").ToList();
                 }
             }
             catch(Exception ex)

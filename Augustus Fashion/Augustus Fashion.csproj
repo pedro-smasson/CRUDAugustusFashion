@@ -122,6 +122,24 @@
     <Compile Include="View\Funcionário\CadastroFuncionario.Designer.cs">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Pedido\ListagemPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pedido\ListagemPedido.Designer.cs">
+      <DependentUpon>ListagemPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pedido\VendaPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pedido\VendaPedido.Designer.cs">
+      <DependentUpon>VendaPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produto\AlterarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Produto\AlterarProduto.Designer.cs">
+      <DependentUpon>AlterarProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Produto\CadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +210,9 @@
     <EmbeddedResource Include="View\Funcionário\CadastroFuncionario.resx">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Produto\AlterarProduto.resx">
+      <DependentUpon>AlterarProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Produto\CadastroProduto.resx">
       <DependentUpon>CadastroProduto.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,8 +228,14 @@
     <EmbeddedResource Include="View\Telas Centrais\TelaCliente.resx">
       <DependentUpon>TelaCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Telas Centrais\TelaFuncionario.resx">
+      <DependentUpon>TelaFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Telas Centrais\TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Telas Centrais\TelaProduto.resx">
+      <DependentUpon>TelaProduto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="crudDataSet.xsc">
       <DependentUpon>crudDataSet.xsd</DependentUpon>

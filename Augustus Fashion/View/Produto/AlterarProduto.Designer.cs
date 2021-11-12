@@ -1,7 +1,7 @@
 ﻿
-namespace Augustus_Fashion.View
+namespace Augustus_Fashion.View.Produto
 {
-    partial class CadastroProduto
+    partial class AlterarProduto
     {
         /// <summary>
         /// Required designer variable.
@@ -29,20 +29,9 @@ namespace Augustus_Fashion.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cADASTROToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cLIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eSTOQUEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.estoqueProduto = new System.Windows.Forms.TextBox();
             this.fabricanteProduto = new System.Windows.Forms.TextBox();
@@ -57,110 +46,26 @@ namespace Augustus_Fashion.View
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.chkAtivo = new System.Windows.Forms.CheckBox();
-            this.menuStrip1.SuspendLayout();
+            this.idProduto = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cADASTROToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fUNCIONÁRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cLIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eSTOQUEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hOMEToolStripMenuItem,
-            this.cADASTROToolStripMenuItem,
-            this.cONSULTAToolStripMenuItem,
-            this.pRODUTOSToolStripMenuItem,
-            this.FecharToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(522, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // hOMEToolStripMenuItem
-            // 
-            this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
-            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.hOMEToolStripMenuItem.Text = "HOME";
-            this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
-            // 
-            // cADASTROToolStripMenuItem
-            // 
-            this.cADASTROToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTESToolStripMenuItem,
-            this.fUNCIONÁRIOSToolStripMenuItem});
-            this.cADASTROToolStripMenuItem.Name = "cADASTROToolStripMenuItem";
-            this.cADASTROToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.cADASTROToolStripMenuItem.Text = "CADASTRO";
-            // 
-            // cLIENTESToolStripMenuItem
-            // 
-            this.cLIENTESToolStripMenuItem.Name = "cLIENTESToolStripMenuItem";
-            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTESToolStripMenuItem.Text = "CLIENTES";
-            this.cLIENTESToolStripMenuItem.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem_Click);
-            // 
-            // fUNCIONÁRIOSToolStripMenuItem
-            // 
-            this.fUNCIONÁRIOSToolStripMenuItem.Name = "fUNCIONÁRIOSToolStripMenuItem";
-            this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOSToolStripMenuItem.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem_Click);
-            // 
-            // cONSULTAToolStripMenuItem
-            // 
-            this.cONSULTAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cLIENTESToolStripMenuItem1,
-            this.fUNCIONÁRIOSToolStripMenuItem1});
-            this.cONSULTAToolStripMenuItem.Name = "cONSULTAToolStripMenuItem";
-            this.cONSULTAToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.cONSULTAToolStripMenuItem.Text = "LISTAR";
-            // 
-            // cLIENTESToolStripMenuItem1
-            // 
-            this.cLIENTESToolStripMenuItem1.Name = "cLIENTESToolStripMenuItem1";
-            this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
-            this.cLIENTESToolStripMenuItem1.Text = "CLIENTES";
-            this.cLIENTESToolStripMenuItem1.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem1_Click);
-            // 
-            // fUNCIONÁRIOSToolStripMenuItem1
-            // 
-            this.fUNCIONÁRIOSToolStripMenuItem1.Name = "fUNCIONÁRIOSToolStripMenuItem1";
-            this.fUNCIONÁRIOSToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
-            this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
-            this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
-            // 
-            // pRODUTOSToolStripMenuItem
-            // 
-            this.pRODUTOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cAToolStripMenuItem,
-            this.eSTOQUEToolStripMenuItem});
-            this.pRODUTOSToolStripMenuItem.Name = "pRODUTOSToolStripMenuItem";
-            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.pRODUTOSToolStripMenuItem.Text = "PRODUTOS";
-            // 
-            // cAToolStripMenuItem
-            // 
-            this.cAToolStripMenuItem.Name = "cAToolStripMenuItem";
-            this.cAToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.cAToolStripMenuItem.Text = "CADASTRO";
-            this.cAToolStripMenuItem.Click += new System.EventHandler(this.cAToolStripMenuItem_Click);
-            // 
-            // eSTOQUEToolStripMenuItem
-            // 
-            this.eSTOQUEToolStripMenuItem.Name = "eSTOQUEToolStripMenuItem";
-            this.eSTOQUEToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.eSTOQUEToolStripMenuItem.Text = "LISTAGEM";
-            this.eSTOQUEToolStripMenuItem.Click += new System.EventHandler(this.eSTOQUEToolStripMenuItem_Click);
-            // 
-            // FecharToolStripMenuItem
-            // 
-            this.FecharToolStripMenuItem.Name = "FecharToolStripMenuItem";
-            this.FecharToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.FecharToolStripMenuItem.Text = "FECHAR";
-            this.FecharToolStripMenuItem.Click += new System.EventHandler(this.FecharToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -177,10 +82,10 @@ namespace Augustus_Fashion.View
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 38);
+            this.groupBox1.Location = new System.Drawing.Point(31, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(505, 285);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             // 
             // groupBox2
@@ -195,6 +100,17 @@ namespace Augustus_Fashion.View
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Status";
+            // 
+            // chkAtivo
+            // 
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.chkAtivo.Location = new System.Drawing.Point(160, 58);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(80, 30);
+            this.chkAtivo.TabIndex = 13;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -221,7 +137,6 @@ namespace Augustus_Fashion.View
             this.fabricanteProduto.Name = "fabricanteProduto";
             this.fabricanteProduto.Size = new System.Drawing.Size(252, 29);
             this.fabricanteProduto.TabIndex = 4;
-            this.fabricanteProduto.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label6
             // 
@@ -324,69 +239,197 @@ namespace Augustus_Fashion.View
             this.label1.TabIndex = 0;
             this.label1.Text = "Código Produto:";
             // 
-            // btnLimpar
+            // idProduto
             // 
-            this.btnLimpar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLimpar.Location = new System.Drawing.Point(271, 339);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(150, 50);
-            this.btnLimpar.TabIndex = 28;
-            this.btnLimpar.Text = "LIMPAR";
-            this.btnLimpar.UseVisualStyleBackColor = false;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            this.idProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idProduto.Location = new System.Drawing.Point(143, 41);
+            this.idProduto.Multiline = true;
+            this.idProduto.Name = "idProduto";
+            this.idProduto.ReadOnly = true;
+            this.idProduto.Size = new System.Drawing.Size(109, 28);
+            this.idProduto.TabIndex = 32;
             // 
-            // btnCadastrar
+            // label18
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.LightGreen;
-            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnCadastrar.Location = new System.Drawing.Point(91, 339);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(150, 50);
-            this.btnCadastrar.TabIndex = 27;
-            this.btnCadastrar.Text = "CADASTRAR";
-            this.btnCadastrar.UseVisualStyleBackColor = false;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label18.Location = new System.Drawing.Point(12, 42);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(125, 22);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "ID do Produto:";
             // 
-            // chkAtivo
+            // btnExcluir
             // 
-            this.chkAtivo.AutoSize = true;
-            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.chkAtivo.Location = new System.Drawing.Point(171, 58);
-            this.chkAtivo.Name = "chkAtivo";
-            this.chkAtivo.Size = new System.Drawing.Size(80, 30);
-            this.chkAtivo.TabIndex = 14;
-            this.chkAtivo.Text = "Ativo";
-            this.chkAtivo.UseVisualStyleBackColor = true;
+            this.btnExcluir.BackColor = System.Drawing.Color.Crimson;
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnExcluir.Location = new System.Drawing.Point(263, 34);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(125, 40);
+            this.btnExcluir.TabIndex = 35;
+            this.btnExcluir.Text = "EXCLUIR";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // CadastroProduto
+            // btnAlterar
+            // 
+            this.btnAlterar.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnAlterar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAlterar.Location = new System.Drawing.Point(411, 34);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(125, 40);
+            this.btnAlterar.TabIndex = 34;
+            this.btnAlterar.Text = "ALTERAR";
+            this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hOMEToolStripMenuItem,
+            this.cADASTROToolStripMenuItem,
+            this.cONSULTAToolStripMenuItem,
+            this.pRODUTOSToolStripMenuItem,
+            this.FecharToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
+            this.menuStrip1.TabIndex = 36;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // hOMEToolStripMenuItem
+            // 
+            this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
+            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.hOMEToolStripMenuItem.Text = "HOME";
+            this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
+            // 
+            // cADASTROToolStripMenuItem
+            // 
+            this.cADASTROToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cLIENTESToolStripMenuItem,
+            this.fUNCIONÁRIOSToolStripMenuItem});
+            this.cADASTROToolStripMenuItem.Name = "cADASTROToolStripMenuItem";
+            this.cADASTROToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.cADASTROToolStripMenuItem.Text = "CADASTRO";
+            // 
+            // cLIENTESToolStripMenuItem
+            // 
+            this.cLIENTESToolStripMenuItem.Name = "cLIENTESToolStripMenuItem";
+            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTESToolStripMenuItem.Text = "CLIENTES";
+            this.cLIENTESToolStripMenuItem.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem_Click);
+            // 
+            // fUNCIONÁRIOSToolStripMenuItem
+            // 
+            this.fUNCIONÁRIOSToolStripMenuItem.Name = "fUNCIONÁRIOSToolStripMenuItem";
+            this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fUNCIONÁRIOSToolStripMenuItem.Text = "FUNCIONÁRIOS";
+            this.fUNCIONÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem_Click);
+            // 
+            // cONSULTAToolStripMenuItem
+            // 
+            this.cONSULTAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cLIENTESToolStripMenuItem1,
+            this.fUNCIONÁRIOSToolStripMenuItem1});
+            this.cONSULTAToolStripMenuItem.Name = "cONSULTAToolStripMenuItem";
+            this.cONSULTAToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.cONSULTAToolStripMenuItem.Text = "LISTAR";
+            // 
+            // cLIENTESToolStripMenuItem1
+            // 
+            this.cLIENTESToolStripMenuItem1.Name = "cLIENTESToolStripMenuItem1";
+            this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTESToolStripMenuItem1.Text = "CLIENTES";
+            this.cLIENTESToolStripMenuItem1.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem1_Click);
+            // 
+            // fUNCIONÁRIOSToolStripMenuItem1
+            // 
+            this.fUNCIONÁRIOSToolStripMenuItem1.Name = "fUNCIONÁRIOSToolStripMenuItem1";
+            this.fUNCIONÁRIOSToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
+            this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
+            // 
+            // pRODUTOSToolStripMenuItem
+            // 
+            this.pRODUTOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cAToolStripMenuItem,
+            this.eSTOQUEToolStripMenuItem});
+            this.pRODUTOSToolStripMenuItem.Name = "pRODUTOSToolStripMenuItem";
+            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.pRODUTOSToolStripMenuItem.Text = "PRODUTOS";
+            // 
+            // cAToolStripMenuItem
+            // 
+            this.cAToolStripMenuItem.Name = "cAToolStripMenuItem";
+            this.cAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cAToolStripMenuItem.Text = "CADASTRO";
+            this.cAToolStripMenuItem.Click += new System.EventHandler(this.cAToolStripMenuItem_Click);
+            // 
+            // eSTOQUEToolStripMenuItem
+            // 
+            this.eSTOQUEToolStripMenuItem.Name = "eSTOQUEToolStripMenuItem";
+            this.eSTOQUEToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.eSTOQUEToolStripMenuItem.Text = "LISTAGEM";
+            // 
+            // FecharToolStripMenuItem
+            // 
+            this.FecharToolStripMenuItem.Name = "FecharToolStripMenuItem";
+            this.FecharToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.FecharToolStripMenuItem.Text = "FECHAR";
+            this.FecharToolStripMenuItem.Click += new System.EventHandler(this.FecharToolStripMenuItem_Click);
+            // 
+            // AlterarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(522, 401);
-            this.Controls.Add(this.btnLimpar);
-            this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(544, 369);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.idProduto);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
-            this.Name = "CadastroProduto";
+            this.Name = "AlterarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CadastroProduto";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Text = "AlterarProduto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox estoqueProduto;
+        private System.Windows.Forms.TextBox fabricanteProduto;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox precoCustoProduto;
+        private System.Windows.Forms.TextBox precoVendaProduto;
+        private System.Windows.Forms.TextBox nomeProduto;
+        private System.Windows.Forms.TextBox codBarrasProduto;
+        private System.Windows.Forms.TextBox codProduto;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox idProduto;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cADASTROToolStripMenuItem;
@@ -399,24 +442,6 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.ToolStripMenuItem cAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eSTOQUEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox codProduto;
-        private System.Windows.Forms.TextBox nomeProduto;
-        private System.Windows.Forms.TextBox codBarrasProduto;
-        private System.Windows.Forms.TextBox fabricanteProduto;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox precoCustoProduto;
-        private System.Windows.Forms.TextBox precoVendaProduto;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox estoqueProduto;
-        private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.CheckBox chkAtivo;
     }
 }

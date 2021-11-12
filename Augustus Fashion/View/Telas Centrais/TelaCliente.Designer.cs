@@ -30,12 +30,12 @@ namespace Augustus_Fashion.View.Telas_Centrais
         private void InitializeComponent()
         {
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pctLista = new System.Windows.Forms.PictureBox();
+            this.pctCadastro = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLista)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCadastro)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -49,27 +49,27 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.label9.TabIndex = 19;
             this.label9.Text = "Augustu\'s Fashion";
             // 
-            // pictureBox2
+            // pctLista
             // 
-            this.pictureBox2.Image = global::Augustus_Fashion.Properties.Resources.listar;
-            this.pictureBox2.Location = new System.Drawing.Point(283, 102);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pctLista.Image = global::Augustus_Fashion.Properties.Resources.listar;
+            this.pctLista.Location = new System.Drawing.Point(283, 102);
+            this.pctLista.Name = "pctLista";
+            this.pctLista.Size = new System.Drawing.Size(128, 128);
+            this.pctLista.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pctLista.TabIndex = 21;
+            this.pctLista.TabStop = false;
+            this.pctLista.Click += new System.EventHandler(this.pctLista_Click);
             // 
-            // pictureBox1
+            // pctCadastro
             // 
-            this.pictureBox1.Image = global::Augustus_Fashion.Properties.Resources.cadastrar;
-            this.pictureBox1.Location = new System.Drawing.Point(60, 102);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pctCadastro.Image = global::Augustus_Fashion.Properties.Resources.cadastrar;
+            this.pctCadastro.Location = new System.Drawing.Point(60, 102);
+            this.pctCadastro.Name = "pctCadastro";
+            this.pctCadastro.Size = new System.Drawing.Size(128, 128);
+            this.pctCadastro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pctCadastro.TabIndex = 20;
+            this.pctCadastro.TabStop = false;
+            this.pctCadastro.Click += new System.EventHandler(this.pctCadastro_Click);
             // 
             // label1
             // 
@@ -100,15 +100,15 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.ClientSize = new System.Drawing.Size(464, 305);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pctLista);
+            this.Controls.Add(this.pctCadastro);
             this.Controls.Add(this.label9);
             this.MaximizeBox = false;
             this.Name = "TelaCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaCliente";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctLista)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctCadastro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,8 +117,8 @@ namespace Augustus_Fashion.View.Telas_Centrais
         #endregion
 
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pctCadastro;
+        private System.Windows.Forms.PictureBox pctLista;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.View.Telas_Centrais
@@ -15,6 +8,22 @@ namespace Augustus_Fashion.View.Telas_Centrais
         public TelaFuncionario()
         {
             InitializeComponent();
+        }
+
+        private void pctCadastro_Click(object sender, EventArgs e)
+        {
+            Hide();
+            CadastroFuncionario cadastrarFuncionario = new CadastroFuncionario();
+            cadastrarFuncionario.ShowDialog();
+            Close();
+        }
+
+        private void pctLista_Click(object sender, EventArgs e)
+        {
+            Hide();
+            ListarFuncionario listarFuncionario = new ListarFuncionario();
+            listarFuncionario.ShowDialog();
+            Close();
         }
     }
 }

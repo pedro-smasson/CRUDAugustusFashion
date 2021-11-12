@@ -99,7 +99,7 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
-        public int SelecionarFuncModel()
+        public int SelecionarFuncionarioModel()
         {
             int id = Convert.ToInt32(dgvFuncionario.SelectedRows[0].Cells[0].Value);
             return id;
@@ -108,7 +108,7 @@ namespace Augustus_Fashion.View
         private void dgvFuncionario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             AlterarFuncionario af = new AlterarFuncionario();
-            var id = SelecionarFuncModel();
+            var id = SelecionarFuncionarioModel();
             var cliente = _funccontrol.Buscar(id);
             af.dadosDe(cliente);
             af.Show();

@@ -37,6 +37,9 @@ namespace Augustus_Fashion.View.Produto
             this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cADASTROToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lISTAGEMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,10 +56,11 @@ namespace Augustus_Fashion.View.Produto
             this.hOMEToolStripMenuItem,
             this.cADASTROToolStripMenuItem,
             this.cONSULTAToolStripMenuItem,
+            this.pRODUTOSToolStripMenuItem,
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(608, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(632, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -65,6 +69,7 @@ namespace Augustus_Fashion.View.Produto
             this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
             this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.hOMEToolStripMenuItem.Text = "HOME";
+            this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
             // 
             // cADASTROToolStripMenuItem
             // 
@@ -80,12 +85,14 @@ namespace Augustus_Fashion.View.Produto
             this.cLIENTESToolStripMenuItem.Name = "cLIENTESToolStripMenuItem";
             this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.cLIENTESToolStripMenuItem.Text = "CLIENTES";
+            this.cLIENTESToolStripMenuItem.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem_Click);
             // 
             // fUNCIONÁRIOSToolStripMenuItem
             // 
             this.fUNCIONÁRIOSToolStripMenuItem.Name = "fUNCIONÁRIOSToolStripMenuItem";
             this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOSToolStripMenuItem.Text = "FUNCIONÁRIOS";
+            this.fUNCIONÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem_Click);
             // 
             // cONSULTAToolStripMenuItem
             // 
@@ -101,18 +108,44 @@ namespace Augustus_Fashion.View.Produto
             this.cLIENTESToolStripMenuItem1.Name = "cLIENTESToolStripMenuItem1";
             this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.cLIENTESToolStripMenuItem1.Text = "CLIENTES";
+            this.cLIENTESToolStripMenuItem1.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem1_Click);
             // 
             // fUNCIONÁRIOSToolStripMenuItem1
             // 
             this.fUNCIONÁRIOSToolStripMenuItem1.Name = "fUNCIONÁRIOSToolStripMenuItem1";
             this.fUNCIONÁRIOSToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
+            this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
+            // 
+            // pRODUTOSToolStripMenuItem
+            // 
+            this.pRODUTOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cADASTROToolStripMenuItem1,
+            this.lISTAGEMToolStripMenuItem});
+            this.pRODUTOSToolStripMenuItem.Name = "pRODUTOSToolStripMenuItem";
+            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.pRODUTOSToolStripMenuItem.Text = "PRODUTOS";
+            // 
+            // cADASTROToolStripMenuItem1
+            // 
+            this.cADASTROToolStripMenuItem1.Name = "cADASTROToolStripMenuItem1";
+            this.cADASTROToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.cADASTROToolStripMenuItem1.Text = "CADASTRO";
+            this.cADASTROToolStripMenuItem1.Click += new System.EventHandler(this.cADASTROToolStripMenuItem1_Click);
+            // 
+            // lISTAGEMToolStripMenuItem
+            // 
+            this.lISTAGEMToolStripMenuItem.Name = "lISTAGEMToolStripMenuItem";
+            this.lISTAGEMToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.lISTAGEMToolStripMenuItem.Text = "LISTAGEM";
+            this.lISTAGEMToolStripMenuItem.Click += new System.EventHandler(this.lISTAGEMToolStripMenuItem_Click);
             // 
             // FecharToolStripMenuItem
             // 
             this.FecharToolStripMenuItem.Name = "FecharToolStripMenuItem";
             this.FecharToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.FecharToolStripMenuItem.Text = "FECHAR";
+            this.FecharToolStripMenuItem.Click += new System.EventHandler(this.FecharToolStripMenuItem_Click);
             // 
             // txtNome
             // 
@@ -153,9 +186,11 @@ namespace Augustus_Fashion.View.Produto
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduto.Location = new System.Drawing.Point(0, 82);
             this.dgvProduto.Name = "dgvProduto";
+            this.dgvProduto.ReadOnly = true;
             this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduto.Size = new System.Drawing.Size(606, 214);
+            this.dgvProduto.Size = new System.Drawing.Size(632, 214);
             this.dgvProduto.TabIndex = 13;
+            this.dgvProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellDoubleClick);
             // 
             // ListarProduto
             // 
@@ -163,7 +198,7 @@ namespace Augustus_Fashion.View.Produto
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(608, 296);
+            this.ClientSize = new System.Drawing.Size(632, 296);
             this.Controls.Add(this.dgvProduto);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
@@ -197,5 +232,8 @@ namespace Augustus_Fashion.View.Produto
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buscarNome;
         private System.Windows.Forms.DataGridView dgvProduto;
+        private System.Windows.Forms.ToolStripMenuItem pRODUTOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cADASTROToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem lISTAGEMToolStripMenuItem;
     }
 }

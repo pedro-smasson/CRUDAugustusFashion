@@ -1,6 +1,5 @@
-﻿using FluentValidation;
-using System;
-using Augustus_Fashion.ValueObjects;
+﻿using Augustus_Fashion.ValueObjects;
+using FluentValidation;
 
 namespace Augustus_Fashion.FluentValidation
 {

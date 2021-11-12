@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.View.Telas_Centrais
@@ -17,19 +10,19 @@ namespace Augustus_Fashion.View.Telas_Centrais
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pctCadastro_Click(object sender, EventArgs e)
         {
             Hide();
-            cadastroCliente cc = new cadastroCliente();
-            cc.ShowDialog();
+            cadastroCliente cadastroCliente = new cadastroCliente();
+            cadastroCliente.ShowDialog();
             Close();   
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void pctLista_Click(object sender, EventArgs e)
         {
             Hide();
-            ListarCliente lc = new ListarCliente();
-            lc.ShowDialog();
+            ListarCliente listarCliente = new ListarCliente();
+            listarCliente.ShowDialog();
             Close();
         }
     }

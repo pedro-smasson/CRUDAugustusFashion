@@ -55,7 +55,7 @@ namespace Augustus_Fashion.DAO
         public static ProdutoModel Buscar(int id)
         {
             var query = @"select IdProduto, CodBarra, Nome, PrecoVenda, PrecoCusto, Estoque, StatusProduto, Fabricante
-            where IdProduto = @IdProduto";
+            from Produto where IdProduto = @IdProduto";
 
             try
             {
@@ -63,10 +63,10 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
 
-                    var parametros = new DynamicParameters();
-                    parametros.Add("IdProduto", id);
+                    //var parametros = new DynamicParameters();
+                    //parametros.Add("IdProduto", id);
 
-                    return conexao.Query<ProdutoModel>(query, parametros).FirstOrDefault();
+                    return conexao.QueryFirstOrDefault<ProdutoModel>(query, new {IdProduto = id});
                 }
             }
             catch (Exception ex)
@@ -95,6 +95,44 @@ namespace Augustus_Fashion.DAO
             }
             catch (Exception ex)
            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static void ExcluirProduto(ProdutoModel produtoModel) 
+        {
+            var query = @"delete from Produto where IdProduto = @IdProduto";
+
+            try 
+            {
+                var conexao = new conexao().Connection();
+                {
+                    conexao.Open();
+                    conexao.Query<ProdutoModel>(query, produtoModel);
+                }
+            }
+            catch(Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static void AlterarProduto(ProdutoModel produtoModel) 
+        {
+            var query = @"update Produto set Nome = @Nome, CodBarra = @CodBarra, PrecoVenda = @PrecoVenda,
+            PrecoCusto = @PrecoCusto, Estoque = @Estoque, StatusProduto = @StatusProduto, Fabricante = @Fabricante
+            where IdProduto = @IdProduto";
+
+            try 
+            {
+                var conexao = new conexao().Connection();
+                {
+                    conexao.Open();
+                    conexao.Query<ProdutoModel>(query, produtoModel);
+                }
+            }
+            catch(Exception ex)
+            {
                 throw new Exception(ex.Message);
             }
         }

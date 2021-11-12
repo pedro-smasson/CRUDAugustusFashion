@@ -1,7 +1,5 @@
 ﻿using Augustus_Fashion.ValueObjects;
 using FluentValidation;
-using System;
-using System.Linq;
 
 namespace Augustus_Fashion.FluentValidation
 {
