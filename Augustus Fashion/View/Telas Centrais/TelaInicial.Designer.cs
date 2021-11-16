@@ -49,6 +49,9 @@ namespace Augustus_Fashion.View
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pEDIDOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nOVOPEDIDOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEGISTRODEPEDIDOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProduto)).BeginInit();
@@ -62,6 +65,7 @@ namespace Augustus_Fashion.View
             this.cADASTROToolStripMenuItem,
             this.cONSULTAToolStripMenuItem,
             this.pRODUTOSToolStripMenuItem,
+            this.pEDIDOSToolStripMenuItem,
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -227,6 +231,28 @@ namespace Augustus_Fashion.View
             this.label3.TabIndex = 24;
             this.label3.Text = "FUNCIONÁRIO";
             // 
+            // pEDIDOSToolStripMenuItem
+            // 
+            this.pEDIDOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nOVOPEDIDOToolStripMenuItem,
+            this.rEGISTRODEPEDIDOSToolStripMenuItem});
+            this.pEDIDOSToolStripMenuItem.Name = "pEDIDOSToolStripMenuItem";
+            this.pEDIDOSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.pEDIDOSToolStripMenuItem.Text = "PEDIDOS";
+            // 
+            // nOVOPEDIDOToolStripMenuItem
+            // 
+            this.nOVOPEDIDOToolStripMenuItem.Name = "nOVOPEDIDOToolStripMenuItem";
+            this.nOVOPEDIDOToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.nOVOPEDIDOToolStripMenuItem.Text = "NOVO PEDIDO";
+            this.nOVOPEDIDOToolStripMenuItem.Click += new System.EventHandler(this.nOVOPEDIDOToolStripMenuItem_Click);
+            // 
+            // rEGISTRODEPEDIDOSToolStripMenuItem
+            // 
+            this.rEGISTRODEPEDIDOSToolStripMenuItem.Name = "rEGISTRODEPEDIDOSToolStripMenuItem";
+            this.rEGISTRODEPEDIDOSToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.rEGISTRODEPEDIDOSToolStripMenuItem.Text = "REGISTRO DE PEDIDOS";
+            // 
             // telaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,5 +306,8 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem pEDIDOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nOVOPEDIDOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rEGISTRODEPEDIDOSToolStripMenuItem;
     }
 }

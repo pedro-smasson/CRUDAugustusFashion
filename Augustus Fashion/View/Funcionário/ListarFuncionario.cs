@@ -113,5 +113,10 @@ namespace Augustus_Fashion.View
             af.dadosDe(cliente);
             af.Show();
         }
+
+        private void dgvFuncionario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Augustus_Fashion.View.Produto;
+﻿using Augustus_Fashion.View.Pedido;
+using Augustus_Fashion.View.Produto;
 using Augustus_Fashion.View.Telas_Centrais;
 using System;
 using System.Windows.Forms;
@@ -173,6 +174,14 @@ namespace Augustus_Fashion.View
             Hide();
             TelaFuncionario tf = new TelaFuncionario();
             tf.ShowDialog();
+            Close();
+        }
+
+        private void nOVOPEDIDOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            VendaPedido novoPedido = new VendaPedido();
+            novoPedido.ShowDialog();
             Close();
         }
     }
