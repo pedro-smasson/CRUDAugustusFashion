@@ -11,6 +11,13 @@ namespace Augustus_Fashion.Model.Venda
         public int IdCarrinho { get; set; }
         public string NomeProduto { get; set; }
         public int QuantidadeProduto { get; set; }
-        public int Total { get; set; }
+        public float PrecoVenda { get; set; }
+        public int Desconto { get; set; }
+
+        public double PrecoFinal
+        {
+            get => (PrecoVenda * QuantidadeProduto) * Desconto / 100;
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Augustus_Fashion.Model
 {
@@ -30,5 +31,8 @@ namespace Augustus_Fashion.Model
 
         public static bool ValidarCelular(this string valor) =>
             new Regex(@"^[0-9]{11}$").Match(valor).Success;
+
+        public static bool ValidarDesconto(this float valor) =>
+            new Regex(@"^[0-9]+[%]$").Match(Convert.ToString(valor)).Success;
     }
 }
