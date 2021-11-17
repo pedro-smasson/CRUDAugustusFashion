@@ -1,22 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Augustus_Fashion.Model.Venda
+﻿namespace Augustus_Fashion.Model.Venda
 {
     public class CarrinhoModel
     {
+        public int IdPedido { get; set;  }
+        public int IdProduto { get; set;  }
         public int IdCarrinho { get; set; }
         public string NomeProduto { get; set; }
         public int QuantidadeProduto { get; set; }
-        public float PrecoVenda { get; set; }
+        public float PrecoBruto { get; set; }
         public int Desconto { get; set; }
 
+        public double PrecoLiquido 
+        { 
+            get => PrecoBruto - Desconto;
+        }
+
+ /* total abaixo */
         public double PrecoFinal
         {
-            get => (PrecoVenda * QuantidadeProduto) * Desconto / 100;
+            get => PrecoLiquido * QuantidadeProduto;
         }
 
     }

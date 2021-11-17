@@ -39,18 +39,17 @@ namespace Augustus_Fashion.View.Pedido
             this.txtSelecionado = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvCarrinho = new System.Windows.Forms.DataGridView();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Preço = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnRemover = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecoVenda = new System.Windows.Forms.TextBox();
             this.nudQuantidade = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Preço = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbFormaDePagamento = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtDesconto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
@@ -126,7 +125,7 @@ namespace Augustus_Fashion.View.Pedido
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.LightGreen;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(768, 12);
+            this.btnSalvar.Location = new System.Drawing.Point(749, 342);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(105, 39);
             this.btnSalvar.TabIndex = 20;
@@ -155,6 +154,7 @@ namespace Augustus_Fashion.View.Pedido
             // 
             // dgvCarrinho
             // 
+            this.dgvCarrinho.AllowUserToAddRows = false;
             this.dgvCarrinho.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -166,6 +166,23 @@ namespace Augustus_Fashion.View.Pedido
             this.dgvCarrinho.Size = new System.Drawing.Size(343, 162);
             this.dgvCarrinho.TabIndex = 22;
             // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            // 
+            // Preço
+            // 
+            this.Preço.HeaderText = "Preço Total";
+            this.Preço.Name = "Preço";
+            this.Preço.ReadOnly = true;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.HeaderText = "Quantidade";
+            this.Quantidade.Name = "Quantidade";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -176,22 +193,11 @@ namespace Augustus_Fashion.View.Pedido
             this.label4.TabIndex = 23;
             this.label4.Text = "Carrinho:";
             // 
-            // btnRemover
-            // 
-            this.btnRemover.BackColor = System.Drawing.Color.Crimson;
-            this.btnRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnRemover.Location = new System.Drawing.Point(638, 345);
-            this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(105, 39);
-            this.btnRemover.TabIndex = 24;
-            this.btnRemover.Text = "REMOVER";
-            this.btnRemover.UseVisualStyleBackColor = false;
-            // 
             // btnAdicionar
             // 
             this.btnAdicionar.BackColor = System.Drawing.Color.LightGreen;
             this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAdicionar.Location = new System.Drawing.Point(760, 345);
+            this.btnAdicionar.Location = new System.Drawing.Point(511, 342);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(113, 39);
             this.btnAdicionar.TabIndex = 25;
@@ -248,37 +254,20 @@ namespace Augustus_Fashion.View.Pedido
             this.label7.TabIndex = 31;
             this.label7.Text = "Forma de Pagamento:";
             // 
-            // Nome
+            // cbFormaDePagamento
             // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            // 
-            // Preço
-            // 
-            this.Preço.HeaderText = "Preço";
-            this.Preço.Name = "Preço";
-            this.Preço.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.HeaderText = "Quantidade";
-            this.Quantidade.Name = "Quantidade";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbFormaDePagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.cbFormaDePagamento.FormattingEnabled = true;
+            this.cbFormaDePagamento.Items.AddRange(new object[] {
             "Cartão - Crédito",
             "Cartão - Débito",
             "Á Vista",
             "Á Prazo",
             "Cheque"});
-            this.comboBox1.Location = new System.Drawing.Point(218, 501);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 32);
-            this.comboBox1.TabIndex = 32;
+            this.cbFormaDePagamento.Location = new System.Drawing.Point(218, 501);
+            this.cbFormaDePagamento.Name = "cbFormaDePagamento";
+            this.cbFormaDePagamento.Size = new System.Drawing.Size(165, 32);
+            this.cbFormaDePagamento.TabIndex = 32;
             // 
             // label8
             // 
@@ -293,7 +282,7 @@ namespace Augustus_Fashion.View.Pedido
             // txtDesconto
             // 
             this.txtDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtDesconto.Location = new System.Drawing.Point(380, 450);
+            this.txtDesconto.Location = new System.Drawing.Point(381, 450);
             this.txtDesconto.Name = "txtDesconto";
             this.txtDesconto.Size = new System.Drawing.Size(68, 29);
             this.txtDesconto.TabIndex = 34;
@@ -306,14 +295,13 @@ namespace Augustus_Fashion.View.Pedido
             this.ClientSize = new System.Drawing.Size(885, 601);
             this.Controls.Add(this.txtDesconto);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbFormaDePagamento);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.nudQuantidade);
             this.Controls.Add(this.txtPrecoVenda);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAdicionar);
-            this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvCarrinho);
             this.Controls.Add(this.btnVoltar);
@@ -351,18 +339,17 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvCarrinho;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrecoVenda;
         private System.Windows.Forms.NumericUpDown nudQuantidade;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbFormaDePagamento;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtDesconto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Preço;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtDesconto;
     }
 }

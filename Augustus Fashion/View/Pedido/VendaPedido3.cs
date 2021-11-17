@@ -11,13 +11,16 @@ namespace Augustus_Fashion.View.Pedido
     public partial class VendaPedido3 : Form
     {
         ProdutoControl _produtocontrol = new ProdutoControl();
-        ProdutoModel _produtomodel = new ProdutoModel();
+        //ProdutoModel _produtomodel = new ProdutoModel();
+        PedidoModel _pedidoModel = new PedidoModel();
 
         List<CarrinhoModel> _carrinho = new List<CarrinhoModel>();
+        List<PedidoModel> _pedidoLista = new List<PedidoModel>();
 
-        public VendaPedido3()
+        public VendaPedido3(PedidoModel pedido)
         {
             InitializeComponent();
+            _pedidoModel = pedido;
         }
 
         private void VendaPedido3_Load(object sender, EventArgs e)
@@ -54,13 +57,27 @@ namespace Augustus_Fashion.View.Pedido
 
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
+            
+
             CarrinhoModel carrinhoModel = new CarrinhoModel();
+            PedidoModel pedidoModel = new PedidoModel();
+
+            //INSERINDO DADOS NA MODEL DO CARRINHO
             carrinhoModel.NomeProduto = txtSelecionado.Text;
             carrinhoModel.Desconto = Convert.ToInt32(txtDesconto.Text);
             carrinhoModel.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
-            //carrinhoModel.PrecoFinal();
+            carrinhoModel.PrecoBruto = Convert.ToInt32(txtPrecoVenda.Text);
 
+            //INSERINDO DADOS NA MODEL DO PEDIDO
+            //pedidoModel.Desconto = Convert.ToInt32(txtDesconto.Text);
+            //pedidoModel.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
+            //pedidoModel.PrecoBruto = Convert.ToInt32(txtPrecoVenda.Text);
+            //pedidoModel.FormaDePagamento = cbFormaDePagamento.Text;
+
+            //_pedido.Add(pedidoModel);
             _carrinho.Add(carrinhoModel);
+
+            dgvCarrinho.Rows.Clear();
 
             foreach (var itens in _carrinho)
             {
@@ -97,20 +114,36 @@ namespace Augustus_Fashion.View.Pedido
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (Validar()) 
-            {
-                MessageBox.Show("Teste");
-            }
-        }
+                foreach (var carrinho in _carrinho) 
+                {
+                    _pedidoModel.PrecoBruto += carrinho.PrecoBruto;
+                    _pedidoModel.QuantidadeProduto += carrinho.QuantidadeProduto;
+                    _pedidoModel.Desconto += carrinho.Desconto;
+                }
+                _pedidoModel.FormaDePagamento += cbFormaDePagamento.Text;
 
-        private bool Validar()
-        {
-            if (!Testes.ValidarDesconto(float.Parse(txtDesconto.Text)))
-            {
-                MessageBox.Show("Desconto Inválido!");
-                return false;
-            }
-            return true;
-        }
+                try
+                {
+                    var retornar = new VendaControl();
+                    
+                    retornar.CadastrarVenda(_pedidoModel, _carrinho);
+                    MessageBox.Show("Venda efetuada com sucesso!");                
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Falha no Cadastro! " + ex.Message);
+                }
+                }
+            
+
+        //private bool Validar()
+        //{
+        //    if (!Testes.ValidarDesconto(float.Parse(txtDesconto.Text)))
+        //    {
+        //        MessageBox.Show("Desconto Inválido!");
+        //        return false;
+        //    }
+        //    return true;
+        //}
     }
 }

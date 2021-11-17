@@ -15,6 +15,8 @@ namespace Augustus_Fashion.View.Pedido
     {
         FuncionarioControl _funcionariocontrol = new FuncionarioControl();
 
+        public int IdFuncionario { get; set; }
+
         public VendaPedido()
         {
             InitializeComponent();
@@ -51,6 +53,8 @@ namespace Augustus_Fashion.View.Pedido
         {
             var nome = dgvFuncionario.SelectedRows[0].Cells[1].Value;
             txtSelecionado.Text = nome.ToString();
+
+            IdFuncionario = (int)dgvFuncionario.SelectedRows[0].Cells[0].Value;
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)
@@ -62,7 +66,7 @@ namespace Augustus_Fashion.View.Pedido
             else 
             {
                 this.Hide();
-                VendaPedido2 telaVenda2 = new VendaPedido2();
+                VendaPedido2 telaVenda2 = new VendaPedido2(IdFuncionario);
                 telaVenda2.ShowDialog();
                 this.Show();
                 //Close();

@@ -60,6 +60,7 @@
     <Compile Include="Controller\ClienteControl.cs" />
     <Compile Include="Controller\FuncionarioControl.cs" />
     <Compile Include="Controller\ProdutoControl.cs" />
+    <Compile Include="Controller\VendaControl.cs" />
     <Compile Include="crudDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +80,7 @@
     <Compile Include="DAO\conexao.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
+    <Compile Include="DAO\VendaDAO.cs" />
     <Compile Include="FluentValidation\CEPValidation.cs" />
     <Compile Include="FluentValidation\ClienteValidation.cs" />
     <Compile Include="FluentValidation\CPFValidation.cs" />
@@ -95,7 +97,7 @@
     <Compile Include="Model\Produto\ProdutoModel.cs" />
     <Compile Include="Model\Testes.cs" />
     <Compile Include="Model\Venda\CarrinhoModel.cs" />
-    <Compile Include="Model\Venda\Pedido.cs" />
+    <Compile Include="Model\Venda\PedidoModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

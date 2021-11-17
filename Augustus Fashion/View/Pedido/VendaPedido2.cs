@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.Model.Venda;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,15 @@ namespace Augustus_Fashion.View.Pedido
     {
         ClienteControl _clientecontrol = new ClienteControl();
 
-        public VendaPedido2()
+        //public int IdFuncionario { get; set; }
+        //public int IdCliente { get; set; }
+
+        PedidoModel pedido = new PedidoModel();
+
+        public VendaPedido2(int idFuncionario)
         {
             InitializeComponent();
+            pedido.IdFuncionario = idFuncionario;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -45,6 +52,8 @@ namespace Augustus_Fashion.View.Pedido
         {
             var nome = dgvCliente.SelectedRows[0].Cells[1].Value;
             txtSelecionado.Text = nome.ToString();
+
+            pedido.IdCliente = (int)dgvCliente.SelectedRows[0].Cells[0].Value;
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)
@@ -56,7 +65,7 @@ namespace Augustus_Fashion.View.Pedido
             else 
             {
                 this.Hide();
-                VendaPedido3 telaVenda3 = new VendaPedido3();
+                VendaPedido3 telaVenda3 = new VendaPedido3(pedido);
                 telaVenda3.ShowDialog();
                 this.Show();
             }
