@@ -24,11 +24,6 @@ namespace Augustus_Fashion.ValueObjects
             get => Convert.ToInt32(_cep).ToString(@"00.000-000");
         }
 
-        //public ValidationResult Validar()
-        //{
-        //    return new CEPValidation().Validate(this);
-        //}
-
         public string LimparCepFormatado() 
         {
             string cepSemFormatacao = _cep;

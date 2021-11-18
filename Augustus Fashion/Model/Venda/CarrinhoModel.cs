@@ -6,15 +6,15 @@ namespace Augustus_Fashion.Model.Venda
     {
         public int IdPedido { get; set;  }
         public int IdProduto { get; set;  }
-        public int IdCarrinho { get; set; }
+        //public int IdCarrinho { get; set; }
         public string NomeProduto { get; set; }
         public int QuantidadeProduto { get; set; }
-        public float PrecoBruto { get; set; }
+        public decimal PrecoBruto { get; set; }
         public decimal Desconto { get; set; }
 
-        public double PrecoLiquido 
+        public decimal PrecoLiquido 
         { 
-            get => PrecoBruto - Convert.ToInt32(Desconto);
+            get => PrecoBruto - Desconto;
         }
 
         public decimal PrecoFinal

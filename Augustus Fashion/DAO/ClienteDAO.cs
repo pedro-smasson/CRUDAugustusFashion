@@ -1,8 +1,8 @@
 ﻿using Augustus_Fashion.Model;
-using System.Collections.Generic;
-using System.Linq;
 using Dapper;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Augustus_Fashion.DAO
 {
@@ -59,12 +59,10 @@ namespace Augustus_Fashion.DAO
             {
                 throw new Exception(ex.Message);
             }
-                //conexao.Query<ClienteModel>(queryPessoa, queryCliente, QueryEndereco, cliente);
         }
 
         public static void AlterarCliente(ClienteModel cliente) 
         {
-            //var conexao = new conexao().Connection();
             var queryPessoa = @"update Pessoa set Nome = @Nome, Sexo = @Sexo, Nascimento = @Nascimento,
             Celular = @Celular, Email = @Email, Cpf = @Cpf where IdPessoa = @IdPessoa";
             var queryCliente = @"update Cliente set Limite = @Limite where IdPessoa = @IdPessoa";
@@ -111,7 +109,6 @@ namespace Augustus_Fashion.DAO
             {
                 throw new Exception(ex.Message);
             }
-            //conexao.Query<ClienteModel>(queryPessoa, cliente);
         }
 
         public static void ExcluirCliente(ClienteModel cliente) 
@@ -140,8 +137,6 @@ namespace Augustus_Fashion.DAO
             {
                 throw new Exception(ex.Message);
             }
-
-            //conexao.Query<ClienteModel>(queryEndereco, cliente);
         }
 
         public static List<ClienteListagem> ListarCliente() 
@@ -151,7 +146,7 @@ namespace Augustus_Fashion.DAO
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
             c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
             Pessoa p inner join Cliente c on c.IdPessoa = p.IdPessoa
-            inner join Endereco e on c.IdPessoa = e.IdPessoa"; /*where p.IdPessoa = @IdPessoa*/
+            inner join Endereco e on c.IdPessoa = e.IdPessoa";
 
             try 
             {
@@ -166,8 +161,6 @@ namespace Augustus_Fashion.DAO
             {
                 throw new Exception(ex.Message);
             }
-            //var resultado = conexao.Query<ClienteListagem>(query);
-            //return resultado.ToList(); 
         }
 
         private static ClienteListagem Mapear(ClienteListagem clienteListagem, EnderecoModel enderecoModel) 
@@ -196,9 +189,6 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
 
-                    //var parametros = new DynamicParameters();
-                    //parametros.Add("IdPessoa", id);
-
                     return conexao.Query(query, (ClienteModel clienteModel, EnderecoModel enderecoModel)
                     => MapearBusca(clienteModel, enderecoModel), splitOn: "IdPessoa", param: new {IdPessoa = id }).FirstOrDefault();
                 }
@@ -207,13 +197,6 @@ namespace Augustus_Fashion.DAO
             {
                 throw new Exception(ex.Message);
             }
-
-
-            //var parametros = new DynamicParameters();
-            //parametros.Add("@Id", id, System.Data.DbType.Int32);
-
-            //var resultado = conexao.QueryFirstOrDefault<ClienteModel>(query, parametros/*new { id }*/);
-            //return resultado;
         }
 
         public static List<ClienteListagem> BuscarLista(string nome)
@@ -229,9 +212,6 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection()) 
                 {
                     conexao.Open();
-
-                    //var parametros = new DynamicParameters();
-                    //parametros.Add("Nome", nome, System.Data.DbType.String);
 
                     return conexao.Query(query, (ClienteListagem clienteListagem, EnderecoModel enderecoModel)
                      => Mapear(clienteListagem, enderecoModel), new { Nome = nome }, splitOn: "IdPessoa").ToList();

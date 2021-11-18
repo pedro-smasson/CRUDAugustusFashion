@@ -2,9 +2,6 @@
 using Dapper;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Augustus_Fashion.DAO
 {
@@ -37,7 +34,7 @@ namespace Augustus_Fashion.DAO
                 }
             }
             catch(Exception ex) 
-                    {
+            {
                 throw new Exception(ex.Message);
             }
         }

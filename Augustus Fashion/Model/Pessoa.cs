@@ -1,5 +1,5 @@
-﻿using System;
-using Augustus_Fashion.ValueObjects;
+﻿using Augustus_Fashion.ValueObjects;
+using System;
 
 namespace Augustus_Fashion.Model
 {

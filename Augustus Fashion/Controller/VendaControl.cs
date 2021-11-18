@@ -2,19 +2,16 @@
 using Augustus_Fashion.Model.Venda;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Augustus_Fashion.Controller
 {
     public class VendaControl
     {
-        public string CadastrarVenda(PedidoModel pedido, List<CarrinhoModel> carrinhos) 
+        public string CadastrarVenda(PedidoModel pedidoModel, List<CarrinhoModel> carrinhos) 
         {
             try 
             {
-                VendaDAO.CadastrarVenda(pedido, carrinhos);
+                VendaDAO.CadastrarVenda(pedidoModel, carrinhos);
                 return string.Empty;
             }
             catch(Exception ex) 

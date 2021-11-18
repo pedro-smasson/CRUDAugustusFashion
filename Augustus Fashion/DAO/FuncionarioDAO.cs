@@ -1,8 +1,8 @@
 ﻿using Augustus_Fashion.Model;
-using System.Collections.Generic;
-using System.Linq;
 using Dapper;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Augustus_Fashion.DAO
 {
@@ -159,9 +159,6 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-
-                    //var parametros = new DynamicParameters();
-                    //parametros.Add("Nome", nome, System.Data.DbType.String);
 
                     return conexao.Query(query, (FuncionarioListagem funcionarioListagem, EnderecoModel funcionarioModel)
                     => Mapear(funcionarioListagem, funcionarioModel), new { Nome = nome}, splitOn: "IdPessoa").ToList();

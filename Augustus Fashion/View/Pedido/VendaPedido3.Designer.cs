@@ -223,7 +223,7 @@ namespace Augustus_Fashion.View.Pedido
             this.btnAdicionar.TabIndex = 25;
             this.btnAdicionar.Text = "ADD";
             this.btnAdicionar.UseVisualStyleBackColor = false;
-            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click_1);
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // label5
             // 

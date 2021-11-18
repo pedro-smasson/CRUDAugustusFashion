@@ -9,11 +9,11 @@ namespace Augustus_Fashion.Controller
 {
     class ProdutoControl
     {
-        public void CadastrarProduto(ProdutoModel produto) 
+        public void CadastrarProduto(ProdutoModel produtoModel) 
         {
             try
             {
-                ProdutoDAO.CadastrarProduto(produto);
+                ProdutoDAO.CadastrarProduto(produtoModel);
             }
             catch(Exception ex) 
             {
@@ -21,24 +21,23 @@ namespace Augustus_Fashion.Controller
             }
         }
 
-        public ProdutoModel Buscar(int id)
+        public ProdutoModel Buscar(int idProduto)
         {
 
-            return ProdutoDAO.Buscar(id);
+            return ProdutoDAO.Buscar(idProduto);
         }
 
-        public List<ProdutoListagem> BuscarLista(string nome)
+        public List<ProdutoListagem> BuscarLista(string nomeProduto)
         {
             try
             {
-                var lista = ProdutoDAO.BuscarLista(nome);
+                var lista = ProdutoDAO.BuscarLista(nomeProduto);
                 return lista;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            //return null;
         }
 
         public List<ProdutoListagem> ListarProduto()

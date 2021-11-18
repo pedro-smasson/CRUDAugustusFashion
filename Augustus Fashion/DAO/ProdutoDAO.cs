@@ -63,9 +63,6 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
 
-                    //var parametros = new DynamicParameters();
-                    //parametros.Add("IdProduto", id);
-
                     return conexao.QueryFirstOrDefault<ProdutoModel>(query, new {IdProduto = id});
                 }
             }

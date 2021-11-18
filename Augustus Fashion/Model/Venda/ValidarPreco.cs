@@ -10,11 +10,10 @@ namespace Augustus_Fashion.Model.Venda
         {
             string precoSemFormatacao = valor;
 
-            precoSemFormatacao = new string((from c in precoSemFormatacao
-                                             where char.IsDigit(c)
-                                             select c).ToArray());
+            precoSemFormatacao = new string
+            ((from caractere in precoSemFormatacao where char.IsDigit(caractere) select caractere).ToArray());
 
-            var precoCorreto = (Convert.ToInt32(precoSemFormatacao) / 100);
+            var precoCorreto = (Convert.ToDecimal(precoSemFormatacao) / 100);
             return precoCorreto.ToString();
         }
     }

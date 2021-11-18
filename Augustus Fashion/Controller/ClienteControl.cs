@@ -1,5 +1,5 @@
-﻿using Augustus_Fashion.Model;
-using Augustus_Fashion.DAO;
+﻿using Augustus_Fashion.DAO;
+using Augustus_Fashion.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,25 +9,17 @@ namespace Augustus_Fashion.Controller
     class ClienteControl
     {
 
-        //public void AbrirFormulario() => new AlterarCliente(this).Show();
-
-        //public void AbrirFormulario(ClienteModel clienteModelSelecionado)
-        //{
-        //    ClienteControl clienteControl = new ClienteControl();
-        //    new AlterarCliente(this, clienteModelSelecionado, clienteControl).Show();
-        //}
-
-        public /*???*/string CadastrarCliente(ClienteModel clienteModel)
+        public string CadastrarCliente(ClienteModel clienteModel)
         {
             try
             {
-                var retornar = clienteModel.ValidarCliente();
+                var retornarCadastrarCliente = clienteModel.ValidarCliente();
 
-                if(retornar == string.Empty) 
+                if(retornarCadastrarCliente == string.Empty) 
                 {
                     ClienteDao.CadastrarCliente(clienteModel);
                 }
-                return retornar;   
+                return retornarCadastrarCliente;   
             }
             catch(Exception ex)
             {
@@ -39,13 +31,13 @@ namespace Augustus_Fashion.Controller
         {
             try
             {
-                var retornar = clienteModel.ValidarCliente();
+                var retornarAlterarCliente = clienteModel.ValidarCliente();
 
-                if(retornar == string.Empty) 
+                if(retornarAlterarCliente == string.Empty) 
                 {
                     ClienteDao.AlterarCliente(clienteModel);
                 }
-                return retornar;   
+                return retornarAlterarCliente;   
             }
             catch (Exception ex)
             {
@@ -73,23 +65,23 @@ namespace Augustus_Fashion.Controller
             
         }
 
-        public ClienteModel Buscar(int id)
+        public ClienteModel Buscar(int idCliente)
         {
             {
-                return ClienteDao.Buscar(id);
+                return ClienteDao.Buscar(idCliente);
             }
         }
 
-        public List<ClienteListagem> BuscarLista(string nome)
+        public List<ClienteListagem> BuscarLista(string nomeCliente)
         {
             try
             {
-                    var lista = ClienteDao.BuscarLista(nome);
-                    return lista;
+                    var listaCliente = ClienteDao.BuscarLista(nomeCliente);
+                    return listaCliente;
             }
-            catch (Exception excecao)
+            catch (Exception ex)
             {
-                MessageBox.Show(excecao.Message);
+                MessageBox.Show(ex.Message);
             }
             return null;
         }

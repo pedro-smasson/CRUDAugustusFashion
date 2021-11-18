@@ -10,15 +10,5 @@ namespace Augustus_Fashion.Model
         public string Celular { get; set; }
         public DateTime Nascimento { get; set; }
         public EnderecoModel Endereco { get; set; }
-
-        //public string EnderecoCompleto
-        //{
-        //    get
-        //    {
-        //        return cidade + cep + estado + rua + bairro;
-        //    }
-        //}
-        //public Endereco Endereco { get; set; }
-
     }
 }

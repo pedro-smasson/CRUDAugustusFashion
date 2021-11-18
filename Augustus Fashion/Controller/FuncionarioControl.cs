@@ -8,11 +8,11 @@ namespace Augustus_Fashion.Controller
 {
     class FuncionarioControl
     {
-        public void CadastrarFuncionario(FuncionarioModel funcModel)
+        public void CadastrarFuncionario(FuncionarioModel funcionarioModel)
         {
             try
             {
-                FuncionarioDAO.CadastrarFuncionario(funcModel);
+                FuncionarioDAO.CadastrarFuncionario(funcionarioModel);
                 MessageBox.Show("Funcionário Cadastrado com Sucesso!");
             }
             catch (Exception ex)
@@ -21,19 +21,17 @@ namespace Augustus_Fashion.Controller
             }
         }
 
-        public FuncionarioModel Buscar(int id)
+        public FuncionarioModel Buscar(int idFuncionario)
         {
 
-            return FuncionarioDAO.Buscar(id);
+            return FuncionarioDAO.Buscar(idFuncionario);
         }
 
-    
-
-    public void AlterarFuncionario(FuncionarioModel funcionario)
+    public void AlterarFuncionario(FuncionarioModel funcionarioModel)
     {
         try
         {
-            FuncionarioDAO.AlterarFuncionario(funcionario);
+            FuncionarioDAO.AlterarFuncionario(funcionarioModel);
             MessageBox.Show("Funcionário Alterado com Sucesso!");
         }
         catch (Exception ex)
@@ -42,25 +40,25 @@ namespace Augustus_Fashion.Controller
         }
     }
 
-    public List<FuncionarioListagem> BuscarLista(string nome)
+    public List<FuncionarioListagem> BuscarLista(string nomeFuncionario)
     {
         try
         {
-            var lista = FuncionarioDAO.BuscarLista(nome);
-            return lista;
+            var listaFuncionario = FuncionarioDAO.BuscarLista(nomeFuncionario);
+            return listaFuncionario;
         }
-        catch (Exception excecao)
+        catch (Exception ex)
         {
-            MessageBox.Show(excecao.Message);
+            MessageBox.Show(ex.Message);
         }
         return null;
     }
 
-    public void ExcluirFuncionario(FuncionarioModel funcModel)
+    public void ExcluirFuncionario(FuncionarioModel funcionarioModel)
     {
         try
         {
-            FuncionarioDAO.ExcluirFuncionario(funcModel);
+            FuncionarioDAO.ExcluirFuncionario(funcionarioModel);
             MessageBox.Show("Funcionário deletado com sucesso!");
         }
         catch (Exception ex)

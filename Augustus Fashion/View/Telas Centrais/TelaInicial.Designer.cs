@@ -41,18 +41,21 @@ namespace Augustus_Fashion.View
             this.pRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eSTOQUEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pbFuncionario = new System.Windows.Forms.PictureBox();
-            this.pbProduto = new System.Windows.Forms.PictureBox();
-            this.pbCliente = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.pEDIDOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nOVOPEDIDOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEGISTRODEPEDIDOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbFuncionario = new System.Windows.Forms.PictureBox();
+            this.pbProduto = new System.Windows.Forms.PictureBox();
+            this.pbCliente = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).BeginInit();
@@ -69,7 +72,7 @@ namespace Augustus_Fashion.View
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(485, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(652, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -150,6 +153,28 @@ namespace Augustus_Fashion.View
             this.eSTOQUEToolStripMenuItem.Text = "LISTAGEM";
             this.eSTOQUEToolStripMenuItem.Click += new System.EventHandler(this.eSTOQUEToolStripMenuItem_Click);
             // 
+            // pEDIDOSToolStripMenuItem
+            // 
+            this.pEDIDOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nOVOPEDIDOToolStripMenuItem,
+            this.rEGISTRODEPEDIDOSToolStripMenuItem});
+            this.pEDIDOSToolStripMenuItem.Name = "pEDIDOSToolStripMenuItem";
+            this.pEDIDOSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.pEDIDOSToolStripMenuItem.Text = "PEDIDOS";
+            // 
+            // nOVOPEDIDOToolStripMenuItem
+            // 
+            this.nOVOPEDIDOToolStripMenuItem.Name = "nOVOPEDIDOToolStripMenuItem";
+            this.nOVOPEDIDOToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.nOVOPEDIDOToolStripMenuItem.Text = "NOVO PEDIDO";
+            this.nOVOPEDIDOToolStripMenuItem.Click += new System.EventHandler(this.nOVOPEDIDOToolStripMenuItem_Click);
+            // 
+            // rEGISTRODEPEDIDOSToolStripMenuItem
+            // 
+            this.rEGISTRODEPEDIDOSToolStripMenuItem.Name = "rEGISTRODEPEDIDOSToolStripMenuItem";
+            this.rEGISTRODEPEDIDOSToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.rEGISTRODEPEDIDOSToolStripMenuItem.Text = "REGISTRO DE PEDIDOS";
+            // 
             // FecharToolStripMenuItem
             // 
             this.FecharToolStripMenuItem.Name = "FecharToolStripMenuItem";
@@ -162,11 +187,62 @@ namespace Augustus_Fashion.View
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cambria", 28F);
             this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(79, 36);
+            this.label9.Location = new System.Drawing.Point(167, 33);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(314, 44);
             this.label9.TabIndex = 18;
             this.label9.Text = "Augustu\'s Fashion";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label1.Location = new System.Drawing.Point(26, 235);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 24);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "CLIENTE";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label2.Location = new System.Drawing.Point(189, 235);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 24);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "PRODUTO";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label3.Location = new System.Drawing.Point(341, 235);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 24);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "FUNCIONÁRIO";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label4.Location = new System.Drawing.Point(536, 235);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 24);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "PEDIDO";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Augustus_Fashion.Properties.Resources.pedido;
+            this.pictureBox1.Location = new System.Drawing.Point(512, 102);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pbFuncionario
             // 
@@ -201,58 +277,6 @@ namespace Augustus_Fashion.View
             this.pbCliente.TabStop = false;
             this.pbCliente.Click += new System.EventHandler(this.pbCliente_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.Location = new System.Drawing.Point(26, 235);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 24);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "CLIENTE";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label2.Location = new System.Drawing.Point(189, 235);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 24);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "PRODUTO";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label3.Location = new System.Drawing.Point(341, 235);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 24);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "FUNCIONÁRIO";
-            // 
-            // pEDIDOSToolStripMenuItem
-            // 
-            this.pEDIDOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nOVOPEDIDOToolStripMenuItem,
-            this.rEGISTRODEPEDIDOSToolStripMenuItem});
-            this.pEDIDOSToolStripMenuItem.Name = "pEDIDOSToolStripMenuItem";
-            this.pEDIDOSToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.pEDIDOSToolStripMenuItem.Text = "PEDIDOS";
-            // 
-            // nOVOPEDIDOToolStripMenuItem
-            // 
-            this.nOVOPEDIDOToolStripMenuItem.Name = "nOVOPEDIDOToolStripMenuItem";
-            this.nOVOPEDIDOToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.nOVOPEDIDOToolStripMenuItem.Text = "NOVO PEDIDO";
-            this.nOVOPEDIDOToolStripMenuItem.Click += new System.EventHandler(this.nOVOPEDIDOToolStripMenuItem_Click);
-            // 
-            // rEGISTRODEPEDIDOSToolStripMenuItem
-            // 
-            this.rEGISTRODEPEDIDOSToolStripMenuItem.Name = "rEGISTRODEPEDIDOSToolStripMenuItem";
-            this.rEGISTRODEPEDIDOSToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.rEGISTRODEPEDIDOSToolStripMenuItem.Text = "REGISTRO DE PEDIDOS";
-            // 
             // telaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,7 +284,9 @@ namespace Augustus_Fashion.View
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(485, 266);
+            this.ClientSize = new System.Drawing.Size(652, 266);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -277,6 +303,7 @@ namespace Augustus_Fashion.View
             this.Load += new System.EventHandler(this.TelaInicial_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).EndInit();
@@ -309,5 +336,7 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.ToolStripMenuItem pEDIDOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nOVOPEDIDOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEGISTRODEPEDIDOSToolStripMenuItem;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

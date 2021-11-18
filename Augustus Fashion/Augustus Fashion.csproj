@@ -204,6 +204,12 @@
     <Compile Include="View\Telas Centrais\TelaInicial.Designer.cs">
       <DependentUpon>TelaInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Telas Centrais\TelaPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Telas Centrais\TelaPedido.Designer.cs">
+      <DependentUpon>TelaPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Telas Centrais\TelaProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Telas Centrais\TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Telas Centrais\TelaPedido.resx">
+      <DependentUpon>TelaPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Telas Centrais\TelaProduto.resx">
       <DependentUpon>TelaProduto.cs</DependentUpon>
@@ -336,6 +345,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2303114_explore_lense_magnifier_search_searching_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedido.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

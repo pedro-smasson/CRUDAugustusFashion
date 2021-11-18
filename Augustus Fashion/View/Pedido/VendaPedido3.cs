@@ -1,6 +1,4 @@
 ﻿using Augustus_Fashion.Controller;
-using Augustus_Fashion.Model;
-using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
 using System;
 using System.Collections.Generic;
@@ -58,21 +56,17 @@ namespace Augustus_Fashion.View.Pedido
             // 3 = estoque
         }
 
-        private void btnAdicionar_Click_1(object sender, EventArgs e)
+        private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            
-
             CarrinhoModel carrinhoModel = new CarrinhoModel();
             PedidoModel pedidoModel = new PedidoModel();
 
-            //INSERINDO DADOS NA MODEL DO CARRINHO
             carrinhoModel.IdProduto = Convert.ToInt32(lblIdProduto.Text);
             carrinhoModel.NomeProduto = txtSelecionado.Text;
-            carrinhoModel.Desconto = Convert.ToInt32(ValidarPreco.RemoverFormatacaoDoPreco(txtDesconto.Text));
+            carrinhoModel.Desconto = Convert.ToDecimal(ValidarPreco.RemoverFormatacaoDoPreco(txtDesconto.Text));
             carrinhoModel.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
-            carrinhoModel.PrecoBruto = Convert.ToInt32(txtPrecoVenda.Text);
+            carrinhoModel.PrecoBruto = Convert.ToDecimal(txtPrecoVenda.Text);
 
-            //_pedido.Add(pedidoModel);
             _carrinho.Add(carrinhoModel);
 
             dgvCarrinho.Rows.Clear();
@@ -121,17 +115,22 @@ namespace Augustus_Fashion.View.Pedido
                 }
                 _pedidoModel.FormaDePagamento += cbFormaDePagamento.Text;
 
+                if(_carrinho.Count == 0) 
+                    {
+                        MessageBox.Show("Erro! Carrinho vazio");
+                    }
                 try
                 {
-                    var retornar = new VendaControl();
+                    var vendaControl = new VendaControl();
                     
-                    retornar.CadastrarVenda(_pedidoModel, _carrinho);
+                    vendaControl.CadastrarVenda(_pedidoModel, _carrinho);
                     MessageBox.Show("Venda efetuada com sucesso!");                
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Falha no Cadastro! " + ex.Message);
                 }
+                
         }
 
         private void label8_Click(object sender, EventArgs e)

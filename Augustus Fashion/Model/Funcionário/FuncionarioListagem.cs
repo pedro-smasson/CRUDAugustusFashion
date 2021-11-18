@@ -9,7 +9,6 @@ namespace Augustus_Fashion.Model
         public string Nome { get; set; }
         public string Celular { get; set; }
         public DateTime Nascimento { get; set; }
-
         public EnderecoModel Endereco { get; set; }
     }
 }
