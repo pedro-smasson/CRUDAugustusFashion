@@ -26,6 +26,7 @@ namespace Augustus_Fashion.View.Pedido
         private void VendaPedido3_Load(object sender, EventArgs e)
         {
             dgvProduto.DataSource = _produtocontrol.ListarProduto();
+            txtDesconto.Text = (0).ToString("c");
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)
@@ -48,9 +49,11 @@ namespace Augustus_Fashion.View.Pedido
         {
             var nome = dgvProduto.SelectedRows[0].Cells[1].Value;
             var precovenda = dgvProduto.SelectedRows[0].Cells[2].Value;
+            var idProduto = dgvProduto.SelectedRows[0].Cells[0].Value;
             
             txtSelecionado.Text = nome.ToString();
             txtPrecoVenda.Text = precovenda.ToString();
+            lblIdProduto.Text = idProduto.ToString();
 
             // 3 = estoque
         }
@@ -63,16 +66,11 @@ namespace Augustus_Fashion.View.Pedido
             PedidoModel pedidoModel = new PedidoModel();
 
             //INSERINDO DADOS NA MODEL DO CARRINHO
+            carrinhoModel.IdProduto = Convert.ToInt32(lblIdProduto.Text);
             carrinhoModel.NomeProduto = txtSelecionado.Text;
-            carrinhoModel.Desconto = Convert.ToInt32(txtDesconto.Text);
+            carrinhoModel.Desconto = Convert.ToInt32(ValidarPreco.RemoverFormatacaoDoPreco(txtDesconto.Text));
             carrinhoModel.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
             carrinhoModel.PrecoBruto = Convert.ToInt32(txtPrecoVenda.Text);
-
-            //INSERINDO DADOS NA MODEL DO PEDIDO
-            //pedidoModel.Desconto = Convert.ToInt32(txtDesconto.Text);
-            //pedidoModel.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
-            //pedidoModel.PrecoBruto = Convert.ToInt32(txtPrecoVenda.Text);
-            //pedidoModel.FormaDePagamento = cbFormaDePagamento.Text;
 
             //_pedido.Add(pedidoModel);
             _carrinho.Add(carrinhoModel);
@@ -116,6 +114,7 @@ namespace Augustus_Fashion.View.Pedido
         {
                 foreach (var carrinho in _carrinho) 
                 {
+                    _pedidoModel.IdPedido += carrinho.IdPedido;
                     _pedidoModel.PrecoBruto += carrinho.PrecoBruto;
                     _pedidoModel.QuantidadeProduto += carrinho.QuantidadeProduto;
                     _pedidoModel.Desconto += carrinho.Desconto;
@@ -133,8 +132,18 @@ namespace Augustus_Fashion.View.Pedido
                 {
                     MessageBox.Show("Falha no Cadastro! " + ex.Message);
                 }
-                }
-            
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         //private bool Validar()
         //{

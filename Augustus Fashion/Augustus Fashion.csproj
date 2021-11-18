@@ -98,6 +98,7 @@
     <Compile Include="Model\Testes.cs" />
     <Compile Include="Model\Venda\CarrinhoModel.cs" />
     <Compile Include="Model\Venda\PedidoModel.cs" />
+    <Compile Include="Model\Venda\ValidarPreco.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

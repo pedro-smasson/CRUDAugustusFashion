@@ -206,7 +206,7 @@ namespace Augustus_Fashion.View
             this.Name = "ListarFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LISTAR FUNCIONÁRIO";
-            this.Load += new System.EventHandler(this.ListarFuncionario_Load_1);
+            this.Load += new System.EventHandler(this.ListarFuncionario_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();

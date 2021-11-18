@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.Model.Venda;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace Augustus_Fashion.View.Pedido
     {
         FuncionarioControl _funcionariocontrol = new FuncionarioControl();
 
-        public int IdFuncionario { get; set; }
+        PedidoModel _pedido = new PedidoModel();
 
         public VendaPedido()
         {
@@ -24,7 +25,7 @@ namespace Augustus_Fashion.View.Pedido
 
         public int SelecionarFuncionarioModel()
         {
-            int id = Convert.ToInt32(dgvFuncionario.SelectedRows[0].Cells[0].Value);
+            int id = Convert.ToInt32(dgvFuncionario.SelectedRows[0].Cells[1].Value);
             return id;
         }
 
@@ -54,7 +55,7 @@ namespace Augustus_Fashion.View.Pedido
             var nome = dgvFuncionario.SelectedRows[0].Cells[1].Value;
             txtSelecionado.Text = nome.ToString();
 
-            IdFuncionario = (int)dgvFuncionario.SelectedRows[0].Cells[0].Value;
+            _pedido.IdFuncionario = (int)dgvFuncionario.SelectedRows[0].Cells[0].Value;
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)
@@ -66,7 +67,7 @@ namespace Augustus_Fashion.View.Pedido
             else 
             {
                 this.Hide();
-                VendaPedido2 telaVenda2 = new VendaPedido2(IdFuncionario);
+                VendaPedido2 telaVenda2 = new VendaPedido2(_pedido.IdFuncionario);
                 telaVenda2.ShowDialog();
                 this.Show();
                 //Close();

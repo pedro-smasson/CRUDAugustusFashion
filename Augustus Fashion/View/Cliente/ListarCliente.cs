@@ -96,7 +96,6 @@ namespace Augustus_Fashion.View
 
         public int SelecionarClienteModel()
         {
-            var linha = dgvCliente.Rows;
             int id = Convert.ToInt32(dgvCliente.SelectedRows[0].Cells[0].Value);
             return id;
         }

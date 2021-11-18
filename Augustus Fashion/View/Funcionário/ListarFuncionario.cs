@@ -8,7 +8,7 @@ namespace Augustus_Fashion.View
     public partial class ListarFuncionario : Form
     {
         FuncionarioModel _funcmodel = new FuncionarioModel();
-        FuncionarioControl _funccontrol = new FuncionarioControl();
+        FuncionarioControl _funcionariocontrol = new FuncionarioControl();
         public ListarFuncionario()
         {
             InitializeComponent();
@@ -16,27 +16,17 @@ namespace Augustus_Fashion.View
 
         private void ListarFuncionario_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'crudDataSet1.funcionario'. Você pode movê-la ou removê-la conforme necessário.
-            //this.funcionarioTableAdapter.Fill(this.crudDataSet2.funcionario);
-            dgvFuncionario.DataSource = _funccontrol.ListarFuncionarios();
-
-        }
-
-        private void ListarFuncionario_Load_1(object sender, EventArgs e)
-        {
-            // TODO: esta linha de código carrega dados na tabela 'crudDataSet2.funcionario'. Você pode movê-la ou removê-la conforme necessário.
-            //this.funcionarioTableAdapter.Fill(this.crudDataSet2.funcionario);
-            dgvFuncionario.DataSource = _funccontrol.ListarFuncionarios();
+            dgvFuncionario.DataSource = _funcionariocontrol.ListarFuncionarios();
 
         }
 
         private void buscarNome_Click_1(object sender, EventArgs e)
         {
-            dgvFuncionario.DataSource = _funccontrol.BuscarLista(textBox1.Text);
+            dgvFuncionario.DataSource = _funcionariocontrol.BuscarLista(textBox1.Text);
 
             if (textBox1.Text == "%")
             {
-                dgvFuncionario.DataSource = _funccontrol.ListarFuncionarios();
+                dgvFuncionario.DataSource = _funcionariocontrol.ListarFuncionarios();
                 textBox1.Text = "";
             }
         }
@@ -109,7 +99,7 @@ namespace Augustus_Fashion.View
         {
             AlterarFuncionario af = new AlterarFuncionario();
             var id = SelecionarFuncionarioModel();
-            var cliente = _funccontrol.Buscar(id);
+            var cliente = _funcionariocontrol.Buscar(id);
             af.dadosDe(cliente);
             af.Show();
         }

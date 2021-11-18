@@ -1,4 +1,6 @@
-﻿namespace Augustus_Fashion.Model.Venda
+﻿using System;
+
+namespace Augustus_Fashion.Model.Venda
 {
     public class CarrinhoModel
     {
@@ -8,17 +10,16 @@
         public string NomeProduto { get; set; }
         public int QuantidadeProduto { get; set; }
         public float PrecoBruto { get; set; }
-        public int Desconto { get; set; }
+        public decimal Desconto { get; set; }
 
         public double PrecoLiquido 
         { 
-            get => PrecoBruto - Desconto;
+            get => PrecoBruto - Convert.ToInt32(Desconto);
         }
 
- /* total abaixo */
-        public double PrecoFinal
+        public decimal PrecoFinal
         {
-            get => PrecoLiquido * QuantidadeProduto;
+            get => (decimal)(PrecoLiquido * QuantidadeProduto);
         }
 
     }

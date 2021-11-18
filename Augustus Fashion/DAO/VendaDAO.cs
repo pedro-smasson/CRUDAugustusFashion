@@ -37,7 +37,7 @@ namespace Augustus_Fashion.DAO
                 }
             }
             catch(Exception ex) 
-            {
+                    {
                 throw new Exception(ex.Message);
             }
         }

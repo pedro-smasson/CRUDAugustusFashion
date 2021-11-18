@@ -13,11 +13,11 @@ namespace Augustus_Fashion.Model.Venda
         public int IdCliente { get; set; }
         public string FormaDePagamento { get; set; }
         public float PrecoBruto { get; set; }
-        public int Desconto { get; set; }
+        public decimal Desconto { get; set; }
         public int QuantidadeProduto { get; set; }
         public double PrecoLiquido 
         {
-            get => PrecoBruto - Desconto;
+            get => PrecoBruto - Convert.ToInt32(Desconto);
         }
         public double PrecoFinal 
         { 
