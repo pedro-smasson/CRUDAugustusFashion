@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace Augustus_Fashion.Model.Venda
+﻿namespace Augustus_Fashion.Model.Venda
 {
-    public class CarrinhoModel
+    public class PedidoProdutoModel
     {
         public int IdPedido { get; set;  }
         public int IdProduto { get; set;  }
-        //public int IdCarrinho { get; set; }
         public string NomeProduto { get; set; }
         public int QuantidadeProduto { get; set; }
         public decimal PrecoBruto { get; set; }

@@ -7,7 +7,7 @@ namespace Augustus_Fashion.DAO
 {
     class VendaDAO
     {
-        public static void CadastrarVenda(PedidoModel pedido, List<CarrinhoModel> carrinhos) 
+        public static void CadastrarVenda(PedidoModel pedido, List<PedidoProdutoModel> carrinhos) 
         {
             var queryPedido = @"insert into Pedido (IdFuncionario, IdCliente, TotalBruto, TotalLiquido, Desconto, 
             PrecoFinal, FormaDePagamento, QuantidadeProduto) output inserted.IdPedido values (@IdFuncionario, 

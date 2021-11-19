@@ -1,40 +1,37 @@
 ﻿using Augustus_Fashion.Controller;
-using Augustus_Fashion.Model;
+using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.View.Pedido
 {
     public partial class VendaPedido3 : Form
     {
-        ProdutoControl _produtocontrol = new ProdutoControl();
-        //ProdutoModel _produtomodel = new ProdutoModel();
-        PedidoModel _pedidoModel = new PedidoModel();
+        ProdutoControl _produtoControl = new ProdutoControl();
+        PedidoModel _pedido;
 
-        List<CarrinhoModel> _carrinho = new List<CarrinhoModel>();
-        List<PedidoModel> _pedidoLista = new List<PedidoModel>();
 
         public VendaPedido3(PedidoModel pedido)
         {
             InitializeComponent();
-            _pedidoModel = pedido;
+            _pedido = pedido;
         }
 
         private void VendaPedido3_Load(object sender, EventArgs e)
         {
-            dgvProduto.DataSource = _produtocontrol.ListarProduto();
+            dgvProduto.DataSource = _produtoControl.ListarProduto();
             txtDesconto.Text = (0).ToString("c");
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)
         {
-            dgvProduto.DataSource = _produtocontrol.BuscarLista(txtProduto.Text);
+            dgvProduto.DataSource = _produtoControl.BuscarLista(txtProduto.Text);
 
-            if(txtProduto.Text == "%") 
+            if (txtProduto.Text == "%")
             {
-                dgvProduto.DataSource = _produtocontrol.ListarProduto();
+                dgvProduto.DataSource = _produtoControl.ListarProduto();
                 txtProduto.Text = "";
             }
         }
@@ -48,46 +45,45 @@ namespace Augustus_Fashion.View.Pedido
         {
             var nome = dgvProduto.SelectedRows[0].Cells[1].Value;
             var precovenda = dgvProduto.SelectedRows[0].Cells[2].Value;
-            var idProduto = dgvProduto.SelectedRows[0].Cells[0].Value;
-            
+            var produto = BuscarModelProdutoSelecionado();
+
             txtSelecionado.Text = nome.ToString();
             txtPrecoVenda.Text = precovenda.ToString();
-            lblIdProduto.Text = idProduto.ToString();
+            lblIdProduto.Text = produto.IdProduto.ToString();
+            txtPrecoLiquido.Text = (Convert.ToDecimal(produto.PrecoVenda) - Convert.ToDecimal(ValidarPreco.RemoverFormatacaoDoPreco(txtDesconto.Text))).ToString();
 
             // 3 = estoque
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            CarrinhoModel carrinhoModel = new CarrinhoModel();
-            PedidoModel pedidoModel = new PedidoModel();
 
-            carrinhoModel.IdProduto = Convert.ToInt32(lblIdProduto.Text);
-            carrinhoModel.NomeProduto = txtSelecionado.Text;
-            carrinhoModel.Desconto = Convert.ToDecimal(ValidarPreco.RemoverFormatacaoDoPreco(txtDesconto.Text));
-            carrinhoModel.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
-            carrinhoModel.PrecoBruto = Convert.ToDecimal(txtPrecoVenda.Text);
+            PedidoProdutoModel produtoPedido = new PedidoProdutoModel();
 
-            _carrinho.Add(carrinhoModel);
+            produtoPedido.IdProduto = Convert.ToInt32(lblIdProduto.Text);
+            produtoPedido.NomeProduto = txtSelecionado.Text;
+            produtoPedido.Desconto = Convert.ToDecimal(ValidarPreco.RemoverFormatacaoDoPreco(txtDesconto.Text));
+            produtoPedido.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
+            produtoPedido.PrecoBruto = Convert.ToDecimal(txtPrecoVenda.Text);
 
-            dgvCarrinho.Rows.Clear();
+            _pedido.AdicionarProduto(produtoPedido);
 
-            foreach (var itens in _carrinho)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dgvCarrinho);
 
-                row.Cells[0].Value = itens.NomeProduto;
-                row.Cells[1].Value = itens.PrecoFinal.ToString("c");
-                row.Cells[2].Value = itens.QuantidadeProduto;
-                dgvCarrinho.Rows.Add(row);
-            }
+            dgvCarrinho.DataSource = null;
+            dgvCarrinho.AutoGenerateColumns = false;
+
+            var source = new BindingSource();
+            source.DataSource = _pedido.Produtos;
+
+            dgvCarrinho.DataSource = source;
+
         }
 
         private void nudQuantidade_ValueChanged(object sender, EventArgs e)
         {
             nudQuantidade.Maximum = 5000;
-            QuantidadeMaiorQueEstoque(SelecionarValorEstoque());         
+            QuantidadeMaiorQueEstoque(SelecionarValorEstoque());
+            CalcularPrecoLiquido();
         }
 
         public bool QuantidadeMaiorQueEstoque(int estoque)
@@ -102,58 +98,65 @@ namespace Augustus_Fashion.View.Pedido
         }
         public int SelecionarValorEstoque()
         {
-            return (int)dgvProduto.SelectedRows[0].Cells[3].Value;       
+            return (int)dgvProduto.SelectedRows[0].Cells[3].Value;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-                foreach (var carrinho in _carrinho) 
-                {
-                    _pedidoModel.IdPedido += carrinho.IdPedido;
-                    _pedidoModel.PrecoBruto += carrinho.PrecoBruto;
-                    _pedidoModel.QuantidadeProduto += carrinho.QuantidadeProduto;
-                    _pedidoModel.Desconto += carrinho.Desconto;
-                }
-                _pedidoModel.FormaDePagamento += cbFormaDePagamento.Text;
 
-                if(_carrinho.Count == 0) 
-                    {
-                        MessageBox.Show("Erro! Carrinho vazio");
+            if (!ValidarProdutosDoPedido())
                 return;
-                    }
-            else 
-            {
-                try
-                {
-                    var vendaControl = new VendaControl();
 
-                    vendaControl.CadastrarVenda(_pedidoModel, _carrinho);
-                    MessageBox.Show("Venda efetuada com sucesso!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Falha no Cadastro! " + ex.Message);
-                }
-            }
-                
-                
+            CadastrarVenda();
+
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void CadastrarVenda()
         {
+            try
+            {
+                var vendaControl = new VendaControl();
+
+                vendaControl.CadastrarVenda(_pedido, _pedido.Produtos);
+                MessageBox.Show("Venda efetuada com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falha no Cadastro! " + ex.Message);
+            }
+        }
+
+        private bool ValidarProdutosDoPedido()
+        {
+
+            if (_pedido.Produtos.Any())
+                return true;
+
+            MessageBox.Show("Erro! Carrinho vazio");
+            return false;
 
         }
 
         private void CalcularPrecoLiquido()
-        {
-            var precoLiquido = (_pedidoModel.PrecoBruto - _pedidoModel.Desconto) * _pedidoModel.QuantidadeProduto;
+        {    
+            var precoLiquido = _pedido.PrecoTotal;
             txtPrecoLiquido.Text = precoLiquido.ToString();
         }
+        //private void ExibirTotalDaVenda() 
+        //{
+        //    var totalVenda = 
+        //}
 
-        private void txtPrecoLiquido_TextChanged(object sender, EventArgs e)
+        private void txtDesconto_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
+
+        private void txtPrecoVenda_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
+
+        private void cbFormaDePagamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CalcularPrecoLiquido();
+            _pedido.FormaDePagamento = cbFormaDePagamento.Text;
         }
+
+        private void txtDesconto_KeyUp(object sender, KeyEventArgs e) => CalcularPrecoLiquido();
 
         //private bool Validar()
         //{
@@ -164,5 +167,11 @@ namespace Augustus_Fashion.View.Pedido
         //    }
         //    return true;
         //}
+
+        private ProdutoModel BuscarModelProdutoSelecionado() 
+        {
+            var id = dgvProduto.SelectedRows[0].Cells[0].Value;
+            return _produtoControl.Buscar((int)id);
+        }
     }
 }

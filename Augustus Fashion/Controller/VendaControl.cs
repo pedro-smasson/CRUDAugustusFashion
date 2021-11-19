@@ -7,7 +7,7 @@ namespace Augustus_Fashion.Controller
 {
     public class VendaControl
     {
-        public string CadastrarVenda(PedidoModel pedidoModel, List<CarrinhoModel> carrinhos) 
+        public string CadastrarVenda(PedidoModel pedidoModel, List<PedidoProdutoModel> carrinhos) 
         {
             try 
             {
