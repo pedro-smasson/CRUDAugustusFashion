@@ -25,17 +25,6 @@ namespace Augustus_Fashion.View.Pedido
             this.DialogResult = DialogResult.OK;
         }
 
-        private void pbBuscar_Click(object sender, EventArgs e)
-        {
-            dgvCliente.DataSource = _clientecontrol.BuscarLista(txtCliente.Text);
-
-            if(txtCliente.Text == "%") 
-            {
-                dgvCliente.DataSource = _clientecontrol.ListarClientes();
-                txtCliente.Text = "";
-            }
-        }
-
         private void VendaPedido2_Load(object sender, EventArgs e)
         {
             dgvCliente.DataSource = _clientecontrol.ListarClientes();
@@ -63,6 +52,17 @@ namespace Augustus_Fashion.View.Pedido
                 this.Show();
             }
             
+        }
+
+        private void pbBuscar_Click(object sender, EventArgs e)
+        {
+            dgvCliente.DataSource = _clientecontrol.BuscarLista(txtCliente.Text);
+
+            if (txtCliente.Text == "%")
+            {
+                dgvCliente.DataSource = _clientecontrol.ListarClientes();
+                txtCliente.Text = "";
+            }
         }
     }
 }

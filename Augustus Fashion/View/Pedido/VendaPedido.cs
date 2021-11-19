@@ -65,7 +65,6 @@ namespace Augustus_Fashion.View.Pedido
                 this.Show();
                 //Close();
             }
-
         }
     }
 }

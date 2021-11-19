@@ -29,7 +29,6 @@ namespace Augustus_Fashion.View.Pedido
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtFuncionario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,37 +36,31 @@ namespace Augustus_Fashion.View.Pedido
             this.txtSelecionado = new System.Windows.Forms.TextBox();
             this.btnAvancar = new System.Windows.Forms.Button();
             this.pbBuscar = new System.Windows.Forms.PictureBox();
+            this.txtFuncionario = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtFuncionario
-            // 
-            this.txtFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.txtFuncionario.Location = new System.Drawing.Point(143, 104);
-            this.txtFuncionario.Name = "txtFuncionario";
-            this.txtFuncionario.Size = new System.Drawing.Size(201, 32);
-            this.txtFuncionario.TabIndex = 0;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label1.Location = new System.Drawing.Point(138, 72);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label1.Location = new System.Drawing.Point(39, 108);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 26);
+            this.label1.Size = new System.Drawing.Size(116, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Funcionário:";
             // 
             // dgvFuncionario
             // 
-            this.dgvFuncionario.BackgroundColor = System.Drawing.Color.LavenderBlush;
+            this.dgvFuncionario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFuncionario.BackgroundColor = System.Drawing.Color.White;
             this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFuncionario.Location = new System.Drawing.Point(71, 159);
+            this.dgvFuncionario.Location = new System.Drawing.Point(43, 138);
             this.dgvFuncionario.Name = "dgvFuncionario";
             this.dgvFuncionario.ReadOnly = true;
             this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFuncionario.Size = new System.Drawing.Size(437, 162);
+            this.dgvFuncionario.Size = new System.Drawing.Size(519, 162);
             this.dgvFuncionario.TabIndex = 4;
             this.dgvFuncionario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionario_CellDoubleClick);
             // 
@@ -75,26 +68,26 @@ namespace Augustus_Fashion.View.Pedido
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label2.Location = new System.Drawing.Point(57, 17);
+            this.label2.Location = new System.Drawing.Point(193, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(454, 31);
+            this.label2.Size = new System.Drawing.Size(207, 31);
             this.label2.TabIndex = 5;
-            this.label2.Text = "VENDA: PASSO 1 - FUNCIONÁRIO";
+            this.label2.Text = "FUNCIONÁRIO";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label3.Location = new System.Drawing.Point(8, 352);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(39, 327);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(234, 25);
+            this.label3.Size = new System.Drawing.Size(188, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Funcionário Selecionado:";
             // 
             // txtSelecionado
             // 
             this.txtSelecionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtSelecionado.Location = new System.Drawing.Point(248, 350);
+            this.txtSelecionado.Location = new System.Drawing.Point(233, 321);
             this.txtSelecionado.Name = "txtSelecionado";
             this.txtSelecionado.ReadOnly = true;
             this.txtSelecionado.Size = new System.Drawing.Size(202, 29);
@@ -105,7 +98,7 @@ namespace Augustus_Fashion.View.Pedido
             // 
             this.btnAvancar.BackColor = System.Drawing.Color.LightGreen;
             this.btnAvancar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAvancar.Location = new System.Drawing.Point(478, 345);
+            this.btnAvancar.Location = new System.Drawing.Point(457, 316);
             this.btnAvancar.Name = "btnAvancar";
             this.btnAvancar.Size = new System.Drawing.Size(105, 39);
             this.btnAvancar.TabIndex = 8;
@@ -115,21 +108,33 @@ namespace Augustus_Fashion.View.Pedido
             // 
             // pbBuscar
             // 
-            this.pbBuscar.Image = global::Augustus_Fashion.Properties.Resources.search;
-            this.pbBuscar.Location = new System.Drawing.Point(352, 84);
+            this.pbBuscar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pbBuscar.BackgroundImage = global::Augustus_Fashion.Properties.Resources.search;
+            this.pbBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbBuscar.Location = new System.Drawing.Point(522, 106);
             this.pbBuscar.Name = "pbBuscar";
-            this.pbBuscar.Size = new System.Drawing.Size(64, 64);
-            this.pbBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbBuscar.Size = new System.Drawing.Size(40, 26);
             this.pbBuscar.TabIndex = 3;
             this.pbBuscar.TabStop = false;
             this.pbBuscar.Click += new System.EventHandler(this.pbBuscar_Click);
+            // 
+            // txtFuncionario
+            // 
+            this.txtFuncionario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.75F);
+            this.txtFuncionario.Location = new System.Drawing.Point(161, 106);
+            this.txtFuncionario.Name = "txtFuncionario";
+            this.txtFuncionario.Size = new System.Drawing.Size(334, 26);
+            this.txtFuncionario.TabIndex = 14;
             // 
             // VendaPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(607, 401);
+            this.ClientSize = new System.Drawing.Size(607, 380);
+            this.Controls.Add(this.txtFuncionario);
             this.Controls.Add(this.btnAvancar);
             this.Controls.Add(this.txtSelecionado);
             this.Controls.Add(this.label3);
@@ -137,7 +142,7 @@ namespace Augustus_Fashion.View.Pedido
             this.Controls.Add(this.dgvFuncionario);
             this.Controls.Add(this.pbBuscar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtFuncionario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "VendaPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VENDA";
@@ -150,8 +155,6 @@ namespace Augustus_Fashion.View.Pedido
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtFuncionario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbBuscar;
         private System.Windows.Forms.DataGridView dgvFuncionario;
@@ -159,5 +162,6 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSelecionado;
         private System.Windows.Forms.Button btnAvancar;
+        private System.Windows.Forms.TextBox txtFuncionario;
     }
 }

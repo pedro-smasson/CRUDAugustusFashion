@@ -54,18 +54,15 @@ namespace Augustus_Fashion.View.Pedido
             this.lblIdProduto = new System.Windows.Forms.Label();
             this.txtPrecoVenda = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTotalVenda = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtPrecoLiquido = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProduto
@@ -111,13 +108,13 @@ namespace Augustus_Fashion.View.Pedido
             this.txtProduto.Location = new System.Drawing.Point(122, 135);
             this.txtProduto.Name = "txtProduto";
             this.txtProduto.Size = new System.Drawing.Size(334, 22);
-            this.txtProduto.TabIndex = 13;
+            this.txtProduto.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label2.Location = new System.Drawing.Point(259, 66);
+            this.label2.Location = new System.Drawing.Point(263, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(375, 31);
             this.label2.TabIndex = 17;
@@ -128,7 +125,7 @@ namespace Augustus_Fashion.View.Pedido
             this.btnVoltar.BackColor = System.Drawing.Color.Cornsilk;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnVoltar.Location = new System.Drawing.Point(41, 543);
+            this.btnVoltar.Location = new System.Drawing.Point(34, 37);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(105, 39);
             this.btnVoltar.TabIndex = 21;
@@ -141,7 +138,7 @@ namespace Augustus_Fashion.View.Pedido
             this.btnSalvar.BackColor = System.Drawing.Color.LightGreen;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(767, 543);
+            this.btnSalvar.Location = new System.Drawing.Point(767, 460);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(105, 39);
             this.btnSalvar.TabIndex = 20;
@@ -154,10 +151,10 @@ namespace Augustus_Fashion.View.Pedido
             this.txtSelecionado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
             this.txtSelecionado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSelecionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtSelecionado.Location = new System.Drawing.Point(218, 337);
+            this.txtSelecionado.Location = new System.Drawing.Point(197, 335);
             this.txtSelecionado.Name = "txtSelecionado";
             this.txtSelecionado.ReadOnly = true;
-            this.txtSelecionado.Size = new System.Drawing.Size(284, 22);
+            this.txtSelecionado.Size = new System.Drawing.Size(244, 22);
             this.txtSelecionado.TabIndex = 19;
             // 
             // label3
@@ -216,8 +213,8 @@ namespace Augustus_Fashion.View.Pedido
             // 
             this.btnAdicionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnAdicionar.Location = new System.Drawing.Point(424, 477);
+            this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnAdicionar.Location = new System.Drawing.Point(424, 465);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(78, 28);
             this.btnAdicionar.TabIndex = 25;
@@ -229,17 +226,17 @@ namespace Augustus_Fashion.View.Pedido
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(277, 378);
+            this.label5.Location = new System.Drawing.Point(278, 381);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 20);
+            this.label5.Size = new System.Drawing.Size(133, 20);
             this.label5.TabIndex = 26;
-            this.label5.Text = "Quantidade:";
+            this.label5.Text = "Quantidade Unit.:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(34, 376);
+            this.label6.Location = new System.Drawing.Point(45, 418);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 20);
             this.label6.TabIndex = 27;
@@ -251,11 +248,11 @@ namespace Augustus_Fashion.View.Pedido
             this.nudQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nudQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.nudQuantidade.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.nudQuantidade.Location = new System.Drawing.Point(429, 379);
+            this.nudQuantidade.Location = new System.Drawing.Point(417, 379);
             this.nudQuantidade.Name = "nudQuantidade";
             this.nudQuantidade.ReadOnly = true;
-            this.nudQuantidade.Size = new System.Drawing.Size(76, 22);
-            this.nudQuantidade.TabIndex = 30;
+            this.nudQuantidade.Size = new System.Drawing.Size(85, 22);
+            this.nudQuantidade.TabIndex = 3;
             this.nudQuantidade.Value = new decimal(new int[] {
             1,
             0,
@@ -267,7 +264,7 @@ namespace Augustus_Fashion.View.Pedido
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(525, 337);
+            this.label7.Location = new System.Drawing.Point(569, 338);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(167, 20);
             this.label7.TabIndex = 31;
@@ -278,166 +275,143 @@ namespace Augustus_Fashion.View.Pedido
             // 
             this.cbFormaDePagamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
             this.cbFormaDePagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbFormaDePagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFormaDePagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbFormaDePagamento.FormattingEnabled = true;
+            this.cbFormaDePagamento.ItemHeight = 15;
             this.cbFormaDePagamento.Items.AddRange(new object[] {
             "Cartão - Crédito",
             "Cartão - Débito",
             "Á Vista",
             "Á Prazo",
             "Cheque"});
-            this.cbFormaDePagamento.Location = new System.Drawing.Point(721, 338);
+            this.cbFormaDePagamento.Location = new System.Drawing.Point(742, 338);
             this.cbFormaDePagamento.Name = "cbFormaDePagamento";
-            this.cbFormaDePagamento.Size = new System.Drawing.Size(151, 21);
-            this.cbFormaDePagamento.TabIndex = 32;
+            this.cbFormaDePagamento.Size = new System.Drawing.Size(130, 23);
+            this.cbFormaDePagamento.TabIndex = 4;
             // 
             // txtDesconto
             // 
             this.txtDesconto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
             this.txtDesconto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesconto.Location = new System.Drawing.Point(138, 403);
+            this.txtDesconto.Location = new System.Drawing.Point(170, 378);
             this.txtDesconto.Name = "txtDesconto";
-            this.txtDesconto.Size = new System.Drawing.Size(119, 22);
-            this.txtDesconto.TabIndex = 34;
+            this.txtDesconto.Size = new System.Drawing.Size(87, 22);
+            this.txtDesconto.TabIndex = 2;
             // 
             // lblIdProduto
             // 
             this.lblIdProduto.AutoSize = true;
-            this.lblIdProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.lblIdProduto.BackColor = System.Drawing.Color.LavenderBlush;
             this.lblIdProduto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdProduto.Location = new System.Drawing.Point(193, 337);
+            this.lblIdProduto.Location = new System.Drawing.Point(483, 335);
             this.lblIdProduto.Name = "lblIdProduto";
-            this.lblIdProduto.Size = new System.Drawing.Size(19, 23);
+            this.lblIdProduto.Size = new System.Drawing.Size(0, 23);
             this.lblIdProduto.TabIndex = 35;
-            this.lblIdProduto.Text = "x";
             // 
             // txtPrecoVenda
             // 
             this.txtPrecoVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
             this.txtPrecoVenda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrecoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtPrecoVenda.Location = new System.Drawing.Point(138, 375);
+            this.txtPrecoVenda.Location = new System.Drawing.Point(152, 415);
             this.txtPrecoVenda.Name = "txtPrecoVenda";
             this.txtPrecoVenda.ReadOnly = true;
-            this.txtPrecoVenda.Size = new System.Drawing.Size(119, 22);
+            this.txtPrecoVenda.Size = new System.Drawing.Size(105, 22);
             this.txtPrecoVenda.TabIndex = 19;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(37, 406);
+            this.label8.Location = new System.Drawing.Point(45, 381);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 20);
+            this.label8.Size = new System.Drawing.Size(119, 20);
             this.label8.TabIndex = 31;
-            this.label8.Text = "Desconto:";
+            this.label8.Text = "Desconto Unit.:";
             this.label8.Click += new System.EventHandler(this.label7_Click);
             // 
-            // textBox1
+            // txtTotalVenda
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBox1.Location = new System.Drawing.Point(138, 443);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(119, 22);
-            this.textBox1.TabIndex = 19;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(34, 444);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 20);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Total Desc.";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBox2.Location = new System.Drawing.Point(359, 445);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(143, 22);
-            this.textBox2.TabIndex = 19;
+            this.txtTotalVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.txtTotalVenda.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotalVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtTotalVenda.Location = new System.Drawing.Point(683, 381);
+            this.txtTotalVenda.Name = "txtTotalVenda";
+            this.txtTotalVenda.ReadOnly = true;
+            this.txtTotalVenda.Size = new System.Drawing.Size(143, 22);
+            this.txtTotalVenda.TabIndex = 5;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(277, 445);
+            this.label10.Location = new System.Drawing.Point(569, 381);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 20);
+            this.label10.Size = new System.Drawing.Size(108, 20);
             this.label10.TabIndex = 27;
-            this.label10.Text = "Total Liq.";
+            this.label10.Text = "Total Compra:";
             // 
-            // label12
+            // label13
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(26, 23);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(118, 19);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "Venda: Passo 3";
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.LavenderBlush;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label13.Location = new System.Drawing.Point(447, 338);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(30, 19);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Id:";
             // 
-            // label11
+            // label9
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(277, 406);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(110, 20);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "Desconto: (%)";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(276, 418);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 20);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "Preço líquido:";
             // 
-            // numericUpDown1
+            // txtPrecoLiquido
             // 
-            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
-            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.numericUpDown1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.numericUpDown1.Location = new System.Drawing.Point(429, 407);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(76, 22);
-            this.numericUpDown1.TabIndex = 30;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.nudQuantidade_ValueChanged);
+            this.txtPrecoLiquido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.txtPrecoLiquido.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPrecoLiquido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtPrecoLiquido.Location = new System.Drawing.Point(383, 415);
+            this.txtPrecoLiquido.Name = "txtPrecoLiquido";
+            this.txtPrecoLiquido.ReadOnly = true;
+            this.txtPrecoLiquido.Size = new System.Drawing.Size(119, 22);
+            this.txtPrecoLiquido.TabIndex = 37;
+            this.txtPrecoLiquido.TextChanged += new System.EventHandler(this.txtPrecoLiquido_TextChanged);
             // 
             // VendaPedido3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(910, 601);
+            this.ClientSize = new System.Drawing.Size(910, 517);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtPrecoLiquido);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.lblIdProduto);
             this.Controls.Add(this.txtDesconto);
             this.Controls.Add(this.cbFormaDePagamento);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.nudQuantidade);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvCarrinho);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtTotalVenda);
             this.Controls.Add(this.btnVoltar);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtPrecoVenda);
             this.Controls.Add(this.txtSelecionado);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvProduto);
             this.Controls.Add(this.pbBuscar);
@@ -451,7 +425,6 @@ namespace Augustus_Fashion.View.Pedido
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -483,12 +456,10 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.Label lblIdProduto;
         private System.Windows.Forms.TextBox txtPrecoVenda;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTotalVenda;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtPrecoLiquido;
     }
 }

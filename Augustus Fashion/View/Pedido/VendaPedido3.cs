@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Venda;
 using System;
 using System.Collections.Generic;
@@ -118,24 +119,24 @@ namespace Augustus_Fashion.View.Pedido
                 if(_carrinho.Count == 0) 
                     {
                         MessageBox.Show("Erro! Carrinho vazio");
+                return;
                     }
+            else 
+            {
                 try
                 {
                     var vendaControl = new VendaControl();
-                    
+
                     vendaControl.CadastrarVenda(_pedidoModel, _carrinho);
-                    MessageBox.Show("Venda efetuada com sucesso!");                
+                    MessageBox.Show("Venda efetuada com sucesso!");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Falha no Cadastro! " + ex.Message);
                 }
+            }
                 
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
+                
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -143,6 +144,16 @@ namespace Augustus_Fashion.View.Pedido
 
         }
 
+        private void CalcularPrecoLiquido()
+        {
+            var precoLiquido = (_pedidoModel.PrecoBruto - _pedidoModel.Desconto) * _pedidoModel.QuantidadeProduto;
+            txtPrecoLiquido.Text = precoLiquido.ToString();
+        }
+
+        private void txtPrecoLiquido_TextChanged(object sender, EventArgs e)
+        {
+            CalcularPrecoLiquido();
+        }
 
         //private bool Validar()
         //{
