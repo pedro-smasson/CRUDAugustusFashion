@@ -1,13 +1,6 @@
 ﻿using Augustus_Fashion.Controller;
 using Augustus_Fashion.Model.Produto;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.View.Produto
@@ -24,7 +17,7 @@ namespace Augustus_Fashion.View.Produto
 
         private void ListarProduto_Load(object sender, EventArgs e)
         {
-            dgvProduto.DataSource = _produtoControl.ListarProduto();
+            dgvProduto.DataSource = _produtoControl.ListarProduto;
         }
 
         private void buscarNome_Click(object sender, EventArgs e)
@@ -33,7 +26,7 @@ namespace Augustus_Fashion.View.Produto
 
             if (txtNome.Text == "%")
             {
-                dgvProduto.DataSource = _produtoControl.ListarProduto();
+                dgvProduto.DataSource = _produtoControl.ListarTodosOsProdutos;
                 txtNome.Text = "";
             }
         }
@@ -109,6 +102,17 @@ namespace Augustus_Fashion.View.Produto
             var cliente = _produtoControl.Buscar(id);
             alterarProduto.dadosDe(cliente);
             alterarProduto.ShowDialog();
+        }
+
+        public bool VerificarInatividadeDoProduto() 
+        {
+            if(_produtoModel.StatusProduto == false) 
+            {
+                //this.dgvProduto.Columns["Status"].Visible = false;
+                //dgvProduto.DataSource = 
+                return true;
+            }
+            return false;
         }
     }
 }

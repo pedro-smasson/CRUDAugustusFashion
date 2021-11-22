@@ -40,11 +40,9 @@ namespace Augustus_Fashion.Controller
             }
         }
 
-        public List<ProdutoListagem> ListarProduto()
-        {
+        public List<ProdutoListagem> ListarProduto => ProdutoDAO.ListarProduto();
 
-            return ProdutoDAO.ListarProduto();
-        }
+        public List<ProdutoListagem> ListarTodosOsProdutos => ProdutoDAO.ListarTodosOsProdutos();
 
         public void ExcluirProduto(ProdutoModel produtoModel)
         {

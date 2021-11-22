@@ -36,6 +36,7 @@ namespace Augustus_Fashion.View.Pedido
         private void VendaPedido_Load(object sender, EventArgs e)
         {
             dgvFuncionario.DataSource = _funcionariocontrol.ListarFuncionarios();
+            this.dgvFuncionario.Columns["Endereco"].Visible = false;
         }
 
         private void txtSelecionado_TextChanged(object sender, EventArgs e)

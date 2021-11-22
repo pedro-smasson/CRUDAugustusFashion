@@ -25,6 +25,7 @@ namespace Augustus_Fashion.View.Pedido
         private void VendaPedido2_Load(object sender, EventArgs e)
         {
             dgvCliente.DataSource = _clientecontrol.ListarClientes();
+            this.dgvCliente.Columns["Endereco"].Visible = false;
         }
 
         private void dgvCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

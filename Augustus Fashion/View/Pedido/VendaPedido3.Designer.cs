@@ -60,6 +60,10 @@ namespace Augustus_Fashion.View.Pedido
             this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPrecoLiquido = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtLucro = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPrecoCusto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
@@ -348,7 +352,7 @@ namespace Augustus_Fashion.View.Pedido
             this.txtTotalVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
             this.txtTotalVenda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTotalVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtTotalVenda.Location = new System.Drawing.Point(683, 381);
+            this.txtTotalVenda.Location = new System.Drawing.Point(683, 375);
             this.txtTotalVenda.Name = "txtTotalVenda";
             this.txtTotalVenda.ReadOnly = true;
             this.txtTotalVenda.Size = new System.Drawing.Size(143, 22);
@@ -359,7 +363,7 @@ namespace Augustus_Fashion.View.Pedido
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(569, 381);
+            this.label10.Location = new System.Drawing.Point(569, 375);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(108, 20);
             this.label10.TabIndex = 27;
@@ -397,12 +401,58 @@ namespace Augustus_Fashion.View.Pedido
             this.txtPrecoLiquido.Size = new System.Drawing.Size(119, 22);
             this.txtPrecoLiquido.TabIndex = 37;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(569, 415);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(92, 20);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "Lucro Total:";
+            // 
+            // txtLucro
+            // 
+            this.txtLucro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.txtLucro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLucro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtLucro.Location = new System.Drawing.Point(667, 412);
+            this.txtLucro.Name = "txtLucro";
+            this.txtLucro.ReadOnly = true;
+            this.txtLucro.Size = new System.Drawing.Size(159, 22);
+            this.txtLucro.TabIndex = 40;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(45, 451);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(97, 20);
+            this.label12.TabIndex = 41;
+            this.label12.Text = "Preço custo:";
+            // 
+            // txtPrecoCusto
+            // 
+            this.txtPrecoCusto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.txtPrecoCusto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPrecoCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtPrecoCusto.Location = new System.Drawing.Point(152, 451);
+            this.txtPrecoCusto.Name = "txtPrecoCusto";
+            this.txtPrecoCusto.ReadOnly = true;
+            this.txtPrecoCusto.Size = new System.Drawing.Size(105, 22);
+            this.txtPrecoCusto.TabIndex = 42;
+            // 
             // VendaPedido3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(910, 517);
+            this.Controls.Add(this.txtPrecoCusto);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtLucro);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtPrecoLiquido);
             this.Controls.Add(this.label13);
@@ -474,5 +524,9 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.DataGridViewTextBoxColumn IdProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecoFinal;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantidadeProduto;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtLucro;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtPrecoCusto;
     }
 }

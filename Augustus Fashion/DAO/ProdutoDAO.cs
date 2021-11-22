@@ -36,6 +36,26 @@ namespace Augustus_Fashion.DAO
         public static List<ProdutoListagem> ListarProduto()
         {
 
+            var query = @"select IdProduto, Nome, PrecoVenda, Estoque, Fabricante, StatusProduto, PrecoCusto from Produto where 
+            StatusProduto = '1'";
+
+            try
+            {
+                var conexao = new conexao().Connection();
+                {
+                    conexao.Open();
+                    return conexao.Query<ProdutoListagem>(query).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<ProdutoListagem> ListarTodosOsProdutos()
+        {
+
             var query = @"select IdProduto, Nome, PrecoVenda, Estoque, Fabricante, StatusProduto from Produto";
 
             try

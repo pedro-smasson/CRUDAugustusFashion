@@ -21,7 +21,9 @@ namespace Augustus_Fashion.View.Pedido
 
         private void VendaPedido3_Load(object sender, EventArgs e)
         {
-            dgvProduto.DataSource = _produtoControl.ListarProduto();
+            dgvProduto.DataSource = _produtoControl.ListarProduto;
+            dgvProduto.Columns["PrecoCusto"].Visible = false;
+
             txtDesconto.Text = (0).ToString("c");
         }
 
@@ -31,7 +33,7 @@ namespace Augustus_Fashion.View.Pedido
 
             if (txtProduto.Text == "%")
             {
-                dgvProduto.DataSource = _produtoControl.ListarProduto();
+                dgvProduto.DataSource = _produtoControl.ListarProduto;
                 txtProduto.Text = "";
             }
         }
@@ -45,12 +47,14 @@ namespace Augustus_Fashion.View.Pedido
         {
             var nome = dgvProduto.SelectedRows[0].Cells[1].Value;
             var precovenda = dgvProduto.SelectedRows[0].Cells[2].Value;
+            //var precocusto = dgvProduto.SelectedRows[0].Cells[3].Value;
             var produto = BuscarModelProdutoSelecionado();
 
             txtSelecionado.Text = nome.ToString();
             txtPrecoVenda.Text = precovenda.ToString();
             lblIdProduto.Text = produto.IdProduto.ToString();
             txtPrecoLiquido.Text = (produto.PrecoVenda.DoubleOuZero() - txtDesconto.Text.DoubleOuZero()).ToString("c");
+            txtPrecoCusto.Text = produto.PrecoCusto.ToString();
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -63,6 +67,7 @@ namespace Augustus_Fashion.View.Pedido
             produtoPedido.Desconto = txtDesconto.Text.RemoverFormatacaoDoPreco().DecimalOuZero();
             produtoPedido.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
             produtoPedido.PrecoBruto = Convert.ToDecimal(txtPrecoVenda.Text);
+            produtoPedido.PrecoCusto = txtPrecoCusto.Text.DecimalOuZero();
 
             _pedido.AdicionarProduto(produtoPedido);
 
@@ -76,9 +81,9 @@ namespace Augustus_Fashion.View.Pedido
 
             dgvCarrinho.DataSource = source;
 
+            CalcularLucro();
             CalcularPrecoLiquido();
             txtTotalVenda.Text = _pedido.PrecoASerExibidoNoFinal().ToString("c");
-
         }
 
         private void nudQuantidade_ValueChanged(object sender, EventArgs e)
@@ -100,7 +105,7 @@ namespace Augustus_Fashion.View.Pedido
         }
         public int SelecionarValorEstoque()
         {
-            return (int)dgvProduto.SelectedRows[0].Cells[3].Value;
+            return (int)dgvProduto.SelectedRows[0].Cells[4].Value;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -137,6 +142,11 @@ namespace Augustus_Fashion.View.Pedido
             MessageBox.Show("Erro! Carrinho vazio");
             return false;
 
+        }
+
+        private void CalcularLucro() 
+        {
+            txtLucro.Text = _pedido.Lucro.ToString("c");
         }
 
         private void CalcularPrecoLiquido()
