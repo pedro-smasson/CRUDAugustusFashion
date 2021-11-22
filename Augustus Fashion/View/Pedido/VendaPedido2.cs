@@ -9,9 +9,6 @@ namespace Augustus_Fashion.View.Pedido
     {
         ClienteControl _clientecontrol = new ClienteControl();
 
-        //public int IdFuncionario { get; set; }
-        //public int IdCliente { get; set; }
-
         PedidoModel _pedido = new PedidoModel();
 
         public VendaPedido2(int idFuncionario)

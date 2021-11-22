@@ -4,7 +4,7 @@
     {
         public int IdProduto { get; set; }
         public string Nome { get; set; }
-        public int PrecoVenda { get; set; }
+        public decimal PrecoVenda { get; set; }
         public int Estoque { get; set; }
         public string Fabricante { get; set; }
         private bool StatusProduto { get; set; }

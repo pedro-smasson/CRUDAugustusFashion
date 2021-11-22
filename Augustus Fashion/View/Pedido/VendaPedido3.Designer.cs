@@ -353,6 +353,7 @@ namespace Augustus_Fashion.View.Pedido
             this.txtTotalVenda.ReadOnly = true;
             this.txtTotalVenda.Size = new System.Drawing.Size(143, 22);
             this.txtTotalVenda.TabIndex = 5;
+            this.txtTotalVenda.TextChanged += new System.EventHandler(this.txtTotalVenda_TextChanged);
             // 
             // label10
             // 

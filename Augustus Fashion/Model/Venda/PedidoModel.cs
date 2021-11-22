@@ -40,6 +40,11 @@ namespace Augustus_Fashion.Model.Venda
             get => PrecoLiquido * QuantidadeProduto;
         }
 
+        public decimal PrecoASerExibidoNoFinal() 
+        {
+            return Produtos.Sum(produto => produto.PrecoFinal);
+        }
+
         public List<PedidoProdutoModel> Produtos { get; private set; }
 
         public void AdicionarProduto(PedidoProdutoModel produto)
