@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
 using System;
@@ -24,7 +25,10 @@ namespace Augustus_Fashion.View.Pedido
             dgvProduto.DataSource = _produtoControl.ListarProduto;
             dgvProduto.Columns["PrecoCusto"].Visible = false;
 
-            txtDesconto.Text = (0).ToString("c");
+            txtDesconto.Text = (0).ToString().ColocarFormatacaoNoPreco();
+
+            lblCliente.Text = _pedido.IdCliente.ToString();
+            lblFuncionario.Text = _pedido.IdFuncionario.ToString();
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)
@@ -53,7 +57,7 @@ namespace Augustus_Fashion.View.Pedido
             txtSelecionado.Text = nome.ToString();
             txtPrecoVenda.Text = precovenda.ToString();
             lblIdProduto.Text = produto.IdProduto.ToString();
-            txtPrecoLiquido.Text = (produto.PrecoVenda.DoubleOuZero() - txtDesconto.Text.DoubleOuZero()).ToString("c");
+            txtPrecoLiquido.Text = (produto.PrecoVenda.DecimalOuZero() - txtDesconto.Text.DecimalOuZero()).ToString("c");
             txtPrecoCusto.Text = produto.PrecoCusto.ToString();
         }
 
@@ -64,7 +68,7 @@ namespace Augustus_Fashion.View.Pedido
 
             produtoPedido.IdProduto = Convert.ToInt32(lblIdProduto.Text);
             produtoPedido.NomeProduto = txtSelecionado.Text;
-            produtoPedido.Desconto = txtDesconto.Text.RemoverFormatacaoDoPreco().DecimalOuZero();
+            produtoPedido.Desconto = Convert.ToDecimal(txtDesconto.Text.ColocarFormatacaoNoPreco());
             produtoPedido.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
             produtoPedido.PrecoBruto = Convert.ToDecimal(txtPrecoVenda.Text);
             produtoPedido.PrecoCusto = txtPrecoCusto.Text.DecimalOuZero();
@@ -108,15 +112,22 @@ namespace Augustus_Fashion.View.Pedido
             return (int)dgvProduto.SelectedRows[0].Cells[4].Value;
         }
 
+        // CADASTRO DA VENDA
         private void btnSalvar_Click(object sender, EventArgs e)
         {
 
-            if (!ValidarProdutosDoPedido())
-                return;
+            if (!ValidarProdutosDoPedido() && Validar())
+            return;
 
             CadastrarVenda();
 
+            Hide();
+            telaInicial telaInicial = new telaInicial();
+            telaInicial.ShowDialog();
+            Close();
+
         }
+
 
         private void CadastrarVenda()
         {
@@ -151,7 +162,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private void CalcularPrecoLiquido()
         {
-            var precoLiquido = (txtPrecoVenda.Text.DoubleOuZero() - txtDesconto.Text.RemoverFormatacaoDoPreco().DoubleOuZero()) * Convert.ToDouble(nudQuantidade.Value);
+            var precoLiquido = (txtPrecoVenda.Text.DecimalOuZero() - txtDesconto.Text.ColocarFormatacaoNoPreco().DecimalOuZero()) * Convert.ToDecimal(nudQuantidade.Value);
             txtPrecoLiquido.Text = precoLiquido.ToString("c");
         }
         private void ExibirTotalDaVenda()
@@ -170,15 +181,30 @@ namespace Augustus_Fashion.View.Pedido
 
         private void txtDesconto_KeyUp(object sender, KeyEventArgs e) => CalcularPrecoLiquido();
 
-        //private bool Validar()
-        //{
-        //    if (!Testes.ValidarDesconto(float.Parse(txtDesconto.Text)))
-        //    {
-        //        MessageBox.Show("Desconto Inválido!");
-        //        return false;
-        //    }
-        //    return true;
-        //}
+        private bool Validar()
+        {
+            if (!Testes.ValidarDesconto(float.Parse(txtDesconto.Text)))
+            {
+                MessageBox.Show("Desconto Inválido!");
+                return false;
+            }
+            if (!Testes.ValidarNumeric(txtLucro.Text))
+            {
+                MessageBox.Show("Lucro Inválido!");
+                return false;
+            }
+            if (!Testes.ValidarNumeric(txtPrecoLiquido.Text))
+            {
+                MessageBox.Show("Preço Líquido Inválido!");
+                return false;
+            }
+            if (!Testes.ValidarNumeric(txtTotalVenda.Text))
+            {
+                MessageBox.Show("Total de Venda Inválido!");
+                return false;
+            }
+            return true;
+        }
 
         private ProdutoModel BuscarModelProdutoSelecionado() 
         {

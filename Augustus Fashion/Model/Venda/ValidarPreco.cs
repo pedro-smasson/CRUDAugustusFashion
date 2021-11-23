@@ -27,5 +27,16 @@ namespace Augustus_Fashion.Model.Venda
             var precoCorreto = (Convert.ToDecimal(precoSemFormatacao));
             return precoCorreto.ToString();
         }
+
+        public static string ColocarFormatacaoNoPreco(this string valor) 
+        {
+            string input = valor;
+
+            String.Format(input, "{0:00.00}");
+            String.Format(input, "{0:00.00}");
+            String.Format(input, "{0:00.00}");
+
+            return input;
+        }
     }
 }

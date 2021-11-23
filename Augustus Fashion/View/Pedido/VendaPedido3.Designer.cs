@@ -64,10 +64,17 @@ namespace Augustus_Fashion.View.Pedido
             this.txtLucro = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtPrecoCusto = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblFuncionario = new System.Windows.Forms.Label();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvProduto
@@ -287,6 +294,7 @@ namespace Augustus_Fashion.View.Pedido
             // cbFormaDePagamento
             // 
             this.cbFormaDePagamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.cbFormaDePagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFormaDePagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbFormaDePagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbFormaDePagamento.FormattingEnabled = true;
@@ -308,9 +316,9 @@ namespace Augustus_Fashion.View.Pedido
             this.txtDesconto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
             this.txtDesconto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesconto.Location = new System.Drawing.Point(170, 378);
+            this.txtDesconto.Location = new System.Drawing.Point(197, 379);
             this.txtDesconto.Name = "txtDesconto";
-            this.txtDesconto.Size = new System.Drawing.Size(87, 22);
+            this.txtDesconto.Size = new System.Drawing.Size(66, 22);
             this.txtDesconto.TabIndex = 2;
             this.txtDesconto.TextChanged += new System.EventHandler(this.txtDesconto_TextChanged);
             this.txtDesconto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDesconto_KeyUp);
@@ -333,7 +341,7 @@ namespace Augustus_Fashion.View.Pedido
             this.txtPrecoVenda.Location = new System.Drawing.Point(152, 415);
             this.txtPrecoVenda.Name = "txtPrecoVenda";
             this.txtPrecoVenda.ReadOnly = true;
-            this.txtPrecoVenda.Size = new System.Drawing.Size(105, 22);
+            this.txtPrecoVenda.Size = new System.Drawing.Size(111, 22);
             this.txtPrecoVenda.TabIndex = 19;
             this.txtPrecoVenda.TextChanged += new System.EventHandler(this.txtPrecoVenda_TextChanged);
             // 
@@ -440,8 +448,70 @@ namespace Augustus_Fashion.View.Pedido
             this.txtPrecoCusto.Location = new System.Drawing.Point(152, 451);
             this.txtPrecoCusto.Name = "txtPrecoCusto";
             this.txtPrecoCusto.ReadOnly = true;
-            this.txtPrecoCusto.Size = new System.Drawing.Size(105, 22);
+            this.txtPrecoCusto.Size = new System.Drawing.Size(111, 22);
             this.txtPrecoCusto.TabIndex = 42;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(167, 379);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(30, 22);
+            this.textBox1.TabIndex = 43;
+            this.textBox1.Text = "R$";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(33, 21);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(116, 24);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "Funcionário:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(76, 60);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(73, 24);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "Cliente:";
+            // 
+            // lblFuncionario
+            // 
+            this.lblFuncionario.AutoSize = true;
+            this.lblFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFuncionario.Location = new System.Drawing.Point(155, 21);
+            this.lblFuncionario.Name = "lblFuncionario";
+            this.lblFuncionario.Size = new System.Drawing.Size(0, 24);
+            this.lblFuncionario.TabIndex = 46;
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Location = new System.Drawing.Point(155, 60);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(0, 24);
+            this.lblCliente.TabIndex = 47;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.lblCliente);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.lblFuncionario);
+            this.groupBox1.Location = new System.Drawing.Point(672, 23);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.TabIndex = 48;
+            this.groupBox1.TabStop = false;
             // 
             // VendaPedido3
             // 
@@ -449,6 +519,8 @@ namespace Augustus_Fashion.View.Pedido
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(910, 517);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtPrecoCusto);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtLucro);
@@ -487,6 +559,8 @@ namespace Augustus_Fashion.View.Pedido
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -528,5 +602,11 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.TextBox txtLucro;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPrecoCusto;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblFuncionario;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

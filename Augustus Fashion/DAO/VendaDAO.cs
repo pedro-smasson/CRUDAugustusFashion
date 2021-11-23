@@ -3,6 +3,7 @@ using Augustus_Fashion.View.Pedido;
 using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Augustus_Fashion.DAO
 {
@@ -48,11 +49,29 @@ namespace Augustus_Fashion.DAO
 
         }
 
-        //public static List<ListagemPedido> ListarPedido() 
-        //{
-        //    var query = @"select ";
+        public static List<ListagemVendaModel> ListarPedidos()
+        {
+            var query = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
+            pec.Nome as NomeCliente, pef.Nome as NomeFuncionario from Pedido p
+            inner join Cliente c on c.IdCliente = p.IdCliente 
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa 
+            inner join Funcionario f on f.IdFuncionario = p.IdFuncionario
+            inner join Pessoa pef on pef.IdPessoa = f.IdPessoa";
 
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
 
-        //}
+                    var listar = conexao.Query<ListagemVendaModel>(query);
+                    return listar.ToList();
+                }
+            }
+            catch(Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
