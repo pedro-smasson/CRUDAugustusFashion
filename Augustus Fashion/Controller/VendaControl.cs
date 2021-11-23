@@ -25,17 +25,17 @@ namespace Augustus_Fashion.Controller
             return VendaDAO.ListarPedidos();
         }
 
-        //public List<ListagemVendaModel> BuscarLista(int idPedido)
-        //{
-        //    try
-        //    {
-        //        var listaPedido = VendaDAO.BuscarLista(idPedido);
-        //        return listaPedido;
-        //    }
-        //    catch(Exception ex) 
-        //    {
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
+        public List<ListagemVendaModel> BuscarLista(string nome)
+        {
+            try
+            {
+                var listaPedido = VendaDAO.BuscarLista(nome);
+                return listaPedido;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

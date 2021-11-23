@@ -18,16 +18,24 @@ namespace Augustus_Fashion.View.Pedido
         private void ListagemPedido_Load(object sender, EventArgs e)
         {
             dgvPedido.DataSource = _vendaControl.ListarPedidos();
+
+            dgvPedido.Columns[0].HeaderText = "ID Pedido";
+            dgvPedido.Columns[1].HeaderText = "Nome Funcionário";
+            dgvPedido.Columns[2].HeaderText = "Nome Cliente";
+            dgvPedido.Columns[3].HeaderText = "Quantidade";
+            dgvPedido.Columns[4].HeaderText = "Preço Total";
+            dgvPedido.Columns[5].HeaderText = "Lucro";
+            dgvPedido.Columns[6].HeaderText = "Forma de Pagamento";
         }
 
         private void buscarId_Click(object sender, EventArgs e)
         {
-            //dgvPedido.DataSource = _vendaControl.BuscarLista(Convert.ToInt32(txtBuscarID.Text));
+            dgvPedido.DataSource = _vendaControl.BuscarLista(txtBuscarNome.Text);
 
-            if(txtBuscarID.Text == "%") 
+            if(txtBuscarNome.Text == "%") 
             {
                 dgvPedido.DataSource = _vendaControl.ListarPedidos();
-                txtBuscarID.Text = "";
+                txtBuscarNome.Text = "";
             }
         }
     }

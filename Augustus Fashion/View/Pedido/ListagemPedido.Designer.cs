@@ -30,7 +30,7 @@ namespace Augustus_Fashion.View.Pedido
         private void InitializeComponent()
         {
             this.dgvPedido = new System.Windows.Forms.DataGridView();
-            this.txtBuscarID = new System.Windows.Forms.TextBox();
+            this.txtBuscarNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buscarId = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -42,6 +42,8 @@ namespace Augustus_Fashion.View.Pedido
             this.cLIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fUNCIONÁRIOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtBuscarNomeCliente = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,24 +54,24 @@ namespace Augustus_Fashion.View.Pedido
             this.dgvPedido.AllowUserToDeleteRows = false;
             this.dgvPedido.AllowUserToResizeColumns = false;
             this.dgvPedido.AllowUserToResizeRows = false;
-            this.dgvPedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvPedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPedido.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedido.Location = new System.Drawing.Point(0, 82);
+            this.dgvPedido.Location = new System.Drawing.Point(0, 110);
             this.dgvPedido.MultiSelect = false;
             this.dgvPedido.Name = "dgvPedido";
             this.dgvPedido.ReadOnly = true;
             this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedido.Size = new System.Drawing.Size(684, 214);
+            this.dgvPedido.Size = new System.Drawing.Size(684, 185);
             this.dgvPedido.TabIndex = 9;
             // 
-            // txtBuscarID
+            // txtBuscarNome
             // 
-            this.txtBuscarID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarID.Location = new System.Drawing.Point(205, 34);
-            this.txtBuscarID.Name = "txtBuscarID";
-            this.txtBuscarID.Size = new System.Drawing.Size(247, 31);
-            this.txtBuscarID.TabIndex = 8;
+            this.txtBuscarNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarNome.Location = new System.Drawing.Point(277, 33);
+            this.txtBuscarNome.Name = "txtBuscarNome";
+            this.txtBuscarNome.Size = new System.Drawing.Size(247, 31);
+            this.txtBuscarNome.TabIndex = 8;
             // 
             // label1
             // 
@@ -77,14 +79,14 @@ namespace Augustus_Fashion.View.Pedido
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.label1.Location = new System.Drawing.Point(12, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 22);
+            this.label1.Size = new System.Drawing.Size(259, 22);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Infome o ID da Venda:";
+            this.label1.Text = "Infome o Nome do Funcionário:";
             // 
             // buscarId
             // 
             this.buscarId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buscarId.Location = new System.Drawing.Point(472, 30);
+            this.buscarId.Location = new System.Drawing.Point(547, 54);
             this.buscarId.Name = "buscarId";
             this.buscarId.Size = new System.Drawing.Size(125, 40);
             this.buscarId.TabIndex = 6;
@@ -159,15 +161,35 @@ namespace Augustus_Fashion.View.Pedido
             this.FecharToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.FecharToolStripMenuItem.Text = "FECHAR";
             // 
+            // txtBuscarNomeCliente
+            // 
+            this.txtBuscarNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarNomeCliente.Location = new System.Drawing.Point(239, 70);
+            this.txtBuscarNomeCliente.Name = "txtBuscarNomeCliente";
+            this.txtBuscarNomeCliente.Size = new System.Drawing.Size(285, 31);
+            this.txtBuscarNomeCliente.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label2.Location = new System.Drawing.Point(12, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(221, 22);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Infome o Nome do Cliente:";
+            // 
             // ListagemPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(684, 296);
+            this.Controls.Add(this.txtBuscarNomeCliente);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dgvPedido);
-            this.Controls.Add(this.txtBuscarID);
+            this.Controls.Add(this.txtBuscarNome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buscarId);
             this.Name = "ListagemPedido";
@@ -185,7 +207,7 @@ namespace Augustus_Fashion.View.Pedido
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPedido;
-        private System.Windows.Forms.TextBox txtBuscarID;
+        private System.Windows.Forms.TextBox txtBuscarNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buscarId;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -197,5 +219,7 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fUNCIONÁRIOSToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtBuscarNomeCliente;
+        private System.Windows.Forms.Label label2;
     }
 }

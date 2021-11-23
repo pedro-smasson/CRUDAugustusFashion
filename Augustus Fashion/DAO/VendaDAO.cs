@@ -73,5 +73,31 @@ namespace Augustus_Fashion.DAO
                 throw new Exception(ex.Message);
             }
         }
+
+        public static List<ListagemVendaModel> BuscarLista(string nome) 
+        {
+            var query = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
+            pec.Nome as NomeCliente, pef.Nome as NomeFuncionario from Pedido p
+            inner join Cliente c on c.IdCliente = p.IdCliente 
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa 
+            inner join Funcionario f on f.IdFuncionario = p.IdFuncionario
+            inner join Pessoa pef on pef.IdPessoa = f.IdPessoa where (pec.Nome like @Nome + '%') or 
+            (pef.Nome like @Nome + '%')";
+
+            try 
+            {
+                using (var conexao = new conexao().Connection()) 
+                {
+                    conexao.Open();
+
+                    var listar = conexao.Query<ListagemVendaModel>(query, new { Nome = nome });
+                    return listar.ToList();
+                }
+            }
+            catch(Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
