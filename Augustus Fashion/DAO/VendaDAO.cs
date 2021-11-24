@@ -44,6 +44,26 @@ namespace Augustus_Fashion.DAO
             }
         }
 
+        public static List<PedidoProdutoModel> BuscarProdutos(int id)
+        {
+            var query = @"select p.Nome, v.Total, v.QuantidadeProduto
+                        from Venda v
+                        inner join Produto as p on v.IdProduto =  p.IdProduto";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    return conexao.Query<PedidoProdutoModel>(query, new { IdProduto = id }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public static void DesativarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido) 
         {
 

@@ -10,14 +10,15 @@ namespace Augustus_Fashion.View.Pedido
 {
     public partial class AlterarVenda : Form
     {
-        PedidoModel _pedido = new PedidoModel();
+        PedidoModel _pedido;
         ProdutoControl _produtoControl = new ProdutoControl();
 
-        public AlterarVenda()
+        public AlterarVenda(PedidoModel pedido)
         {
             InitializeComponent();
+            _pedido = pedido;
         }
-        public void DadosDaVenda(PedidoModel pedido) 
+        public void DadosDaVenda() 
         {
             dgvCarrinho.DataSource = _pedido.Produtos;
 

@@ -50,7 +50,7 @@ namespace Augustus_Fashion.Model.Venda
             return Produtos.Sum(produto => produto.PrecoFinal);
         }
 
-        public List<PedidoProdutoModel> Produtos { get; private set; }
+        public List<PedidoProdutoModel> Produtos { get; set; }
 
         public void AdicionarProduto(PedidoProdutoModel produto)
         {

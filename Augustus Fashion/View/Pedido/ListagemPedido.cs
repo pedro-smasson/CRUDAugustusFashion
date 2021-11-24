@@ -41,12 +41,14 @@ namespace Augustus_Fashion.View.Pedido
 
         private void dgvPedido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            AlterarVenda alterarVenda = new AlterarVenda();
+            
 
             var id = SelecionarVendaModel();
             var venda = _vendaControl.Buscar(id);
+            venda.Produtos = _vendaControl.BuscarProdutosDaVenda(id);
 
-            alterarVenda.DadosDaVenda(venda);
+            AlterarVenda alterarVenda = new AlterarVenda(venda);
+            alterarVenda.DadosDaVenda();
             alterarVenda.ShowDialog();
         }
 

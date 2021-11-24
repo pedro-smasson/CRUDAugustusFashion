@@ -43,5 +43,10 @@ namespace Augustus_Fashion.Controller
         {
             return VendaDAO.Buscar(id);
         }
+
+        public List<PedidoProdutoModel> BuscarProdutosDaVenda(int id)
+        {
+            return VendaDAO.BuscarProdutos(id);
+        }
     }
 }
