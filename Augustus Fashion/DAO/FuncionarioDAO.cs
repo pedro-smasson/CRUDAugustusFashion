@@ -74,7 +74,7 @@ namespace Augustus_Fashion.DAO
             f.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
             f.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
             Pessoa p inner join Funcionario f on p.IdPessoa = f.IdPessoa
-            inner join Endereco e on f.IdPessoa = e.IdPessoa where f.IdPessoa = @IdPessoa";
+            inner join Endereco e on f.IdPessoa = e.IdPessoa where f.IdFuncionario = @IdFuncionario";
 
             try
             {
@@ -83,7 +83,7 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
 
                     var parametros = new DynamicParameters();
-                    parametros.Add("IdPessoa", id);
+                    parametros.Add("IdFuncionario", id);
 
                     return conexao.Query(query, (FuncionarioModel funcionarioModel, EnderecoModel enderecoModel)
                     => MapearBusca(funcionarioModel, enderecoModel), splitOn: "IdPessoa", param: parametros).FirstOrDefault();

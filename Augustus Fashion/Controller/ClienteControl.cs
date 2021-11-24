@@ -67,9 +67,7 @@ namespace Augustus_Fashion.Controller
 
         public ClienteModel Buscar(int idCliente)
         {
-            {
                 return ClienteDao.Buscar(idCliente);
-            }
         }
 
         public List<ClienteListagem> BuscarLista(string nomeCliente)

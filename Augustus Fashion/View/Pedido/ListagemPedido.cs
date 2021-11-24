@@ -38,5 +38,22 @@ namespace Augustus_Fashion.View.Pedido
                 txtBuscarNome.Text = "";
             }
         }
+
+        private void dgvPedido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AlterarVenda alterarVenda = new AlterarVenda();
+
+            var id = SelecionarVendaModel();
+            var venda = _vendaControl.Buscar(id);
+
+            alterarVenda.DadosDaVenda(venda);
+            alterarVenda.ShowDialog();
+        }
+
+        public int SelecionarVendaModel() 
+        {
+            var id = Convert.ToInt32(dgvPedido.SelectedRows[0].Cells[0].Value);
+            return id;
+        }
     }
 }

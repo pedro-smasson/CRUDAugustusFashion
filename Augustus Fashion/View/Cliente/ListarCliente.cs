@@ -89,8 +89,8 @@ namespace Augustus_Fashion.View
         private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Hide();
-            ListarFuncionario lf = new ListarFuncionario();
-            lf.ShowDialog();
+            ListarFuncionario listarFuncionario = new ListarFuncionario();
+            listarFuncionario.ShowDialog();
             this.Close();
         }
 
@@ -102,12 +102,12 @@ namespace Augustus_Fashion.View
 
         private void dgvCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            AlterarCliente ac = new AlterarCliente();
+            AlterarCliente alterarCliente = new AlterarCliente();
             //ac.Show();
             var id = SelecionarClienteModel();
             var cliente = _clientecontrol.Buscar(id);
-            ac.dadosDe(cliente);
-            ac.ShowDialog();
+            alterarCliente.dadosDe(cliente);
+            alterarCliente.ShowDialog();
         }
 
         private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)

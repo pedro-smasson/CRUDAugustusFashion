@@ -64,6 +64,7 @@ namespace Augustus_Fashion.View.Pedido
             this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedido.Size = new System.Drawing.Size(684, 185);
             this.dgvPedido.TabIndex = 9;
+            this.dgvPedido.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellDoubleClick);
             // 
             // txtBuscarNome
             // 

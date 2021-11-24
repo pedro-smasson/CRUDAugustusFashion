@@ -181,7 +181,7 @@ namespace Augustus_Fashion.DAO
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
             c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
             Pessoa p inner join Cliente c on p.IdPessoa = c.IdPessoa
-            inner join Endereco e on c.IdPessoa = e.IdPessoa where c.IdPessoa = @IdPessoa";
+            inner join Endereco e on c.IdPessoa = e.IdPessoa where c.IdCliente = @IdCliente";
 
             try 
             {
@@ -190,7 +190,7 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
 
                     return conexao.Query(query, (ClienteModel clienteModel, EnderecoModel enderecoModel)
-                    => MapearBusca(clienteModel, enderecoModel), splitOn: "IdPessoa", param: new {IdPessoa = id }).FirstOrDefault();
+                    => MapearBusca(clienteModel, enderecoModel), splitOn: "IdPessoa", param: new {IdCliente = id }).FirstOrDefault();
                 }
             }
             catch(Exception ex) 

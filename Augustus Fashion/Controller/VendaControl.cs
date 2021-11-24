@@ -1,5 +1,6 @@
 ﻿using Augustus_Fashion.DAO;
 using Augustus_Fashion.Model.Venda;
+using Augustus_Fashion.View.Pedido;
 using System;
 using System.Collections.Generic;
 
@@ -36,6 +37,11 @@ namespace Augustus_Fashion.Controller
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public PedidoModel Buscar(int id) 
+        {
+            return VendaDAO.Buscar(id);
         }
     }
 }

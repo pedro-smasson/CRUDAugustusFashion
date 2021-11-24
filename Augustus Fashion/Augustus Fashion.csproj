@@ -135,6 +135,12 @@
     <Compile Include="View\Funcionário\CadastroFuncionario.Designer.cs">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Pedido\AlterarVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pedido\AlterarVenda.Designer.cs">
+      <DependentUpon>AlterarVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Pedido\ListagemPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Funcionário\CadastroFuncionario.resx">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Pedido\AlterarVenda.resx">
+      <DependentUpon>AlterarVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Pedido\ListagemPedido.resx">
       <DependentUpon>ListagemPedido.cs</DependentUpon>
