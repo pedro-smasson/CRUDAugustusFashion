@@ -278,7 +278,7 @@ namespace Augustus_Fashion.View.Produto
             this.btnAlterar.BackColor = System.Drawing.Color.BlueViolet;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnAlterar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAlterar.Location = new System.Drawing.Point(411, 34);
+            this.btnAlterar.Location = new System.Drawing.Point(406, 34);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(125, 40);
             this.btnAlterar.TabIndex = 34;

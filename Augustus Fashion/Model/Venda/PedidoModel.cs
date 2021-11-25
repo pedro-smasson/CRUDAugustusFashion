@@ -14,6 +14,9 @@ namespace Augustus_Fashion.Model.Venda
         public int IdFuncionario { get; set; }
         public int IdCliente { get; set; }
         public string FormaDePagamento { get; set; }
+        public bool StatusPedido { get; set; }
+        public string Status { get { return StatusPedido ? "1" : "0"; } set { } }
+
 
         public decimal PrecoBruto
         {

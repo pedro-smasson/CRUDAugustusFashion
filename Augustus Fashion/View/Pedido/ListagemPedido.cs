@@ -15,6 +15,14 @@ namespace Augustus_Fashion.View.Pedido
             InitializeComponent();
         }
 
+        //public bool VerificarInatividade(PedidoModel pedido) 
+        //{
+        //    if(pedido.StatusPedido.Equals(1)) 
+        //    {
+
+        //    }
+        //}
+
         private void ListagemPedido_Load(object sender, EventArgs e)
         {
             dgvPedido.DataSource = _vendaControl.ListarPedidos();

@@ -18,10 +18,20 @@ namespace Augustus_Fashion.View.Pedido
             InitializeComponent();
             _pedido = pedido;
         }
+
+        public bool VerificarInatividade(bool status) 
+        {
+            if(cbAtivo.Checked == true) 
+            {
+                return true;
+            }
+            return false;
+        }
         public void DadosDaVenda() 
         {
             //dgvCarrinho.Rows[0].Cells[1].Value = _pedido.IdPedido;
             dgvCarrinho.DataSource = _pedido.Produtos;
+            cbAtivo.Checked = _pedido.StatusPedido;
 
             //this.dgvCarrinho.Columns["IdPedido"].Visible = false;
             this.dgvCarrinho.Columns["PrecoCusto"].Visible = false;
@@ -34,6 +44,7 @@ namespace Augustus_Fashion.View.Pedido
             lblCliente.Text = _pedido.IdCliente.ToString();
             lblFuncionario.Text = _pedido.IdFuncionario.ToString();
             txtTotalVenda.Text = _pedido.PrecoTotal.ToString();
+            //cbAtivo.Checked = Convert.ToBoolean(_pedido.Status);
         }
 
         private void AlterarDadosDaVenda()
@@ -84,9 +95,9 @@ namespace Augustus_Fashion.View.Pedido
         {
             if (!ValidarProdutosDoPedido() && Validar())
                 return;
-
+            _pedido.Status = cbAtivo.Checked.ToString();
             AlterarDadosDaVenda();
-
+            VerificarInatividade(cbAtivo.Checked);
             Hide();
             telaInicial telaInicial = new telaInicial();
             telaInicial.ShowDialog();
@@ -140,6 +151,8 @@ namespace Augustus_Fashion.View.Pedido
 
         private void AlterarVenda_Load(object sender, EventArgs e)
         {
+            VerificarInatividade(cbAtivo.Checked);
+
             dgvCarrinho.Rows[0].Cells[0].Value = _pedido.IdPedido;
             dgvCarrinho.Columns["IdPedido"].Visible = false;
             dgvCarrinho.DataSource = _pedido.Produtos;
@@ -165,6 +178,12 @@ namespace Augustus_Fashion.View.Pedido
             txtPrecoLiquido.Text = (produto.PrecoVenda.DecimalOuZero() - txtDesconto.Text.DecimalOuZero()).ToString("c");
             txtPrecoCusto.Text = produto.PrecoCusto.ToString();
         }
+
+        //private bool VerificarInatividade(PedidoModel pedido) 
+        //{
+        //    cbAtivo.Checked = Convert.ToBoolean(pedido.Status);
+        //    return true;
+        //}
 
         private ProdutoModel BuscarModelProdutoSelecionado()
         {
@@ -211,6 +230,11 @@ namespace Augustus_Fashion.View.Pedido
                 dgvProduto.DataSource = _produtoControl.ListarProduto;
                 txtProduto.Text = "";
             }
+        }
+
+        private void btnInativar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

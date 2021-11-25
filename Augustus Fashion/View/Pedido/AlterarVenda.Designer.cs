@@ -70,6 +70,8 @@ namespace Augustus_Fashion.View.Pedido
             this.pbBuscar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtProduto = new System.Windows.Forms.TextBox();
+            this.btnInativar = new System.Windows.Forms.Button();
+            this.cbAtivo = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
@@ -144,21 +146,23 @@ namespace Augustus_Fashion.View.Pedido
             this.txtPrecoCusto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
             this.txtPrecoCusto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrecoCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtPrecoCusto.Location = new System.Drawing.Point(152, 451);
+            this.txtPrecoCusto.Location = new System.Drawing.Point(462, 12);
             this.txtPrecoCusto.Name = "txtPrecoCusto";
             this.txtPrecoCusto.ReadOnly = true;
             this.txtPrecoCusto.Size = new System.Drawing.Size(111, 22);
             this.txtPrecoCusto.TabIndex = 78;
+            this.txtPrecoCusto.Visible = false;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(45, 451);
+            this.label12.Location = new System.Drawing.Point(355, 12);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(97, 20);
             this.label12.TabIndex = 77;
             this.label12.Text = "Preço custo:";
+            this.label12.Visible = false;
             // 
             // txtLucro
             // 
@@ -509,12 +513,38 @@ namespace Augustus_Fashion.View.Pedido
             this.txtProduto.Size = new System.Drawing.Size(334, 22);
             this.txtProduto.TabIndex = 49;
             // 
+            // btnInativar
+            // 
+            this.btnInativar.BackColor = System.Drawing.Color.Crimson;
+            this.btnInativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnInativar.Location = new System.Drawing.Point(573, 460);
+            this.btnInativar.Name = "btnInativar";
+            this.btnInativar.Size = new System.Drawing.Size(105, 39);
+            this.btnInativar.TabIndex = 81;
+            this.btnInativar.Text = "INATIVAR";
+            this.btnInativar.UseVisualStyleBackColor = false;
+            this.btnInativar.Click += new System.EventHandler(this.btnInativar_Click);
+            // 
+            // cbAtivo
+            // 
+            this.cbAtivo.AutoSize = true;
+            this.cbAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbAtivo.Location = new System.Drawing.Point(49, 468);
+            this.cbAtivo.Name = "cbAtivo";
+            this.cbAtivo.Size = new System.Drawing.Size(133, 24);
+            this.cbAtivo.TabIndex = 82;
+            this.cbAtivo.Text = "Inativar Pedido";
+            this.cbAtivo.UseVisualStyleBackColor = true;
+            // 
             // AlterarVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(910, 517);
+            this.Controls.Add(this.cbAtivo);
+            this.Controls.Add(this.btnInativar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtPrecoCusto);
@@ -604,5 +634,7 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.PictureBox pbBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtProduto;
+        private System.Windows.Forms.Button btnInativar;
+        private System.Windows.Forms.CheckBox cbAtivo;
     }
 }

@@ -25,6 +25,11 @@ namespace Augustus_Fashion.Controller
             return VendaDAO.ListarPedidos();
         }
 
+        //public List<ListagemVendaModel> ListarTodosOsPedidos() 
+        //{
+        //    return VendaDAO.ListarTodosOsPedidos();
+        //}
+
         public List<ListagemVendaModel> BuscarLista(string nomeFuncionario, string nomeCliente)
         {
             try

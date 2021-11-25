@@ -43,6 +43,29 @@ namespace Augustus_Fashion.DAO
             }
         }
 
+        //public static List<ListagemVendaModel> ListarTodosOsPedidos()
+        //{
+        //    var query = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
+        //    pec.Nome as NomeCliente, pef.Nome as NomeFuncionario from Pedido p
+        //    inner join Cliente c on c.IdCliente = p.IdCliente 
+        //    inner join Pessoa pec on pec.IdPessoa = c.IdPessoa 
+        //    inner join Funcionario f on f.IdFuncionario = p.IdFuncionario
+        //    inner join Pessoa pef on pef.IdPessoa = f.IdPessoa";
+
+        //    try
+        //    {
+        //        var conexao = new conexao().Connection();
+        //        {
+        //            conexao.Open();
+        //            return conexao.Query<ListagemVendaModel>(query).ToList();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+        //}
+
         public static List<PedidoProdutoModel> BuscarProdutos(int id)
         {
             var query = @"select p.Nome as NomeProduto, ped.TotalBruto as PrecoBruto, ped.TotalLiquido as
@@ -158,12 +181,12 @@ namespace Augustus_Fashion.DAO
 
         public static void AlterarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido)
         {
-            var queryPedido = @"update Pedido set IdFuncionario = @IdFuncionario, IdCliente = @IdCliente,
+            var queryPedido = @"update Pedido set IdFuncionario = @IdFuncionario, IdCliente = @IdCliente, Status = @Status,
             TotalBruto = @PrecoBruto, TotalLiquido = @PrecoLiquido, Desconto = @TotalDesconto, PrecoFinal = @PrecoTotal,
             FormaDePagamento = @FormaDePagamento, QuantidadeProduto = @QuantidadeProduto, Lucro = @Lucro
             where IdPedido = @IdPedido";
 
-            var queryVendaJaExistente = @"update Venda set IdPedido = @IdPedido, IdProduto = @IdProduto,
+            var queryVendaJaExistente = @"update Venda set IdPedido = @IdPedido, IdProduto = @IdProduto, 
             PrecoVenda = @PrecoLiquido, QuantidadeProduto = @QuantidadeProduto, Desconto = @Desconto, Total = @PrecoFinal
             where IdVenda = @IdVenda";
 
