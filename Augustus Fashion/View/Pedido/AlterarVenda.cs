@@ -20,9 +20,10 @@ namespace Augustus_Fashion.View.Pedido
         }
         public void DadosDaVenda() 
         {
+            //dgvCarrinho.Rows[0].Cells[1].Value = _pedido.IdPedido;
             dgvCarrinho.DataSource = _pedido.Produtos;
 
-            this.dgvCarrinho.Columns["IdPedido"].Visible = false;
+            //this.dgvCarrinho.Columns["IdPedido"].Visible = false;
             this.dgvCarrinho.Columns["PrecoCusto"].Visible = false;
             this.dgvCarrinho.Columns["PrecoBruto"].Visible = false;
             this.dgvCarrinho.Columns["Desconto"].Visible = false;
@@ -139,6 +140,8 @@ namespace Augustus_Fashion.View.Pedido
 
         private void AlterarVenda_Load(object sender, EventArgs e)
         {
+            dgvCarrinho.Rows[0].Cells[0].Value = _pedido.IdPedido;
+            dgvCarrinho.Columns["IdPedido"].Visible = false;
             dgvCarrinho.DataSource = _pedido.Produtos;
 
             dgvProduto.DataSource = _produtoControl.ListarProduto;
@@ -198,6 +201,16 @@ namespace Augustus_Fashion.View.Pedido
         }
 
         private void txtDesconto_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
-     
+
+        private void pbBuscar_Click(object sender, EventArgs e)
+        {
+            dgvProduto.DataSource = _produtoControl.BuscarLista(txtProduto.Text);
+
+            if (txtProduto.Text == "%")
+            {
+                dgvProduto.DataSource = _produtoControl.ListarProduto;
+                txtProduto.Text = "";
+            }
+        }
     }
 }

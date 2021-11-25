@@ -156,7 +156,7 @@ namespace Augustus_Fashion.DAO
             where IdPedido = @IdPedido";
 
             var queryVendaJaExistente = @"update Venda set IdPedido = @IdPedido, IdProduto = @IdProduto,
-            PrecoVenda = @PrecoVenda, QuantidadeProduto = @QuantidadeProduto, Desconto = @Desconto, Total = @Total
+            PrecoVenda = @PrecoLiquido, QuantidadeProduto = @QuantidadeProduto, Desconto = @Desconto, Total = @PrecoFinal
             where IdVenda = @IdVenda";
 
             var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)

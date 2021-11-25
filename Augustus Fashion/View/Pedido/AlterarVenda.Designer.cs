@@ -488,6 +488,7 @@ namespace Augustus_Fashion.View.Pedido
             this.pbBuscar.Size = new System.Drawing.Size(40, 26);
             this.pbBuscar.TabIndex = 55;
             this.pbBuscar.TabStop = false;
+            this.pbBuscar.Click += new System.EventHandler(this.pbBuscar_Click);
             // 
             // label1
             // 
