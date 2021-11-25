@@ -118,5 +118,10 @@ namespace Augustus_Fashion.View.Produto
         {
 
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

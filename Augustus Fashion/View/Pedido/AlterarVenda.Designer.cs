@@ -548,6 +548,7 @@ namespace Augustus_Fashion.View.Pedido
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtProduto);
             this.Name = "AlterarVenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AlterarVenda";
             this.Load += new System.EventHandler(this.AlterarVenda_Load);
             this.groupBox1.ResumeLayout(false);

@@ -30,13 +30,20 @@ namespace Augustus_Fashion.View.Pedido
 
         private void buscarId_Click(object sender, EventArgs e)
         {
-            dgvPedido.DataSource = _vendaControl.BuscarLista(txtBuscarNome.Text);
+            dgvPedido.DataSource = _vendaControl.BuscarLista(txtBuscarNomeFuncionario.Text, txtBuscarNomeCliente.Text);
+            //dgvPedido.DataSource = _vendaControl.BuscarLista(txtBuscarNomeCliente.Text);
 
-            if(txtBuscarNome.Text == "%") 
+            if(txtBuscarNomeFuncionario.Text == "%") 
             {
                 dgvPedido.DataSource = _vendaControl.ListarPedidos();
-                txtBuscarNome.Text = "";
+                txtBuscarNomeFuncionario.Text = "";
             }
+            else if(txtBuscarNomeCliente.Text == "%") 
+            {
+                dgvPedido.DataSource = _vendaControl.ListarPedidos();
+                txtBuscarNomeCliente.Text = "";
+            }
+                
         }
 
         private void dgvPedido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -54,6 +61,14 @@ namespace Augustus_Fashion.View.Pedido
         {
             var id = Convert.ToInt32(dgvPedido.SelectedRows[0].Cells[0].Value);
             return id;
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            telaInicial telaInicial = new telaInicial();
+            telaInicial.ShowDialog();
+            Close();
         }
     }
 }

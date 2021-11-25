@@ -62,6 +62,7 @@ namespace Augustus_Fashion.View.Produto
             this.cAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eSTOQUEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -82,7 +83,7 @@ namespace Augustus_Fashion.View.Produto
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(31, 80);
+            this.groupBox1.Location = new System.Drawing.Point(80, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(505, 285);
             this.groupBox1.TabIndex = 29;
@@ -295,7 +296,7 @@ namespace Augustus_Fashion.View.Produto
             this.FecharToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(654, 24);
             this.menuStrip1.TabIndex = 36;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -318,14 +319,14 @@ namespace Augustus_Fashion.View.Produto
             // cLIENTESToolStripMenuItem
             // 
             this.cLIENTESToolStripMenuItem.Name = "cLIENTESToolStripMenuItem";
-            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.cLIENTESToolStripMenuItem.Text = "CLIENTES";
             this.cLIENTESToolStripMenuItem.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem_Click);
             // 
             // fUNCIONÁRIOSToolStripMenuItem
             // 
             this.fUNCIONÁRIOSToolStripMenuItem.Name = "fUNCIONÁRIOSToolStripMenuItem";
-            this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fUNCIONÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOSToolStripMenuItem.Text = "FUNCIONÁRIOS";
             this.fUNCIONÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem_Click);
             // 
@@ -341,14 +342,14 @@ namespace Augustus_Fashion.View.Produto
             // cLIENTESToolStripMenuItem1
             // 
             this.cLIENTESToolStripMenuItem1.Name = "cLIENTESToolStripMenuItem1";
-            this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cLIENTESToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.cLIENTESToolStripMenuItem1.Text = "CLIENTES";
             this.cLIENTESToolStripMenuItem1.Click += new System.EventHandler(this.cLIENTESToolStripMenuItem1_Click);
             // 
             // fUNCIONÁRIOSToolStripMenuItem1
             // 
             this.fUNCIONÁRIOSToolStripMenuItem1.Name = "fUNCIONÁRIOSToolStripMenuItem1";
-            this.fUNCIONÁRIOSToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.fUNCIONÁRIOSToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.fUNCIONÁRIOSToolStripMenuItem1.Text = "FUNCIONÁRIOS";
             this.fUNCIONÁRIOSToolStripMenuItem1.Click += new System.EventHandler(this.fUNCIONÁRIOSToolStripMenuItem1_Click);
             // 
@@ -364,7 +365,7 @@ namespace Augustus_Fashion.View.Produto
             // cAToolStripMenuItem
             // 
             this.cAToolStripMenuItem.Name = "cAToolStripMenuItem";
-            this.cAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cAToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.cAToolStripMenuItem.Text = "CADASTRO";
             this.cAToolStripMenuItem.Click += new System.EventHandler(this.cAToolStripMenuItem_Click);
             // 
@@ -381,13 +382,27 @@ namespace Augustus_Fashion.View.Produto
             this.FecharToolStripMenuItem.Text = "FECHAR";
             this.FecharToolStripMenuItem.Click += new System.EventHandler(this.FecharToolStripMenuItem_Click);
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnVoltar.Location = new System.Drawing.Point(542, 34);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(100, 40);
+            this.btnVoltar.TabIndex = 63;
+            this.btnVoltar.Text = "VOLTAR";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
             // AlterarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(544, 369);
+            this.ClientSize = new System.Drawing.Size(654, 373);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
@@ -443,5 +458,6 @@ namespace Augustus_Fashion.View.Produto
         private System.Windows.Forms.ToolStripMenuItem eSTOQUEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
         private System.Windows.Forms.CheckBox chkAtivo;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

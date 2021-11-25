@@ -282,5 +282,10 @@ namespace Augustus_Fashion.View
                 return true;
             }
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

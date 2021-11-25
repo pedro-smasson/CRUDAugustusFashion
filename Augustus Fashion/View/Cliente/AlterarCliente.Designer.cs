@@ -75,6 +75,7 @@ namespace Augustus_Fashion.View
             this.label14 = new System.Windows.Forms.Label();
             this.idCliente = new System.Windows.Forms.TextBox();
             this.excluirCliente = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.groupBoxCliente.SuspendLayout();
             this.enderecoCliente.SuspendLayout();
             this.sexoCliente.SuspendLayout();
@@ -86,7 +87,7 @@ namespace Augustus_Fashion.View
             this.btnAlterar.BackColor = System.Drawing.Color.BlueViolet;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnAlterar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAlterar.Location = new System.Drawing.Point(566, 31);
+            this.btnAlterar.Location = new System.Drawing.Point(528, 31);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(125, 40);
             this.btnAlterar.TabIndex = 23;
@@ -571,13 +572,26 @@ namespace Augustus_Fashion.View
             this.excluirCliente.BackColor = System.Drawing.Color.Crimson;
             this.excluirCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.excluirCliente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.excluirCliente.Location = new System.Drawing.Point(418, 31);
+            this.excluirCliente.Location = new System.Drawing.Point(380, 31);
             this.excluirCliente.Name = "excluirCliente";
             this.excluirCliente.Size = new System.Drawing.Size(125, 40);
             this.excluirCliente.TabIndex = 26;
             this.excluirCliente.Text = "EXCLUIR";
             this.excluirCliente.UseVisualStyleBackColor = false;
             this.excluirCliente.Click += new System.EventHandler(this.ExcluirCliente_Click);
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnVoltar.Location = new System.Drawing.Point(668, 32);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(105, 39);
+            this.btnVoltar.TabIndex = 63;
+            this.btnVoltar.Text = "VOLTAR";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // AlterarCliente
             // 
@@ -587,6 +601,7 @@ namespace Augustus_Fashion.View
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(783, 435);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.excluirCliente);
             this.Controls.Add(this.idCliente);
             this.Controls.Add(this.label14);
@@ -658,5 +673,6 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox idCliente;
         private System.Windows.Forms.Button excluirCliente;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

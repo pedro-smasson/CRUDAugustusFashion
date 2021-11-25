@@ -30,7 +30,7 @@ namespace Augustus_Fashion.View.Pedido
         private void InitializeComponent()
         {
             this.dgvPedido = new System.Windows.Forms.DataGridView();
-            this.txtBuscarNome = new System.Windows.Forms.TextBox();
+            this.txtBuscarNomeFuncionario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buscarId = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -66,13 +66,13 @@ namespace Augustus_Fashion.View.Pedido
             this.dgvPedido.TabIndex = 9;
             this.dgvPedido.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellDoubleClick);
             // 
-            // txtBuscarNome
+            // txtBuscarNomeFuncionario
             // 
-            this.txtBuscarNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarNome.Location = new System.Drawing.Point(277, 33);
-            this.txtBuscarNome.Name = "txtBuscarNome";
-            this.txtBuscarNome.Size = new System.Drawing.Size(247, 31);
-            this.txtBuscarNome.TabIndex = 8;
+            this.txtBuscarNomeFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarNomeFuncionario.Location = new System.Drawing.Point(277, 33);
+            this.txtBuscarNomeFuncionario.Name = "txtBuscarNomeFuncionario";
+            this.txtBuscarNomeFuncionario.Size = new System.Drawing.Size(247, 31);
+            this.txtBuscarNomeFuncionario.TabIndex = 8;
             // 
             // label1
             // 
@@ -87,7 +87,7 @@ namespace Augustus_Fashion.View.Pedido
             // buscarId
             // 
             this.buscarId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buscarId.Location = new System.Drawing.Point(547, 54);
+            this.buscarId.Location = new System.Drawing.Point(547, 50);
             this.buscarId.Name = "buscarId";
             this.buscarId.Size = new System.Drawing.Size(125, 40);
             this.buscarId.TabIndex = 6;
@@ -113,6 +113,7 @@ namespace Augustus_Fashion.View.Pedido
             this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
             this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.hOMEToolStripMenuItem.Text = "HOME";
+            this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
             // 
             // cADASTROToolStripMenuItem
             // 
@@ -190,7 +191,7 @@ namespace Augustus_Fashion.View.Pedido
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dgvPedido);
-            this.Controls.Add(this.txtBuscarNome);
+            this.Controls.Add(this.txtBuscarNomeFuncionario);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buscarId);
             this.Name = "ListagemPedido";
@@ -208,7 +209,7 @@ namespace Augustus_Fashion.View.Pedido
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPedido;
-        private System.Windows.Forms.TextBox txtBuscarNome;
+        private System.Windows.Forms.TextBox txtBuscarNomeFuncionario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buscarId;
         private System.Windows.Forms.MenuStrip menuStrip1;

@@ -97,15 +97,22 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<ListagemVendaModel> BuscarLista(string nome) 
+        public static List<ListagemVendaModel> BuscarLista(string nomeFuncionario, string nomeCliente) 
         {
-            var query = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
+            var queryCliente = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
             pec.Nome as NomeCliente, pef.Nome as NomeFuncionario from Pedido p
             inner join Cliente c on c.IdCliente = p.IdCliente 
             inner join Pessoa pec on pec.IdPessoa = c.IdPessoa 
             inner join Funcionario f on f.IdFuncionario = p.IdFuncionario
-            inner join Pessoa pef on pef.IdPessoa = f.IdPessoa where (pec.Nome like @Nome + '%') or 
-            (pef.Nome like @Nome + '%')";
+            inner join Pessoa pef on pef.IdPessoa = f.IdPessoa
+            where (pec.Nome like @NomeCliente + '%') and (pef.Nome like @NomeFuncionario + '%')";
+
+            //var queryFuncionario = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
+            //pec.Nome as NomeCliente, pef.Nome as NomeFuncionario from Pedido p
+            //inner join Cliente c on c.IdCliente = p.IdCliente 
+            //inner join Pessoa pec on pec.IdPessoa = c.IdPessoa 
+            //inner join Funcionario f on f.IdFuncionario = p.IdFuncionario
+            //inner join Pessoa pef on pef.IdPessoa = f.IdPessoa where pef.Nome like @Nome + '%'";
 
             try 
             {
@@ -113,7 +120,8 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
 
-                    var listar = conexao.Query<ListagemVendaModel>(query, new { Nome = nome });
+                    var listar = conexao.Query<ListagemVendaModel>(queryCliente, new {NomeFuncionario = nomeFuncionario,
+                    NomeCliente = nomeCliente});
                     return listar.ToList();
                 }
             }

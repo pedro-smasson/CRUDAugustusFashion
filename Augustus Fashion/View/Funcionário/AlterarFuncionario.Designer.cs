@@ -84,6 +84,7 @@ namespace Augustus_Fashion.View
             this.idFuncionario = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBoxFuncionario.SuspendLayout();
             this.enderecoFuncionario.SuspendLayout();
@@ -629,7 +630,7 @@ namespace Augustus_Fashion.View
             this.btnExcluir.BackColor = System.Drawing.Color.Crimson;
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnExcluir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnExcluir.Location = new System.Drawing.Point(420, 31);
+            this.btnExcluir.Location = new System.Drawing.Point(382, 31);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(125, 40);
             this.btnExcluir.TabIndex = 32;
@@ -662,13 +663,26 @@ namespace Augustus_Fashion.View
             this.btnAlterar.BackColor = System.Drawing.Color.BlueViolet;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnAlterar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAlterar.Location = new System.Drawing.Point(568, 31);
+            this.btnAlterar.Location = new System.Drawing.Point(530, 31);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(125, 40);
             this.btnAlterar.TabIndex = 29;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnVoltar.Location = new System.Drawing.Point(668, 32);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(105, 39);
+            this.btnVoltar.TabIndex = 63;
+            this.btnVoltar.Text = "VOLTAR";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // AlterarFuncionario
             // 
@@ -678,6 +692,7 @@ namespace Augustus_Fashion.View
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(785, 570);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.idFuncionario);
             this.Controls.Add(this.label18);
@@ -762,5 +777,6 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.TextBox idFuncionario;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }
