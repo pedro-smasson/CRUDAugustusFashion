@@ -41,8 +41,6 @@ namespace Augustus_Fashion.View.Pedido
 
         private void dgvPedido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-
             var id = SelecionarVendaModel();
             var venda = _vendaControl.Buscar(id);
             venda.Produtos = _vendaControl.BuscarProdutosDaVenda(id);

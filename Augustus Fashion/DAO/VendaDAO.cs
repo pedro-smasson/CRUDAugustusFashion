@@ -1,5 +1,4 @@
 ﻿using Augustus_Fashion.Model.Venda;
-using Augustus_Fashion.View.Pedido;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -46,16 +45,20 @@ namespace Augustus_Fashion.DAO
 
         public static List<PedidoProdutoModel> BuscarProdutos(int id)
         {
-            var query = @"select p.Nome, v.Total, v.QuantidadeProduto
-                        from Venda v
-                        inner join Produto as p on v.IdProduto =  p.IdProduto";
+            var query = @"select p.Nome as NomeProduto, ped.TotalBruto as PrecoBruto, ped.TotalLiquido as
+            PrecoLiquido, v.Total as PrecoFinal, v.QuantidadeProduto, v.Desconto from Venda v
+            inner join Produto as p on v.IdProduto = p.IdProduto
+            inner join Pedido as ped on ped.IdPedido = v.IdPedido
+            where v.IdPedido = @IdPedido";
 
             try
             {
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    return conexao.Query<PedidoProdutoModel>(query, new { IdProduto = id }).ToList();
+                    var a = conexao.Query<PedidoProdutoModel>(query, new { IdPedido = id }).ToList();
+
+                    return a;
                 }
             }
             catch (Exception ex)
@@ -123,7 +126,8 @@ namespace Augustus_Fashion.DAO
         public static PedidoModel Buscar(int id) 
         {
             var query = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
-            pec.Nome as NomeCliente, pef.Nome as NomeFuncionario from Pedido p
+            pec.Nome as NomeCliente, c.IdCliente, f.IdFuncionario, pef.Nome as NomeFuncionario
+            from Pedido p
             inner join Cliente c on c.IdCliente = p.IdCliente 
             inner join Pessoa pec on pec.IdPessoa = c.IdPessoa 
             inner join Funcionario f on f.IdFuncionario = p.IdFuncionario
@@ -139,6 +143,54 @@ namespace Augustus_Fashion.DAO
                 }
             }
             catch(Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
+        }   
+
+        public static void AlterarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido)
+        {
+            var queryPedido = @"update Pedido set IdFuncionario = @IdFuncionario, IdCliente = @IdCliente,
+            TotalBruto = @PrecoBruto, TotalLiquido = @PrecoLiquido, Desconto = @TotalDesconto, PrecoFinal = @PrecoTotal,
+            FormaDePagamento = @FormaDePagamento, QuantidadeProduto = @QuantidadeProduto, Lucro = @Lucro
+            where IdPedido = @IdPedido";
+
+            var queryVendaJaExistente = @"update Venda set IdPedido = @IdPedido, IdProduto = @IdProduto,
+            PrecoVenda = @PrecoVenda, QuantidadeProduto = @QuantidadeProduto, Desconto = @Desconto, Total = @Total
+            where IdVenda = @IdVenda";
+
+            var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)
+            values (@IdPedido, @IdProduto, @PrecoLiquido, @QuantidadeProduto, @Desconto, @PrecoFinal)";
+
+            var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProduto where IdProduto = @IdProduto";
+
+            try
+            {
+                var conexao = new conexao().Connection();
+                {
+                    conexao.Open();
+                    using (var transacao = conexao.BeginTransaction())
+                    {
+                        conexao.Execute(queryPedido, pedido, transacao);
+                        foreach (var carrinho in produtoPedido)
+                        {
+                            if(carrinho.IdPedido == 0) 
+                            {
+                                carrinho.IdPedido = pedido.IdPedido;
+                                conexao.Execute(queryVenda, carrinho, transacao);
+                                conexao.Execute(queryAlterarEstoque, carrinho, transacao);
+                            }
+                            else 
+                            {
+                                conexao.Execute(queryVendaJaExistente, carrinho, transacao);
+                                conexao.Execute(queryAlterarEstoque, carrinho, transacao);
+                            }
+                        }
+                        transacao.Commit();
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

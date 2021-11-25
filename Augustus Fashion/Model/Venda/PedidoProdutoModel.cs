@@ -3,6 +3,7 @@
     public class PedidoProdutoModel
     {
         public int IdPedido { get; set; }
+        public int IdVenda { get; set; }
         public int IdProduto { get; set; }
         public string NomeProduto { get; set; }
         public int QuantidadeProduto { get; set; }

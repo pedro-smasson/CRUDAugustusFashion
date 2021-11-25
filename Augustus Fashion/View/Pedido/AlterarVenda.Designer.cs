@@ -232,6 +232,7 @@ namespace Augustus_Fashion.View.Pedido
             this.txtDesconto.Name = "txtDesconto";
             this.txtDesconto.Size = new System.Drawing.Size(66, 22);
             this.txtDesconto.TabIndex = 50;
+            this.txtDesconto.TextChanged += new System.EventHandler(this.txtDesconto_TextChanged);
             // 
             // cbFormaDePagamento
             // 
@@ -288,6 +289,7 @@ namespace Augustus_Fashion.View.Pedido
             0,
             0,
             0});
+            this.nudQuantidade.ValueChanged += new System.EventHandler(this.nudQuantidade_ValueChanged);
             // 
             // label10
             // 

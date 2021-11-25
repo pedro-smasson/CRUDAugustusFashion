@@ -22,14 +22,17 @@ namespace Augustus_Fashion.View.Pedido
         {
             dgvCarrinho.DataSource = _pedido.Produtos;
 
-            dgvCarrinho.Columns[0].HeaderText = "Nome";
-            dgvCarrinho.Columns[1].HeaderText = "ID Pedido";
-            dgvCarrinho.Columns[2].HeaderText = "Preço Final";
-            dgvCarrinho.Columns[3].HeaderText = "Quantidade";
-            dgvCarrinho.Columns["PrecoCusto"].Visible = false;
-            dgvCarrinho.Columns["PrecoBruto"].Visible = false;
-            dgvCarrinho.Columns[5].HeaderText = "Desconto";
-            dgvCarrinho.Columns[6].HeaderText = "Preço Líquido";
+            this.dgvCarrinho.Columns["IdPedido"].Visible = false;
+            this.dgvCarrinho.Columns["PrecoCusto"].Visible = false;
+            this.dgvCarrinho.Columns["PrecoBruto"].Visible = false;
+            this.dgvCarrinho.Columns["Desconto"].Visible = false;
+            this.dgvCarrinho.Columns["PrecoLiquido"].Visible = false;
+            this.dgvCarrinho.Columns["IdVenda"].Visible = false;
+
+            cbFormaDePagamento.Text = _pedido.FormaDePagamento.ToString();
+            lblCliente.Text = _pedido.IdCliente.ToString();
+            lblFuncionario.Text = _pedido.IdFuncionario.ToString();
+            txtTotalVenda.Text = _pedido.PrecoTotal.ToString();
         }
 
         private void AlterarDadosDaVenda()
@@ -38,7 +41,7 @@ namespace Augustus_Fashion.View.Pedido
             {
                 var vendaControl = new VendaControl();
 
-                vendaControl.CadastrarVenda(_pedido, _pedido.Produtos);
+                vendaControl.AlterarVenda(_pedido, _pedido.Produtos);
                 MessageBox.Show("Venda alterada com sucesso!");
             }
             catch (Exception ex)
@@ -49,6 +52,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private void btnAdicionar_Click(object sender, System.EventArgs e)
         {
+
             PedidoProdutoModel produtoPedido = new PedidoProdutoModel();
 
             produtoPedido.IdProduto = Convert.ToInt32(lblIdProduto.Text);
@@ -60,8 +64,8 @@ namespace Augustus_Fashion.View.Pedido
 
             _pedido.AdicionarProduto(produtoPedido);
 
-            dgvCarrinho.DataSource = null;
-            dgvCarrinho.AutoGenerateColumns = false;
+            //dgvCarrinho.DataSource = null;
+            //dgvCarrinho.AutoGenerateColumns = false;
 
             var source = new BindingSource
             {
@@ -135,6 +139,8 @@ namespace Augustus_Fashion.View.Pedido
 
         private void AlterarVenda_Load(object sender, EventArgs e)
         {
+            dgvCarrinho.DataSource = _pedido.Produtos;
+
             dgvProduto.DataSource = _produtoControl.ListarProduto;
             dgvProduto.Columns["PrecoCusto"].Visible = false;
 
@@ -165,10 +171,33 @@ namespace Augustus_Fashion.View.Pedido
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            Hide();
-            ListagemPedido listarOPedido = new ListagemPedido();
-            listarOPedido.ShowDialog();
-            Close();
+            this.DialogResult = DialogResult.OK;
         }
+
+        public bool QuantidadeMaiorQueEstoque(int estoque)
+        {
+            if (nudQuantidade.Value > estoque)
+            {
+                MessageBox.Show("Impossível a Quantidade ser maior que o Estoque!");
+                nudQuantidade.Value = SelecionarValorEstoque();
+                return false;
+            }
+            return true;
+        }
+
+        public int SelecionarValorEstoque()
+        {
+            return (int)dgvProduto.SelectedRows[0].Cells[4].Value;
+        }
+
+        private void nudQuantidade_ValueChanged(object sender, EventArgs e)
+        {
+            nudQuantidade.Maximum = 5000;
+            QuantidadeMaiorQueEstoque(SelecionarValorEstoque());
+            CalcularPrecoLiquido();
+        }
+
+        private void txtDesconto_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
+     
     }
 }

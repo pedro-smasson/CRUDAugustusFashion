@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Augustus_Fashion.Model
+﻿namespace Augustus_Fashion.Model
 {
     public class FuncionarioModel : Pessoa
     {

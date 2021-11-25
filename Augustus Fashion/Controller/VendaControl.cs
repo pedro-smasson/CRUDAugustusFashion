@@ -1,6 +1,5 @@
 ﻿using Augustus_Fashion.DAO;
 using Augustus_Fashion.Model.Venda;
-using Augustus_Fashion.View.Pedido;
 using System;
 using System.Collections.Generic;
 
@@ -46,7 +45,27 @@ namespace Augustus_Fashion.Controller
 
         public List<PedidoProdutoModel> BuscarProdutosDaVenda(int id)
         {
-            return VendaDAO.BuscarProdutos(id);
+            try 
+            {
+                return VendaDAO.BuscarProdutos(id);
+            }
+            catch(Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public string AlterarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtos)
+        {
+            try
+            {
+                VendaDAO.AlterarVenda(pedido, produtos);
+                return string.Empty;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
