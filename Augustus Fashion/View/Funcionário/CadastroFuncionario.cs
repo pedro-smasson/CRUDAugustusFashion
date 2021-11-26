@@ -89,6 +89,7 @@ namespace Augustus_Fashion.View
 
 
                 _funccontrol.CadastrarFuncionario(_funcmodel);
+                MessageBox.Show("Funcionário Cadastrado com Sucesso!");
 
                 nomeFuncionario.Text = "";
                 emailFuncionario.Text = "";

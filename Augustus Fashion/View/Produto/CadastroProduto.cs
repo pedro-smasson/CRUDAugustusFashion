@@ -97,7 +97,7 @@ namespace Augustus_Fashion.View
             if (Validar()) 
             {
                 _produtoModel.CodBarra = codBarrasProduto.Text;
-                _produtoModel.PrecoVenda = Convert.ToDecimal(precoVendaProduto.Text).ToString();
+                _produtoModel.PrecoVenda = Convert.ToDecimal(precoVendaProduto.Text);
                 _produtoModel.PrecoCusto = Convert.ToDecimal(precoCustoProduto.Text);
                 _produtoModel.Nome = nomeProduto.Text;
                 _produtoModel.Fabricante = fabricanteProduto.Text;

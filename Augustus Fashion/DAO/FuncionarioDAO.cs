@@ -25,7 +25,7 @@ namespace Augustus_Fashion.DAO
                     using (var transacao = conexao.BeginTransaction())
 
                     {
-                        int id = conexao.ExecuteScalar<int>(queryPessoa, new 
+                        int id = conexao.ExecuteScalar<int>(queryPessoa, new
                         {
                             Nome = funcionario.Nome,
                             Sexo = funcionario.Sexo,
@@ -62,39 +62,6 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        private static FuncionarioModel MapearBusca(FuncionarioModel funcionarioModel, EnderecoModel enderecoModel)
-        {
-            funcionarioModel.Endereco = enderecoModel;
-            return funcionarioModel;
-        }
-
-        public static FuncionarioModel Buscar(int id)
-        {
-            var query = @"select f.IdFuncionario, f.Salario, f.Comissao, f.Agencia, f.NumConta, f.CodConta,
-            f.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
-            f.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
-            Pessoa p inner join Funcionario f on p.IdPessoa = f.IdPessoa
-            inner join Endereco e on f.IdPessoa = e.IdPessoa where f.IdFuncionario = @IdFuncionario";
-
-            try
-            {
-                using (var conexao = new conexao().Connection())
-                {
-                    conexao.Open();
-
-                    var parametros = new DynamicParameters();
-                    parametros.Add("IdFuncionario", id);
-
-                    return conexao.Query(query, (FuncionarioModel funcionarioModel, EnderecoModel enderecoModel)
-                    => MapearBusca(funcionarioModel, enderecoModel), splitOn: "IdPessoa", param: parametros).FirstOrDefault();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
         public static void AlterarFuncionario(FuncionarioModel funcionario)
         {
             var queryPessoa = @"update Pessoa set Nome = @Nome, Sexo = @Sexo, Nascimento = @Nascimento,
@@ -111,7 +78,7 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
-                        conexao.Execute(queryPessoa, new 
+                        conexao.Execute(queryPessoa, new
                         {
                             Nome = funcionario.Nome,
                             Sexo = funcionario.Sexo,
@@ -123,7 +90,7 @@ namespace Augustus_Fashion.DAO
                         }, transacao);
 
                         conexao.Execute(queryFuncionario, funcionario, transacao);
-                        conexao.Execute(queryEndereco, new 
+                        conexao.Execute(queryEndereco, new
                         {
                             IdPessoa = funcionario.IdPessoa,
                             IdEndereco = funcionario.Endereco.IdEndereco,
@@ -161,7 +128,7 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
 
                     return conexao.Query(query, (FuncionarioListagem funcionarioListagem, EnderecoModel funcionarioModel)
-                    => Mapear(funcionarioListagem, funcionarioModel), new { Nome = nome}, splitOn: "IdPessoa").ToList();
+                    => Mapear(funcionarioListagem, funcionarioModel), new { Nome = nome }, splitOn: "IdPessoa").ToList();
                 }
             }
             catch (Exception ex)
@@ -190,6 +157,39 @@ namespace Augustus_Fashion.DAO
 
                         transacao.Commit();
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        private static FuncionarioModel MapearBusca(FuncionarioModel funcionarioModel, EnderecoModel enderecoModel)
+        {
+            funcionarioModel.Endereco = enderecoModel;
+            return funcionarioModel;
+        }
+
+        public static FuncionarioModel Buscar(int id)
+        {
+            var query = @"select f.IdFuncionario, f.Salario, f.Comissao, f.Agencia, f.NumConta, f.CodConta,
+            f.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
+            f.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
+            Pessoa p inner join Funcionario f on p.IdPessoa = f.IdPessoa
+            inner join Endereco e on f.IdPessoa = e.IdPessoa where f.IdFuncionario = @IdFuncionario";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+
+                    var parametros = new DynamicParameters();
+                    parametros.Add("IdFuncionario", id);
+
+                    return conexao.Query(query, (FuncionarioModel funcionarioModel, EnderecoModel enderecoModel)
+                    => MapearBusca(funcionarioModel, enderecoModel), splitOn: "IdPessoa", param: parametros).FirstOrDefault();
                 }
             }
             catch (Exception ex)

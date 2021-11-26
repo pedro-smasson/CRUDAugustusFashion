@@ -36,6 +36,7 @@ namespace Augustus_Fashion.View.Produto
            
 
             _produtoControl.ExcluirProduto(_produtoModel);
+            MessageBox.Show("Produto deletado com sucesso!");
 
             Hide();
             ListarProduto listarProduto = new ListarProduto();
@@ -48,7 +49,7 @@ namespace Augustus_Fashion.View.Produto
             _produtoModel.Nome = nomeProduto.Text;
             _produtoModel.CodBarra = codBarrasProduto.Text;
             _produtoModel.PrecoCusto = Convert.ToDecimal(precoCustoProduto.Text);
-            _produtoModel.PrecoVenda = Convert.ToDecimal(precoVendaProduto.Text).ToString();
+            _produtoModel.PrecoVenda = Convert.ToDecimal(precoVendaProduto.Text);
             _produtoModel.Fabricante = fabricanteProduto.Text;
             _produtoModel.Estoque = Convert.ToInt32(estoqueProduto.Text);
             _produtoModel.StatusProduto = chkAtivo.Checked;

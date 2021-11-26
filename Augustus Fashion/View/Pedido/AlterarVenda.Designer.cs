@@ -71,7 +71,6 @@ namespace Augustus_Fashion.View.Pedido
             this.label1 = new System.Windows.Forms.Label();
             this.txtProduto = new System.Windows.Forms.TextBox();
             this.btnInativar = new System.Windows.Forms.Button();
-            this.cbAtivo = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
@@ -526,24 +525,12 @@ namespace Augustus_Fashion.View.Pedido
             this.btnInativar.UseVisualStyleBackColor = false;
             this.btnInativar.Click += new System.EventHandler(this.btnInativar_Click);
             // 
-            // cbAtivo
-            // 
-            this.cbAtivo.AutoSize = true;
-            this.cbAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbAtivo.Location = new System.Drawing.Point(49, 468);
-            this.cbAtivo.Name = "cbAtivo";
-            this.cbAtivo.Size = new System.Drawing.Size(133, 24);
-            this.cbAtivo.TabIndex = 82;
-            this.cbAtivo.Text = "Inativar Pedido";
-            this.cbAtivo.UseVisualStyleBackColor = true;
-            // 
             // AlterarVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(910, 517);
-            this.Controls.Add(this.cbAtivo);
             this.Controls.Add(this.btnInativar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
@@ -635,6 +622,5 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtProduto;
         private System.Windows.Forms.Button btnInativar;
-        private System.Windows.Forms.CheckBox cbAtivo;
     }
 }

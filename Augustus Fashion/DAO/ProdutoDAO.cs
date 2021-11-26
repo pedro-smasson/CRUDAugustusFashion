@@ -9,25 +9,25 @@ namespace Augustus_Fashion.DAO
 {
     class ProdutoDAO
     {
-        public static void CadastrarProduto(ProdutoModel produto) 
+        public static void CadastrarProduto(ProdutoModel produto)
         {
             var queryProduto = @"insert into Produto (CodBarra, Nome, PrecoVenda, PrecoCusto, Estoque,
             StatusProduto, Fabricante) values(@CodBarra, @Nome, @PrecoVenda, @PrecoCusto, @Estoque,
             @StatusProduto, @Fabricante)";
 
-            try 
+            try
             {
                 var conexao = new conexao().Connection();
                 {
                     conexao.Open();
-                    using (var transacao = conexao.BeginTransaction()) 
+                    using (var transacao = conexao.BeginTransaction())
                     {
                         conexao.Execute(queryProduto, produto, transacao);
                         transacao.Commit();
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -83,7 +83,7 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
 
-                    return conexao.QueryFirstOrDefault<ProdutoModel>(query, new {IdProduto = id});
+                    return conexao.QueryFirstOrDefault<ProdutoModel>(query, new { IdProduto = id });
                 }
             }
             catch (Exception ex)
@@ -111,16 +111,16 @@ namespace Augustus_Fashion.DAO
                 }
             }
             catch (Exception ex)
-           {
+            {
                 throw new Exception(ex.Message);
             }
         }
 
-        public static void ExcluirProduto(ProdutoModel produtoModel) 
+        public static void ExcluirProduto(ProdutoModel produtoModel)
         {
             var query = @"delete from Produto where IdProduto = @IdProduto";
 
-            try 
+            try
             {
                 var conexao = new conexao().Connection();
                 {
@@ -128,19 +128,19 @@ namespace Augustus_Fashion.DAO
                     conexao.Query<ProdutoModel>(query, produtoModel);
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
 
-        public static void AlterarProduto(ProdutoModel produtoModel) 
+        public static void AlterarProduto(ProdutoModel produtoModel)
         {
             var query = @"update Produto set Nome = @Nome, CodBarra = @CodBarra, PrecoVenda = @PrecoVenda,
             PrecoCusto = @PrecoCusto, Estoque = @Estoque, StatusProduto = @StatusProduto, Fabricante = @Fabricante
             where IdProduto = @IdProduto";
 
-            try 
+            try
             {
                 var conexao = new conexao().Connection();
                 {
@@ -148,7 +148,7 @@ namespace Augustus_Fashion.DAO
                     conexao.Query<ProdutoModel>(query, produtoModel);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

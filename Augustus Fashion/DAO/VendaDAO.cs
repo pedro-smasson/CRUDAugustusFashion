@@ -8,23 +8,24 @@ namespace Augustus_Fashion.DAO
 {
     class VendaDAO
     {
-        public static void CadastrarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido) 
+        public static void CadastrarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido)
         {
             var queryPedido = @"insert into Pedido (IdFuncionario, IdCliente, TotalBruto, TotalLiquido, Desconto, 
             PrecoFinal, FormaDePagamento, QuantidadeProduto, Lucro) output inserted.IdPedido values (@IdFuncionario, 
-            @IdCliente, @PrecoBruto, @PrecoLiquido, @TotalDesconto, @PrecoTotal, @FormaDePagamento, @QuantidadeProduto, @Lucro)";
+            @IdCliente, @PrecoBruto, @PrecoLiquido, @TotalDesconto, @PrecoTotal, @FormaDePagamento, @QuantidadeProduto,
+            @Lucro)";
 
             var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)
             values (@IdPedido, @IdProduto, @PrecoLiquido, @QuantidadeProduto, @Desconto, @PrecoFinal)";
 
             var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProduto where IdProduto = @IdProduto";
 
-            try 
+            try
             {
                 var conexao = new conexao().Connection();
                 {
                     conexao.Open();
-                    using (var transacao = conexao.BeginTransaction()) 
+                    using (var transacao = conexao.BeginTransaction())
                     {
                         var idPedido = Convert.ToInt32(conexao.ExecuteScalar(queryPedido, pedido, transacao).ToString());
                         foreach (var carrinho in produtoPedido)
@@ -37,34 +38,11 @@ namespace Augustus_Fashion.DAO
                     }
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
-
-        //public static List<ListagemVendaModel> ListarTodosOsPedidos()
-        //{
-        //    var query = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
-        //    pec.Nome as NomeCliente, pef.Nome as NomeFuncionario from Pedido p
-        //    inner join Cliente c on c.IdCliente = p.IdCliente 
-        //    inner join Pessoa pec on pec.IdPessoa = c.IdPessoa 
-        //    inner join Funcionario f on f.IdFuncionario = p.IdFuncionario
-        //    inner join Pessoa pef on pef.IdPessoa = f.IdPessoa";
-
-        //    try
-        //    {
-        //        var conexao = new conexao().Connection();
-        //        {
-        //            conexao.Open();
-        //            return conexao.Query<ListagemVendaModel>(query).ToList();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
 
         public static List<PedidoProdutoModel> BuscarProdutos(int id)
         {
@@ -90,9 +68,32 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static void DesativarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido) 
+        public static void DesativarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido)
         {
-
+            var queryPedido = @"delete from Pedido where IdPedido = @IdPedido";
+            var queryVenda = @"delete from Venda where IdPedido = @IdPedido";
+            var queryAlterarEstoque = @"update Produto set Estoque += @QuantidadeProduto where IdProduto = @IdProduto";
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    using (var transacao = conexao.BeginTransaction())
+                    {
+                        foreach (var carrinho in produtoPedido)
+                        {
+                            conexao.Execute(queryVenda, new { IdPedido = carrinho.IdPedido }, transacao);
+                            conexao.Execute(queryAlterarEstoque, carrinho, transacao);
+                        }
+                        conexao.Execute(queryPedido, new { IdPedido = pedido.IdPedido }, transacao);
+                        transacao.Commit();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public static List<ListagemVendaModel> ListarPedidos()
@@ -114,13 +115,13 @@ namespace Augustus_Fashion.DAO
                     return listar.ToList();
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
 
-        public static List<ListagemVendaModel> BuscarLista(string nomeFuncionario, string nomeCliente) 
+        public static List<ListagemVendaModel> BuscarLista(string nomeFuncionario, string nomeCliente)
         {
             var queryCliente = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
             pec.Nome as NomeCliente, pef.Nome as NomeFuncionario from Pedido p
@@ -130,31 +131,27 @@ namespace Augustus_Fashion.DAO
             inner join Pessoa pef on pef.IdPessoa = f.IdPessoa
             where (pec.Nome like @NomeCliente + '%') and (pef.Nome like @NomeFuncionario + '%')";
 
-            //var queryFuncionario = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
-            //pec.Nome as NomeCliente, pef.Nome as NomeFuncionario from Pedido p
-            //inner join Cliente c on c.IdCliente = p.IdCliente 
-            //inner join Pessoa pec on pec.IdPessoa = c.IdPessoa 
-            //inner join Funcionario f on f.IdFuncionario = p.IdFuncionario
-            //inner join Pessoa pef on pef.IdPessoa = f.IdPessoa where pef.Nome like @Nome + '%'";
-
-            try 
+            try
             {
-                using (var conexao = new conexao().Connection()) 
+                using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
 
-                    var listar = conexao.Query<ListagemVendaModel>(queryCliente, new {NomeFuncionario = nomeFuncionario,
-                    NomeCliente = nomeCliente});
+                    var listar = conexao.Query<ListagemVendaModel>(queryCliente, new
+                    {
+                        NomeFuncionario = nomeFuncionario,
+                        NomeCliente = nomeCliente
+                    });
                     return listar.ToList();
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
 
-        public static PedidoModel Buscar(int id) 
+        public static PedidoModel Buscar(int id)
         {
             var query = @"select p.IdPedido, p.QuantidadeProduto, p.PrecoFinal, p.Lucro, p.FormaDePagamento, 
             pec.Nome as NomeCliente, c.IdCliente, f.IdFuncionario, pef.Nome as NomeFuncionario
@@ -164,24 +161,24 @@ namespace Augustus_Fashion.DAO
             inner join Funcionario f on f.IdFuncionario = p.IdFuncionario
             inner join Pessoa pef on pef.IdPessoa = f.IdPessoa where p.IdPedido = @IdPedido";
 
-            try 
+            try
             {
-                using (var conexao = new conexao().Connection()) 
+                using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
 
                     return conexao.Query<PedidoModel>(query, new { IdPedido = id }).FirstOrDefault();
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-        }   
+        }
 
         public static void AlterarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido)
         {
-            var queryPedido = @"update Pedido set IdFuncionario = @IdFuncionario, IdCliente = @IdCliente, Status = @Status,
+            var queryPedido = @"update Pedido set IdFuncionario = @IdFuncionario, IdCliente = @IdCliente,
             TotalBruto = @PrecoBruto, TotalLiquido = @PrecoLiquido, Desconto = @TotalDesconto, PrecoFinal = @PrecoTotal,
             FormaDePagamento = @FormaDePagamento, QuantidadeProduto = @QuantidadeProduto, Lucro = @Lucro
             where IdPedido = @IdPedido";
@@ -205,13 +202,13 @@ namespace Augustus_Fashion.DAO
                         conexao.Execute(queryPedido, pedido, transacao);
                         foreach (var carrinho in produtoPedido)
                         {
-                            if(carrinho.IdPedido == 0) 
+                            if (carrinho.IdPedido == 0)
                             {
                                 carrinho.IdPedido = pedido.IdPedido;
                                 conexao.Execute(queryVenda, carrinho, transacao);
                                 conexao.Execute(queryAlterarEstoque, carrinho, transacao);
                             }
-                            else 
+                            else
                             {
                                 conexao.Execute(queryVendaJaExistente, carrinho, transacao);
                                 conexao.Execute(queryAlterarEstoque, carrinho, transacao);

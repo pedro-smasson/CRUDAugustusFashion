@@ -9,13 +9,13 @@ namespace Augustus_Fashion.Controller
 {
     class ProdutoControl
     {
-        public void CadastrarProduto(ProdutoModel produtoModel) 
+        public void CadastrarProduto(ProdutoModel produtoModel)
         {
             try
             {
                 ProdutoDAO.CadastrarProduto(produtoModel);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -49,7 +49,6 @@ namespace Augustus_Fashion.Controller
             try
             {
                 ProdutoDAO.ExcluirProduto(produtoModel);
-                MessageBox.Show("Produto deletado com sucesso!");
             }
             catch (Exception ex)
             {
@@ -58,13 +57,13 @@ namespace Augustus_Fashion.Controller
 
         }
 
-        public void AlterarProduto(ProdutoModel produtoModel) 
+        public void AlterarProduto(ProdutoModel produtoModel)
         {
-            try 
+            try
             {
                 ProdutoDAO.AlterarProduto(produtoModel);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

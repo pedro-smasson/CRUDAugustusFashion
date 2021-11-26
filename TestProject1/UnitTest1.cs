@@ -186,5 +186,15 @@ namespace TestProject1
         {
             Assert.AreEqual(Testes.ValidarCelular(a), resultado);
         }
+
+        [DataTestMethod]
+        [DataRow(9, true)]
+        [DataRow(47, true)]
+        [DataRow(101, false)]
+
+        public void validar_se_desconto_eh_valido_ou_nao(float a, bool resultado) 
+        {
+            Assert.AreEqual(Testes.ValidarDesconto(a), resultado);
+        }
     }
 }

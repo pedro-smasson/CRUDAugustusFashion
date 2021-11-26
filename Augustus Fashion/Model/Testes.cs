@@ -33,6 +33,6 @@ namespace Augustus_Fashion.Model
             new Regex(@"^[0-9]{11}$").Match(valor).Success;
 
         public static bool ValidarDesconto(this float valor) =>
-            new Regex(@"^[0-9]+[%]$").Match(Convert.ToString(valor)).Success;
+            new Regex(@"^[0-9]{1,2}$").Match(Convert.ToString(valor)).Success;
     }
 }

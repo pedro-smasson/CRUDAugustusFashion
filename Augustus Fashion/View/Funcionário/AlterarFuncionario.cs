@@ -115,10 +115,11 @@ namespace Augustus_Fashion.View
             if (Validar())
             {
                 _funcionariocontrol.ExcluirFuncionario(_funcionariomodel);
+                MessageBox.Show("Funcionário deletado com sucesso!");
 
                 Hide();
-                ListarFuncionario lc = new ListarFuncionario();
-                lc.ShowDialog();
+                ListarFuncionario listarFuncionario = new ListarFuncionario();
+                listarFuncionario.ShowDialog();
                 this.Close();
             }
 
@@ -159,6 +160,7 @@ namespace Augustus_Fashion.View
                     _funcionariomodel.Sexo = "O";
 
                 _funcionariocontrol.AlterarFuncionario(_funcionariomodel);
+                MessageBox.Show("Funcionário Alterado com Sucesso!");
 
                 Hide();
                 ListarFuncionario lc = new ListarFuncionario();

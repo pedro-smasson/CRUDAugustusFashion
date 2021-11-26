@@ -57,7 +57,7 @@ namespace Augustus_Fashion.View.Pedido
             txtSelecionado.Text = nome.ToString();
             txtPrecoVenda.Text = precovenda.ToString();
             lblIdProduto.Text = produto.IdProduto.ToString();
-            txtPrecoLiquido.Text = (produto.PrecoVenda.DecimalOuZero() - txtDesconto.Text.DecimalOuZero()).ToString("c");
+            txtPrecoLiquido.Text = (produto.PrecoVenda - txtDesconto.Text.DecimalOuZero()).ToString("c");
             txtPrecoCusto.Text = produto.PrecoCusto.ToString();
         }
 

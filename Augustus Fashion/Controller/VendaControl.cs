@@ -25,11 +25,6 @@ namespace Augustus_Fashion.Controller
             return VendaDAO.ListarPedidos();
         }
 
-        //public List<ListagemVendaModel> ListarTodosOsPedidos() 
-        //{
-        //    return VendaDAO.ListarTodosOsPedidos();
-        //}
-
         public List<ListagemVendaModel> BuscarLista(string nomeFuncionario, string nomeCliente)
         {
             try
@@ -43,18 +38,18 @@ namespace Augustus_Fashion.Controller
             }
         }
 
-        public PedidoModel Buscar(int id) 
+        public PedidoModel Buscar(int id)
         {
             return VendaDAO.Buscar(id);
         }
 
         public List<PedidoProdutoModel> BuscarProdutosDaVenda(int id)
         {
-            try 
+            try
             {
                 return VendaDAO.BuscarProdutos(id);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -65,6 +60,19 @@ namespace Augustus_Fashion.Controller
             try
             {
                 VendaDAO.AlterarVenda(pedido, produtos);
+                return string.Empty;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public string DesativarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtos)
+        {
+            try
+            {
+                VendaDAO.DesativarVenda(pedido, produtos);
                 return string.Empty;
             }
             catch (Exception ex)

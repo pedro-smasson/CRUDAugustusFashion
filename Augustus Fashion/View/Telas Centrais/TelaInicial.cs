@@ -1,14 +1,13 @@
 ﻿using Augustus_Fashion.View.Pedido;
 using Augustus_Fashion.View.Produto;
 using Augustus_Fashion.View.Telas_Centrais;
-using DarkUI.Forms;
 using System;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.View
 {
 
-    public partial class telaInicial : DarkForm
+    public partial class telaInicial : Form
     {
 
         public telaInicial()

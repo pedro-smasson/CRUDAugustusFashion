@@ -439,6 +439,7 @@ namespace Augustus_Fashion.View.Pedido
             this.label12.Size = new System.Drawing.Size(97, 20);
             this.label12.TabIndex = 41;
             this.label12.Text = "Preço custo:";
+            this.label12.Visible = false;
             // 
             // txtPrecoCusto
             // 
@@ -450,6 +451,7 @@ namespace Augustus_Fashion.View.Pedido
             this.txtPrecoCusto.ReadOnly = true;
             this.txtPrecoCusto.Size = new System.Drawing.Size(111, 22);
             this.txtPrecoCusto.TabIndex = 42;
+            this.txtPrecoCusto.Visible = false;
             // 
             // textBox1
             // 

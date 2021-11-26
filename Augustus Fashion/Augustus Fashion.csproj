@@ -37,9 +37,6 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="DarkUI, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DarkUI.2.0.2\lib\DarkUI.dll</HintPath>
-    </Reference>
     <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.10.3.4\lib\netstandard2.0\FluentValidation.dll</HintPath>
     </Reference>
@@ -92,7 +89,6 @@
     <Compile Include="FluentValidation\EnderecoValidation.cs" />
     <Compile Include="FluentValidation\LimiteValidation.cs" />
     <Compile Include="FluentValidation\PessoaValidation.cs" />
-    <Compile Include="Global\Themes.cs" />
     <Compile Include="Model\Cliente\ClienteListagem.cs" />
     <Compile Include="Model\Cliente\ClienteModel.cs" />
     <Compile Include="Model\EnderecoModel.cs" />

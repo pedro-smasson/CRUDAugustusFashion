@@ -87,8 +87,8 @@ namespace Augustus_Fashion.View
                 }
 
                 Hide();
-                ListarCliente lc = new ListarCliente();
-                lc.ShowDialog();
+                ListarCliente listarCliente = new ListarCliente();
+                listarCliente.ShowDialog();
                 this.Close();
             }
             
@@ -99,10 +99,11 @@ namespace Augustus_Fashion.View
             if (Validar())
             {
                 _clientecontrol.ExcluirCliente(_clientemodel);
+                MessageBox.Show("Cliente deletado com sucesso!");
 
                 Hide();
-                ListarCliente lc = new ListarCliente();
-                lc.ShowDialog();
+                ListarCliente listarCliente = new ListarCliente();
+                listarCliente.ShowDialog();
                 this.Close();
             }
 
