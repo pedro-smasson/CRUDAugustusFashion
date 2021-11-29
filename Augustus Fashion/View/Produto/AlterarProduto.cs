@@ -22,7 +22,7 @@ namespace Augustus_Fashion.View.Produto
             codBarrasProduto.Text = produto.CodBarra.ToString();
             nomeProduto.Text = produto.Nome;
             fabricanteProduto.Text = produto.Fabricante;
-            precoVendaProduto.Text = Convert.ToDecimal(produto.PrecoVenda).ToString();
+            precoVendaProduto.Text = produto.PrecoVenda.ToString();
             precoCustoProduto.Text = produto.PrecoCusto.ToString();
             estoqueProduto.Text = produto.Estoque.ToString();
             chkAtivo.Checked = produto.StatusProduto;
@@ -46,10 +46,11 @@ namespace Augustus_Fashion.View.Produto
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            _produtoModel.IdProduto = Convert.ToInt32(idProduto.Text);
             _produtoModel.Nome = nomeProduto.Text;
             _produtoModel.CodBarra = codBarrasProduto.Text;
-            _produtoModel.PrecoCusto = Convert.ToDecimal(precoCustoProduto.Text);
-            _produtoModel.PrecoVenda = Convert.ToDecimal(precoVendaProduto.Text);
+            _produtoModel.PrecoCusto = precoCustoProduto.Text;
+            _produtoModel.PrecoVenda = precoVendaProduto.Text;
             _produtoModel.Fabricante = fabricanteProduto.Text;
             _produtoModel.Estoque = Convert.ToInt32(estoqueProduto.Text);
             _produtoModel.StatusProduto = chkAtivo.Checked;

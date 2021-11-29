@@ -1,4 +1,6 @@
-﻿namespace Augustus_Fashion.Model.Venda
+﻿using Augustus_Fashion.ValueObjects;
+
+namespace Augustus_Fashion.Model.Venda
 {
     public class PedidoProdutoModel
     {
@@ -7,18 +9,18 @@
         public int IdProduto { get; set; }
         public string NomeProduto { get; set; }
         public int QuantidadeProduto { get; set; }
-        public decimal PrecoCusto { get; set; }
-        public decimal PrecoBruto { get; set; }
-        public decimal Desconto { get; set; }
+        public Dinheiro PrecoCusto { get; set; }
+        public Dinheiro PrecoBruto { get; set; }
+        public Dinheiro Desconto { get; set; }
 
-        public decimal PrecoLiquido 
+        public Dinheiro PrecoLiquido 
         { 
-            get => PrecoBruto - Desconto;
+            get => PrecoBruto.ToDecimal() - Desconto.ToDecimal();
         }
 
-        public decimal PrecoFinal
+        public Dinheiro PrecoFinal
         {
-            get => (PrecoLiquido * QuantidadeProduto);
+            get => (PrecoLiquido.ToDecimal() * QuantidadeProduto);
         }
 
     }

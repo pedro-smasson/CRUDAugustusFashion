@@ -68,8 +68,9 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static void DesativarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido)
+        public static void DesativarVenda(PedidoModel pedido)
         {
+            var selectVenda = @"select IdProduto, QuantidadeProduto from Venda where IdPedido = @IdPedido";
             var queryPedido = @"delete from Pedido where IdPedido = @IdPedido";
             var queryVenda = @"delete from Venda where IdPedido = @IdPedido";
             var queryAlterarEstoque = @"update Produto set Estoque += @QuantidadeProduto where IdProduto = @IdProduto";
@@ -80,12 +81,13 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
-                        foreach (var carrinho in produtoPedido)
+                        List<PedidoProdutoModel> produtoPedido = conexao.Query<PedidoProdutoModel>(selectVenda, new { pedido.IdPedido }, transacao).ToList();
+                        foreach (var update in produtoPedido)
                         {
-                            conexao.Execute(queryVenda, new { IdPedido = carrinho.IdPedido }, transacao);
-                            conexao.Execute(queryAlterarEstoque, carrinho, transacao);
+                            conexao.Execute(queryAlterarEstoque, update, transacao);
                         }
-                        conexao.Execute(queryPedido, new { IdPedido = pedido.IdPedido }, transacao);
+                        conexao.Execute(queryVenda, pedido, transacao);
+                        conexao.Execute(queryPedido, pedido, transacao);
                         transacao.Commit();
                     }
                 }

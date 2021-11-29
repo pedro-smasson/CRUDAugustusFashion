@@ -22,7 +22,15 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
-                        conexao.Execute(queryProduto, produto, transacao);
+                        conexao.Execute(queryProduto, new {
+                            CodBarra = produto.CodBarra,
+                            Nome = produto.Nome,
+                            PrecoVenda = produto.PrecoVenda.ToDecimal(),
+                            PrecoCusto = produto.PrecoCusto.ToDecimal(),
+                            Estoque = produto.Estoque,
+                            StatusProduto = produto.StatusProduto,
+                            Fabricante = produto.Fabricante,
+                        }, transacao);
                         transacao.Commit();
                     }
                 }
@@ -134,7 +142,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static void AlterarProduto(ProdutoModel produtoModel)
+        public static void AlterarProduto(ProdutoModel produto)
         {
             var query = @"update Produto set Nome = @Nome, CodBarra = @CodBarra, PrecoVenda = @PrecoVenda,
             PrecoCusto = @PrecoCusto, Estoque = @Estoque, StatusProduto = @StatusProduto, Fabricante = @Fabricante
@@ -145,7 +153,17 @@ namespace Augustus_Fashion.DAO
                 var conexao = new conexao().Connection();
                 {
                     conexao.Open();
-                    conexao.Query<ProdutoModel>(query, produtoModel);
+                    conexao.Query<ProdutoModel>(query, new 
+                    {
+                        IdProduto = produto.IdProduto,
+                        CodBarra = produto.CodBarra,
+                        Nome = produto.Nome,
+                        PrecoVenda = produto.PrecoVenda.ToDecimal(),
+                        PrecoCusto = produto.PrecoCusto.ToDecimal(),
+                        Estoque = produto.Estoque,
+                        StatusProduto = produto.StatusProduto,
+                        Fabricante = produto.Fabricante,
+                    });
                 }
             }
             catch (Exception ex)

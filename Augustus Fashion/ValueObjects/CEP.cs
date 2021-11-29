@@ -14,10 +14,10 @@ namespace Augustus_Fashion.ValueObjects
             _cep = input;
         }
 
-        public ValidationResult Validar()
-        {
-            return new CEPValidation().Validate(this);
-        }
+        //public ValidationResult Validar()
+        //{
+        //    return new CEPValidation().Validate(this);
+        //}
 
         public string CepFormatado
         {

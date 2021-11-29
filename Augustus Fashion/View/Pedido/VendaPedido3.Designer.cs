@@ -53,7 +53,6 @@ namespace Augustus_Fashion.View.Pedido
             this.cbFormaDePagamento = new System.Windows.Forms.ComboBox();
             this.txtDesconto = new System.Windows.Forms.TextBox();
             this.lblIdProduto = new System.Windows.Forms.Label();
-            this.txtPrecoVenda = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtTotalVenda = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -70,6 +69,7 @@ namespace Augustus_Fashion.View.Pedido
             this.lblFuncionario = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPrecoVenda = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
@@ -333,18 +333,6 @@ namespace Augustus_Fashion.View.Pedido
             this.lblIdProduto.Size = new System.Drawing.Size(0, 23);
             this.lblIdProduto.TabIndex = 35;
             // 
-            // txtPrecoVenda
-            // 
-            this.txtPrecoVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
-            this.txtPrecoVenda.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPrecoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtPrecoVenda.Location = new System.Drawing.Point(152, 415);
-            this.txtPrecoVenda.Name = "txtPrecoVenda";
-            this.txtPrecoVenda.ReadOnly = true;
-            this.txtPrecoVenda.Size = new System.Drawing.Size(111, 22);
-            this.txtPrecoVenda.TabIndex = 19;
-            this.txtPrecoVenda.TextChanged += new System.EventHandler(this.txtPrecoVenda_TextChanged);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -515,6 +503,18 @@ namespace Augustus_Fashion.View.Pedido
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             // 
+            // txtPrecoVenda
+            // 
+            this.txtPrecoVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.txtPrecoVenda.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPrecoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtPrecoVenda.Location = new System.Drawing.Point(167, 415);
+            this.txtPrecoVenda.Name = "txtPrecoVenda";
+            this.txtPrecoVenda.ReadOnly = true;
+            this.txtPrecoVenda.Size = new System.Drawing.Size(96, 22);
+            this.txtPrecoVenda.TabIndex = 19;
+            this.txtPrecoVenda.TextChanged += new System.EventHandler(this.txtPrecoVenda_TextChanged);
+            // 
             // VendaPedido3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -589,7 +589,6 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.ComboBox cbFormaDePagamento;
         private System.Windows.Forms.TextBox txtDesconto;
         private System.Windows.Forms.Label lblIdProduto;
-        private System.Windows.Forms.TextBox txtPrecoVenda;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtTotalVenda;
         private System.Windows.Forms.Label label10;
@@ -610,5 +609,6 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.Label lblFuncionario;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtPrecoVenda;
     }
 }

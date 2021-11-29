@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Augustus_Fashion.ValueObjects;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Augustus_Fashion.Model.Venda
@@ -18,14 +19,14 @@ namespace Augustus_Fashion.Model.Venda
         public string Status { get { return StatusPedido ? "1" : "0"; } set { } }
 
 
-        public decimal PrecoBruto
+        public Dinheiro PrecoBruto
         {
-            get => Produtos.Sum(produto => produto.PrecoBruto);
+            get => Produtos.Sum(produto => produto.PrecoBruto.ToDecimal());
         }
 
-        public decimal TotalDesconto
+        public Dinheiro TotalDesconto
         {
-            get => Produtos.Sum(produto => produto.Desconto);
+            get => Produtos.Sum(produto => produto.Desconto.ToDecimal());
         }
 
         public int QuantidadeProduto
@@ -33,24 +34,24 @@ namespace Augustus_Fashion.Model.Venda
             get => Produtos.Sum(produto => produto.QuantidadeProduto);
         }
 
-        public decimal PrecoLiquido
+        public Dinheiro PrecoLiquido
         {
-            get => PrecoBruto - TotalDesconto;
+            get => PrecoBruto.ToDecimal() - TotalDesconto.ToDecimal();
         }
 
-        public decimal PrecoTotal
+        public Dinheiro PrecoTotal
         {
-            get => PrecoLiquido * QuantidadeProduto;
+            get => PrecoLiquido.ToDecimal() * QuantidadeProduto;
         }
 
-        public decimal Lucro 
+        public Dinheiro Lucro 
         {
-            get => Produtos.Sum(produto => (produto.PrecoLiquido - produto.PrecoCusto) * produto.QuantidadeProduto);
+            get => Produtos.Sum(produto => (produto.PrecoLiquido.ToDecimal() - produto.PrecoCusto.ToDecimal()) * produto.QuantidadeProduto);
         }
 
-        public decimal PrecoASerExibidoNoFinal() 
+        public Dinheiro PrecoASerExibidoNoFinal() 
         {
-            return Produtos.Sum(produto => produto.PrecoFinal);
+            return Produtos.Sum(produto => produto.PrecoFinal.ToDecimal());
         }
 
         public List<PedidoProdutoModel> Produtos { get; set; }

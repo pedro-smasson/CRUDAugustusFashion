@@ -58,10 +58,10 @@ namespace Augustus_Fashion.View.Pedido
 
             produtoPedido.IdProduto = Convert.ToInt32(lblIdProduto.Text);
             produtoPedido.NomeProduto = txtSelecionado.Text;
-            produtoPedido.Desconto = Convert.ToDecimal(txtDesconto.Text.ColocarFormatacaoNoPreco());
+            produtoPedido.Desconto = Convert.ToDecimal(txtDesconto.Text);
             produtoPedido.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
             produtoPedido.PrecoBruto = Convert.ToDecimal(txtPrecoVenda.Text);
-            produtoPedido.PrecoCusto = txtPrecoCusto.Text.DecimalOuZero();
+            produtoPedido.PrecoCusto = Convert.ToDecimal(txtPrecoCusto.Text);
 
             _pedido.AdicionarProduto(produtoPedido);
 
@@ -75,7 +75,7 @@ namespace Augustus_Fashion.View.Pedido
 
             CalcularLucro();
             CalcularPrecoLiquido();
-            txtTotalVenda.Text = _pedido.PrecoASerExibidoNoFinal().ToString("c");
+            txtTotalVenda.Text = _pedido.PrecoASerExibidoNoFinal().ToString();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -126,13 +126,13 @@ namespace Augustus_Fashion.View.Pedido
 
         private void CalcularPrecoLiquido()
         {
-            var precoLiquido = (txtPrecoVenda.Text.DecimalOuZero() - txtDesconto.Text.ColocarFormatacaoNoPreco().DecimalOuZero()) * Convert.ToDecimal(nudQuantidade.Value);
+            var precoLiquido = Convert.ToDecimal(txtPrecoVenda.Text) - Convert.ToDecimal(txtDesconto.Text) * Convert.ToDecimal(nudQuantidade.Value);
             txtPrecoLiquido.Text = precoLiquido.ToString("c");
         }
 
         private void CalcularLucro()
         {
-            txtLucro.Text = _pedido.Lucro.ToString("c");
+            txtLucro.Text = _pedido.Lucro.ToString();
         }
 
         private void AlterarVenda_Load(object sender, EventArgs e)
@@ -144,7 +144,7 @@ namespace Augustus_Fashion.View.Pedido
             dgvProduto.DataSource = _produtoControl.ListarProduto;
             dgvProduto.Columns["PrecoCusto"].Visible = false;
 
-            txtDesconto.Text = (0).ToString().ColocarFormatacaoNoPreco();
+            txtDesconto.Text = (0).ToString();
 
             lblCliente.Text = _pedido.IdCliente.ToString();
             lblFuncionario.Text = _pedido.IdFuncionario.ToString();
@@ -159,7 +159,7 @@ namespace Augustus_Fashion.View.Pedido
             txtSelecionado.Text = nome.ToString();
             txtPrecoVenda.Text = precovenda.ToString();
             lblIdProduto.Text = produto.IdProduto.ToString();
-            txtPrecoLiquido.Text = (produto.PrecoVenda - txtDesconto.Text.DecimalOuZero()).ToString("c");
+            txtPrecoLiquido.Text = (produto.PrecoVenda.ToDecimal() - Convert.ToDecimal(txtDesconto.Text)).ToString("c");
             txtPrecoCusto.Text = produto.PrecoCusto.ToString();
         }
 
@@ -212,7 +212,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private void btnInativar_Click(object sender, EventArgs e)
         {
-            _vendaControl.DesativarVenda(_pedido, _pedido.Produtos);
+            _vendaControl.DesativarVenda(_pedido);
 
             MessageBox.Show("Pedido inativado com sucesso!");
             this.Hide();

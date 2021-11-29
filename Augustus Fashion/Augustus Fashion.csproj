@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="ValueObjects\CEP.cs" />
     <Compile Include="ValueObjects\CPF.cs" />
+    <Compile Include="ValueObjects\Dinheiro.cs" />
     <Compile Include="View\Cliente\AlterarCliente.cs">
       <SubType>Form</SubType>
     </Compile>

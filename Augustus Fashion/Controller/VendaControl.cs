@@ -68,11 +68,11 @@ namespace Augustus_Fashion.Controller
             }
         }
 
-        public string DesativarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtos)
+        public string DesativarVenda(PedidoModel pedido)
         {
             try
             {
-                VendaDAO.DesativarVenda(pedido, produtos);
+                VendaDAO.DesativarVenda(pedido);
                 return string.Empty;
             }
             catch (Exception ex)
