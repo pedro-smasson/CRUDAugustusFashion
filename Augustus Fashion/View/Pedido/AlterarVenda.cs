@@ -2,6 +2,7 @@
 using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
+using Augustus_Fashion.ValueObjects;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -58,10 +59,10 @@ namespace Augustus_Fashion.View.Pedido
 
             produtoPedido.IdProduto = Convert.ToInt32(lblIdProduto.Text);
             produtoPedido.NomeProduto = txtSelecionado.Text;
-            produtoPedido.Desconto = Convert.ToDecimal(txtDesconto.Text);
+            produtoPedido.Desconto = Dinheiro.RemoverFormatacao(txtDesconto.Text);
             produtoPedido.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
-            produtoPedido.PrecoBruto = Convert.ToDecimal(txtPrecoVenda.Text);
-            produtoPedido.PrecoCusto = Convert.ToDecimal(txtPrecoCusto.Text);
+            produtoPedido.PrecoBruto = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text);
+            produtoPedido.PrecoCusto = Dinheiro.RemoverFormatacao(txtPrecoCusto.Text);
 
             _pedido.AdicionarProduto(produtoPedido);
 
@@ -126,7 +127,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private void CalcularPrecoLiquido()
         {
-            var precoLiquido = Convert.ToDecimal(txtPrecoVenda.Text) - Convert.ToDecimal(txtDesconto.Text) * Convert.ToDecimal(nudQuantidade.Value);
+            var precoLiquido = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text) - Dinheiro.RemoverFormatacao(txtDesconto.Text) *nudQuantidade.Value;
             txtPrecoLiquido.Text = precoLiquido.ToString("c");
         }
 
@@ -159,7 +160,7 @@ namespace Augustus_Fashion.View.Pedido
             txtSelecionado.Text = nome.ToString();
             txtPrecoVenda.Text = precovenda.ToString();
             lblIdProduto.Text = produto.IdProduto.ToString();
-            txtPrecoLiquido.Text = (produto.PrecoVenda.ToDecimal() - Convert.ToDecimal(txtDesconto.Text)).ToString("c");
+            txtPrecoLiquido.Text = (produto.PrecoVenda.RetornarValorEmDecimal() - Convert.ToDecimal(txtDesconto.Text)).ToString("c");
             txtPrecoCusto.Text = produto.PrecoCusto.ToString();
         }
 

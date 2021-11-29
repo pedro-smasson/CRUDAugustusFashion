@@ -15,12 +15,12 @@ namespace Augustus_Fashion.Model.Venda
 
         public Dinheiro PrecoLiquido 
         { 
-            get => PrecoBruto.ToDecimal() - Desconto.ToDecimal();
+            get => PrecoBruto.RetornarValorEmDecimal() - Desconto.RetornarValorEmDecimal();
         }
 
         public Dinheiro PrecoFinal
         {
-            get => (PrecoLiquido.ToDecimal() * QuantidadeProduto);
+            get => (PrecoLiquido.RetornarValorEmDecimal() * QuantidadeProduto);
         }
 
     }

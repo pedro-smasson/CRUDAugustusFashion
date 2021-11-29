@@ -21,12 +21,12 @@ namespace Augustus_Fashion.Model.Venda
 
         public Dinheiro PrecoBruto
         {
-            get => Produtos.Sum(produto => produto.PrecoBruto.ToDecimal());
+            get => Produtos.Sum(produto => produto.PrecoBruto.RetornarValorEmDecimal());
         }
 
         public Dinheiro TotalDesconto
         {
-            get => Produtos.Sum(produto => produto.Desconto.ToDecimal());
+            get => Produtos.Sum(produto => produto.Desconto.RetornarValorEmDecimal());
         }
 
         public int QuantidadeProduto
@@ -36,22 +36,22 @@ namespace Augustus_Fashion.Model.Venda
 
         public Dinheiro PrecoLiquido
         {
-            get => PrecoBruto.ToDecimal() - TotalDesconto.ToDecimal();
+            get => PrecoBruto.RetornarValorEmDecimal() - TotalDesconto.RetornarValorEmDecimal();
         }
 
         public Dinheiro PrecoTotal
         {
-            get => PrecoLiquido.ToDecimal() * QuantidadeProduto;
+            get => PrecoLiquido.RetornarValorEmDecimal() * QuantidadeProduto;
         }
 
         public Dinheiro Lucro 
         {
-            get => Produtos.Sum(produto => (produto.PrecoLiquido.ToDecimal() - produto.PrecoCusto.ToDecimal()) * produto.QuantidadeProduto);
+            get => Produtos.Sum(produto => (produto.PrecoLiquido.RetornarValorEmDecimal() - produto.PrecoCusto.RetornarValorEmDecimal()) * produto.QuantidadeProduto);
         }
 
         public Dinheiro PrecoASerExibidoNoFinal() 
         {
-            return Produtos.Sum(produto => produto.PrecoFinal.ToDecimal());
+            return Produtos.Sum(produto => produto.PrecoFinal.RetornarValorEmDecimal());
         }
 
         public List<PedidoProdutoModel> Produtos { get; set; }

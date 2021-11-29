@@ -7,11 +7,11 @@ namespace Augustus_Fashion.Controller
 {
     public class VendaControl
     {
-        public string CadastrarVenda(PedidoModel pedidoModel, List<PedidoProdutoModel> carrinhos)
+        public string CadastrarVenda(PedidoModel pedidoModel)
         {
             try
             {
-                VendaDAO.CadastrarVenda(pedidoModel, carrinhos);
+                VendaDAO.CadastrarVenda(pedidoModel);
                 return string.Empty;
             }
             catch (Exception ex)

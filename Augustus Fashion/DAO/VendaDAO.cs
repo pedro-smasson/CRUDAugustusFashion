@@ -8,7 +8,7 @@ namespace Augustus_Fashion.DAO
 {
     class VendaDAO
     {
-        public static void CadastrarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido)
+        public static void CadastrarVenda(PedidoModel pedido)
         {
             var queryPedido = @"insert into Pedido (IdFuncionario, IdCliente, TotalBruto, TotalLiquido, Desconto, 
             PrecoFinal, FormaDePagamento, QuantidadeProduto, Lucro) output inserted.IdPedido values (@IdFuncionario, 
@@ -27,11 +27,31 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
-                        var idPedido = Convert.ToInt32(conexao.ExecuteScalar(queryPedido, pedido, transacao).ToString());
-                        foreach (var carrinho in produtoPedido)
+                        var idPedido = Convert.ToInt32(conexao.ExecuteScalar(queryPedido, new 
+                        {
+                            IdFuncionario = pedido.IdFuncionario,
+                            IdCliente = pedido.IdCliente,
+                            PrecoBruto = pedido.PrecoBruto.RetornarValorEmDecimal(),
+                            PrecoLiquido = pedido.PrecoLiquido.RetornarValorEmDecimal(),
+                            TotalDesconto = pedido.TotalDesconto.RetornarValorEmDecimal(),
+                            PrecoTotal = pedido.PrecoTotal.RetornarValorEmDecimal(),
+                            FormaDePagamento = pedido.FormaDePagamento,
+                            QuantidadeProduto = pedido.QuantidadeProduto,
+                            Lucro = pedido.Lucro.RetornarValorEmDecimal(),
+                        }, transacao).ToString());
+                        foreach (var carrinho in pedido.Produtos)
                         {
                             carrinho.IdPedido = idPedido;
-                            conexao.Execute(queryVenda, carrinho, transacao);
+                            conexao.Execute(queryVenda, new 
+                            {
+                                carrinho.IdPedido,
+                                carrinho.IdProduto,
+                                PrecoLiquido = carrinho.PrecoLiquido.RetornarValorEmDecimal(),
+                                carrinho.QuantidadeProduto,
+                                Desconto = carrinho.Desconto.RetornarValorEmDecimal(),
+                                PrecoFinal = carrinho.PrecoFinal.RetornarValorEmDecimal(),
+
+                            }, transacao);
                             conexao.Execute(queryAlterarEstoque, carrinho, transacao);
                         }
                         transacao.Commit();

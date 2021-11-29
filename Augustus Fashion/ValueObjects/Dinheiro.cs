@@ -26,7 +26,7 @@ namespace Augustus_Fashion.ValueObjects
         {
             string dinheiroFormatado = param;
 
-            dinheiroFormatado = new string((from c in dinheiroFormatado where char.IsDigit(c) || c == ',' select c).ToArray());
+            dinheiroFormatado = new string((from c in dinheiroFormatado where char.IsDigit(c) || c == ',' || c == '.' select c).ToArray());
             return dinheiroFormatado;
         }
 
@@ -41,9 +41,9 @@ namespace Augustus_Fashion.ValueObjects
             return Convert.ToDecimal(input == "" ? "0" : input);
         } 
 
-        public decimal ToDecimal() 
+        public decimal RetornarValorEmDecimal() 
         {
-            return Convert.ToDecimal(String.Format("{0:00}", 123.4567));
+            return _dinheiro;
         }
 
         public static implicit operator Dinheiro(decimal input) => new Dinheiro(input);
