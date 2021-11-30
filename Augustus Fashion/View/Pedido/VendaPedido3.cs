@@ -131,16 +131,15 @@ namespace Augustus_Fashion.View.Pedido
         private void btnSalvar_Click(object sender, EventArgs e)
         {
 
-            if (!ValidarProdutosDoPedido() && Validar())
-                return;
+            if (ValidarProdutosDoPedido() && Validar())
+            {
+                CadastrarVenda();
 
-            CadastrarVenda();
-
-            Hide();
-            telaInicial telaInicial = new telaInicial();
-            telaInicial.ShowDialog();
-            Close();
-
+                Hide();
+                telaInicial telaInicial = new telaInicial();
+                telaInicial.ShowDialog();
+                Close();
+            }
         }
 
 
@@ -217,24 +216,10 @@ namespace Augustus_Fashion.View.Pedido
 
         private bool Validar()
         {
-            if (!Testes.ValidarDesconto(float.Parse(txtDesconto.Text)))
+
+            if (String.IsNullOrEmpty(cbFormaDePagamento.Text))
             {
-                MessageBox.Show("Desconto Inválido!");
-                return false;
-            }
-            if (!Testes.ValidarNumeric(txtLucro.Text))
-            {
-                MessageBox.Show("Lucro Inválido!");
-                return false;
-            }
-            if (!Testes.ValidarNumeric(txtPrecoLiquido.Text))
-            {
-                MessageBox.Show("Preço Líquido Inválido!");
-                return false;
-            }
-            if (!Testes.ValidarNumeric(txtTotalVenda.Text))
-            {
-                MessageBox.Show("Total de Venda Inválido!");
+                MessageBox.Show("Selecione uma Forma de Pagamento válida");
                 return false;
             }
             return true;

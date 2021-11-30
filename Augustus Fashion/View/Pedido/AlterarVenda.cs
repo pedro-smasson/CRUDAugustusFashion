@@ -93,7 +93,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private bool Validar()
         {
-            if (!Testes.ValidarDesconto(float.Parse(txtDesconto.Text)))
+            if (!Testes.ValidarDesconto(Convert.ToDecimal(txtDesconto.Text)))
             {
                 MessageBox.Show("Desconto Inválido!");
                 return false;
