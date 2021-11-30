@@ -82,13 +82,14 @@
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
-    <Compile Include="FluentValidation\CarrinhoValidation.cs" />
     <Compile Include="FluentValidation\CEPValidation.cs" />
     <Compile Include="FluentValidation\ClienteValidation.cs" />
     <Compile Include="FluentValidation\CPFValidation.cs" />
+    <Compile Include="FluentValidation\DinheiroValidation.cs" />
     <Compile Include="FluentValidation\EnderecoValidation.cs" />
     <Compile Include="FluentValidation\LimiteValidation.cs" />
     <Compile Include="FluentValidation\PessoaValidation.cs" />
+    <Compile Include="FluentValidation\TodoODinheiroValidation.cs" />
     <Compile Include="Model\Cliente\ClienteListagem.cs" />
     <Compile Include="Model\Cliente\ClienteModel.cs" />
     <Compile Include="Model\EnderecoModel.cs" />

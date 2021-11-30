@@ -43,7 +43,7 @@ namespace Augustus_Fashion.View.Pedido
             {
                 var vendaControl = new VendaControl();
 
-                vendaControl.AlterarVenda(_pedido, _pedido.Produtos);
+                vendaControl.AlterarVenda(_pedido);
                 MessageBox.Show("Venda alterada com sucesso!");
             }
             catch (Exception ex)
@@ -127,13 +127,8 @@ namespace Augustus_Fashion.View.Pedido
 
         private void CalcularPrecoLiquido()
         {
-            var precoLiquido = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text) - Dinheiro.RemoverFormatacao(txtDesconto.Text) *nudQuantidade.Value;
+            var precoLiquido = (Dinheiro.RemoverFormatacao(txtPrecoVenda.Text) - Dinheiro.RemoverFormatacao(txtDesconto.Text)) * nudQuantidade.Value;
             txtPrecoLiquido.Text = precoLiquido.ToString("c");
-        }
-
-        private void CalcularLucro()
-        {
-            txtLucro.Text = _pedido.Lucro.ToString();
         }
 
         private void AlterarVenda_Load(object sender, EventArgs e)
@@ -168,12 +163,7 @@ namespace Augustus_Fashion.View.Pedido
         {
                 var id = dgvProduto.SelectedRows[0].Cells[0].Value;
                 return _produtoControl.Buscar((int)id);
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
+        }       
 
         public bool QuantidadeMaiorQueEstoque(int estoque)
         {
@@ -186,19 +176,11 @@ namespace Augustus_Fashion.View.Pedido
             return true;
         }
 
-        public int SelecionarValorEstoque()
-        {
-            return (int)dgvProduto.SelectedRows[0].Cells[4].Value;
-        }
-
         private void nudQuantidade_ValueChanged(object sender, EventArgs e)
         {
-            nudQuantidade.Maximum = 5000;
-            QuantidadeMaiorQueEstoque(SelecionarValorEstoque());
             CalcularPrecoLiquido();
+            QuantidadeMaiorQueEstoque(SelecionarValorEstoque());       
         }
-
-        private void txtDesconto_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
 
         private void pbBuscar_Click(object sender, EventArgs e)
         {
@@ -221,5 +203,15 @@ namespace Augustus_Fashion.View.Pedido
             telaInicial.ShowDialog();
             this.Close();
         }
+
+        //LAMBDAS
+        public int SelecionarValorEstoque() => (int)dgvProduto.SelectedRows[0].Cells[4].Value;
+        private void CalcularLucro() => txtLucro.Text = _pedido.Lucro.ToString();
+
+        private void txtPrecoVenda_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
+        private void nudQuantidade_KeyUp(object sender, KeyEventArgs e) => CalcularPrecoLiquido();
+        private void txtDesconto_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
+
+        private void btnVoltar_Click(object sender, EventArgs e) => this.DialogResult = DialogResult.OK;
     }
 }

@@ -108,7 +108,6 @@ namespace Augustus_Fashion.View.Pedido
 
         private void nudQuantidade_ValueChanged(object sender, EventArgs e)
         {
-            nudQuantidade.Maximum = 5000;
             QuantidadeMaiorQueEstoque(SelecionarValorEstoque());
             CalcularPrecoLiquido();
         }

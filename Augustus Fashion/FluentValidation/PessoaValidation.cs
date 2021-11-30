@@ -7,8 +7,8 @@ namespace Augustus_Fashion.FluentValidation
     {
         public PessoaValidation() 
         {
-            RuleFor(x=> x.Endereco).SetValidator(new EnderecoValidation());
-            RuleFor(x=> x.Cpf).SetValidator(new CPFValidation());
+            RuleFor(x => x.Endereco).SetValidator(new EnderecoValidation());
+            RuleFor(x => x.Cpf).SetValidator(new CPFValidation());
         }
     }
 }

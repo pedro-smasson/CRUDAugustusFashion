@@ -4,6 +4,13 @@ namespace Augustus_Fashion.Model.Venda
 {
     public class PedidoProdutoModel
     {
+        public PedidoProdutoModel()
+        {
+            PrecoCusto = new Dinheiro();
+            PrecoBruto = new Dinheiro();
+            Desconto = new Dinheiro();
+        }
+
         public int IdPedido { get; set; }
         public int IdVenda { get; set; }
         public int IdProduto { get; set; }

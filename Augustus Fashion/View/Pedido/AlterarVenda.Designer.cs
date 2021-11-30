@@ -293,6 +293,7 @@ namespace Augustus_Fashion.View.Pedido
             0,
             0});
             this.nudQuantidade.ValueChanged += new System.EventHandler(this.nudQuantidade_ValueChanged);
+            this.nudQuantidade.KeyUp += new System.Windows.Forms.KeyEventHandler(this.nudQuantidade_KeyUp);
             // 
             // label10
             // 
@@ -435,6 +436,7 @@ namespace Augustus_Fashion.View.Pedido
             this.txtPrecoVenda.ReadOnly = true;
             this.txtPrecoVenda.Size = new System.Drawing.Size(111, 22);
             this.txtPrecoVenda.TabIndex = 60;
+            this.txtPrecoVenda.TextChanged += new System.EventHandler(this.txtPrecoVenda_TextChanged);
             // 
             // txtSelecionado
             // 

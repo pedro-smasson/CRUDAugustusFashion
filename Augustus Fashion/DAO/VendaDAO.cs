@@ -64,6 +64,84 @@ namespace Augustus_Fashion.DAO
             }
         }
 
+        public static void AlterarVenda(PedidoModel pedido)
+        {
+            var queryPedido = @"update Pedido set IdFuncionario = @IdFuncionario, IdCliente = @IdCliente,
+            TotalBruto = @PrecoBruto, TotalLiquido = @PrecoLiquido, Desconto = @TotalDesconto, PrecoFinal = @PrecoTotal,
+            FormaDePagamento = @FormaDePagamento, QuantidadeProduto = @QuantidadeProduto, Lucro = @Lucro
+            where IdPedido = @IdPedido";
+
+            var queryVendaJaExistente = @"update Venda set IdPedido = @IdPedido, IdProduto = @IdProduto, 
+            PrecoVenda = @PrecoLiquido, QuantidadeProduto = @QuantidadeProduto, Desconto = @Desconto, Total = @PrecoFinal
+            where IdVenda = @IdVenda";
+
+            var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)
+            values (@IdPedido, @IdProduto, @PrecoLiquido, @QuantidadeProduto, @Desconto, @PrecoFinal)";
+
+            var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProduto where IdProduto = @IdProduto";
+
+            try
+            {
+                var conexao = new conexao().Connection();
+                {
+                    conexao.Open();
+                    using (var transacao = conexao.BeginTransaction())
+                    {
+                        conexao.Execute(queryPedido, new 
+                        {
+                            IdPedido = pedido.IdPedido,
+                            IdFuncionario = pedido.IdFuncionario,
+                            IdCliente = pedido.IdCliente,
+                            PrecoBruto = pedido.PrecoBruto.RetornarValorEmDecimal(),
+                            PrecoLiquido = pedido.PrecoLiquido.RetornarValorEmDecimal(),
+                            TotalDesconto = pedido.TotalDesconto.RetornarValorEmDecimal(),
+                            PrecoTotal = pedido.PrecoTotal.RetornarValorEmDecimal(),
+                            FormaDePagamento = pedido.FormaDePagamento,
+                            QuantidadeProduto = pedido.QuantidadeProduto,
+                            Lucro = pedido.Lucro.RetornarValorEmDecimal(),
+                        }, transacao);
+                        foreach (var carrinho in pedido.Produtos)
+                        {
+                            if (carrinho.IdPedido == 0)
+                            {
+                                carrinho.IdPedido = pedido.IdPedido;
+                                conexao.Execute(queryVenda, new 
+                                {
+                                    carrinho.IdVenda,
+                                    carrinho.IdPedido,
+                                    carrinho.IdProduto,
+                                    PrecoLiquido = carrinho.PrecoLiquido.RetornarValorEmDecimal(),
+                                    carrinho.QuantidadeProduto,
+                                    Desconto = carrinho.Desconto.RetornarValorEmDecimal(),
+                                    PrecoFinal = carrinho.PrecoFinal.RetornarValorEmDecimal(),
+                                }, transacao);
+                                conexao.Execute(queryAlterarEstoque, carrinho, transacao);
+                            }
+                            else
+                            {
+                                conexao.Execute(queryVendaJaExistente, new 
+                                {
+                                    carrinho.IdVenda,
+                                    carrinho.IdPedido,
+                                    carrinho.IdProduto,
+                                    PrecoLiquido = carrinho.PrecoLiquido.RetornarValorEmDecimal(),
+                                    carrinho.QuantidadeProduto,
+                                    Desconto = carrinho.Desconto.RetornarValorEmDecimal(),
+                                    PrecoFinal = carrinho.PrecoFinal.RetornarValorEmDecimal(),
+                                }, transacao);
+                                conexao.Execute(queryAlterarEstoque, carrinho, transacao);
+                            }
+                        }
+                        transacao.Commit();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public static List<PedidoProdutoModel> BuscarProdutos(int id)
         {
             var query = @"select p.Nome as NomeProduto, ped.TotalBruto as PrecoBruto, ped.TotalLiquido as
@@ -196,54 +274,6 @@ namespace Augustus_Fashion.DAO
             {
                 throw new Exception(ex.Message);
             }
-        }
-
-        public static void AlterarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtoPedido)
-        {
-            var queryPedido = @"update Pedido set IdFuncionario = @IdFuncionario, IdCliente = @IdCliente,
-            TotalBruto = @PrecoBruto, TotalLiquido = @PrecoLiquido, Desconto = @TotalDesconto, PrecoFinal = @PrecoTotal,
-            FormaDePagamento = @FormaDePagamento, QuantidadeProduto = @QuantidadeProduto, Lucro = @Lucro
-            where IdPedido = @IdPedido";
-
-            var queryVendaJaExistente = @"update Venda set IdPedido = @IdPedido, IdProduto = @IdProduto, 
-            PrecoVenda = @PrecoLiquido, QuantidadeProduto = @QuantidadeProduto, Desconto = @Desconto, Total = @PrecoFinal
-            where IdVenda = @IdVenda";
-
-            var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)
-            values (@IdPedido, @IdProduto, @PrecoLiquido, @QuantidadeProduto, @Desconto, @PrecoFinal)";
-
-            var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProduto where IdProduto = @IdProduto";
-
-            try
-            {
-                var conexao = new conexao().Connection();
-                {
-                    conexao.Open();
-                    using (var transacao = conexao.BeginTransaction())
-                    {
-                        conexao.Execute(queryPedido, pedido, transacao);
-                        foreach (var carrinho in produtoPedido)
-                        {
-                            if (carrinho.IdPedido == 0)
-                            {
-                                carrinho.IdPedido = pedido.IdPedido;
-                                conexao.Execute(queryVenda, carrinho, transacao);
-                                conexao.Execute(queryAlterarEstoque, carrinho, transacao);
-                            }
-                            else
-                            {
-                                conexao.Execute(queryVendaJaExistente, carrinho, transacao);
-                                conexao.Execute(queryAlterarEstoque, carrinho, transacao);
-                            }
-                        }
-                        transacao.Commit();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        }        
     }
 }

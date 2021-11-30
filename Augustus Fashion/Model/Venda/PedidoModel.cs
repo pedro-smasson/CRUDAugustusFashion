@@ -1,4 +1,5 @@
-﻿using Augustus_Fashion.ValueObjects;
+﻿using Augustus_Fashion.FluentValidation;
+using Augustus_Fashion.ValueObjects;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -59,6 +60,16 @@ namespace Augustus_Fashion.Model.Venda
         public void AdicionarProduto(PedidoProdutoModel produto)
         {
             Produtos.Add(produto);
+        }
+
+        public string ValidarDinheiro()
+        {
+            var resultado = new TodoODinheiroValidation().Validate(this);
+            if (resultado.IsValid)
+            {
+                return string.Empty;
+            }
+            return resultado.ToString();
         }
     }
 }

@@ -11,6 +11,8 @@ namespace Augustus_Fashion.Controller
         {
             try
             {
+                var retornarCadastrarVenda = pedidoModel.ValidarDinheiro();
+
                 VendaDAO.CadastrarVenda(pedidoModel);
                 return string.Empty;
             }
@@ -55,11 +57,13 @@ namespace Augustus_Fashion.Controller
             }
         }
 
-        public string AlterarVenda(PedidoModel pedido, List<PedidoProdutoModel> produtos)
+        public string AlterarVenda(PedidoModel pedido)
         {
             try
             {
-                VendaDAO.AlterarVenda(pedido, produtos);
+                var retornarCadastrarVenda = pedido.ValidarDinheiro();
+
+                VendaDAO.AlterarVenda(pedido);
                 return string.Empty;
             }
             catch (Exception ex)
