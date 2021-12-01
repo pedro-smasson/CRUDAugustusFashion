@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Augustus_Fashion.Controller
 {
-    class ClienteControl
+    public class ClienteControl
     {
 
         public string CadastrarCliente(ClienteModel clienteModel)
@@ -81,6 +81,11 @@ namespace Augustus_Fashion.Controller
                 MessageBox.Show(ex.Message);
             }
             return null;
+        }
+
+        public static ClienteModel BuscarEmailCliente(int idCliente)
+        {
+            return ClienteDao.Buscar(idCliente);
         }
 
     }

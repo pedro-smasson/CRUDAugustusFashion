@@ -3,8 +3,15 @@ using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
 using Augustus_Fashion.ValueObjects;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Gmail.v1;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
 using System;
+using System.IO;
 using System.Linq;
+using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.View.Pedido
@@ -14,6 +21,8 @@ namespace Augustus_Fashion.View.Pedido
         ProdutoControl _produtoControl = new ProdutoControl();
         PedidoModel _pedido;
 
+        string[] Scopes = { GmailService.Scope.GmailSend };
+        string ApplicationName = "GmailApp";
 
         public VendaPedido3(PedidoModel pedido)
         {
@@ -95,6 +104,13 @@ namespace Augustus_Fashion.View.Pedido
             }
         }
 
+        private void nudQuantidade_ValueChanged(object sender, EventArgs e)
+        {
+            QuantidadeMaiorQueEstoque(SelecionarValorEstoque());
+            CalcularPrecoLiquido();
+        }
+
+        //MÉTODOS E FUNÇÕES
         private bool VerificarSePrecoLiquidoEhNegativo()
         {
             if (Dinheiro.RemoverFormatacao(txtDesconto.Text) > Dinheiro.RemoverFormatacao(txtPrecoLiquido.Text))
@@ -104,12 +120,6 @@ namespace Augustus_Fashion.View.Pedido
                 return false;
             }
             return true;
-        }
-
-        private void nudQuantidade_ValueChanged(object sender, EventArgs e)
-        {
-            QuantidadeMaiorQueEstoque(SelecionarValorEstoque());
-            CalcularPrecoLiquido();
         }
 
         public bool QuantidadeMaiorQueEstoque(int estoque)
@@ -134,6 +144,7 @@ namespace Augustus_Fashion.View.Pedido
             if (ValidarProdutosDoPedido() && Validar())
             {
                 CadastrarVenda();
+                EnviarEmail();
 
                 Hide();
                 telaInicial telaInicial = new telaInicial();
@@ -229,6 +240,61 @@ namespace Augustus_Fashion.View.Pedido
         {
             var id = dgvProduto.SelectedRows[0].Cells[0].Value;
             return _produtoControl.Buscar((int)id);
+        }
+
+        //ENVIANDO O EMAIL
+        public void EnviarEmail() 
+        {
+            UserCredential credencial;
+            using (FileStream stream = new FileStream(Application.StartupPath + @"/arquivoimportante.json", FileMode.Open, FileAccess.Read))
+            {
+                string caminho = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                caminho = Path.Combine(caminho, ".credentials/gmail-dotnet-quickstart.json");
+                credencial = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.FromStream(stream).Secrets, Scopes,
+                "user", CancellationToken.None, new FileDataStore(caminho, true)).Result;
+            }
+            dgvCarrinho.DataSource = null;
+            dgvCarrinho.AutoGenerateColumns = false;
+
+            var source = new BindingSource
+            {
+                DataSource = _pedido.Produtos
+            };
+
+            dgvCarrinho.DataSource = source;
+            try 
+            {
+                //</ table >
+                string mensagem = 
+                $"To: {ClienteControl.BuscarEmailCliente(_pedido.IdCliente).Email}\r\n" +
+                $"Subject: {"A Augustus Fashion agradece!"}\r\n" +
+                $"Content-Type: text/html;charset=utf-8\r\n\r\n<h1>{"Seu Pedido:"}</h1><ol>";
+
+                mensagem += "<table border=\"1\"> <tr> <th> Nome </th> <th >Quantidade </th> <th> Preço Unitário </th> <th> Preço Total </th> </tr>";
+
+                foreach (var produto in _pedido.Produtos)
+                {
+                    mensagem += $"<tr> <td> {produto.NomeProduto} </td> <td> {produto.QuantidadeProduto} </td> <td> {produto.PrecoBruto} </td>" +
+                    $"<td> {produto.PrecoFinal} </td> </tr>";
+                }
+                mensagem += "</table>";
+
+                var service = new GmailService(new BaseClientService.Initializer() { HttpClientInitializer = credencial, ApplicationName = ApplicationName });
+                var msg = new Google.Apis.Gmail.v1.Data.Message();
+                msg.Raw = Base64UrlEncode(mensagem.ToString());
+                service.Users.Messages.Send(msg, "me").Execute();
+                MessageBox.Show("Email enviado com sucesso!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Erro no envio do Email!");
+            }   
+        }
+
+        string Base64UrlEncode(string input)
+        {
+            var data = Encoding.UTF8.GetBytes(input);
+            return Convert.ToBase64String(data).Replace("+", "-").Replace("/", "_").Replace("=", "");
         }
     }
 }

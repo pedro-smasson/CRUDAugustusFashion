@@ -135,7 +135,7 @@ namespace Augustus_Fashion.View.Pedido
         {
             dgvCarrinho.Rows[0].Cells[0].Value = _pedido.IdPedido;
             dgvCarrinho.Columns["IdPedido"].Visible = false;
-            dgvCarrinho.DataSource = _pedido.Produtos;
+            //dgvCarrinho.DataSource = _pedido.Produtos;
 
             dgvProduto.DataSource = _produtoControl.ListarProduto;
             dgvProduto.Columns["PrecoCusto"].Visible = false;
