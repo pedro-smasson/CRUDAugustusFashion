@@ -55,10 +55,6 @@ namespace Augustus_Fashion.View.Pedido
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvCarrinho = new System.Windows.Forms.DataGridView();
-            this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecoFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuantidadeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTotalVenda = new System.Windows.Forms.TextBox();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -71,6 +67,10 @@ namespace Augustus_Fashion.View.Pedido
             this.label1 = new System.Windows.Forms.Label();
             this.txtProduto = new System.Windows.Forms.TextBox();
             this.btnInativar = new System.Windows.Forms.Button();
+            this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecoLiquidoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantidadeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
@@ -357,37 +357,12 @@ namespace Augustus_Fashion.View.Pedido
             this.dgvCarrinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NomeProduto,
             this.IdProduto,
-            this.PrecoFinal,
+            this.PrecoLiquidoTotal,
             this.QuantidadeProduto});
             this.dgvCarrinho.Location = new System.Drawing.Point(529, 165);
             this.dgvCarrinho.Name = "dgvCarrinho";
             this.dgvCarrinho.Size = new System.Drawing.Size(343, 162);
             this.dgvCarrinho.TabIndex = 63;
-            // 
-            // NomeProduto
-            // 
-            this.NomeProduto.DataPropertyName = "NomeProduto";
-            this.NomeProduto.HeaderText = "Nome";
-            this.NomeProduto.Name = "NomeProduto";
-            // 
-            // IdProduto
-            // 
-            this.IdProduto.DataPropertyName = "IdProduto";
-            this.IdProduto.HeaderText = "IdProduto";
-            this.IdProduto.Name = "IdProduto";
-            this.IdProduto.Visible = false;
-            // 
-            // PrecoFinal
-            // 
-            this.PrecoFinal.DataPropertyName = "PrecoFinal";
-            this.PrecoFinal.HeaderText = "Preço Final";
-            this.PrecoFinal.Name = "PrecoFinal";
-            // 
-            // QuantidadeProduto
-            // 
-            this.QuantidadeProduto.DataPropertyName = "QuantidadeProduto";
-            this.QuantidadeProduto.HeaderText = "Quantidade";
-            this.QuantidadeProduto.Name = "QuantidadeProduto";
             // 
             // txtTotalVenda
             // 
@@ -527,6 +502,31 @@ namespace Augustus_Fashion.View.Pedido
             this.btnInativar.UseVisualStyleBackColor = false;
             this.btnInativar.Click += new System.EventHandler(this.btnInativar_Click);
             // 
+            // NomeProduto
+            // 
+            this.NomeProduto.DataPropertyName = "NomeProduto";
+            this.NomeProduto.HeaderText = "Nome";
+            this.NomeProduto.Name = "NomeProduto";
+            // 
+            // IdProduto
+            // 
+            this.IdProduto.DataPropertyName = "IdProduto";
+            this.IdProduto.HeaderText = "IdProduto";
+            this.IdProduto.Name = "IdProduto";
+            this.IdProduto.Visible = false;
+            // 
+            // PrecoLiquidoTotal
+            // 
+            this.PrecoLiquidoTotal.DataPropertyName = "PrecoLiquidoTotal";
+            this.PrecoLiquidoTotal.HeaderText = "Preço Final";
+            this.PrecoLiquidoTotal.Name = "PrecoLiquidoTotal";
+            // 
+            // QuantidadeProduto
+            // 
+            this.QuantidadeProduto.DataPropertyName = "QuantidadeProduto";
+            this.QuantidadeProduto.HeaderText = "Quantidade";
+            this.QuantidadeProduto.Name = "QuantidadeProduto";
+            // 
             // AlterarVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,10 +608,6 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvCarrinho;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecoFinal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QuantidadeProduto;
         private System.Windows.Forms.TextBox txtTotalVenda;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnSalvar;
@@ -624,5 +620,9 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtProduto;
         private System.Windows.Forms.Button btnInativar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecoLiquidoTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantidadeProduto;
     }
 }

@@ -17,7 +17,7 @@ namespace Augustus_Fashion.View
 
         private void TelaInicial_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)

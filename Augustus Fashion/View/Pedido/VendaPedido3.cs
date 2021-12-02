@@ -1,5 +1,4 @@
 ﻿using Augustus_Fashion.Controller;
-using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
 using Augustus_Fashion.ValueObjects;
@@ -58,7 +57,7 @@ namespace Augustus_Fashion.View.Pedido
         }
 
         private void dgvProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
+        {   
             var nome = dgvProduto.SelectedRows[0].Cells[1].Value;
             var precovenda = dgvProduto.SelectedRows[0].Cells[2].Value;
             //var precocusto = dgvProduto.SelectedRows[0].Cells[3].Value;
@@ -81,10 +80,10 @@ namespace Augustus_Fashion.View.Pedido
 
                 produtoPedido.IdProduto = Convert.ToInt32(lblIdProduto.Text);
                 produtoPedido.NomeProduto = txtSelecionado.Text;
-                produtoPedido.Desconto = Dinheiro.RemoverFormatacao(txtDesconto.Text);
+                produtoPedido.DescontoUnitario = Dinheiro.RemoverFormatacao(txtDesconto.Text);
                 produtoPedido.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
-                produtoPedido.PrecoBruto = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text);
-                produtoPedido.PrecoCusto = Dinheiro.RemoverFormatacao(txtPrecoCusto.Text);
+                produtoPedido.PrecoBrutoUnitario = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text);
+                produtoPedido.PrecoCustoUnitario = Dinheiro.RemoverFormatacao(txtPrecoCusto.Text);
 
                 _pedido.AdicionarProduto(produtoPedido);
 
@@ -264,7 +263,6 @@ namespace Augustus_Fashion.View.Pedido
             dgvCarrinho.DataSource = source;
             try 
             {
-                //</ table >
                 string mensagem = 
                 $"To: {ClienteControl.BuscarEmailCliente(_pedido.IdCliente).Email}\r\n" +
                 $"Subject: {"A Augustus Fashion agradece!"}\r\n" +
@@ -274,8 +272,8 @@ namespace Augustus_Fashion.View.Pedido
 
                 foreach (var produto in _pedido.Produtos)
                 {
-                    mensagem += $"<tr> <td> {produto.NomeProduto} </td> <td> {produto.QuantidadeProduto} </td> <td> {produto.PrecoBruto} </td>" +
-                    $"<td> {produto.PrecoFinal} </td> </tr>";
+                    mensagem += $"<tr> <td> {produto.NomeProduto} </td> <td> {produto.QuantidadeProduto} </td> <td> {produto.PrecoBrutoUnitario} </td>" +
+                    $"<td> {produto.PrecoLiquidoTotal} </td> </tr>";
                 }
                 mensagem += "</table>";
 

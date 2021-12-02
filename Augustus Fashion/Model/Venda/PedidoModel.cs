@@ -20,39 +20,39 @@ namespace Augustus_Fashion.Model.Venda
         public string Status { get { return StatusPedido ? "1" : "0"; } set { } }
 
 
-        public Dinheiro PrecoBruto
+        public Dinheiro PrecoBrutoTotalDoPedido 
         {
-            get => Produtos.Sum(produto => produto.PrecoBruto.RetornarValorEmDecimal());
+            get => Produtos.Sum(produto => produto.PrecoBrutoTotal.RetornarValorEmDecimal());
         }
 
-        public Dinheiro TotalDesconto
+        public Dinheiro DescontoTotalDoPedido
         {
-            get => Produtos.Sum(produto => produto.Desconto.RetornarValorEmDecimal());
+            get => Produtos.Sum(produto => produto.DescontoUnitario.RetornarValorEmDecimal());
         }
 
-        public int QuantidadeProduto
+        public int QuantidadeProdutoTotalDoPedido
         {
             get => Produtos.Sum(produto => produto.QuantidadeProduto);
         }
 
-        public Dinheiro PrecoLiquido
+        public Dinheiro PrecoLiquidoTotalDoPedido 
         {
-            get => PrecoBruto.RetornarValorEmDecimal() - TotalDesconto.RetornarValorEmDecimal();
+            get => Produtos.Sum(produto => produto.PrecoLiquidoUnitario.RetornarValorEmDecimal());
         }
 
         public Dinheiro PrecoTotal
         {
-            get => PrecoLiquido.RetornarValorEmDecimal() * QuantidadeProduto;
+            get => Produtos.Sum(produto => produto.PrecoLiquidoTotal.RetornarValorEmDecimal());
         }
 
         public Dinheiro Lucro 
         {
-            get => Produtos.Sum(produto => (produto.PrecoLiquido.RetornarValorEmDecimal() - produto.PrecoCusto.RetornarValorEmDecimal()) * produto.QuantidadeProduto);
+            get => Produtos.Sum(produto => (produto.PrecoLiquidoTotal.RetornarValorEmDecimal() - produto.PrecoCustoUnitario.RetornarValorEmDecimal()));
         }
 
         public Dinheiro PrecoASerExibidoNoFinal() 
         {
-            return Produtos.Sum(produto => produto.PrecoFinal.RetornarValorEmDecimal());
+            return Produtos.Sum(produto => produto.PrecoLiquidoTotal.RetornarValorEmDecimal());
         }
 
         public List<PedidoProdutoModel> Produtos { get; set; }

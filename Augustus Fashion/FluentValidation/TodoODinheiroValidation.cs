@@ -7,9 +7,9 @@ namespace Augustus_Fashion.FluentValidation
     {
         public TodoODinheiroValidation() 
         {
-            RuleFor(x => x.PrecoBruto).SetValidator(new DinheiroValidation());
-            RuleFor(x => x.PrecoLiquido).SetValidator(new DinheiroValidation());
-            RuleFor(x => x.TotalDesconto).SetValidator(new DinheiroValidation());
+            RuleFor(x => x.PrecoBrutoTotalDoPedido).SetValidator(new DinheiroValidation());
+            RuleFor(x => x.PrecoLiquidoTotalDoPedido).SetValidator(new DinheiroValidation());
+            RuleFor(x => x.DescontoTotalDoPedido).SetValidator(new DinheiroValidation());
             RuleFor(x => x.PrecoTotal).SetValidator(new DinheiroValidation());
             RuleFor(x => x.Lucro).SetValidator(new DinheiroValidation());
             RuleFor(x => x.PrecoASerExibidoNoFinal()).SetValidator(new DinheiroValidation());

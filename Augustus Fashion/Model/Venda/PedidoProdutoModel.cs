@@ -6,9 +6,9 @@ namespace Augustus_Fashion.Model.Venda
     {
         public PedidoProdutoModel()
         {
-            PrecoCusto = new Dinheiro();
-            PrecoBruto = new Dinheiro();
-            Desconto = new Dinheiro();
+            PrecoCustoUnitario = new Dinheiro();
+            PrecoBrutoUnitario = new Dinheiro();
+            DescontoUnitario = new Dinheiro();
         }
 
         public int IdPedido { get; set; }
@@ -16,18 +16,22 @@ namespace Augustus_Fashion.Model.Venda
         public int IdProduto { get; set; }
         public string NomeProduto { get; set; }
         public int QuantidadeProduto { get; set; }
-        public Dinheiro PrecoCusto { get; set; }
-        public Dinheiro PrecoBruto { get; set; }
-        public Dinheiro Desconto { get; set; }
 
-        public Dinheiro PrecoLiquido 
+        public Dinheiro PrecoCustoUnitario { get; set; }
+
+        public Dinheiro DescontoUnitario { get; set; }
+
+        public Dinheiro PrecoBrutoUnitario { get; set; }
+        public Dinheiro PrecoBrutoTotal { get => PrecoBrutoUnitario.RetornarValorEmDecimal() * QuantidadeProduto; }
+        
+
+        public Dinheiro PrecoLiquidoUnitario
         { 
-            get => PrecoBruto.RetornarValorEmDecimal() - Desconto.RetornarValorEmDecimal();
+            get => PrecoBrutoUnitario.RetornarValorEmDecimal() - DescontoUnitario.RetornarValorEmDecimal();
         }
-
-        public Dinheiro PrecoFinal
+        public Dinheiro PrecoLiquidoTotal
         {
-            get => (PrecoLiquido.RetornarValorEmDecimal() * QuantidadeProduto);
+            get => (PrecoLiquidoUnitario.RetornarValorEmDecimal() * QuantidadeProduto);
         }
 
     }

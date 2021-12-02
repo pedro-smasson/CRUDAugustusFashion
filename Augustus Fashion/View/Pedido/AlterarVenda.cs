@@ -25,11 +25,13 @@ namespace Augustus_Fashion.View.Pedido
         {
             dgvCarrinho.DataSource = _pedido.Produtos;
 
-            this.dgvCarrinho.Columns["PrecoCusto"].Visible = false;
-            this.dgvCarrinho.Columns["PrecoBruto"].Visible = false;
-            this.dgvCarrinho.Columns["Desconto"].Visible = false;
-            this.dgvCarrinho.Columns["PrecoLiquido"].Visible = false;
             this.dgvCarrinho.Columns["IdVenda"].Visible = false;
+            this.dgvCarrinho.Columns["PrecoCustoUnitario"].Visible = false;
+            this.dgvCarrinho.Columns["DescontoUnitario"].Visible = false;
+            this.dgvCarrinho.Columns["PrecoBrutoUnitario"].Visible = false;
+            this.dgvCarrinho.Columns["PrecoBrutoTotal"].Visible = false;
+            this.dgvCarrinho.Columns["PrecoLiquidoUnitario"].Visible = false;
+            this.dgvCarrinho.Columns["PrecoLiquidoTotal"].Visible = true;
 
             cbFormaDePagamento.Text = _pedido.FormaDePagamento.ToString();
             lblCliente.Text = _pedido.IdCliente.ToString();
@@ -59,10 +61,10 @@ namespace Augustus_Fashion.View.Pedido
 
             produtoPedido.IdProduto = Convert.ToInt32(lblIdProduto.Text);
             produtoPedido.NomeProduto = txtSelecionado.Text;
-            produtoPedido.Desconto = Dinheiro.RemoverFormatacao(txtDesconto.Text);
+            produtoPedido.DescontoUnitario = Dinheiro.RemoverFormatacao(txtDesconto.Text);
             produtoPedido.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
-            produtoPedido.PrecoBruto = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text);
-            produtoPedido.PrecoCusto = Dinheiro.RemoverFormatacao(txtPrecoCusto.Text);
+            produtoPedido.PrecoBrutoUnitario = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text);
+            produtoPedido.PrecoCustoUnitario = Dinheiro.RemoverFormatacao(txtPrecoCusto.Text);
 
             _pedido.AdicionarProduto(produtoPedido);
 

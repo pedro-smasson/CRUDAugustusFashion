@@ -12,13 +12,13 @@ namespace Augustus_Fashion.DAO
         {
             var queryPedido = @"insert into Pedido (IdFuncionario, IdCliente, TotalBruto, TotalLiquido, Desconto, 
             PrecoFinal, FormaDePagamento, QuantidadeProduto, Lucro) output inserted.IdPedido values (@IdFuncionario, 
-            @IdCliente, @PrecoBruto, @PrecoLiquido, @TotalDesconto, @PrecoTotal, @FormaDePagamento, @QuantidadeProduto,
-            @Lucro)";
+            @IdCliente, @PrecoBrutoTotalDoPedido, @PrecoLiquidoTotalDoPedido, @DescontoTotalDoPedido,
+            @PrecoTotal, @FormaDePagamento, @QuantidadeProdutoTotalDoPedido, @Lucro)";
 
             var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)
-            values (@IdPedido, @IdProduto, @PrecoLiquido, @QuantidadeProduto, @Desconto, @PrecoFinal)";
+            values (@IdPedido, @IdProduto, @PrecoLiquidoUnitario, @QuantidadeProduto, @DescontoUnitario, @PrecoLiquidoTotal)";
 
-            var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProduto where IdProduto = @IdProduto";
+            var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProdutoTotalDoPedido where IdProduto = @IdProduto";
 
             try
             {
@@ -27,32 +27,33 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
-                        var idPedido = Convert.ToInt32(conexao.ExecuteScalar(queryPedido, new 
+                        var idPedido = Convert.ToInt32(conexao.ExecuteScalar(queryPedido, new
                         {
                             IdFuncionario = pedido.IdFuncionario,
                             IdCliente = pedido.IdCliente,
-                            PrecoBruto = pedido.PrecoBruto.RetornarValorEmDecimal(),
-                            PrecoLiquido = pedido.PrecoLiquido.RetornarValorEmDecimal(),
-                            TotalDesconto = pedido.TotalDesconto.RetornarValorEmDecimal(),
+                            PrecoBrutoTotalDoPedido = pedido.PrecoBrutoTotalDoPedido.RetornarValorEmDecimal(),
+                            PrecoLiquidoTotalDoPedido = pedido.PrecoLiquidoTotalDoPedido.RetornarValorEmDecimal(),
+                            DescontoTotalDoPedido = pedido.DescontoTotalDoPedido.RetornarValorEmDecimal(),
                             PrecoTotal = pedido.PrecoTotal.RetornarValorEmDecimal(),
                             FormaDePagamento = pedido.FormaDePagamento,
-                            QuantidadeProduto = pedido.QuantidadeProduto,
+                            QuantidadeProdutoTotalDoPedido = pedido.QuantidadeProdutoTotalDoPedido,
                             Lucro = pedido.Lucro.RetornarValorEmDecimal(),
                         }, transacao).ToString());
-                        foreach (var carrinho in pedido.Produtos)
+
+                        foreach (var pedidoProduto in pedido.Produtos)
                         {
-                            carrinho.IdPedido = idPedido;
-                            conexao.Execute(queryVenda, new 
+                            pedidoProduto.IdPedido = idPedido;
+                            conexao.Execute(queryVenda, new
                             {
-                                carrinho.IdPedido,
-                                carrinho.IdProduto,
-                                PrecoLiquido = carrinho.PrecoLiquido.RetornarValorEmDecimal(),
-                                carrinho.QuantidadeProduto,
-                                Desconto = carrinho.Desconto.RetornarValorEmDecimal(),
-                                PrecoFinal = carrinho.PrecoFinal.RetornarValorEmDecimal(),
+                                pedidoProduto.IdPedido,
+                                pedidoProduto.IdProduto,
+                                PrecoLiquidoUnitario = pedidoProduto.PrecoLiquidoUnitario.RetornarValorEmDecimal(),
+                                pedidoProduto.QuantidadeProduto,
+                                DescontoUnitario = pedidoProduto.DescontoUnitario.RetornarValorEmDecimal(),
+                                PrecoLiquidoTotal = pedidoProduto.PrecoLiquidoTotal.RetornarValorEmDecimal(),
 
                             }, transacao);
-                            conexao.Execute(queryAlterarEstoque, carrinho, transacao);
+                            conexao.Execute(queryAlterarEstoque, new { IdProduto = pedidoProduto.IdProduto, QuantidadeProdutoTotalDoPedido = pedido.QuantidadeProdutoTotalDoPedido }, transacao);
                         }
                         transacao.Commit();
                     }
@@ -87,47 +88,48 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
-                        conexao.Execute(queryPedido, new 
+                        conexao.Execute(queryPedido, new
                         {
                             IdPedido = pedido.IdPedido,
                             IdFuncionario = pedido.IdFuncionario,
                             IdCliente = pedido.IdCliente,
-                            PrecoBruto = pedido.PrecoBruto.RetornarValorEmDecimal(),
-                            PrecoLiquido = pedido.PrecoLiquido.RetornarValorEmDecimal(),
-                            TotalDesconto = pedido.TotalDesconto.RetornarValorEmDecimal(),
+                            PrecoBruto = pedido.PrecoBrutoTotalDoPedido.RetornarValorEmDecimal(),
+                            PrecoLiquido = pedido.PrecoLiquidoTotalDoPedido.RetornarValorEmDecimal(),
+                            TotalDesconto = pedido.DescontoTotalDoPedido.RetornarValorEmDecimal(),
                             PrecoTotal = pedido.PrecoTotal.RetornarValorEmDecimal(),
                             FormaDePagamento = pedido.FormaDePagamento,
-                            QuantidadeProduto = pedido.QuantidadeProduto,
+                            QuantidadeProduto = pedido.QuantidadeProdutoTotalDoPedido,
                             Lucro = pedido.Lucro.RetornarValorEmDecimal(),
                         }, transacao);
+
                         foreach (var carrinho in pedido.Produtos)
                         {
                             if (carrinho.IdPedido == 0)
                             {
                                 carrinho.IdPedido = pedido.IdPedido;
-                                conexao.Execute(queryVenda, new 
+                                conexao.Execute(queryVenda, new
                                 {
                                     carrinho.IdVenda,
                                     carrinho.IdPedido,
                                     carrinho.IdProduto,
-                                    PrecoLiquido = carrinho.PrecoLiquido.RetornarValorEmDecimal(),
+                                    PrecoLiquido = carrinho.PrecoLiquidoUnitario.RetornarValorEmDecimal(),
                                     carrinho.QuantidadeProduto,
-                                    Desconto = carrinho.Desconto.RetornarValorEmDecimal(),
-                                    PrecoFinal = carrinho.PrecoFinal.RetornarValorEmDecimal(),
+                                    Desconto = carrinho.DescontoUnitario.RetornarValorEmDecimal(),
+                                    PrecoFinal = carrinho.PrecoLiquidoTotal.RetornarValorEmDecimal(),
                                 }, transacao);
                                 conexao.Execute(queryAlterarEstoque, carrinho, transacao);
                             }
                             else
                             {
-                                conexao.Execute(queryVendaJaExistente, new 
+                                conexao.Execute(queryVendaJaExistente, new
                                 {
                                     carrinho.IdVenda,
                                     carrinho.IdPedido,
                                     carrinho.IdProduto,
-                                    PrecoLiquido = carrinho.PrecoLiquido.RetornarValorEmDecimal(),
+                                    PrecoLiquido = carrinho.PrecoLiquidoUnitario.RetornarValorEmDecimal(),
                                     carrinho.QuantidadeProduto,
-                                    Desconto = carrinho.Desconto.RetornarValorEmDecimal(),
-                                    PrecoFinal = carrinho.PrecoFinal.RetornarValorEmDecimal(),
+                                    Desconto = carrinho.DescontoUnitario.RetornarValorEmDecimal(),
+                                    PrecoFinal = carrinho.PrecoLiquidoTotal.RetornarValorEmDecimal(),
                                 }, transacao);
                                 conexao.Execute(queryAlterarEstoque, carrinho, transacao);
                             }
@@ -274,6 +276,6 @@ namespace Augustus_Fashion.DAO
             {
                 throw new Exception(ex.Message);
             }
-        }        
+        }
     }
 }
