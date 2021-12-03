@@ -8,7 +8,7 @@ namespace Augustus_Fashion.Controller
 {
     class FiltrosControl
     {
-        public List<PedidoModel> QuantidadeCrescente()
+        public List<FiltrosModel> QuantidadeCrescente()
         {
             return FiltrosDAO.QuantidadeCrescente();
         }

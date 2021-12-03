@@ -116,6 +116,7 @@
     <Compile Include="Model\Cliente\ClienteListagem.cs" />
     <Compile Include="Model\Cliente\ClienteModel.cs" />
     <Compile Include="Model\EnderecoModel.cs" />
+    <Compile Include="Model\FiltrosModel.cs" />
     <Compile Include="Model\Funcionário\FuncionarioListagem.cs" />
     <Compile Include="Model\Funcionário\FuncionarioModel.cs" />
     <Compile Include="Model\Produto\ProdutoListagem.cs" />

@@ -11,21 +11,21 @@ namespace Augustus_Fashion.DAO
     class FiltrosDAO
     {
 
-        public static List<PedidoModel> QuantidadeCrescente() 
+        public static List<FiltrosModel> QuantidadeCrescente() 
         {
-            var query = @"select pec.Nome, v.QuantidadeProduto, v.Total, p.PrecoFinal, p.FormaDePagamento
+            var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, count(p.IdPedido) as NumeroDePedidos, c.IdCliente
             from Pedido p
 			inner join Cliente c on c.IdCliente = p.IdCliente
             inner join Pessoa pec on pec.IdPessoa = c.IdPessoa           
-            inner join Venda v on v.IdPedido = p.IdPedido where c.IdPessoa = pec.IdPessoa
-            order by v.QuantidadeProduto asc";
+            where c.IdPessoa = pec.IdPessoa
+			group by pec.Nome, c.IdCliente";
 
             try 
             {
                 using (var conexao = new conexao().Connection()) 
                 {
                     conexao.Open();
-                    var listar = conexao.Query<PedidoModel>(query);
+                    var listar = conexao.Query<FiltrosModel>(query);
 
                     return listar.ToList();
                 }
