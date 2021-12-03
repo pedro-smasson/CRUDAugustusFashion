@@ -1,4 +1,5 @@
-﻿using Augustus_Fashion.View.Pedido;
+﻿using Augustus_Fashion.Model;
+using Augustus_Fashion.View.Pedido;
 using Augustus_Fashion.View.Produto;
 using Augustus_Fashion.View.Telas_Centrais;
 using System;
@@ -9,7 +10,6 @@ namespace Augustus_Fashion.View
 
     public partial class telaInicial : Form
     {
-
         public telaInicial()
         {
             InitializeComponent();
@@ -17,7 +17,7 @@ namespace Augustus_Fashion.View
 
         private void TelaInicial_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)

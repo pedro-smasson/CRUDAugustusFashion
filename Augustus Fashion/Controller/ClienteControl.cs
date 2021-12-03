@@ -83,7 +83,7 @@ namespace Augustus_Fashion.Controller
             return null;
         }
 
-        public static ClienteModel BuscarEmailCliente(int idCliente)
+        public static ClienteModel BuscarCliente(int idCliente)
         {
             return ClienteDao.Buscar(idCliente);
         }

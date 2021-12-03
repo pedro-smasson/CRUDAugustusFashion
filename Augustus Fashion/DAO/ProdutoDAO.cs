@@ -133,7 +133,7 @@ namespace Augustus_Fashion.DAO
                 var conexao = new conexao().Connection();
                 {
                     conexao.Open();
-                    conexao.Query<ProdutoModel>(query, produtoModel);
+                    conexao.Query<ProdutoModel>(query, new {IdProduto = produtoModel.IdProduto});
                 }
             }
             catch (Exception ex)

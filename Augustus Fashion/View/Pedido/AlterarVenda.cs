@@ -21,7 +21,7 @@ namespace Augustus_Fashion.View.Pedido
             _pedido = pedido;
         }
 
-        public void DadosDaVenda() 
+        public void DadosDaVenda()
         {
             dgvCarrinho.DataSource = _pedido.Produtos;
 
@@ -163,9 +163,9 @@ namespace Augustus_Fashion.View.Pedido
 
         private ProdutoModel BuscarModelProdutoSelecionado()
         {
-                var id = dgvProduto.SelectedRows[0].Cells[0].Value;
-                return _produtoControl.Buscar((int)id);
-        }       
+            var id = dgvProduto.SelectedRows[0].Cells[0].Value;
+            return _produtoControl.Buscar((int)id);
+        }
 
         public bool QuantidadeMaiorQueEstoque(int estoque)
         {
@@ -181,7 +181,7 @@ namespace Augustus_Fashion.View.Pedido
         private void nudQuantidade_ValueChanged(object sender, EventArgs e)
         {
             CalcularPrecoLiquido();
-            QuantidadeMaiorQueEstoque(SelecionarValorEstoque());       
+            QuantidadeMaiorQueEstoque(SelecionarValorEstoque());
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)

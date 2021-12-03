@@ -54,7 +54,6 @@ namespace Augustus_Fashion.View.Pedido
             this.label5 = new System.Windows.Forms.Label();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.dgvCarrinho = new System.Windows.Forms.DataGridView();
             this.txtTotalVenda = new System.Windows.Forms.TextBox();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -67,15 +66,16 @@ namespace Augustus_Fashion.View.Pedido
             this.label1 = new System.Windows.Forms.Label();
             this.txtProduto = new System.Windows.Forms.TextBox();
             this.btnInativar = new System.Windows.Forms.Button();
+            this.dgvCarrinho = new System.Windows.Forms.DataGridView();
             this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecoLiquidoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantidadeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -348,22 +348,6 @@ namespace Augustus_Fashion.View.Pedido
             this.label4.TabIndex = 64;
             this.label4.Text = "Carrinho";
             // 
-            // dgvCarrinho
-            // 
-            this.dgvCarrinho.AllowUserToAddRows = false;
-            this.dgvCarrinho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCarrinho.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarrinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NomeProduto,
-            this.IdProduto,
-            this.PrecoLiquidoTotal,
-            this.QuantidadeProduto});
-            this.dgvCarrinho.Location = new System.Drawing.Point(529, 165);
-            this.dgvCarrinho.Name = "dgvCarrinho";
-            this.dgvCarrinho.Size = new System.Drawing.Size(343, 162);
-            this.dgvCarrinho.TabIndex = 63;
-            // 
             // txtTotalVenda
             // 
             this.txtTotalVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
@@ -502,6 +486,22 @@ namespace Augustus_Fashion.View.Pedido
             this.btnInativar.UseVisualStyleBackColor = false;
             this.btnInativar.Click += new System.EventHandler(this.btnInativar_Click);
             // 
+            // dgvCarrinho
+            // 
+            this.dgvCarrinho.AllowUserToAddRows = false;
+            this.dgvCarrinho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCarrinho.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarrinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NomeProduto,
+            this.IdProduto,
+            this.PrecoLiquidoTotal,
+            this.QuantidadeProduto});
+            this.dgvCarrinho.Location = new System.Drawing.Point(529, 165);
+            this.dgvCarrinho.Name = "dgvCarrinho";
+            this.dgvCarrinho.Size = new System.Drawing.Size(343, 162);
+            this.dgvCarrinho.TabIndex = 82;
+            // 
             // NomeProduto
             // 
             this.NomeProduto.DataPropertyName = "NomeProduto";
@@ -533,6 +533,7 @@ namespace Augustus_Fashion.View.Pedido
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(910, 517);
+            this.Controls.Add(this.dgvCarrinho);
             this.Controls.Add(this.btnInativar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
@@ -554,7 +555,6 @@ namespace Augustus_Fashion.View.Pedido
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dgvCarrinho);
             this.Controls.Add(this.txtTotalVenda);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnSalvar);
@@ -573,9 +573,9 @@ namespace Augustus_Fashion.View.Pedido
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -607,7 +607,6 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dgvCarrinho;
         private System.Windows.Forms.TextBox txtTotalVenda;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnSalvar;
@@ -620,6 +619,7 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtProduto;
         private System.Windows.Forms.Button btnInativar;
+        private System.Windows.Forms.DataGridView dgvCarrinho;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecoLiquidoTotal;

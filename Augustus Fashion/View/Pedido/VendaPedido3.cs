@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
 using Augustus_Fashion.ValueObjects;
@@ -17,6 +18,7 @@ namespace Augustus_Fashion.View.Pedido
 {
     public partial class VendaPedido3 : Form
     {
+        ClienteModel _cliente = new ClienteModel();
         ProdutoControl _produtoControl = new ProdutoControl();
         PedidoModel _pedido;
 
@@ -38,6 +40,11 @@ namespace Augustus_Fashion.View.Pedido
 
             lblCliente.Text = _pedido.IdCliente.ToString();
             lblFuncionario.Text = _pedido.IdFuncionario.ToString();
+
+            if (VerificarSeHojeEhAniversarioDoCliente() == true)
+            {
+                MessageBox.Show("Hoje é Aniversário deste cliente!");
+            }
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)
@@ -241,6 +248,16 @@ namespace Augustus_Fashion.View.Pedido
             return _produtoControl.Buscar((int)id);
         }
 
+        public bool VerificarSeHojeEhAniversarioDoCliente()
+        {
+            if (DateTime.Now.Day == Convert.ToInt32(ClienteControl.BuscarCliente(_pedido.IdCliente).Nascimento.Day)
+            && DateTime.Now.Month == Convert.ToInt32(ClienteControl.BuscarCliente(_pedido.IdCliente).Nascimento.Month))
+            {
+                return true;
+            }
+            return false;
+        }
+
         //ENVIANDO O EMAIL
         public void EnviarEmail() 
         {
@@ -264,7 +281,7 @@ namespace Augustus_Fashion.View.Pedido
             try 
             {
                 string mensagem = 
-                $"To: {ClienteControl.BuscarEmailCliente(_pedido.IdCliente).Email}\r\n" +
+                $"To: {ClienteControl.BuscarCliente(_pedido.IdCliente).Email}\r\n" +
                 $"Subject: {"A Augustus Fashion agradece!"}\r\n" +
                 $"Content-Type: text/html;charset=utf-8\r\n\r\n<h1>{"Seu Pedido:"}</h1><ol>";
 
