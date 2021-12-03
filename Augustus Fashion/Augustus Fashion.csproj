@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ClienteControl.cs" />
+    <Compile Include="Controller\FiltrosControl.cs" />
     <Compile Include="Controller\FuncionarioControl.cs" />
     <Compile Include="Controller\ProdutoControl.cs" />
     <Compile Include="Controller\VendaControl.cs" />
@@ -100,6 +101,7 @@
     </Compile>
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\conexao.cs" />
+    <Compile Include="DAO\FiltrosDAO.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
@@ -218,6 +220,18 @@
     <Compile Include="View\Produto\ListarProduto.Designer.cs">
       <DependentUpon>ListarProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Relatorios\RelatorioCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorios\RelatorioCliente.Designer.cs">
+      <DependentUpon>RelatorioCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorios\RelatorioVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorios\RelatorioVenda.Designer.cs">
+      <DependentUpon>RelatorioVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Telas Centrais\TelaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Produto\ListarProduto.resx">
       <DependentUpon>ListarProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorios\RelatorioCliente.resx">
+      <DependentUpon>RelatorioCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Telas Centrais\TelaCliente.resx">
       <DependentUpon>TelaCliente.cs</DependentUpon>
@@ -386,6 +403,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pedido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2303181_bar_chart_diagram_line_report_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

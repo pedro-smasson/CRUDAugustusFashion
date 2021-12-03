@@ -1,4 +1,4 @@
-﻿using Augustus_Fashion.ValueObjects;
+﻿    using Augustus_Fashion.ValueObjects;
 
 namespace Augustus_Fashion.Model.Venda
 {

@@ -109,10 +109,5 @@ namespace Augustus_Fashion.View
             alterarCliente.dadosDe(cliente);
             alterarCliente.ShowDialog();
         }
-
-        private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

@@ -33,6 +33,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private void VendaPedido3_Load(object sender, EventArgs e)
         {
+            _cliente.CalcularSeClienteTemLimiteDisponivel();
             dgvProduto.DataSource = _produtoControl.ListarProduto;
             dgvProduto.Columns["PrecoCusto"].Visible = false;
 
@@ -121,7 +122,7 @@ namespace Augustus_Fashion.View.Pedido
         {
             if (Dinheiro.RemoverFormatacao(txtDesconto.Text) > Dinheiro.RemoverFormatacao(txtPrecoLiquido.Text))
             {
-                MessageBox.Show("burro");
+                MessageBox.Show("Impossível o Desconto ser maior que o Preço Líquido!");
                 txtDesconto.Text = txtPrecoVenda.Text;
                 return false;
             }
@@ -149,6 +150,10 @@ namespace Augustus_Fashion.View.Pedido
 
             if (ValidarProdutosDoPedido() && Validar())
             {
+                if (cbFormaDePagamento.Text == "Á Prazo")
+                {
+                    _cliente.LimiteGasto = txtTotalVenda.Text;
+                }
                 CadastrarVenda();
                 EnviarEmail();
 

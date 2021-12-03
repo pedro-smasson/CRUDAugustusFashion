@@ -67,10 +67,10 @@ namespace Augustus_Fashion.View.Pedido
             this.txtProduto = new System.Windows.Forms.TextBox();
             this.btnInativar = new System.Windows.Forms.Button();
             this.dgvCarrinho = new System.Windows.Forms.DataGridView();
-            this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecoLiquidoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantidadeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecoLiquidoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
@@ -502,11 +502,17 @@ namespace Augustus_Fashion.View.Pedido
             this.dgvCarrinho.Size = new System.Drawing.Size(343, 162);
             this.dgvCarrinho.TabIndex = 82;
             // 
-            // NomeProduto
+            // QuantidadeProduto
             // 
-            this.NomeProduto.DataPropertyName = "NomeProduto";
-            this.NomeProduto.HeaderText = "Nome";
-            this.NomeProduto.Name = "NomeProduto";
+            this.QuantidadeProduto.DataPropertyName = "QuantidadeProduto";
+            this.QuantidadeProduto.HeaderText = "Quantidade";
+            this.QuantidadeProduto.Name = "QuantidadeProduto";
+            // 
+            // PrecoLiquidoTotal
+            // 
+            this.PrecoLiquidoTotal.DataPropertyName = "PrecoLiquidoTotal";
+            this.PrecoLiquidoTotal.HeaderText = "Preço Final";
+            this.PrecoLiquidoTotal.Name = "PrecoLiquidoTotal";
             // 
             // IdProduto
             // 
@@ -515,17 +521,11 @@ namespace Augustus_Fashion.View.Pedido
             this.IdProduto.Name = "IdProduto";
             this.IdProduto.Visible = false;
             // 
-            // PrecoLiquidoTotal
+            // NomeProduto
             // 
-            this.PrecoLiquidoTotal.DataPropertyName = "PrecoLiquidoTotal";
-            this.PrecoLiquidoTotal.HeaderText = "Preço Final";
-            this.PrecoLiquidoTotal.Name = "PrecoLiquidoTotal";
-            // 
-            // QuantidadeProduto
-            // 
-            this.QuantidadeProduto.DataPropertyName = "QuantidadeProduto";
-            this.QuantidadeProduto.HeaderText = "Quantidade";
-            this.QuantidadeProduto.Name = "QuantidadeProduto";
+            this.NomeProduto.DataPropertyName = "NomeProduto";
+            this.NomeProduto.HeaderText = "Nome";
+            this.NomeProduto.Name = "NomeProduto";
             // 
             // AlterarVenda
             // 

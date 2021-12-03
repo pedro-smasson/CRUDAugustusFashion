@@ -73,6 +73,16 @@ namespace Augustus_Fashion.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2303181_bar_chart_diagram_line_report_icon {
+            get {
+                object obj = ResourceManager.GetObject("2303181_bar_chart_diagram_line_report_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cadastrar {
             get {
                 object obj = ResourceManager.GetObject("cadastrar", resourceCulture);

@@ -25,6 +25,7 @@ namespace Augustus_Fashion.View.Pedido
         {
             dgvCarrinho.DataSource = _pedido.Produtos;
 
+            this.dgvCarrinho.Columns["IdPedido"].Visible = false;
             this.dgvCarrinho.Columns["IdVenda"].Visible = false;
             this.dgvCarrinho.Columns["PrecoCustoUnitario"].Visible = false;
             this.dgvCarrinho.Columns["DescontoUnitario"].Visible = false;
@@ -68,6 +69,8 @@ namespace Augustus_Fashion.View.Pedido
 
             _pedido.AdicionarProduto(produtoPedido);
 
+            dgvCarrinho.DataSource = null;  
+            dgvCarrinho.AutoGenerateColumns = false;
 
             var source = new BindingSource
             {
@@ -135,8 +138,8 @@ namespace Augustus_Fashion.View.Pedido
 
         private void AlterarVenda_Load(object sender, EventArgs e)
         {
-            dgvCarrinho.Rows[0].Cells[0].Value = _pedido.IdPedido;
-            dgvCarrinho.Columns["IdPedido"].Visible = false;
+            //dgvCarrinho.Rows[0].Cells[0].Value = _pedido.IdPedido;
+            //dgvCarrinho.Columns["IdPedido"].Visible = false;
             //dgvCarrinho.DataSource = _pedido.Produtos;
 
             dgvProduto.DataSource = _produtoControl.ListarProduto;

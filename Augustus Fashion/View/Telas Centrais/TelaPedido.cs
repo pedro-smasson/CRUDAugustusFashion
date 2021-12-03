@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.View.Pedido;
+using Augustus_Fashion.View.Relatorios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,14 @@ namespace Augustus_Fashion.View.Telas_Centrais
             Hide();
             ListagemPedido listarPedido = new ListagemPedido();
             listarPedido.ShowDialog();
+            Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            RelatorioCliente relatorioCliente = new RelatorioCliente();
+            relatorioCliente.ShowDialog();
             Close();
         }
     }
