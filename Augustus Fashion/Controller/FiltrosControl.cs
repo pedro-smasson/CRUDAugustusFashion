@@ -12,5 +12,20 @@ namespace Augustus_Fashion.Controller
         {
             return FiltrosDAO.QuantidadeCrescente();
         }
+
+        public List<FiltrosModel> QuantidadeDecrescente()
+        {
+            return FiltrosDAO.QuantidadeDecrescente();
+        }
+
+        public List<FiltrosModel> TotalLiquidoCrescente() 
+        {
+            return FiltrosDAO.TotalLiquidoCrescente();
+        }
+
+        public List<FiltrosModel> TotalLiquidoDecrescente() 
+        {
+            return FiltrosDAO.TotalLiquidoDecrescente();
+        }
     }
 }

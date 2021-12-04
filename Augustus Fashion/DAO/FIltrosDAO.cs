@@ -11,18 +11,18 @@ namespace Augustus_Fashion.DAO
     class FiltrosDAO
     {
 
-        public static List<FiltrosModel> QuantidadeCrescente() 
+        public static List<FiltrosModel> QuantidadeCrescente()
         {
-            var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, count(p.IdPedido) as NumeroDePedidos, c.IdCliente
+            var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos, c.IdCliente
             from Pedido p
 			inner join Cliente c on c.IdCliente = p.IdCliente
-            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa           
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa       
             where c.IdPessoa = pec.IdPessoa
-			group by pec.Nome, c.IdCliente";
+			group by pec.Nome, c.IdCliente order by NumeroDePedidos asc";
 
-            try 
+            try
             {
-                using (var conexao = new conexao().Connection()) 
+                using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
                     var listar = conexao.Query<FiltrosModel>(query);
@@ -30,24 +30,88 @@ namespace Augustus_Fashion.DAO
                     return listar.ToList();
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            
         }
 
-        public static void FiltrarValorCrescente() 
+        public static List<FiltrosModel> QuantidadeDecrescente()
         {
+            var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos, c.IdCliente
+            from Pedido p
+			inner join Cliente c on c.IdCliente = p.IdCliente
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa       
+            where c.IdPessoa = pec.IdPessoa
+			group by pec.Nome, c.IdCliente order by NumeroDePedidos desc";
 
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<FiltrosModel>(query);
+
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public static void FiltrarValorDescrescente() 
+        public static List<FiltrosModel> TotalLiquidoCrescente()
         {
+            var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, c.IdCliente
+            from Pedido p
+			inner join Cliente c on c.IdCliente = p.IdCliente
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa       
+            where c.IdPessoa = pec.IdPessoa
+			group by pec.Nome, c.IdCliente order by TotalGasto asc";
 
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<FiltrosModel>(query);
+
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public static void Filtrar() 
+        public static List<FiltrosModel> TotalLiquidoDecrescente()
+        {
+            var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, c.IdCliente
+            from Pedido p
+			inner join Cliente c on c.IdCliente = p.IdCliente
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa       
+            where c.IdPessoa = pec.IdPessoa
+			group by pec.Nome, c.IdCliente order by TotalGasto desc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<FiltrosModel>(query);
+
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static void Filtrar()
         {
         }
     }

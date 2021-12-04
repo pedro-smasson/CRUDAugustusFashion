@@ -37,21 +37,29 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void QualFiltroEstaSelecionado() 
         {
-            if(cbFiltrosSimples.Text == "Quantidade Crescente") 
+            if(cbFiltrosSimples.Text == "Qtde Pedidos Crescente") 
             {
                 dgvCliente.DataSource = _filtrosController.QuantidadeCrescente();
+                this.dgvCliente.Columns["NumeroDePedidos"].Visible = true;
+                this.dgvCliente.Columns["TotalGasto"].Visible = false;
             }
-            else if (cbFiltrosSimples.Text == "Quantidade Descrescente") 
+            else if (cbFiltrosSimples.Text == "Qtde Pedidos Descrescente") 
             {
-                
+                dgvCliente.DataSource = _filtrosController.QuantidadeDecrescente();
+                this.dgvCliente.Columns["NumeroDePedidos"].Visible = true;
+                this.dgvCliente.Columns["TotalGasto"].Visible = false;
             }
             else if (cbFiltrosSimples.Text == "Total Liquido Crescente")
             {
-
+                dgvCliente.DataSource = _filtrosController.TotalLiquidoCrescente();
+                this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
+                this.dgvCliente.Columns["TotalGasto"].Visible = true;
             }
             else if (cbFiltrosSimples.Text == "Total Liquido Decrescente")
             {
-
+                dgvCliente.DataSource = _filtrosController.TotalLiquidoDecrescente();
+                this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
+                this.dgvCliente.Columns["TotalGasto"].Visible = true;
             }
             else if (cbFiltrosSimples.Text == "Desconto Crescente")
             {

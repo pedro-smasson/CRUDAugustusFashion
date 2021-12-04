@@ -64,7 +64,7 @@ namespace Augustus_Fashion.View.Relatorios
             // btnFiltrar
             // 
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnFiltrar.Location = new System.Drawing.Point(681, 22);
+            this.btnFiltrar.Location = new System.Drawing.Point(692, 22);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(96, 37);
             this.btnFiltrar.TabIndex = 3;
@@ -78,22 +78,22 @@ namespace Augustus_Fashion.View.Relatorios
             this.cbFiltrosSimples.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbFiltrosSimples.FormattingEnabled = true;
             this.cbFiltrosSimples.Items.AddRange(new object[] {
-            "Quantidade Crescente",
-            "Quantidade Descrescente",
+            "Qtde Pedidos Crescente",
+            "Qtde Pedidos Descrescente",
             "Total Liquido Crescente",
             "Total Liquido Decrescente",
             "Desconto Crescente",
             "Desconto Decrescente"});
             this.cbFiltrosSimples.Location = new System.Drawing.Point(134, 28);
             this.cbFiltrosSimples.Name = "cbFiltrosSimples";
-            this.cbFiltrosSimples.Size = new System.Drawing.Size(156, 28);
+            this.cbFiltrosSimples.Size = new System.Drawing.Size(181, 28);
             this.cbFiltrosSimples.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(306, 31);
+            this.label2.Location = new System.Drawing.Point(335, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.TabIndex = 5;
@@ -109,9 +109,9 @@ namespace Augustus_Fashion.View.Relatorios
             "Clientes que Menos Compraram",
             "5 Clientes que Mais Compraram",
             "5 Clientes que Menos Compraram"});
-            this.cbFiltrosAvancados.Location = new System.Drawing.Point(451, 28);
+            this.cbFiltrosAvancados.Location = new System.Drawing.Point(480, 31);
             this.cbFiltrosAvancados.Name = "cbFiltrosAvancados";
-            this.cbFiltrosAvancados.Size = new System.Drawing.Size(156, 28);
+            this.cbFiltrosAvancados.Size = new System.Drawing.Size(194, 28);
             this.cbFiltrosAvancados.TabIndex = 6;
             // 
             // RelatorioCliente

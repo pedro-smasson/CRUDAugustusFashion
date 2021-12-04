@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Augustus_Fashion.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Augustus_Fashion.Model
     {
         public int IdCliente { get; set; }
         public string Nome { get; set; }
-        public decimal TotalGasto { get; set; }
+        public Dinheiro TotalGasto { get; set; }
         public int NumeroDePedidos { get; set; }
     }
 }
