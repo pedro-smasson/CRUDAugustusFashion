@@ -1,9 +1,7 @@
 ﻿using Augustus_Fashion.Model;
-using Augustus_Fashion.Model.Produto;
-using Augustus_Fashion.Model.Venda;
-using System.Collections.Generic;
 using Dapper;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Augustus_Fashion.DAO
@@ -11,7 +9,7 @@ namespace Augustus_Fashion.DAO
     class FiltrosDAO
     {
 
-        public static List<FiltrosModel> QuantidadeCrescente()
+        public static List<FiltrosModel> QuantidadeDePedidosCrescente()
         {
             var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos, c.IdCliente
             from Pedido p
@@ -26,7 +24,6 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
                     var listar = conexao.Query<FiltrosModel>(query);
-
                     return listar.ToList();
                 }
             }
@@ -36,7 +33,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> QuantidadeDecrescente()
+        public static List<FiltrosModel> QuantidadeDePedidosDecrescente()
         {
             var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos, c.IdCliente
             from Pedido p
@@ -51,7 +48,6 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
                     var listar = conexao.Query<FiltrosModel>(query);
-
                     return listar.ToList();
                 }
             }
@@ -76,7 +72,6 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
                     var listar = conexao.Query<FiltrosModel>(query);
-
                     return listar.ToList();
                 }
             }
@@ -101,7 +96,6 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
                     var listar = conexao.Query<FiltrosModel>(query);
-
                     return listar.ToList();
                 }
             }
@@ -111,8 +105,150 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static void Filtrar()
+        public static List<FiltrosModel> DescontoCrescente()
         {
+            var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos,
+            Sum(p.Desconto) as Desconto, c.IdCliente
+            from Pedido p
+			inner join Cliente c on c.IdCliente = p.IdCliente
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa       
+            where c.IdPessoa = pec.IdPessoa
+			group by pec.Nome, c.IdCliente order by Desconto asc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<FiltrosModel>(query);
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosModel> DescontoDecrescente()
+        {
+            var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos,
+            Sum(p.Desconto) as Desconto, c.IdCliente
+            from Pedido p
+			inner join Cliente c on c.IdCliente = p.IdCliente
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa       
+            where c.IdPessoa = pec.IdPessoa
+			group by pec.Nome, c.IdCliente order by Desconto desc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<FiltrosModel>(query);
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosModel> Top5ClientesQueMaisGastaram()
+        {
+            var query = @"select top 5 pec.Nome, Sum(p.PrecoFinal) as TotalGasto, c.IdCliente
+			from Pedido p
+			inner join Cliente c on c.IdCliente = p.IdCliente
+			inner join Pessoa pec on pec.IdPessoa = c.IdPessoa
+			where c.IdPessoa = pec.IdPessoa
+			group by pec.Nome, c.IdCliente order by TotalGasto desc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<FiltrosModel>(query);
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosModel> Top5ClientesQueMenosGastaram()
+        {
+            var query = @"select top 5 pec.Nome, Sum(p.PrecoFinal) as TotalGasto, c.IdCliente
+			from Pedido p
+			inner join Cliente c on c.IdCliente = p.IdCliente
+			inner join Pessoa pec on pec.IdPessoa = c.IdPessoa
+			where c.IdPessoa = pec.IdPessoa
+			group by pec.Nome, c.IdCliente order by TotalGasto asc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<FiltrosModel>(query);
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosModel> Top5ClientesQueMaisCompraram()
+        {
+            var query = @"select top 5 pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos, c.IdCliente
+            from Pedido p
+			inner join Cliente c on c.IdCliente = p.IdCliente
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa       
+            where c.IdPessoa = pec.IdPessoa
+			group by pec.Nome, c.IdCliente order by NumeroDePedidos desc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<FiltrosModel>(query);
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosModel> Top5ClientesQueMenosCompraram()
+        {
+            var query = @"select top 5 pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos, c.IdCliente
+            from Pedido p
+			inner join Cliente c on c.IdCliente = p.IdCliente
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa       
+            where c.IdPessoa = pec.IdPessoa
+			group by pec.Nome, c.IdCliente order by NumeroDePedidos asc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<FiltrosModel>(query);
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

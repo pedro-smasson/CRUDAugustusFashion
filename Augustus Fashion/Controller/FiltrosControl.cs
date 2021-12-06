@@ -8,14 +8,14 @@ namespace Augustus_Fashion.Controller
 {
     class FiltrosControl
     {
-        public List<FiltrosModel> QuantidadeCrescente()
+        public List<FiltrosModel> QuantidadeDePedidosCrescente()
         {
-            return FiltrosDAO.QuantidadeCrescente();
+            return FiltrosDAO.QuantidadeDePedidosCrescente();
         }
 
-        public List<FiltrosModel> QuantidadeDecrescente()
+        public List<FiltrosModel> QuantidadeDePedidosDecrescente()
         {
-            return FiltrosDAO.QuantidadeDecrescente();
+            return FiltrosDAO.QuantidadeDePedidosDecrescente();
         }
 
         public List<FiltrosModel> TotalLiquidoCrescente() 
@@ -27,5 +27,36 @@ namespace Augustus_Fashion.Controller
         {
             return FiltrosDAO.TotalLiquidoDecrescente();
         }
+
+        public List<FiltrosModel> DescontoCrescente()
+        {
+            return FiltrosDAO.DescontoCrescente();
+        }
+
+        public List<FiltrosModel> DescontoDecrescente()
+        {
+            return FiltrosDAO.DescontoDecrescente();
+        }
+
+        public List<FiltrosModel> Top5ClientesQueMaisGastaram() 
+        {
+            return FiltrosDAO.Top5ClientesQueMaisGastaram();
+        }
+
+        public List<FiltrosModel> Top5ClientesQueMenosGastaram()
+        {
+            return FiltrosDAO.Top5ClientesQueMenosGastaram();
+        }
+
+        public List<FiltrosModel> Top5ClientesQueMaisCompraram()
+        {
+            return FiltrosDAO.Top5ClientesQueMaisCompraram();
+        }
+
+        public List<FiltrosModel> Top5ClientesQueMenosCompraram()
+        {
+            return FiltrosDAO.Top5ClientesQueMenosCompraram();
+        }
+
     }
 }

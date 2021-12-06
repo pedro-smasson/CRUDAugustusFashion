@@ -13,5 +13,6 @@ namespace Augustus_Fashion.Model
         public string Nome { get; set; }
         public Dinheiro TotalGasto { get; set; }
         public int NumeroDePedidos { get; set; }
+        public decimal Desconto { get; set; }
     }
 }
