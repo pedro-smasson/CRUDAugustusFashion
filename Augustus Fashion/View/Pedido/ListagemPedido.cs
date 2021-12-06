@@ -70,5 +70,10 @@ namespace Augustus_Fashion.View.Pedido
             telaInicial.ShowDialog();
             Close();
         }
+
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -37,8 +37,12 @@ namespace Augustus_Fashion.View.Pedido
             this.btnAvancar = new System.Windows.Forms.Button();
             this.pbBuscar = new System.Windows.Forms.PictureBox();
             this.txtFuncionario = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fECHARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -68,7 +72,7 @@ namespace Augustus_Fashion.View.Pedido
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label2.Location = new System.Drawing.Point(193, 27);
+            this.label2.Location = new System.Drawing.Point(193, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(207, 31);
             this.label2.TabIndex = 5;
@@ -128,6 +132,30 @@ namespace Augustus_Fashion.View.Pedido
             this.txtFuncionario.Size = new System.Drawing.Size(334, 26);
             this.txtFuncionario.TabIndex = 14;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hOMEToolStripMenuItem,
+            this.fECHARToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(607, 24);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // hOMEToolStripMenuItem
+            // 
+            this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
+            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.hOMEToolStripMenuItem.Text = "HOME";
+            this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
+            // 
+            // fECHARToolStripMenuItem
+            // 
+            this.fECHARToolStripMenuItem.Name = "fECHARToolStripMenuItem";
+            this.fECHARToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.fECHARToolStripMenuItem.Text = "FECHAR";
+            // 
             // VendaPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,13 +170,17 @@ namespace Augustus_Fashion.View.Pedido
             this.Controls.Add(this.dgvFuncionario);
             this.Controls.Add(this.pbBuscar);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "VendaPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VENDA";
             this.Load += new System.EventHandler(this.VendaPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +195,8 @@ namespace Augustus_Fashion.View.Pedido
         private System.Windows.Forms.TextBox txtSelecionado;
         private System.Windows.Forms.Button btnAvancar;
         private System.Windows.Forms.TextBox txtFuncionario;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fECHARToolStripMenuItem;
     }
 }

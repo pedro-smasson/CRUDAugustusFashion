@@ -67,5 +67,13 @@ namespace Augustus_Fashion.View.Pedido
                 //Close();
             }
         }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            telaInicial telaInicial = new telaInicial();
+            telaInicial.ShowDialog();
+            this.Close();
+        }
     }
 }
