@@ -17,7 +17,7 @@ namespace Augustus_Fashion.Model
         public static bool ValidarEmail(this string valor) => 
             new Regex(@"^[a-zA-Z0-9._-]+[@][a-z]+[.]([a-zA-Z]{2,3})+$").Match(valor).Success;
 
-        public static bool ValidarDataNasc(this string valor) =>
+        public static bool ValidarDatas(this string valor) =>
             new Regex(@"^[0-3][0-9][\/][0-1][0-9][\/][0-9]{4}$").Match(valor).Success;
 
         public static bool ValidarStringENumeric(this string valor) =>

@@ -75,5 +75,10 @@ namespace Augustus_Fashion.View.Pedido
             telaInicial.ShowDialog();
             this.Close();
         }
+
+        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

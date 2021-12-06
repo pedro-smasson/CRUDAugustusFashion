@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.Model;
 using System;
 using System.Windows.Forms;
 
@@ -157,6 +158,8 @@ namespace Augustus_Fashion.View.Relatorios
         {
             cbFiltrosAvancados.SelectedItem = null;
             cbFiltrosSimples.SelectedItem = null;
+            mtDataInicial.Text = "";
+            mtDataFinal.Text = "";
         }
 
         private void fECHARToolStripMenuItem_Click(object sender, EventArgs e)
@@ -170,6 +173,34 @@ namespace Augustus_Fashion.View.Relatorios
             telaInicial telaInicial = new telaInicial();
             telaInicial.ShowDialog();
             this.Close();
+        }
+
+        private void btnData_Click(object sender, EventArgs e)
+        {
+            btnData.Visible = false;
+            btnBuscar.Visible = true;
+            label4.Visible = true;
+            mtDataFinal.Visible = true;
+            mtDataInicial.Visible = true;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if(Testes.ValidarDatas(Convert.ToString(mtDataInicial.MaskFull && mtDataFinal.MaskFull))) 
+            {
+                dgvCliente.DataSource = _filtrosController.EspecificarData(Convert.ToDateTime(mtDataInicial.Text),
+                Convert.ToDateTime(mtDataFinal.Text));
+
+                this.dgvCliente.Columns["IdCliente"].Visible = false;
+                this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
+            }
+            else 
+            {
+                MessageBox.Show("Insira uma Data válida!");
+                mtDataInicial.Text = "";
+                mtDataFinal.Text = "";
+            }
         }
     }
 }

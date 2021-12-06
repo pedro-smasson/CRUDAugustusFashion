@@ -31,9 +31,18 @@ namespace Augustus_Fashion.View.Pedido
             _pedido = pedido;
         }
 
+        private bool CalcularSeOCalculoDeLimiteEstaEstouradoOuNao()
+        {
+            if (_cliente.CalcularSeClienteTemLimiteDisponivel() == false)
+            {
+                MessageBox.Show("O valor da compra excede o limite do Cliente!");
+                return false;
+            }
+            return true;
+        }
+
         private void VendaPedido3_Load(object sender, EventArgs e)
         {
-            _cliente.CalcularSeClienteTemLimiteDisponivel();
             dgvProduto.DataSource = _produtoControl.ListarProduto;
             dgvProduto.Columns["PrecoCusto"].Visible = false;
 
@@ -42,7 +51,7 @@ namespace Augustus_Fashion.View.Pedido
             lblCliente.Text = _pedido.IdCliente.ToString();
             lblFuncionario.Text = _pedido.IdFuncionario.ToString();
 
-            if (VerificarSeHojeEhAniversarioDoCliente() == true)
+            if (VerificarSeHojeEhAniversarioDoCliente())
             {
                 MessageBox.Show("Hoje é Aniversário deste cliente!");
             }
@@ -65,7 +74,7 @@ namespace Augustus_Fashion.View.Pedido
         }
 
         private void dgvProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {   
+        {
             var nome = dgvProduto.SelectedRows[0].Cells[1].Value;
             var precovenda = dgvProduto.SelectedRows[0].Cells[2].Value;
             //var precocusto = dgvProduto.SelectedRows[0].Cells[3].Value;
@@ -117,7 +126,6 @@ namespace Augustus_Fashion.View.Pedido
             CalcularPrecoLiquido();
         }
 
-        //MÉTODOS E FUNÇÕES
         private bool VerificarSePrecoLiquidoEhNegativo()
         {
             if (Dinheiro.RemoverFormatacao(txtDesconto.Text) > Dinheiro.RemoverFormatacao(txtPrecoLiquido.Text))
@@ -144,15 +152,14 @@ namespace Augustus_Fashion.View.Pedido
             return (int)dgvProduto.SelectedRows[0].Cells[4].Value;
         }
 
-        // CADASTRO DA VENDA
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-
-            if (ValidarProdutosDoPedido() && Validar())
+            _pedido.DataPedido = DateTime.Today;
+            if (ValidarProdutosDoPedido() && Validar() && CalcularSeOCalculoDeLimiteEstaEstouradoOuNao())
             {
                 if (cbFormaDePagamento.Text == "Á Prazo")
                 {
-                    _cliente.LimiteGasto = txtTotalVenda.Text;
+                    _cliente.LimiteGasto += txtTotalVenda.Text;
                 }
                 CadastrarVenda();
                 EnviarEmail();
@@ -225,9 +232,9 @@ namespace Augustus_Fashion.View.Pedido
             _pedido.FormaDePagamento = cbFormaDePagamento.Text;
         }
 
-        private void txtDesconto_KeyUp(object sender, KeyEventArgs e) 
+        private void txtDesconto_KeyUp(object sender, KeyEventArgs e)
         {
-            CalcularPrecoLiquido(); 
+            CalcularPrecoLiquido();
         }
 
         private void txtTotalVenda_TextChanged(object sender, EventArgs e)
@@ -264,7 +271,7 @@ namespace Augustus_Fashion.View.Pedido
         }
 
         //ENVIANDO O EMAIL
-        public void EnviarEmail() 
+        public void EnviarEmail()
         {
             UserCredential credencial;
             using (FileStream stream = new FileStream(Application.StartupPath + @"/arquivoimportante.json", FileMode.Open, FileAccess.Read))
@@ -283,9 +290,9 @@ namespace Augustus_Fashion.View.Pedido
             };
 
             dgvCarrinho.DataSource = source;
-            try 
+            try
             {
-                string mensagem = 
+                string mensagem =
                 $"To: {ClienteControl.BuscarCliente(_pedido.IdCliente).Email}\r\n" +
                 $"Subject: {"A Augustus Fashion agradece!"}\r\n" +
                 $"Content-Type: text/html;charset=utf-8\r\n\r\n<h1>{"Seu Pedido:"}</h1><ol>";
@@ -308,7 +315,7 @@ namespace Augustus_Fashion.View.Pedido
             catch
             {
                 MessageBox.Show("Erro no envio do Email!");
-            }   
+            }
         }
 
         string Base64UrlEncode(string input)

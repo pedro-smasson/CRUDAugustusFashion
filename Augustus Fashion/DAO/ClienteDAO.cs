@@ -37,7 +37,12 @@ namespace Augustus_Fashion.DAO
                         cliente.IdPessoa = id;
                         cliente.Endereco.IdPessoa = id;
 
-                        conexao.Execute(queryCliente, cliente, transacao);
+                        conexao.Execute(queryCliente, new 
+                        {
+                            cliente.IdPessoa,
+                            cliente.Limite,
+                            cliente.LimiteGasto
+                        }, transacao);
                         conexao.Execute(queryEndereco, new
                         {
                             IdPessoa = cliente.IdPessoa,
@@ -84,10 +89,15 @@ namespace Augustus_Fashion.DAO
                             Celular = cliente.Celular,
                             Email = cliente.Email,
                             Cpf = cliente.Cpf.LimparCpfFormatado(),
-                            IdPessoa = cliente.IdPessoa,
+                            IdPessoa = cliente.IdPessoa
                         }, transacao);
 
-                        conexao.Execute(queryCliente, cliente, transacao);
+                        conexao.Execute(queryCliente, new 
+                        {
+                            cliente.IdPessoa,
+                            cliente.Limite,
+                            LimiteGasto = cliente.LimiteGasto.RetornarValorEmDecimal()
+                        }, transacao);
                         conexao.Execute(queryEndereco, new
                         {
                             IdPessoa = cliente.IdPessoa,

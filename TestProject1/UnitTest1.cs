@@ -7,7 +7,7 @@ namespace TestProject1
     public class UnitTest1
     {
         [TestMethod]
-        public void se_o_campo_conter_texto_entao_campo_eh_valido()
+        public void se_o_campo_conter_caracteres_string_entao_campo_eh_valido()
         {
             string nome = "teste";
 
@@ -88,7 +88,7 @@ namespace TestProject1
         {
             string data = "24/10/2077";
 
-            var variavel = Testes.ValidarDataNasc(data);
+            var variavel = Testes.ValidarDatas(data);
 
             Assert.IsTrue(variavel);
         }
@@ -104,7 +104,7 @@ namespace TestProject1
         [DataRow("22/0h2/20577", false)]
         public void validar_se_data_de_nasc_eh_valida_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.ValidarDataNasc(a), resultado);
+            Assert.AreEqual(Testes.ValidarDatas(a), resultado);
         }
 
         [TestMethod]
@@ -182,7 +182,7 @@ namespace TestProject1
         [DataRow("17996331695", true)]
         [DataRow("7774", false)]
         [DataRow("uifdhuigd", false)]
-        public void validar_se_celular_eh_valido_ou_nao(string a, bool resultado) 
+        public void validar_se_celular_eh_valido_ou_nao(string a, bool resultado)
         {
             Assert.AreEqual(Testes.ValidarCelular(a), resultado);
         }
@@ -192,7 +192,7 @@ namespace TestProject1
         [DataRow(47, true)]
         [DataRow(101, false)]
 
-        public void validar_se_desconto_eh_valido_ou_nao(float a, bool resultado) 
+        public void validar_se_desconto_eh_valido_ou_nao(decimal a, bool resultado) 
         {
             Assert.AreEqual(Testes.ValidarDesconto(a), resultado);
         }

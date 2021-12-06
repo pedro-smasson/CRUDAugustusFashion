@@ -39,6 +39,7 @@ namespace Augustus_Fashion.View
             this.pbFuncionario = new System.Windows.Forms.PictureBox();
             this.pbProduto = new System.Windows.Forms.PictureBox();
             this.pbCliente = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProduto)).BeginInit();
@@ -140,6 +141,20 @@ namespace Augustus_Fashion.View
             this.pbCliente.TabStop = false;
             this.pbCliente.Click += new System.EventHandler(this.pbCliente_Click);
             // 
+            // button1
+            // 
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.BackColor = System.Drawing.Color.LightPink;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button1.Location = new System.Drawing.Point(0, 1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 33);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "❌";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // telaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,6 +163,7 @@ namespace Augustus_Fashion.View
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(652, 266);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
@@ -182,5 +198,6 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

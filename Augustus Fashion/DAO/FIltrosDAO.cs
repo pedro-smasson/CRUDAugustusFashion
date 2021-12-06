@@ -250,5 +250,31 @@ namespace Augustus_Fashion.DAO
                 throw new Exception(ex.Message);
             }
         }
+
+        public static List<FiltrosModel> EspecificarData(DateTime dataInicial, DateTime dataFinal)
+        {
+            var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos,
+            p.DataPedido
+            from Pedido p
+			inner join Cliente c on c.IdCliente = p.IdCliente
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa       
+            where p.DataPedido between @dataInicial and @dataFinal 
+			group by pec.Nome, p.DataPedido";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<FiltrosModel>(query, new {dataInicial = dataInicial.ToString("dd/MM/yyyy"),
+                        dataFinal = dataFinal.ToString("dd/MM/yyyy")});
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

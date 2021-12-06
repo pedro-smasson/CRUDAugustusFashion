@@ -155,6 +155,7 @@ namespace Augustus_Fashion.View.Pedido
             this.fECHARToolStripMenuItem.Name = "fECHARToolStripMenuItem";
             this.fECHARToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.fECHARToolStripMenuItem.Text = "FECHAR";
+            this.fECHARToolStripMenuItem.Click += new System.EventHandler(this.fECHARToolStripMenuItem_Click);
             // 
             // VendaPedido
             // 

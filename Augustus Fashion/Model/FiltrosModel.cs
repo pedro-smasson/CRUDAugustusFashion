@@ -14,5 +14,6 @@ namespace Augustus_Fashion.Model
         public Dinheiro TotalGasto { get; set; }
         public int NumeroDePedidos { get; set; }
         public decimal Desconto { get; set; }
+        public DateTime DataPedido { get; set; }
     }
 }

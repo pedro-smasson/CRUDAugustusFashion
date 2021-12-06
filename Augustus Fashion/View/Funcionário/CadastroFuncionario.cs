@@ -197,7 +197,7 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!Testes.ValidarDataNasc(datanascFuncionario.Text))
+            else if (!Testes.ValidarDatas(datanascFuncionario.Text))
             {
                 MessageBox.Show("Data de Nascimento inválida");
                 return false;

@@ -11,9 +11,9 @@ namespace Augustus_Fashion.DAO
         public static void CadastrarVenda(PedidoModel pedido)
         {
             var queryPedido = @"insert into Pedido (IdFuncionario, IdCliente, TotalBruto, TotalLiquido, Desconto, 
-            PrecoFinal, FormaDePagamento, QuantidadeProduto, Lucro) output inserted.IdPedido values (@IdFuncionario, 
+            PrecoFinal, FormaDePagamento, QuantidadeProduto, Lucro, DataPedido) output inserted.IdPedido values (@IdFuncionario, 
             @IdCliente, @PrecoBrutoTotalDoPedido, @PrecoLiquidoTotalDoPedido, @DescontoTotalDoPedido,
-            @PrecoTotal, @FormaDePagamento, @QuantidadeProdutoTotalDoPedido, @Lucro)";
+            @PrecoTotal, @FormaDePagamento, @QuantidadeProdutoTotalDoPedido, @Lucro, @DataPedido)";
 
             var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)
             values (@IdPedido, @IdProduto, @PrecoLiquidoUnitario, @QuantidadeProduto, @DescontoUnitario, @PrecoLiquidoTotal)";
@@ -38,6 +38,7 @@ namespace Augustus_Fashion.DAO
                             FormaDePagamento = pedido.FormaDePagamento,
                             QuantidadeProdutoTotalDoPedido = pedido.QuantidadeProdutoTotalDoPedido,
                             Lucro = pedido.Lucro.RetornarValorEmDecimal(),
+                            DataPedido = pedido.DataPedido.Date
                         }, transacao).ToString());
 
                         foreach (var pedidoProduto in pedido.Produtos)

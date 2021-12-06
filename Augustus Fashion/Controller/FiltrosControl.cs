@@ -58,5 +58,9 @@ namespace Augustus_Fashion.Controller
             return FiltrosDAO.Top5ClientesQueMenosCompraram();
         }
 
+        public List<FiltrosModel> EspecificarData(DateTime dataInicial, DateTime dataFinal) 
+        {
+            return FiltrosDAO.EspecificarData(dataInicial, dataFinal);
+        }
     }
 }

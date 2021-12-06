@@ -139,5 +139,10 @@ namespace Augustus_Fashion.View
             telaPedido.ShowDialog();
             Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

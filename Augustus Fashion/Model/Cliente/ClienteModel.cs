@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.FluentValidation;
+using Augustus_Fashion.ValueObjects;
 using System;
 
 namespace Augustus_Fashion.Model
@@ -6,15 +7,15 @@ namespace Augustus_Fashion.Model
    public class ClienteModel : Pessoa
     {
         public string Limite { get; set; }
-        public string LimiteGasto { get; set; }
+        public Dinheiro LimiteGasto { get; set; }
 
         public bool CalcularSeClienteTemLimiteDisponivel() 
         {
-            if(Convert.ToDecimal(LimiteGasto) >= Convert.ToDecimal(Limite)) 
+            if(Convert.ToDecimal(this.LimiteGasto) < Convert.ToDecimal(this.Limite)) 
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
         public string ValidarCliente() 

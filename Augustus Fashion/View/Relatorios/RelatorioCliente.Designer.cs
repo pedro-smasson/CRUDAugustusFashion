@@ -39,6 +39,11 @@ namespace Augustus_Fashion.View.Relatorios
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fECHARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mtDataFinal = new System.Windows.Forms.MaskedTextBox();
+            this.mtDataInicial = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +58,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(659, 237);
+            this.dgvCliente.Size = new System.Drawing.Size(748, 237);
             this.dgvCliente.TabIndex = 0;
             // 
             // label1
@@ -70,7 +75,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             this.btnFiltrar.BackColor = System.Drawing.Color.PaleGreen;
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnFiltrar.Location = new System.Drawing.Point(441, 55);
+            this.btnFiltrar.Location = new System.Drawing.Point(444, 33);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(87, 37);
             this.btnFiltrar.TabIndex = 3;
@@ -124,7 +129,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             this.btnLimpar.BackColor = System.Drawing.Color.Snow;
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLimpar.Location = new System.Drawing.Point(551, 55);
+            this.btnLimpar.Location = new System.Drawing.Point(444, 74);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(87, 37);
             this.btnLimpar.TabIndex = 7;
@@ -139,7 +144,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.fECHARToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(659, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(748, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -157,21 +162,82 @@ namespace Augustus_Fashion.View.Relatorios
             this.fECHARToolStripMenuItem.Text = "FECHAR";
             this.fECHARToolStripMenuItem.Click += new System.EventHandler(this.fECHARToolStripMenuItem_Click);
             // 
+            // mtDataFinal
+            // 
+            this.mtDataFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mtDataFinal.Location = new System.Drawing.Point(658, 40);
+            this.mtDataFinal.Mask = "00/00/0000";
+            this.mtDataFinal.Name = "mtDataFinal";
+            this.mtDataFinal.Size = new System.Drawing.Size(89, 26);
+            this.mtDataFinal.TabIndex = 9;
+            this.mtDataFinal.Visible = false;
+            // 
+            // mtDataInicial
+            // 
+            this.mtDataInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mtDataInicial.Location = new System.Drawing.Point(539, 40);
+            this.mtDataInicial.Mask = "00/00/0000";
+            this.mtDataInicial.Name = "mtDataInicial";
+            this.mtDataInicial.Size = new System.Drawing.Size(89, 26);
+            this.mtDataInicial.TabIndex = 11;
+            this.mtDataInicial.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label4.Location = new System.Drawing.Point(634, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(18, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "e";
+            this.label4.Visible = false;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnBuscar.Location = new System.Drawing.Point(600, 71);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(86, 35);
+            this.btnBuscar.TabIndex = 13;
+            this.btnBuscar.Text = "BUSCAR";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Visible = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnData
+            // 
+            this.btnData.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnData.Location = new System.Drawing.Point(579, 43);
+            this.btnData.Name = "btnData";
+            this.btnData.Size = new System.Drawing.Size(126, 48);
+            this.btnData.TabIndex = 14;
+            this.btnData.Text = "ESPECIFICAR DATA";
+            this.btnData.UseVisualStyleBackColor = false;
+            this.btnData.Click += new System.EventHandler(this.btnData_Click);
+            // 
             // RelatorioCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(659, 350);
+            this.ClientSize = new System.Drawing.Size(748, 350);
+            this.Controls.Add(this.dgvCliente);
+            this.Controls.Add(this.btnData);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.cbFiltrosAvancados);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbFiltrosSimples);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.mtDataInicial);
+            this.Controls.Add(this.mtDataFinal);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "RelatorioCliente";
@@ -198,5 +264,10 @@ namespace Augustus_Fashion.View.Relatorios
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fECHARToolStripMenuItem;
+        private System.Windows.Forms.MaskedTextBox mtDataFinal;
+        private System.Windows.Forms.MaskedTextBox mtDataInicial;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnData;
     }
 }
