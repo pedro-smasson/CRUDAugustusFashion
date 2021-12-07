@@ -62,5 +62,10 @@ namespace Augustus_Fashion.Controller
         {
             return FiltrosDAO.EspecificarData(dataInicial, dataFinal);
         }
+
+        public List<FiltrosModel> EspecificarValor(decimal valor1, decimal valor2) 
+        {
+            return FiltrosDAO.EspecificarValor(valor1, valor2);
+        }
     }
 }

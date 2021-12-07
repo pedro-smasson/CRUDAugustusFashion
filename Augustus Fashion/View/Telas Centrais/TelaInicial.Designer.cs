@@ -147,7 +147,7 @@ namespace Augustus_Fashion.View
             this.button1.BackColor = System.Drawing.Color.LightPink;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(0, 1);
+            this.button1.Location = new System.Drawing.Point(616, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(36, 33);
             this.button1.TabIndex = 27;
@@ -173,6 +173,7 @@ namespace Augustus_Fashion.View
             this.Controls.Add(this.pbProduto);
             this.Controls.Add(this.pbCliente);
             this.Controls.Add(this.label9);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "telaInicial";

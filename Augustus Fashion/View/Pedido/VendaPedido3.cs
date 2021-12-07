@@ -20,6 +20,7 @@ namespace Augustus_Fashion.View.Pedido
     {
         ClienteModel _cliente = new ClienteModel();
         ProdutoControl _produtoControl = new ProdutoControl();
+        ClienteControl _clienteControl = new ClienteControl();
         PedidoModel _pedido;
 
         string[] Scopes = { GmailService.Scope.GmailSend };
@@ -31,15 +32,15 @@ namespace Augustus_Fashion.View.Pedido
             _pedido = pedido;
         }
 
-        private bool CalcularSeOCalculoDeLimiteEstaEstouradoOuNao()
-        {
-            if (_cliente.CalcularSeClienteTemLimiteDisponivel() == false)
-            {
-                MessageBox.Show("O valor da compra excede o limite do Cliente!");
-                return false;
-            }
-            return true;
-        }
+        //private bool CalcularSeOCalculoDeLimiteEstaEstouradoOuNao()
+        //{
+        //    if (_clienteControl.Buscar(_cliente.IdPessoa).CalcularSeClienteTemLimiteDisponivel())
+        //    {
+        //        return true;
+        //    }
+        //    MessageBox.Show("Limite estourado!");
+        //    return false;
+        //}
 
         private void VendaPedido3_Load(object sender, EventArgs e)
         {
@@ -77,7 +78,6 @@ namespace Augustus_Fashion.View.Pedido
         {
             var nome = dgvProduto.SelectedRows[0].Cells[1].Value;
             var precovenda = dgvProduto.SelectedRows[0].Cells[2].Value;
-            //var precocusto = dgvProduto.SelectedRows[0].Cells[3].Value;
             var produto = BuscarModelProdutoSelecionado();
 
             txtSelecionado.Text = nome.ToString();
@@ -155,12 +155,15 @@ namespace Augustus_Fashion.View.Pedido
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             _pedido.DataPedido = DateTime.Today;
-            if (ValidarProdutosDoPedido() && Validar() && CalcularSeOCalculoDeLimiteEstaEstouradoOuNao())
+            if (ValidarProdutosDoPedido() && Validar())
             {
-                if (cbFormaDePagamento.Text == "Á Prazo")
-                {
-                    _cliente.LimiteGasto += txtTotalVenda.Text;
-                }
+                //if (CalcularSeOCalculoDeLimiteEstaEstouradoOuNao()) 
+                //{
+                //    if (cbFormaDePagamento.Text == "Á Prazo")
+                //    {
+                //        _cliente.LimiteGasto += txtTotalVenda.Text;
+                //    }           
+                //}
                 CadastrarVenda();
                 EnviarEmail();
 
@@ -270,7 +273,6 @@ namespace Augustus_Fashion.View.Pedido
             return false;
         }
 
-        //ENVIANDO O EMAIL
         public void EnviarEmail()
         {
             UserCredential credencial;
@@ -322,6 +324,27 @@ namespace Augustus_Fashion.View.Pedido
         {
             var data = Encoding.UTF8.GetBytes(input);
             return Convert.ToBase64String(data).Replace("+", "-").Replace("/", "_").Replace("=", "");
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            var index = dgvCarrinho.SelectedRows[0].Index;
+
+            _pedido.Produtos.RemoveAt(index);
+
+            dgvCarrinho.DataSource = null;
+            dgvCarrinho.AutoGenerateColumns = false;
+
+            var source = new BindingSource
+            {
+                DataSource = _pedido.Produtos
+            };
+
+            dgvCarrinho.DataSource = source;
+
+            CalcularLucro();
+            CalcularPrecoLiquido();
+            txtTotalVenda.Text = _pedido.PrecoASerExibidoNoFinal().ToString();
         }
     }
 }

@@ -44,6 +44,10 @@ namespace Augustus_Fashion.View.Relatorios
             this.label4 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnData = new System.Windows.Forms.Button();
+            this.btnValor = new System.Windows.Forms.Button();
+            this.txtValor1 = new System.Windows.Forms.TextBox();
+            this.txtValor2 = new System.Windows.Forms.TextBox();
+            this.btnBuscar2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +62,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(748, 237);
+            this.dgvCliente.Size = new System.Drawing.Size(758, 237);
             this.dgvCliente.TabIndex = 0;
             // 
             // label1
@@ -144,7 +148,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.fECHARToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(748, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(758, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -209,14 +213,59 @@ namespace Augustus_Fashion.View.Relatorios
             // btnData
             // 
             this.btnData.BackColor = System.Drawing.Color.PapayaWhip;
-            this.btnData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnData.Location = new System.Drawing.Point(579, 43);
+            this.btnData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnData.Location = new System.Drawing.Point(650, 48);
             this.btnData.Name = "btnData";
-            this.btnData.Size = new System.Drawing.Size(126, 48);
+            this.btnData.Size = new System.Drawing.Size(107, 43);
             this.btnData.TabIndex = 14;
             this.btnData.Text = "ESPECIFICAR DATA";
             this.btnData.UseVisualStyleBackColor = false;
             this.btnData.Click += new System.EventHandler(this.btnData_Click);
+            // 
+            // btnValor
+            // 
+            this.btnValor.BackColor = System.Drawing.Color.LightYellow;
+            this.btnValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnValor.Location = new System.Drawing.Point(537, 48);
+            this.btnValor.Name = "btnValor";
+            this.btnValor.Size = new System.Drawing.Size(107, 43);
+            this.btnValor.TabIndex = 15;
+            this.btnValor.Text = "ESPECIFICAR VALOR";
+            this.btnValor.UseVisualStyleBackColor = false;
+            this.btnValor.Click += new System.EventHandler(this.btnValor_Click);
+            // 
+            // txtValor1
+            // 
+            this.txtValor1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtValor1.Location = new System.Drawing.Point(539, 41);
+            this.txtValor1.Multiline = true;
+            this.txtValor1.Name = "txtValor1";
+            this.txtValor1.Size = new System.Drawing.Size(89, 25);
+            this.txtValor1.TabIndex = 16;
+            this.txtValor1.Visible = false;
+            // 
+            // txtValor2
+            // 
+            this.txtValor2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtValor2.Location = new System.Drawing.Point(657, 41);
+            this.txtValor2.Multiline = true;
+            this.txtValor2.Name = "txtValor2";
+            this.txtValor2.Size = new System.Drawing.Size(89, 25);
+            this.txtValor2.TabIndex = 17;
+            this.txtValor2.Visible = false;
+            // 
+            // btnBuscar2
+            // 
+            this.btnBuscar2.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnBuscar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnBuscar2.Location = new System.Drawing.Point(600, 72);
+            this.btnBuscar2.Name = "btnBuscar2";
+            this.btnBuscar2.Size = new System.Drawing.Size(86, 35);
+            this.btnBuscar2.TabIndex = 18;
+            this.btnBuscar2.Text = "BUSCAR";
+            this.btnBuscar2.UseVisualStyleBackColor = false;
+            this.btnBuscar2.Visible = false;
+            this.btnBuscar2.Click += new System.EventHandler(this.btnBuscar2_Click);
             // 
             // RelatorioCliente
             // 
@@ -224,9 +273,9 @@ namespace Augustus_Fashion.View.Relatorios
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(748, 350);
-            this.Controls.Add(this.dgvCliente);
+            this.ClientSize = new System.Drawing.Size(758, 350);
             this.Controls.Add(this.btnData);
+            this.Controls.Add(this.btnValor);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.cbFiltrosAvancados);
             this.Controls.Add(this.label2);
@@ -238,6 +287,10 @@ namespace Augustus_Fashion.View.Relatorios
             this.Controls.Add(this.label4);
             this.Controls.Add(this.mtDataInicial);
             this.Controls.Add(this.mtDataFinal);
+            this.Controls.Add(this.dgvCliente);
+            this.Controls.Add(this.txtValor2);
+            this.Controls.Add(this.txtValor1);
+            this.Controls.Add(this.btnBuscar2);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "RelatorioCliente";
@@ -269,5 +322,9 @@ namespace Augustus_Fashion.View.Relatorios
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnData;
+        private System.Windows.Forms.Button btnValor;
+        private System.Windows.Forms.TextBox txtValor1;
+        private System.Windows.Forms.TextBox txtValor2;
+        private System.Windows.Forms.Button btnBuscar2;
     }
 }

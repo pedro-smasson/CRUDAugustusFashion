@@ -8,7 +8,6 @@ namespace Augustus_Fashion.View.Pedido
     public partial class ListagemPedido : Form
     {
         VendaControl _vendaControl = new VendaControl();
-        ListagemVendaModel _listagemVendaModel = new ListagemVendaModel();
 
         public ListagemPedido()
         {
@@ -30,8 +29,8 @@ namespace Augustus_Fashion.View.Pedido
 
         private void buscarId_Click(object sender, EventArgs e)
         {
-            dgvPedido.DataSource = _vendaControl.BuscarLista(txtBuscarNomeFuncionario.Text, txtBuscarNomeCliente.Text);
-            //dgvPedido.DataSource = _vendaControl.BuscarLista(txtBuscarNomeCliente.Text);
+            dgvPedido.DataSource = _vendaControl.BuscarLista(txtBuscarNomeFuncionario.Text,
+            txtBuscarNomeCliente.Text);
 
             if (txtBuscarNomeFuncionario.Text == "%")
             {

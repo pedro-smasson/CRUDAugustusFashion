@@ -46,6 +46,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = false;
                 this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
             else if (cbFiltrosSimples.Text == "Qtde Pedidos Descrescente") 
             {
@@ -55,6 +56,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = false;
                 this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
             else if (cbFiltrosSimples.Text == "Total Liquido Crescente")
             {
@@ -64,6 +66,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = true;
                 this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
             else if (cbFiltrosSimples.Text == "Total Liquido Decrescente")
             {
@@ -73,6 +76,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = true;
                 this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
             else if (cbFiltrosSimples.Text == "Desconto Crescente")
             {
@@ -82,6 +86,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = false;
                 this.dgvCliente.Columns["Desconto"].Visible = true;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
             else if (cbFiltrosSimples.Text == "Desconto Decrescente")
             {
@@ -91,6 +96,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = false;
                 this.dgvCliente.Columns["Desconto"].Visible = true;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
 
             else if (cbFiltrosAvancados.Text == "Clientes que Mais Compraram")
@@ -101,6 +107,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = false;
                 this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
             else if (cbFiltrosAvancados.Text == "Clientes que Menos Compraram")
             {
@@ -110,6 +117,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = false;
                 this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
             else if (cbFiltrosAvancados.Text == "5 Clientes que Mais Gastaram")
             {
@@ -119,6 +127,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = true;
                 this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
             else if (cbFiltrosAvancados.Text == "5 Clientes que Menos Gastaram")
             {
@@ -128,6 +137,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = true;
                 this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
             else if (cbFiltrosAvancados.Text == "5 Clientes que Mais Compraram")
             {
@@ -137,6 +147,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = false;
                 this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
             else if (cbFiltrosAvancados.Text == "5 Clientes que Menos Compraram")
             {
@@ -146,6 +157,7 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Nome"].Visible = true;
                 this.dgvCliente.Columns["TotalGasto"].Visible = false;
                 this.dgvCliente.Columns["Desconto"].Visible = false;
+                this.dgvCliente.Columns["DataPedido"].Visible = false;
             }
         }
 
@@ -178,6 +190,7 @@ namespace Augustus_Fashion.View.Relatorios
         private void btnData_Click(object sender, EventArgs e)
         {
             btnData.Visible = false;
+            btnValor.Visible = false;
             btnBuscar.Visible = true;
             label4.Visible = true;
             mtDataFinal.Visible = true;
@@ -186,7 +199,7 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if(Testes.ValidarDatas(Convert.ToString(mtDataInicial.MaskFull && mtDataFinal.MaskFull))) 
+            if(mtDataInicial.MaskFull && mtDataFinal.MaskFull)
             {
                 dgvCliente.DataSource = _filtrosController.EspecificarData(Convert.ToDateTime(mtDataInicial.Text),
                 Convert.ToDateTime(mtDataFinal.Text));
@@ -195,11 +208,28 @@ namespace Augustus_Fashion.View.Relatorios
                 this.dgvCliente.Columns["Desconto"].Visible = false;
                 this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
             }
+        }
+
+        private void btnValor_Click(object sender, EventArgs e)
+        {
+            btnData.Visible = false;
+            btnValor.Visible = false;
+            txtValor1.Visible = true;
+            txtValor2.Visible = true;
+            label4.Visible = true;
+            btnBuscar2.Visible = true;
+        }
+
+        private void btnBuscar2_Click(object sender, EventArgs e)
+        {
+            if(Testes.ValidarNumeric(txtValor1.Text) && Testes.ValidarNumeric(txtValor2.Text)) 
+            {
+                dgvCliente.DataSource = _filtrosController.EspecificarValor(Convert.ToDecimal(txtValor1.Text),
+                Convert.ToDecimal(txtValor2.Text));
+            }
             else 
             {
-                MessageBox.Show("Insira uma Data válida!");
-                mtDataInicial.Text = "";
-                mtDataFinal.Text = "";
+                MessageBox.Show("Informe apenas Números!");
             }
         }
     }

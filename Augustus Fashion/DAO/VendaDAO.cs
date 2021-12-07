@@ -78,7 +78,7 @@ namespace Augustus_Fashion.DAO
             where IdVenda = @IdVenda";
 
             var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)
-            values (@IdPedido, @IdProduto, @PrecoLiquido, @QuantidadeProduto, @Desconto, @PrecoFinal)";
+            values (@IdPedido, @IdProduto, @PrecoLiquidoTotal, @QuantidadeProduto, @Desconto, @PrecoFinal)";
 
             var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProduto where IdProduto = @IdProduto";
 
@@ -148,7 +148,8 @@ namespace Augustus_Fashion.DAO
         public static List<PedidoProdutoModel> BuscarProdutos(int id)
         {
             var query = @"select p.Nome as NomeProduto, ped.TotalBruto as PrecoBruto, ped.TotalLiquido as
-            PrecoLiquido, v.Total as PrecoFinal, v.QuantidadeProduto, v.Desconto from Venda v
+            PrecoLiquido, v.Total as PrecoLiquidoTotal, v.QuantidadeProduto, v.Desconto
+            from Venda v
             inner join Produto as p on v.IdProduto = p.IdProduto
             inner join Pedido as ped on ped.IdPedido = v.IdPedido
             where v.IdPedido = @IdPedido";

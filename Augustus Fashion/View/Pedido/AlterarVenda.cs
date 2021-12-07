@@ -57,20 +57,17 @@ namespace Augustus_Fashion.View.Pedido
 
         private void btnAdicionar_Click(object sender, System.EventArgs e)
         {
-
-            PedidoProdutoModel produtoPedido = new PedidoProdutoModel();
-
-            produtoPedido.IdProduto = Convert.ToInt32(lblIdProduto.Text);
-            produtoPedido.NomeProduto = txtSelecionado.Text;
-            produtoPedido.DescontoUnitario = Dinheiro.RemoverFormatacao(txtDesconto.Text);
-            produtoPedido.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
-            produtoPedido.PrecoBrutoUnitario = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text);
-            produtoPedido.PrecoCustoUnitario = Dinheiro.RemoverFormatacao(txtPrecoCusto.Text);
+            PedidoProdutoModel produtoPedido = new PedidoProdutoModel
+            {
+                IdProduto = Convert.ToInt32(lblIdProduto.Text),
+                NomeProduto = txtSelecionado.Text,
+                DescontoUnitario = Dinheiro.RemoverFormatacao(txtDesconto.Text),
+                QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value),
+                PrecoBrutoUnitario = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text),
+                PrecoCustoUnitario = Dinheiro.RemoverFormatacao(txtPrecoCusto.Text)
+            };
 
             _pedido.AdicionarProduto(produtoPedido);
-
-            dgvCarrinho.DataSource = null;  
-            dgvCarrinho.AutoGenerateColumns = false;
 
             var source = new BindingSource
             {
