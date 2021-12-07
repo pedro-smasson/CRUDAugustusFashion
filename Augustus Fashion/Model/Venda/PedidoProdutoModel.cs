@@ -22,16 +22,16 @@ namespace Augustus_Fashion.Model.Venda
         public Dinheiro DescontoUnitario { get; set; }
 
         public Dinheiro PrecoBrutoUnitario { get; set; }
-        public Dinheiro PrecoBrutoTotal { get => PrecoBrutoUnitario.RetornarValorEmDecimal() * QuantidadeProduto; }
+        public Dinheiro PrecoBrutoTotal { get => PrecoBrutoUnitario.RetornarValorEmDecimal() * QuantidadeProduto; set { } } 
         
 
         public Dinheiro PrecoLiquidoUnitario
         { 
-            get => PrecoBrutoUnitario.RetornarValorEmDecimal() - DescontoUnitario.RetornarValorEmDecimal();
+            get => PrecoBrutoUnitario.RetornarValorEmDecimal(); set { }
         }
         public Dinheiro PrecoLiquidoTotal
         {
-            get => (PrecoLiquidoUnitario.RetornarValorEmDecimal() * QuantidadeProduto);
+            get => (PrecoLiquidoUnitario.RetornarValorEmDecimal() * QuantidadeProduto); set { }
         }
 
     }

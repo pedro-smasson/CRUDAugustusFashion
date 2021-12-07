@@ -135,10 +135,6 @@ namespace Augustus_Fashion.View.Pedido
 
         private void AlterarVenda_Load(object sender, EventArgs e)
         {
-            //dgvCarrinho.Rows[0].Cells[0].Value = _pedido.IdPedido;
-            //dgvCarrinho.Columns["IdPedido"].Visible = false;
-            //dgvCarrinho.DataSource = _pedido.Produtos;
-
             dgvProduto.DataSource = _produtoControl.ListarProduto;
             dgvProduto.Columns["PrecoCusto"].Visible = false;
 
@@ -206,7 +202,6 @@ namespace Augustus_Fashion.View.Pedido
             this.Close();
         }
 
-        //LAMBDAS
         public int SelecionarValorEstoque() => (int)dgvProduto.SelectedRows[0].Cells[4].Value;
         private void CalcularLucro() => txtLucro.Text = _pedido.Lucro.ToString();
 
@@ -215,5 +210,26 @@ namespace Augustus_Fashion.View.Pedido
         private void txtDesconto_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
 
         private void btnVoltar_Click(object sender, EventArgs e) => this.DialogResult = DialogResult.OK;
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            var index = dgvCarrinho.SelectedRows[0].Index;
+
+            _pedido.Produtos.RemoveAt(index);
+
+            dgvCarrinho.DataSource = null;
+            dgvCarrinho.AutoGenerateColumns = false;
+
+            var source = new BindingSource
+            {
+                DataSource = _pedido.Produtos
+            };
+
+            dgvCarrinho.DataSource = source;
+
+            CalcularLucro();
+            CalcularPrecoLiquido();
+            txtTotalVenda.Text = _pedido.PrecoASerExibidoNoFinal().ToString();
+        }
     }
 }
