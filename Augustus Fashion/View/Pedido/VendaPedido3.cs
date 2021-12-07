@@ -18,9 +18,7 @@ namespace Augustus_Fashion.View.Pedido
 {
     public partial class VendaPedido3 : Form
     {
-        ClienteModel _cliente = new ClienteModel();
         ProdutoControl _produtoControl = new ProdutoControl();
-        ClienteControl _clienteControl = new ClienteControl();
         PedidoModel _pedido;
 
         string[] Scopes = { GmailService.Scope.GmailSend };
@@ -31,16 +29,6 @@ namespace Augustus_Fashion.View.Pedido
             InitializeComponent();
             _pedido = pedido;
         }
-
-        //private bool CalcularSeOCalculoDeLimiteEstaEstouradoOuNao()
-        //{
-        //    if (_clienteControl.Buscar(_cliente.IdPessoa).CalcularSeClienteTemLimiteDisponivel())
-        //    {
-        //        return true;
-        //    }
-        //    MessageBox.Show("Limite estourado!");
-        //    return false;
-        //}
 
         private void VendaPedido3_Load(object sender, EventArgs e)
         {
@@ -157,13 +145,6 @@ namespace Augustus_Fashion.View.Pedido
             _pedido.DataPedido = DateTime.Today;
             if (ValidarProdutosDoPedido() && Validar())
             {
-                //if (CalcularSeOCalculoDeLimiteEstaEstouradoOuNao()) 
-                //{
-                //    if (cbFormaDePagamento.Text == "Á Prazo")
-                //    {
-                //        _cliente.LimiteGasto += txtTotalVenda.Text;
-                //    }           
-                //}
                 CadastrarVenda();
                 EnviarEmail();
 
@@ -297,7 +278,7 @@ namespace Augustus_Fashion.View.Pedido
                 string mensagem =
                 $"To: {ClienteControl.BuscarCliente(_pedido.IdCliente).Email}\r\n" +
                 $"Subject: {"A Augustus Fashion agradece!"}\r\n" +
-                $"Content-Type: text/html;charset=utf-8\r\n\r\n<h1>{"Seu Pedido:"}</h1><ol>";
+                $"Content-Type: text/html;charset=utf-8\r\n\r\n<h1>{$"Olá, {ClienteControl.BuscarCliente(_pedido.IdCliente).Nome}! Obrigado pela preferência :D<br><br> Seu Pedido feito em {_pedido.DataPedido.Day}/{_pedido.DataPedido.Month} de {_pedido.DataPedido.Year}, é o seguinte:"}</h1><ol>";
 
                 mensagem += "<table border=\"1\"> <tr> <th> Nome </th> <th >Quantidade </th> <th> Preço Unitário </th> <th> Preço Total </th> </tr>";
 
