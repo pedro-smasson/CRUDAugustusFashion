@@ -216,8 +216,6 @@ namespace Augustus_Fashion.View.Pedido
             var index = dgvCarrinho.SelectedRows[0].Index;
 
             _pedido.Produtos.RemoveAt(index);
-
-            dgvCarrinho.DataSource = null;
             dgvCarrinho.AutoGenerateColumns = false;
 
             var source = new BindingSource
