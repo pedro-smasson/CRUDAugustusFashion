@@ -301,7 +301,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosVendaProdutoModel> ProdutoComMaiorEstoque()
+        public static List<FiltrosVendaProdutoModel.Produto> ProdutoComMaiorEstoque()
         {
             var query = @"select IdProduto, Nome, Estoque, Fabricante from Produto where IdProduto = IdProduto
             group by IdProduto, Nome, Estoque, Fabricante order by Estoque desc";
@@ -311,7 +311,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listagem = conexao.Query<FiltrosVendaProdutoModel>(query).ToList();
+                    var listagem = conexao.Query<FiltrosVendaProdutoModel.Produto>(query).ToList();
                     return listagem;
                 }
             }
@@ -321,7 +321,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosVendaProdutoModel> ProdutoComMenorEstoque()
+        public static List<FiltrosVendaProdutoModel.Produto> ProdutoComMenorEstoque()
         {
             var query = @"select IdProduto, Nome, Estoque, Fabricante from Produto where IdProduto = IdProduto
             group by IdProduto, Nome, Estoque, Fabricante order by Estoque asc";
@@ -331,7 +331,89 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listagem = conexao.Query<FiltrosVendaProdutoModel>(query).ToList();
+                    var listagem = conexao.Query<FiltrosVendaProdutoModel.Produto>(query).ToList();
+                    return listagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosVendaProdutoModel.Venda> VendasMaisRentaveis() 
+        {
+            var query = @"select IdPedido, PrecoFinal, Lucro, DataPedido from Pedido where IdPedido = IdPedido
+            group by IdPedido, PrecoFinal, Lucro, DataPedido order by Lucro desc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listagem = conexao.Query<FiltrosVendaProdutoModel.Venda>(query).ToList();
+                    return listagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosVendaProdutoModel.Venda> VendasMenosRentaveis()
+        {
+            var query = @"select IdPedido, PrecoFinal, Lucro, DataPedido from Pedido where IdPedido = IdPedido
+            group by IdPedido, PrecoFinal, Lucro, DataPedido order by Lucro asc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listagem = conexao.Query<FiltrosVendaProdutoModel.Venda>(query).ToList();
+                    return listagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosVendaProdutoModel.Especifico> ProdutosMaisVendidos()
+        {
+            var query = @"select p.IdProduto, p.Nome, Sum(v.QuantidadeProduto) as Quantidade from Produto p 
+            inner join Venda v on v.idProduto = p.IdProduto
+            group by p.IdProduto, p.Nome order by Sum(v.QuantidadeProduto) desc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listagem = conexao.Query<FiltrosVendaProdutoModel.Especifico>(query).ToList();
+                    return listagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosVendaProdutoModel.Especifico> ProdutosMenosVendidos()
+        {
+            var query = @"select p.IdProduto, p.Nome, Sum(v.QuantidadeProduto) as Quantidade from Produto p 
+            inner join Venda v on v.idProduto = p.IdProduto
+            group by p.IdProduto, p.Nome order by Sum(v.QuantidadeProduto) asc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listagem = conexao.Query<FiltrosVendaProdutoModel.Especifico>(query).ToList();
                     return listagem;
                 }
             }

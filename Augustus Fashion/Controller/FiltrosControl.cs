@@ -69,14 +69,34 @@ namespace Augustus_Fashion.Controller
             return FiltrosDAO.EspecificarValor(valor1, valor2);
         }
 
-        public List<FiltrosVendaProdutoModel> ProdutoComMaiorEstoque()
+        public List<FiltrosVendaProdutoModel.Produto> ProdutoComMaiorEstoque()
         {
             return FiltrosDAO.ProdutoComMaiorEstoque();
         }
 
-        public List<FiltrosVendaProdutoModel> ProdutoComMenorEstoque()
+        public List<FiltrosVendaProdutoModel.Produto> ProdutoComMenorEstoque()
         {
             return FiltrosDAO.ProdutoComMenorEstoque();
+        }
+
+        public List<FiltrosVendaProdutoModel.Venda> VendasMaisRentaveis() 
+        {
+            return FiltrosDAO.VendasMaisRentaveis();
+        }
+
+        public List<FiltrosVendaProdutoModel.Venda> VendasMenosRentaveis()
+        {
+            return FiltrosDAO.VendasMenosRentaveis();
+        }
+
+        public List<FiltrosVendaProdutoModel.Especifico> ProdutosMaisVendidos() 
+        {
+            return FiltrosDAO.ProdutosMaisVendidos();
+        }
+
+        public List<FiltrosVendaProdutoModel.Especifico> ProdutosMenosVendidos()
+        {
+            return FiltrosDAO.ProdutosMenosVendidos();
         }
     }
 }

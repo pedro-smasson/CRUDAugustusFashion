@@ -1,6 +1,7 @@
 ﻿using Augustus_Fashion.Controller;
 using Augustus_Fashion.Model;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.View.Relatorios
@@ -52,13 +53,23 @@ namespace Augustus_Fashion.View.Relatorios
         private void QualFiltroEstaSelecionado() 
         {
             if(cbFiltrosSimples.Text == "Produtos com Maior Estoque") 
-            {
                 dgvVenda.DataSource = _filtrosController.ProdutoComMaiorEstoque();
-            }
+
             else if(cbFiltrosSimples.Text == "Produtos com Menor Estoque")
-            {
                 dgvVenda.DataSource = _filtrosController.ProdutoComMenorEstoque();
-            }
+
+            else if(cbFiltrosSimples.Text == "Vendas Mais Rentáveis") 
+                dgvVenda.DataSource = _filtrosController.VendasMaisRentaveis();
+
+            else if (cbFiltrosSimples.Text == "Vendas Menos Rentáveis")
+                dgvVenda.DataSource = _filtrosController.VendasMenosRentaveis();
+
+            else if(cbFiltrosSimples.Text == "Produtos Mais Vendidos")
+                dgvVenda.DataSource = _filtrosController.ProdutosMaisVendidos();
+
+            else if (cbFiltrosSimples.Text == "Produtos Menos Vendidos")
+                dgvVenda.DataSource = _filtrosController.ProdutosMenosVendidos();
+
         }
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
