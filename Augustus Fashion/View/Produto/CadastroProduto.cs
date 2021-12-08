@@ -69,7 +69,7 @@ namespace Augustus_Fashion.View
                 MessageBox.Show("Informe um Nome válido!");
                 return false;
             }
-            else if (!Testes.ValidarString(fabricanteProduto.Text))
+            else if (!Testes.ValidarFabricante(fabricanteProduto.Text))
             {
                 MessageBox.Show("Informe um Fabricante válido!");
                 return false;

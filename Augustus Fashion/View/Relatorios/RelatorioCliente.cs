@@ -172,6 +172,8 @@ namespace Augustus_Fashion.View.Relatorios
             cbFiltrosSimples.SelectedItem = null;
             mtDataInicial.Text = "";
             mtDataFinal.Text = "";
+            txtValor1.Text = "";
+            txtValor2.Text = "";
         }
 
         private void fECHARToolStripMenuItem_Click(object sender, EventArgs e)

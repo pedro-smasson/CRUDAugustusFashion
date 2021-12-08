@@ -34,5 +34,8 @@ namespace Augustus_Fashion.Model
 
         public static bool ValidarDesconto(this decimal valor) =>
             new Regex(@"^[0-9]{1,2}$").Match(Convert.ToString(valor)).Success;
+
+        public static bool ValidarFabricante(this string valor) =>
+            new Regex(@"^[a-zA-ZÀ-úÀ-ÿ\s\W]+$").Match(valor).Success;
     }
 }

@@ -69,18 +69,20 @@ namespace Augustus_Fashion.DAO
         public static void AlterarVenda(PedidoModel pedido)
         {
             var queryPedido = @"update Pedido set IdFuncionario = @IdFuncionario, IdCliente = @IdCliente,
-            TotalBruto = @PrecoBruto, TotalLiquido = @PrecoLiquido, Desconto = @TotalDesconto, PrecoFinal = @PrecoTotal,
-            FormaDePagamento = @FormaDePagamento, QuantidadeProduto = @QuantidadeProduto, Lucro = @Lucro
+            TotalBruto = @PrecoBrutoTotalDoPedido, TotalLiquido = @PrecoLiquidoTotalDoPedido, Desconto = @DescontoTotalDoPedido,
+            PrecoFinal = @PrecoTotal, FormaDePagamento = @FormaDePagamento, QuantidadeProduto = @QuantidadeProdutoTotalDoPedido,
+            Lucro = @Lucro
             where IdPedido = @IdPedido";
 
             var queryVendaJaExistente = @"update Venda set IdPedido = @IdPedido, IdProduto = @IdProduto, 
-            PrecoVenda = @PrecoLiquido, QuantidadeProduto = @QuantidadeProduto, Desconto = @Desconto, Total = @PrecoFinal
+            PrecoVenda = @PrecoLiquidoUnitario, QuantidadeProduto = @QuantidadeProduto, Desconto = @DescontoUnitario,
+            Total = @PrecoLiquidoTotal
             where IdVenda = @IdVenda";
 
             var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)
             values (@IdPedido, @IdProduto, @PrecoLiquidoTotal, @QuantidadeProduto, @Desconto, @PrecoFinal)";
 
-            var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProduto where IdProduto = @IdProduto";
+            var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProdutoTotalDoPedido where IdProduto = @IdProduto";
 
             try
             {
@@ -94,12 +96,12 @@ namespace Augustus_Fashion.DAO
                             IdPedido = pedido.IdPedido,
                             IdFuncionario = pedido.IdFuncionario,
                             IdCliente = pedido.IdCliente,
-                            PrecoBruto = pedido.PrecoBrutoTotalDoPedido.RetornarValorEmDecimal(),
-                            PrecoLiquido = pedido.PrecoLiquidoTotalDoPedido.RetornarValorEmDecimal(),
-                            TotalDesconto = pedido.DescontoTotalDoPedido.RetornarValorEmDecimal(),
+                            PrecoBrutoTotalDoPedido = pedido.PrecoBrutoTotalDoPedido.RetornarValorEmDecimal(),
+                            PrecoLiquidoTotalDoPedido = pedido.PrecoLiquidoTotalDoPedido.RetornarValorEmDecimal(),
+                            DescontoTotalDoPedido = pedido.DescontoTotalDoPedido.RetornarValorEmDecimal(),
                             PrecoTotal = pedido.PrecoTotal.RetornarValorEmDecimal(),
                             FormaDePagamento = pedido.FormaDePagamento,
-                            QuantidadeProduto = pedido.QuantidadeProdutoTotalDoPedido,
+                            QuantidadeProdutoTotalDoPedido = pedido.QuantidadeProdutoTotalDoPedido,
                             Lucro = pedido.Lucro.RetornarValorEmDecimal(),
                         }, transacao);
 
@@ -110,11 +112,11 @@ namespace Augustus_Fashion.DAO
                                 carrinho.IdPedido = pedido.IdPedido;
                                 conexao.Execute(queryVenda, new
                                 {
-                                    carrinho.IdVenda,
-                                    carrinho.IdPedido,
-                                    carrinho.IdProduto,
-                                    PrecoLiquido = carrinho.PrecoLiquidoUnitario.RetornarValorEmDecimal(),
-                                    carrinho.QuantidadeProduto,
+                                    IdPedido = carrinho.IdPedido,
+                                    IdProduto = carrinho.IdProduto,
+                                    IdVenda = carrinho.IdVenda,
+                                    PrecoLiquidoTotal = carrinho.PrecoLiquidoUnitario.RetornarValorEmDecimal(),
+                                    QuantidadeProduto = carrinho.QuantidadeProduto,
                                     Desconto = carrinho.DescontoUnitario.RetornarValorEmDecimal(),
                                     PrecoFinal = carrinho.PrecoLiquidoTotal.RetornarValorEmDecimal(),
                                 }, transacao);
@@ -123,10 +125,10 @@ namespace Augustus_Fashion.DAO
                             else
                             {
                                 conexao.Execute(queryVendaJaExistente, new
-                                {
-                                    carrinho.IdVenda,
+                                {                           
                                     carrinho.IdPedido,
                                     carrinho.IdProduto,
+                                    carrinho.IdVenda,
                                     PrecoLiquido = carrinho.PrecoLiquidoUnitario.RetornarValorEmDecimal(),
                                     carrinho.QuantidadeProduto,
                                     Desconto = carrinho.DescontoUnitario.RetornarValorEmDecimal(),
