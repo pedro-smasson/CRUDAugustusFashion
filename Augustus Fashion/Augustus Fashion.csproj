@@ -313,6 +313,9 @@
     <EmbeddedResource Include="View\Relatorios\RelatorioCliente.resx">
       <DependentUpon>RelatorioCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorios\RelatorioVenda.resx">
+      <DependentUpon>RelatorioVenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Telas Centrais\TelaCliente.resx">
       <DependentUpon>TelaCliente.cs</DependentUpon>
     </EmbeddedResource>

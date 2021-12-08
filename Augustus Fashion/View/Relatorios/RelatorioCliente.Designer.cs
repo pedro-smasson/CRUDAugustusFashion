@@ -295,7 +295,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.MaximizeBox = false;
             this.Name = "RelatorioCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RelatorioCliente";
+            this.Text = "Augustus Fashion - Relatório de Clientes";
             this.Load += new System.EventHandler(this.RelatorioCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.menuStrip1.ResumeLayout(false);

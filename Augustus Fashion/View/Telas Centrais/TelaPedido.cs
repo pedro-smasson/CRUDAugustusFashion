@@ -42,5 +42,13 @@ namespace Augustus_Fashion.View.Telas_Centrais
             relatorioCliente.ShowDialog();
             Close();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            RelatorioVenda relatorioVenda = new RelatorioVenda();
+            relatorioVenda.ShowDialog();
+            Close();
+        }
     }
 }
