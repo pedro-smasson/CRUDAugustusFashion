@@ -7,7 +7,8 @@ namespace Augustus_Fashion.View.Relatorios
 {
     public partial class RelatorioVenda : Form
     {
-        VendaControl _pedidoController = new VendaControl();
+        ProdutoControl _produtoController = new ProdutoControl();
+        FiltrosControl _filtrosController = new FiltrosControl();
 
         public RelatorioVenda()
         {
@@ -45,7 +46,29 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void RelatorioVenda_Load(object sender, EventArgs e)
         {
-            dgvVenda.DataSource = _pedidoController.ListarPedidos();
+            dgvVenda.DataSource = _produtoController.ListarProduto;
+        }
+
+        private void QualFiltroEstaSelecionado() 
+        {
+            if(cbFiltrosSimples.Text == "Produtos com Maior Estoque") 
+            {
+                dgvVenda.DataSource = _filtrosController.ProdutoComMaiorEstoque();
+            }
+            else if(cbFiltrosSimples.Text == "Produtos com Menor Estoque")
+            {
+                dgvVenda.DataSource = _filtrosController.ProdutoComMenorEstoque();
+            }
+        }
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            QualFiltroEstaSelecionado();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            cbFiltrosSimples.SelectedItem = null;
+            cbFiltrosAvancados.SelectedItem = null;
         }
     }
 }

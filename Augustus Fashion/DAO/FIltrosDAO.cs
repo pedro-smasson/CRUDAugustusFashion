@@ -9,7 +9,7 @@ namespace Augustus_Fashion.DAO
     class FiltrosDAO
     {
 
-        public static List<FiltrosModel> QuantidadeDePedidosCrescente()
+        public static List<FiltrosClienteModel> QuantidadeDePedidosCrescente()
         {
             var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos, c.IdCliente
             from Pedido p
@@ -23,7 +23,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query);
+                    var listar = conexao.Query<FiltrosClienteModel>(query);
                     return listar.ToList();
                 }
             }
@@ -33,7 +33,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> QuantidadeDePedidosDecrescente()
+        public static List<FiltrosClienteModel> QuantidadeDePedidosDecrescente()
         {
             var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos, c.IdCliente
             from Pedido p
@@ -47,7 +47,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query);
+                    var listar = conexao.Query<FiltrosClienteModel>(query);
                     return listar.ToList();
                 }
             }
@@ -57,7 +57,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> TotalLiquidoCrescente()
+        public static List<FiltrosClienteModel> TotalLiquidoCrescente()
         {
             var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, c.IdCliente
             from Pedido p
@@ -71,7 +71,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query);
+                    var listar = conexao.Query<FiltrosClienteModel>(query);
                     return listar.ToList();
                 }
             }
@@ -81,7 +81,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> TotalLiquidoDecrescente()
+        public static List<FiltrosClienteModel> TotalLiquidoDecrescente()
         {
             var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, c.IdCliente
             from Pedido p
@@ -95,7 +95,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query);
+                    var listar = conexao.Query<FiltrosClienteModel>(query);
                     return listar.ToList();
                 }
             }
@@ -105,7 +105,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> DescontoCrescente()
+        public static List<FiltrosClienteModel> DescontoCrescente()
         {
             var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos,
             Sum(p.Desconto) as Desconto, c.IdCliente
@@ -120,7 +120,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query);
+                    var listar = conexao.Query<FiltrosClienteModel>(query);
                     return listar.ToList();
                 }
             }
@@ -130,7 +130,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> DescontoDecrescente()
+        public static List<FiltrosClienteModel> DescontoDecrescente()
         {
             var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos,
             Sum(p.Desconto) as Desconto, c.IdCliente
@@ -145,7 +145,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query);
+                    var listar = conexao.Query<FiltrosClienteModel>(query);
                     return listar.ToList();
                 }
             }
@@ -155,7 +155,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> Top5ClientesQueMaisGastaram()
+        public static List<FiltrosClienteModel> Top5ClientesQueMaisGastaram()
         {
             var query = @"select top 5 pec.Nome, Sum(p.PrecoFinal) as TotalGasto, c.IdCliente
 			from Pedido p
@@ -169,7 +169,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query);
+                    var listar = conexao.Query<FiltrosClienteModel>(query);
                     return listar.ToList();
                 }
             }
@@ -179,7 +179,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> Top5ClientesQueMenosGastaram()
+        public static List<FiltrosClienteModel> Top5ClientesQueMenosGastaram()
         {
             var query = @"select top 5 pec.Nome, Sum(p.PrecoFinal) as TotalGasto, c.IdCliente
 			from Pedido p
@@ -193,7 +193,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query);
+                    var listar = conexao.Query<FiltrosClienteModel>(query);
                     return listar.ToList();
                 }
             }
@@ -203,7 +203,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> Top5ClientesQueMaisCompraram()
+        public static List<FiltrosClienteModel> Top5ClientesQueMaisCompraram()
         {
             var query = @"select top 5 pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos, c.IdCliente
             from Pedido p
@@ -217,7 +217,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query);
+                    var listar = conexao.Query<FiltrosClienteModel>(query);
                     return listar.ToList();
                 }
             }
@@ -227,7 +227,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> Top5ClientesQueMenosCompraram()
+        public static List<FiltrosClienteModel> Top5ClientesQueMenosCompraram()
         {
             var query = @"select top 5 pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos, c.IdCliente
             from Pedido p
@@ -241,7 +241,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query);
+                    var listar = conexao.Query<FiltrosClienteModel>(query);
                     return listar.ToList();
                 }
             }
@@ -251,7 +251,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> EspecificarData(DateTime dataInicial, DateTime dataFinal)
+        public static List<FiltrosClienteModel> EspecificarData(DateTime dataInicial, DateTime dataFinal)
         {
             var query = @"select pec.Nome, Sum(p.PrecoFinal) as TotalGasto, Count(p.IdPedido) as NumeroDePedidos,
             p.DataPedido
@@ -266,7 +266,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query, new {dataInicial = dataInicial.ToString("dd/MM/yyyy"),
+                    var listar = conexao.Query<FiltrosClienteModel>(query, new {dataInicial = dataInicial.ToString("dd/MM/yyyy"),
                         dataFinal = dataFinal.ToString("dd/MM/yyyy")});
                     return listar.ToList();
                 }
@@ -277,7 +277,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<FiltrosModel> EspecificarValor(decimal valor1, decimal valor2) 
+        public static List<FiltrosClienteModel> EspecificarValor(decimal valor1, decimal valor2) 
         {
             var query = @"select pec.Nome, p.PrecoFinal as TotalGasto, p.IdPedido as NumeroDePedidos, p.DataPedido
             from Pedido p
@@ -291,11 +291,51 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection()) 
                 {
                     conexao.Open();
-                    var listar = conexao.Query<FiltrosModel>(query, new { valor1 = valor1, valor2 = valor2});
+                    var listar = conexao.Query<FiltrosClienteModel>(query, new { valor1 = valor1, valor2 = valor2});
                     return listar.ToList();
                 }
             }
             catch(Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosVendaProdutoModel> ProdutoComMaiorEstoque()
+        {
+            var query = @"select IdProduto, Nome, Estoque, Fabricante from Produto where IdProduto = IdProduto
+            group by IdProduto, Nome, Estoque, Fabricante order by Estoque desc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listagem = conexao.Query<FiltrosVendaProdutoModel>(query).ToList();
+                    return listagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosVendaProdutoModel> ProdutoComMenorEstoque()
+        {
+            var query = @"select IdProduto, Nome, Estoque, Fabricante from Produto where IdProduto = IdProduto
+            group by IdProduto, Nome, Estoque, Fabricante order by Estoque asc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listagem = conexao.Query<FiltrosVendaProdutoModel>(query).ToList();
+                    return listagem;
+                }
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

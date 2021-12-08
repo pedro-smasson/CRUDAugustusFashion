@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Augustus_Fashion.Model
 {
-    class FiltrosModel
+    class FiltrosClienteModel
     {
         public int IdCliente { get; set; }
         public string Nome { get; set; }

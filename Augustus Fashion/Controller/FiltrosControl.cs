@@ -1,5 +1,6 @@
 ﻿using Augustus_Fashion.DAO;
 using Augustus_Fashion.Model;
+using Augustus_Fashion.Model.Funcionário;
 using Augustus_Fashion.Model.Venda;
 using System;
 using System.Collections.Generic;
@@ -8,64 +9,74 @@ namespace Augustus_Fashion.Controller
 {
     class FiltrosControl
     {
-        public List<FiltrosModel> QuantidadeDePedidosCrescente()
+        public List<FiltrosClienteModel> QuantidadeDePedidosCrescente()
         {
             return FiltrosDAO.QuantidadeDePedidosCrescente();
         }
 
-        public List<FiltrosModel> QuantidadeDePedidosDecrescente()
+        public List<FiltrosClienteModel> QuantidadeDePedidosDecrescente()
         {
             return FiltrosDAO.QuantidadeDePedidosDecrescente();
         }
 
-        public List<FiltrosModel> TotalLiquidoCrescente() 
+        public List<FiltrosClienteModel> TotalLiquidoCrescente() 
         {
             return FiltrosDAO.TotalLiquidoCrescente();
         }
 
-        public List<FiltrosModel> TotalLiquidoDecrescente() 
+        public List<FiltrosClienteModel> TotalLiquidoDecrescente() 
         {
             return FiltrosDAO.TotalLiquidoDecrescente();
         }
 
-        public List<FiltrosModel> DescontoCrescente()
+        public List<FiltrosClienteModel> DescontoCrescente()
         {
             return FiltrosDAO.DescontoCrescente();
         }
 
-        public List<FiltrosModel> DescontoDecrescente()
+        public List<FiltrosClienteModel> DescontoDecrescente()
         {
             return FiltrosDAO.DescontoDecrescente();
         }
 
-        public List<FiltrosModel> Top5ClientesQueMaisGastaram() 
+        public List<FiltrosClienteModel> Top5ClientesQueMaisGastaram() 
         {
             return FiltrosDAO.Top5ClientesQueMaisGastaram();
         }
 
-        public List<FiltrosModel> Top5ClientesQueMenosGastaram()
+        public List<FiltrosClienteModel> Top5ClientesQueMenosGastaram()
         {
             return FiltrosDAO.Top5ClientesQueMenosGastaram();
         }
 
-        public List<FiltrosModel> Top5ClientesQueMaisCompraram()
+        public List<FiltrosClienteModel> Top5ClientesQueMaisCompraram()
         {
             return FiltrosDAO.Top5ClientesQueMaisCompraram();
         }
 
-        public List<FiltrosModel> Top5ClientesQueMenosCompraram()
+        public List<FiltrosClienteModel> Top5ClientesQueMenosCompraram()
         {
             return FiltrosDAO.Top5ClientesQueMenosCompraram();
         }
 
-        public List<FiltrosModel> EspecificarData(DateTime dataInicial, DateTime dataFinal) 
+        public List<FiltrosClienteModel> EspecificarData(DateTime dataInicial, DateTime dataFinal) 
         {
             return FiltrosDAO.EspecificarData(dataInicial, dataFinal);
         }
 
-        public List<FiltrosModel> EspecificarValor(decimal valor1, decimal valor2) 
+        public List<FiltrosClienteModel> EspecificarValor(decimal valor1, decimal valor2) 
         {
             return FiltrosDAO.EspecificarValor(valor1, valor2);
+        }
+
+        public List<FiltrosVendaProdutoModel> ProdutoComMaiorEstoque()
+        {
+            return FiltrosDAO.ProdutoComMaiorEstoque();
+        }
+
+        public List<FiltrosVendaProdutoModel> ProdutoComMenorEstoque()
+        {
+            return FiltrosDAO.ProdutoComMenorEstoque();
         }
     }
 }

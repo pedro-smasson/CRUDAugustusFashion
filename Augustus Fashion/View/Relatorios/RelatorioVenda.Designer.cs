@@ -143,6 +143,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.btnLimpar.TabIndex = 13;
             this.btnLimpar.Text = "LIMPAR";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnFiltrar
             // 
@@ -154,6 +155,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.btnFiltrar.TabIndex = 12;
             this.btnFiltrar.Text = "FILTRAR";
             this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // RelatorioVenda
             // 
