@@ -422,5 +422,47 @@ namespace Augustus_Fashion.DAO
                 throw new Exception(ex.Message);
             }
         }
+
+        public static List<FiltrosVendaProdutoModel.Produto> Os5ProdutosMaisVendidos()
+        {
+            var query = @"select top 5 p.IdProduto, p.Nome, p.Fabricante, Sum(v.Total) as Total from Produto p 
+            inner join Venda v on v.idProduto = p.IdProduto
+            group by p.IdProduto, p.Nome, p.Fabricante order by Sum(v.Total) desc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listagem = conexao.Query<FiltrosVendaProdutoModel.Produto>(query).ToList();
+                    return listagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static List<FiltrosVendaProdutoModel.Produto> Os5ProdutosMenosVendidos()
+        {
+            var query = @"select top 5 p.IdProduto, p.Nome, p.Fabricante, Sum(v.Total) as Total from Produto p 
+            inner join Venda v on v.idProduto = p.IdProduto
+            group by p.IdProduto, p.Nome, p.Fabricante order by Sum(v.Total) asc";
+
+            try
+            {
+                using (var conexao = new conexao().Connection())
+                {
+                    conexao.Open();
+                    var listagem = conexao.Query<FiltrosVendaProdutoModel.Produto>(query).ToList();
+                    return listagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

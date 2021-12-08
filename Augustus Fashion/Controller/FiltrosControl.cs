@@ -98,5 +98,15 @@ namespace Augustus_Fashion.Controller
         {
             return FiltrosDAO.ProdutosMenosVendidos();
         }
+
+        public List<FiltrosVendaProdutoModel.Produto> Os5ProdutosMaisVendidos() 
+        {
+            return FiltrosDAO.Os5ProdutosMaisVendidos();
+        }
+
+        public List<FiltrosVendaProdutoModel.Produto> Os5ProdutosMenosVendidos()
+        {
+            return FiltrosDAO.Os5ProdutosMenosVendidos();
+        }
     }
 }

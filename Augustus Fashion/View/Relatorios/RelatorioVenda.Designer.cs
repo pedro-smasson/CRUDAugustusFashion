@@ -62,10 +62,8 @@ namespace Augustus_Fashion.View.Relatorios
             this.cbFiltrosAvancados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbFiltrosAvancados.FormattingEnabled = true;
             this.cbFiltrosAvancados.Items.AddRange(new object[] {
-            "5 Produtos Mais Lucrativos",
-            "5 Produtos Menos Lucrativos",
-            "5 Vendas Mais Lucrativas",
-            "5 Vendas Menos Lucrativas"});
+            "5 Produtos Mais Vendidos (R$)",
+            "5 Produtos Menos Vendidos (R$)"});
             this.cbFiltrosAvancados.Location = new System.Drawing.Point(157, 79);
             this.cbFiltrosAvancados.Name = "cbFiltrosAvancados";
             this.cbFiltrosAvancados.Size = new System.Drawing.Size(254, 28);

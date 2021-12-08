@@ -11,6 +11,7 @@ namespace Augustus_Fashion.Model
             public int Estoque { get; set; }
             public string Nome { get; set; }
             public string Fabricante { get; set; }
+            public Dinheiro Total { get; set; }
         }
 
         public class Venda 
