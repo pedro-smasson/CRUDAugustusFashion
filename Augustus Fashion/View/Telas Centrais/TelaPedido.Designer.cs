@@ -89,11 +89,11 @@ namespace Augustus_Fashion.View.Telas_Centrais
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label4.Location = new System.Drawing.Point(23, 440);
+            this.label4.Location = new System.Drawing.Point(12, 440);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(189, 24);
+            this.label4.Size = new System.Drawing.Size(216, 24);
             this.label4.TabIndex = 31;
-            this.label4.Text = "RELATÓRIO VENDA";
+            this.label4.Text = "RELATÓRIO PRODUTO";
             // 
             // pictureBox1
             // 
