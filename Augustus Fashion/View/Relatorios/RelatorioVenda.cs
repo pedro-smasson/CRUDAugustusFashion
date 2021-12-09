@@ -9,12 +9,11 @@ namespace Augustus_Fashion.View.Relatorios
     {
         ProdutoControl _produtoController;
         FiltrosControl _filtrosController;
-        FiltrosProdutoModel _filtrosModel;
+        FiltrosProdutoModel _filtrosModel = new FiltrosProdutoModel();
 
         public RelatorioVenda()
         {
             InitializeComponent();
-           _filtrosModel = new FiltrosProdutoModel();
             _filtrosController = new FiltrosControl();
             _produtoController = new ProdutoControl();
         }
@@ -39,7 +38,7 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void FiltrosPreenchidos()
         {
-            _filtrosModel.IdCliente = Convert.ToInt32(txtIdCliente.Text);
+            _filtrosModel.IdProduto = int.TryParse(txtIdProduto.Text, out int excecao) ? excecao : 0;
             _filtrosModel.NomeProduto = txtNomeProduto.Text;
             _filtrosModel.DataInicial = dtpDataInicial.Value;
             _filtrosModel.DataFinal = dtpDataFinal.Value;
@@ -49,12 +48,13 @@ namespace Augustus_Fashion.View.Relatorios
         {
             FiltrosPreenchidos();
             dgvVenda.DataSource = _filtrosController.QueryFiltragemProduto(_filtrosModel);
+
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-           txtIdCliente.Text = "";
-           txtIdCliente.Text = "";
+           txtIdProduto.Text = "";
+           txtIdProduto.Text = "";
         }
     }
 }

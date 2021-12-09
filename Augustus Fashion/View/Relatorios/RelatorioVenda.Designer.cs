@@ -37,7 +37,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.fECHARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
+            this.txtIdProduto = new System.Windows.Forms.TextBox();
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.dtpDataInicial = new System.Windows.Forms.DateTimePicker();
             this.dtpDataFinal = new System.Windows.Forms.DateTimePicker();
@@ -51,7 +51,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             // dgvVenda
             // 
-            this.dgvVenda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVenda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvVenda.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVenda.GridColor = System.Drawing.SystemColors.Control;
@@ -78,9 +78,9 @@ namespace Augustus_Fashion.View.Relatorios
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.Location = new System.Drawing.Point(578, 236);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 20);
+            this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 7;
-            this.label1.Text = "IdCliente:";
+            this.label1.Text = "IdProduto:";
             // 
             // menuStrip1
             // 
@@ -131,13 +131,13 @@ namespace Augustus_Fashion.View.Relatorios
             this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
-            // txtIdCliente
+            // txtIdProduto
             // 
-            this.txtIdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtIdCliente.Location = new System.Drawing.Point(582, 259);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(154, 26);
-            this.txtIdCliente.TabIndex = 14;
+            this.txtIdProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtIdProduto.Location = new System.Drawing.Point(582, 259);
+            this.txtIdProduto.Name = "txtIdProduto";
+            this.txtIdProduto.Size = new System.Drawing.Size(154, 26);
+            this.txtIdProduto.TabIndex = 14;
             // 
             // txtNomeProduto
             // 
@@ -218,7 +218,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.Controls.Add(this.dtpDataFinal);
             this.Controls.Add(this.dtpDataInicial);
             this.Controls.Add(this.txtNomeProduto);
-            this.Controls.Add(this.txtIdCliente);
+            this.Controls.Add(this.txtIdProduto);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.menuStrip1);
@@ -248,7 +248,7 @@ namespace Augustus_Fashion.View.Relatorios
         private System.Windows.Forms.ToolStripMenuItem fECHARToolStripMenuItem;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.TextBox txtIdProduto;
         private System.Windows.Forms.TextBox txtNomeProduto;
         private System.Windows.Forms.DateTimePicker dtpDataInicial;
         private System.Windows.Forms.DateTimePicker dtpDataFinal;
