@@ -11,7 +11,7 @@ namespace TestProject1
         {
             string nome = "teste";
 
-            var variavel = Testes.ValidarString(nome);
+            var variavel = Validacoes.ValidarString(nome);
 
             Assert.IsTrue(variavel);
         }
@@ -21,7 +21,7 @@ namespace TestProject1
         [DataRow("56454", false)]
         public void validar_se_campo_so_contem_letras(string a, bool resultado)
         {
-            Assert.AreEqual(Testes.ValidarString(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarString(a), resultado);
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace TestProject1
         {
             string numero = "1";
 
-            var variavel = Testes.ValidarNumeric(numero);
+            var variavel = Validacoes.ValidarNumeric(numero);
 
             Assert.IsTrue(variavel);
         }
@@ -39,7 +39,7 @@ namespace TestProject1
         [DataRow("teste", false)]
         public void validar_se_campo_so_contem_numeros(string a, bool resultado)
         {
-            Assert.AreEqual(Testes.ValidarNumeric(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarNumeric(a), resultado);
         }
 
         [TestMethod]
@@ -47,7 +47,7 @@ namespace TestProject1
         {
             string cpf = "176.789.789-82";
 
-            var variavel = Testes.ValidarCpf(cpf);
+            var variavel = Validacoes.ValidarCpf(cpf);
 
             Assert.IsTrue(variavel);
         }
@@ -59,7 +59,7 @@ namespace TestProject1
         [DataRow("@-,/", false)]
         public void validar_se_cpf_eh_valido_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.ValidarCpf(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarCpf(a), resultado);
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@ namespace TestProject1
         {
             string email = "teste@teste.com";
 
-            var variavel = Testes.ValidarEmail(email);
+            var variavel = Validacoes.ValidarEmail(email);
 
             Assert.IsTrue(variavel);
         }
@@ -80,7 +80,7 @@ namespace TestProject1
         [DataRow("?!#%", false)]
         public void validar_se_email_eh_valido_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.ValidarEmail(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarEmail(a), resultado);
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@ namespace TestProject1
         {
             string data = "24/10/2077";
 
-            var variavel = Testes.ValidarDatas(data);
+            var variavel = Validacoes.ValidarDatas(data);
 
             Assert.IsTrue(variavel);
         }
@@ -104,7 +104,7 @@ namespace TestProject1
         [DataRow("22/0h2/20577", false)]
         public void validar_se_data_de_nasc_eh_valida_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.ValidarDatas(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarDatas(a), resultado);
         }
 
         [TestMethod]
@@ -112,7 +112,7 @@ namespace TestProject1
         {
             string campo = "teste 7";
 
-            var variavel = Testes.ValidarStringENumeric(campo);
+            var variavel = Validacoes.ValidarStringENumeric(campo);
 
             Assert.IsTrue(variavel);
         }
@@ -124,7 +124,7 @@ namespace TestProject1
         [DataRow("@#$%!*&", false)]
         public void validar_se_campo_string_e_numeric_eh_valido_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.ValidarStringENumeric(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarStringENumeric(a), resultado);
         }
 
         [TestMethod]
@@ -132,7 +132,7 @@ namespace TestProject1
         {
             string cep = "15706402";
 
-            var variavel = Testes.ValidarCep(cep);
+            var variavel = Validacoes.ValidarCep(cep);
 
             Assert.IsTrue(variavel);
         }
@@ -145,7 +145,7 @@ namespace TestProject1
 
         public void validar_se_cep_eh_valido_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.ValidarCep(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarCep(a), resultado);
         }
 
         [TestMethod]
@@ -153,7 +153,7 @@ namespace TestProject1
         {
             string comissao = "10%";
 
-            var variavel = Testes.ValidarComissao(comissao);
+            var variavel = Validacoes.ValidarComissao(comissao);
 
             Assert.IsTrue(variavel);
         }
@@ -165,7 +165,7 @@ namespace TestProject1
         [DataRow("gdfgdf", false)]
         public void validar_se_comissao_eh_valida_ou_nao(string a, bool resultado) 
         {
-            Assert.AreEqual(Testes.ValidarComissao(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarComissao(a), resultado);
         }
 
         [TestMethod]
@@ -173,7 +173,7 @@ namespace TestProject1
         {
             string celular = "17996331695";
 
-            var variavel = Testes.ValidarCelular(celular);
+            var variavel = Validacoes.ValidarCelular(celular);
 
             Assert.IsTrue(variavel);
         }
@@ -184,7 +184,7 @@ namespace TestProject1
         [DataRow("uifdhuigd", false)]
         public void validar_se_celular_eh_valido_ou_nao(string a, bool resultado)
         {
-            Assert.AreEqual(Testes.ValidarCelular(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarCelular(a), resultado);
         }
 
         [DataTestMethod]
@@ -194,7 +194,7 @@ namespace TestProject1
 
         public void validar_se_desconto_eh_valido_ou_nao(decimal a, bool resultado) 
         {
-            Assert.AreEqual(Testes.ValidarDesconto(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarDesconto(a), resultado);
         }
     }
 }

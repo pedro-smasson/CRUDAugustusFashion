@@ -28,8 +28,8 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<RelatorioProdutosModel>(query, new 
-                    { 
+                    var listar = conexao.Query<RelatorioProdutosModel>(query, new
+                    {
                         IdProduto = filtrosProdutoModel.IdProduto,
                         DataInicial = filtrosProdutoModel.DataInicial.Date,
                         DataFinal = filtrosProdutoModel.DataFinal.Date,

@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Augustus_Fashion.Model
 {
-    public static class Testes
+    public static class Validacoes
     {
         public static bool ValidarString(this string valor) => 
             new Regex(@"^[a-zA-ZÀ-úÀ-ÿ\s]+$").Match(valor).Success;
@@ -37,5 +37,11 @@ namespace Augustus_Fashion.Model
 
         public static bool ValidarFabricante(this string valor) =>
             new Regex(@"^[a-zA-ZÀ-úÀ-ÿ\s\W]+$").Match(valor).Success;
+
+        public static bool VerificarSeDataInicialEhMaiorQueDataFinal(DateTime input1,
+            DateTime input2) => DateTime.Compare(input1, input2) > 0;
+
+        //public static bool VerificarSeDataFinalEhMaiorQueHoje(DateTime input) =>
+        //    DateTime.Compare(input, DateTime.Today) > 0;
     }
 }

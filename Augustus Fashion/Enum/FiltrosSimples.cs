@@ -6,7 +6,7 @@ namespace Augustus_Fashion.Enum
     {
         [Description("order by ")]
         ProdutoMaisVendido,
-        [Description("")]
+        [Description("order by ")]
         ProdutoMenosVendido,
         [Description("order by Estoque asc")]
         MaiorEstoque,

@@ -185,25 +185,25 @@ namespace Augustus_Fashion.View
         private bool Validar()
         {
 
-            if (!Testes.ValidarString(nomeFuncionario.Text))
+            if (!Validacoes.ValidarString(nomeFuncionario.Text))
             {
                 MessageBox.Show("Nome inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarEmail(emailFuncionario.Text))
+            else if (!Validacoes.ValidarEmail(emailFuncionario.Text))
             {
                 MessageBox.Show("Email inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarDatas(datanascFuncionario.Text))
+            else if (!Validacoes.ValidarDatas(datanascFuncionario.Text))
             {
                 MessageBox.Show("Data de Nascimento inválida");
                 return false;
             }
 
-            else if (!Testes.ValidarCpf(cpfFuncionario.Text))
+            else if (!Validacoes.ValidarCpf(cpfFuncionario.Text))
             {
                 MessageBox.Show("CPF inválido");
                 return false;
@@ -215,37 +215,37 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!Testes.ValidarStringENumeric(ruaFuncionario.Text))
+            else if (!Validacoes.ValidarStringENumeric(ruaFuncionario.Text))
             {
                 MessageBox.Show("Rua inválida");
                 return false;
             }
 
-            else if (!Testes.ValidarString(bairroFuncionario.Text))
+            else if (!Validacoes.ValidarString(bairroFuncionario.Text))
             {
                 MessageBox.Show("Bairro inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarCep(cepFuncionario.Text))
+            else if (!Validacoes.ValidarCep(cepFuncionario.Text))
             {
                 MessageBox.Show("CEP inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarNumeric(numeroFuncionario.Text))
+            else if (!Validacoes.ValidarNumeric(numeroFuncionario.Text))
             {
                 MessageBox.Show("Número inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarCelular(celularFuncionario.Text))
+            else if (!Validacoes.ValidarCelular(celularFuncionario.Text))
             {
                 MessageBox.Show("Celular inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarString(cidadeFuncionario.Text))
+            else if (!Validacoes.ValidarString(cidadeFuncionario.Text))
             {
                 MessageBox.Show("Cidade inválida");
                 return false;
@@ -257,31 +257,31 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!Testes.ValidarNumeric(salarioFuncionario.Text))
+            else if (!Validacoes.ValidarNumeric(salarioFuncionario.Text))
             {
                 MessageBox.Show("Salário inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarComissao(comissaoFuncionario.Text))
+            else if (!Validacoes.ValidarComissao(comissaoFuncionario.Text))
             {
                 MessageBox.Show("Comissão inválida");
                 return false;
             }
 
-            else if (!Testes.ValidarNumeric(agenciaFuncionario.Text))
+            else if (!Validacoes.ValidarNumeric(agenciaFuncionario.Text))
             {
                 MessageBox.Show("Agência inválida");
                 return false;
             }
 
-            else if (!Testes.ValidarNumeric(numContaFuncionario.Text))
+            else if (!Validacoes.ValidarNumeric(numContaFuncionario.Text))
             {
                 MessageBox.Show("Número da Conta inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarNumeric(codContaFuncionario.Text))
+            else if (!Validacoes.ValidarNumeric(codContaFuncionario.Text))
             {
                 MessageBox.Show("Código da Conta inválido");
                 return false;

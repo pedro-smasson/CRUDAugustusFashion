@@ -212,7 +212,7 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void btnBuscar2_Click(object sender, EventArgs e)
         {
-            if(Testes.ValidarNumeric(txtValor1.Text) && Testes.ValidarNumeric(txtValor2.Text)) 
+            if(Validacoes.ValidarNumeric(txtValor1.Text) && Validacoes.ValidarNumeric(txtValor2.Text)) 
             {
                 //dgvCliente.DataSource = _filtrosController.EspecificarValor(Convert.ToDecimal(txtValor1.Text),
                 //Convert.ToDecimal(txtValor2.Text));

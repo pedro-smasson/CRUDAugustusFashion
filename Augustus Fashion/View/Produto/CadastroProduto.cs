@@ -49,32 +49,32 @@ namespace Augustus_Fashion.View
 
         private bool Validar() 
         {
-            if (!Testes.ValidarNumeric(codBarrasProduto.Text))
+            if (!Validacoes.ValidarNumeric(codBarrasProduto.Text))
             {
                 MessageBox.Show("Informe um Código de Barras válido!");
                 return false;
             }
-            else if (!Testes.ValidarNumeric(precoVendaProduto.Text))
+            else if (!Validacoes.ValidarNumeric(precoVendaProduto.Text))
             {
                 MessageBox.Show("Informe um Preço de Venda válido!");
                 return false;
             }
-            else if (!Testes.ValidarNumeric(precoCustoProduto.Text))
+            else if (!Validacoes.ValidarNumeric(precoCustoProduto.Text))
             {
                 MessageBox.Show("Informe um Preço de Custo válido!");
                 return false;
             }
-            else if (!Testes.ValidarString(nomeProduto.Text))
+            else if (!Validacoes.ValidarString(nomeProduto.Text))
             {
                 MessageBox.Show("Informe um Nome válido!");
                 return false;
             }
-            else if (!Testes.ValidarFabricante(fabricanteProduto.Text))
+            else if (!Validacoes.ValidarFabricante(fabricanteProduto.Text))
             {
                 MessageBox.Show("Informe um Fabricante válido!");
                 return false;
             }
-            else if (!Testes.ValidarNumeric(estoqueProduto.Text))
+            else if (!Validacoes.ValidarNumeric(estoqueProduto.Text))
             {
                 MessageBox.Show("Informe uma quantidade de Estoque válida!");
                 return false;

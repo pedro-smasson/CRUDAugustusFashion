@@ -46,15 +46,22 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            FiltrosPreenchidos();
-            dgvVenda.DataSource = _filtrosController.QueryFiltragemProduto(_filtrosModel);
-
+            if (!Validacoes.VerificarSeDataInicialEhMaiorQueDataFinal(dtpDataInicial.Value, dtpDataFinal.Value))
+            {
+                FiltrosPreenchidos();
+                dgvVenda.DataSource = _filtrosController.QueryFiltragemProduto(_filtrosModel);
+            }
+            else
+            {
+                MessageBox.Show("A Data Inicial é maior que a Data Final!", "Erro!");
+                dtpDataInicial.Value = DateTime.Today;
+            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-           txtIdProduto.Text = "";
-           txtIdProduto.Text = "";
+            txtIdProduto.Text = "";
+            txtIdProduto.Text = "";
         }
     }
 }

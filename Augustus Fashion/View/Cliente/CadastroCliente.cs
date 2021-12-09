@@ -108,25 +108,25 @@ namespace Augustus_Fashion
         private bool Validar()
         {
             
-            if (!Testes.ValidarString(nomeCliente.Text))
+            if (!Validacoes.ValidarString(nomeCliente.Text))
             {
                 MessageBox.Show("Nome inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarEmail(emailCliente.Text))
+            else if (!Validacoes.ValidarEmail(emailCliente.Text))
             {
                 MessageBox.Show("Email inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarDatas(datanascCliente.Text))
+            else if (!Validacoes.ValidarDatas(datanascCliente.Text))
             {
                 MessageBox.Show("Data de Nascimento inválida");
                 return false;
             }
             
-            else if (!Testes.ValidarCpf(cpfCliente.Text))
+            else if (!Validacoes.ValidarCpf(cpfCliente.Text))
             {
                 //MessageBox.Show(validarCpf.Errors.FirstOrDefault().ToString());
                 MessageBox.Show("CPF inválido");
@@ -139,38 +139,38 @@ namespace Augustus_Fashion
                 return false;
             }
 
-            else if (!Testes.ValidarStringENumeric(ruaCliente.Text))
+            else if (!Validacoes.ValidarStringENumeric(ruaCliente.Text))
             {
                 MessageBox.Show("Rua inválida");
                 return false;
             }
 
-            else if (!Testes.ValidarString(bairroCliente.Text))
+            else if (!Validacoes.ValidarString(bairroCliente.Text))
             {
                 MessageBox.Show("Bairro inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarCep(cepCliente.Text))
+            else if (!Validacoes.ValidarCep(cepCliente.Text))
             {
                 //MessageBox.Show(validarCep.Errors.FirstOrDefault().ToString());
                 MessageBox.Show("CEP inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarNumeric(numeroCliente.Text))
+            else if (!Validacoes.ValidarNumeric(numeroCliente.Text))
             {
                 MessageBox.Show("Número inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarCelular(celularCliente.Text))
+            else if (!Validacoes.ValidarCelular(celularCliente.Text))
             {
                 MessageBox.Show("Celular inválido");
                 return false;
             }
 
-            else if (!Testes.ValidarString(cidadeCliente.Text))
+            else if (!Validacoes.ValidarString(cidadeCliente.Text))
             {
                 MessageBox.Show("Cidade inválida");
                 return false;
@@ -182,7 +182,7 @@ namespace Augustus_Fashion
                 return false;
             }
 
-            else if (!Testes.ValidarNumeric(valorLimiteCliente.Text))
+            else if (!Validacoes.ValidarNumeric(valorLimiteCliente.Text))
             {
                 MessageBox.Show("Valor limite inválido");
                 return false;

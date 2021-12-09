@@ -95,22 +95,22 @@ namespace Augustus_Fashion.View.Pedido
 
         private bool Validar()
         {
-            if (!Testes.ValidarDesconto(Convert.ToDecimal(txtDesconto.Text)))
+            if (!Validacoes.ValidarDesconto(Convert.ToDecimal(txtDesconto.Text)))
             {
                 MessageBox.Show("Desconto Inválido!");
                 return false;
             }
-            if (!Testes.ValidarNumeric(txtLucro.Text))
+            if (!Validacoes.ValidarNumeric(txtLucro.Text))
             {
                 MessageBox.Show("Lucro Inválido!");
                 return false;
             }
-            if (!Testes.ValidarNumeric(txtPrecoLiquido.Text))
+            if (!Validacoes.ValidarNumeric(txtPrecoLiquido.Text))
             {
                 MessageBox.Show("Preço Líquido Inválido!");
                 return false;
             }
-            if (!Testes.ValidarNumeric(txtTotalVenda.Text))
+            if (!Validacoes.ValidarNumeric(txtTotalVenda.Text))
             {
                 MessageBox.Show("Total de Venda Inválido!");
                 return false;
