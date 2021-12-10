@@ -105,8 +105,8 @@
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
-    <Compile Include="Enum\EnumFiltrarPor.cs" />
-    <Compile Include="Enum\EnumOrdenarPor.cs" />
+    <Compile Include="Enums\EnumFiltrarPor.cs" />
+    <Compile Include="Enums\EnumOrdenarPor.cs" />
     <Compile Include="FluentValidation\CEPValidation.cs" />
     <Compile Include="FluentValidation\ClienteValidation.cs" />
     <Compile Include="FluentValidation\CPFValidation.cs" />

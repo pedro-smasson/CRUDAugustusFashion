@@ -43,5 +43,42 @@ namespace Augustus_Fashion.DAO
                 throw new Exception(ex.Message);
             }
         }
+
+        public static List<RelatorioClienteModel> QueryFiltragemClientes(FiltrosClienteModel filtrosClienteModel) 
+        {
+            var query = @"select c.IdPessoa, pec.Nome, Count(p.IdPedido) as NumeroDePedidos, Sum(p.TotalBruto) as TotalBruto,
+            Sum(p.Desconto) as TotalDesconto, Sum(p.PrecoFinal) as TotalGasto
+            from Pedido p
+            inner join Cliente c on c.IdCliente = p.IdCliente
+            inner join Pessoa pec on pec.IdPessoa = c.IdPessoa
+            where c.IdCliente = p.IdCliente
+            group by c.IdPessoa, pec.Nome";
+
+            query += filtrosClienteModel.OrderBy();
+            query += filtrosClienteModel.Having();
+            query += filtrosClienteModel.OrdemCrescenteOuDecrescente();
+            query += filtrosClienteModel.Select();
+
+            try 
+            {
+                using (var conexao = new conexao().Connection()) 
+                {
+                    conexao.Open();
+                    var listar = conexao.Query<RelatorioClienteModel>(query, new 
+                    {
+                        IdCliente = filtrosClienteModel.IdCliente,
+                        DataInicial = filtrosClienteModel.DataInicial,
+                        DataFinal = filtrosClienteModel.DataFinal,
+                        Nome = filtrosClienteModel.Nome,
+
+                    });
+                    return listar.ToList();
+                }
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

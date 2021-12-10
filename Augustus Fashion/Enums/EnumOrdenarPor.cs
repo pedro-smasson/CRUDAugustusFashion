@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Augustus_Fashion.Enum
+namespace Augustus_Fashion.Enums
 {
     public enum EnumOrdenarPor
     {
