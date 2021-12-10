@@ -50,7 +50,7 @@ namespace Augustus_Fashion.View
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cambria", 28F);
-            this.label9.ForeColor = System.Drawing.Color.Blue;
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(50)))), ((int)(((byte)(255)))));
             this.label9.Location = new System.Drawing.Point(167, 13);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(314, 44);
@@ -161,7 +161,7 @@ namespace Augustus_Fashion.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(652, 266);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);

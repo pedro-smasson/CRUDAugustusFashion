@@ -10,13 +10,15 @@ namespace Augustus_Fashion.Model
     {
         public int IdCliente { get; set; }
         public string Nome { get; set; }
-        public EnumOrdenarPor OrdenarPor { get; set; }
-        public decimal APartir { get; set; }
-        public EnumFiltrarPor FiltrarPor { get; set; }
-        public string Ordem { get; set; }
-        public int QuantidadeClientes { get; set; }
         public DateTime DataInicial { get; set; }
         public DateTime DataFinal { get; set; }
+        public decimal APartir { get; set; }
+        public string Ordem { get; set; }
+        public int QuantidadeClientes { get; set; }
+        //public int OrdenarPorIndex { get; set; }
+        //public int FiltrarPorIndex { get; set; }
+        public EnumOrdenarPor OrdenarPor { get; set; }
+        public EnumFiltrarPor FiltrarPor { get; set; }
 
         public string OrderBy() => GetEnumDescription(OrdenarPor);
 
@@ -40,12 +42,12 @@ namespace Augustus_Fashion.Model
             return input;
         }
 
-        public string Select() 
+        public string Top() 
         {
             if (QuantidadeClientes != 0)
-                return " select top " + QuantidadeClientes;
+                return " top (@QuantidadeClientes)";
 
-            return " select ";
+            return " ";
         }
 
         public static string GetEnumDescription<T>(T valor) where T : Enum

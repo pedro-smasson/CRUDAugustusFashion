@@ -9,6 +9,7 @@ namespace Augustus_Fashion.View.Relatorios
     {
         ClienteControl _clienteController = new ClienteControl();
         FiltrosControl _filtrosController = new FiltrosControl();
+        FiltrosClienteModel _filtrosModel = new FiltrosClienteModel();
 
         public RelatorioCliente()
         {
@@ -39,11 +40,25 @@ namespace Augustus_Fashion.View.Relatorios
         private void FiltrosPreenchidos() 
         {
 
+
+            _filtrosModel.OrdenarPor = (Enums.EnumOrdenarPor)cbOrdenarPor.SelectedIndex;
+            _filtrosModel.FiltrarPor = (Enums.EnumFiltrarPor)cbFiltrarPor.SelectedIndex;
+
+            _filtrosModel.DataInicial = dtpDataInicial.Value;
+            _filtrosModel.DataFinal = dtpDataFinal.Value;
+
+            _filtrosModel.Ordem = cbCrescenteOuDecrescente.Text;
+            _filtrosModel.QuantidadeClientes = dudCliente.SelectedIndex;
+            _filtrosModel.APartir = dudValorInicial.SelectedIndex;
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            FiltrosPreenchidos();
+            if(!Validacoes.VerificarSeDataInicialEhMaiorQueDataFinal(dtpDataInicial.Value, dtpDataFinal.Value)) 
+            {
+                FiltrosPreenchidos();
+                dgvCliente.DataSource = _filtrosController.QueryFiltragemCliente(_filtrosModel);
+            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)

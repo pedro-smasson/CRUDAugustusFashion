@@ -42,7 +42,7 @@ namespace Augustus_Fashion.View.Produto
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip1.BackColor = System.Drawing.Color.MediumPurple;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hOMEToolStripMenuItem,
             this.FecharToolStripMenuItem});
@@ -101,7 +101,7 @@ namespace Augustus_Fashion.View.Produto
             this.dgvProduto.AllowUserToDeleteRows = false;
             this.dgvProduto.AllowUserToResizeColumns = false;
             this.dgvProduto.AllowUserToResizeRows = false;
-            this.dgvProduto.BackgroundColor = System.Drawing.Color.LavenderBlush;
+            this.dgvProduto.BackgroundColor = System.Drawing.Color.White;
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduto.Location = new System.Drawing.Point(0, 82);
             this.dgvProduto.Name = "dgvProduto";
@@ -116,7 +116,7 @@ namespace Augustus_Fashion.View.Produto
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(632, 296);
             this.Controls.Add(this.dgvProduto);
             this.Controls.Add(this.txtNome);
