@@ -15,8 +15,6 @@ namespace Augustus_Fashion.Model
         public decimal APartir { get; set; }
         public string Ordem { get; set; }
         public int QuantidadeClientes { get; set; }
-        //public int OrdenarPorIndex { get; set; }
-        //public int FiltrarPorIndex { get; set; }
         public EnumOrdenarPor OrdenarPor { get; set; }
         public EnumFiltrarPor FiltrarPor { get; set; }
 
@@ -45,7 +43,7 @@ namespace Augustus_Fashion.Model
         public string Top() 
         {
             if (QuantidadeClientes != 0)
-                return " top (@QuantidadeClientes)";
+                return " top (@QuantidadeClientes) ";
 
             return " ";
         }

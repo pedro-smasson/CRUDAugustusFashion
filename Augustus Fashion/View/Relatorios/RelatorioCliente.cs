@@ -39,8 +39,6 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void FiltrosPreenchidos() 
         {
-
-
             _filtrosModel.OrdenarPor = (Enums.EnumOrdenarPor)cbOrdenarPor.SelectedIndex;
             _filtrosModel.FiltrarPor = (Enums.EnumFiltrarPor)cbFiltrarPor.SelectedIndex;
 
@@ -48,17 +46,15 @@ namespace Augustus_Fashion.View.Relatorios
             _filtrosModel.DataFinal = dtpDataFinal.Value;
 
             _filtrosModel.Ordem = cbCrescenteOuDecrescente.Text;
-            _filtrosModel.QuantidadeClientes = dudCliente.SelectedIndex;
-            _filtrosModel.APartir = dudValorInicial.SelectedIndex;
+            _filtrosModel.QuantidadeClientes = (int)nudCliente.Value;
+            _filtrosModel.APartir = nudValorInicial.Value;
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            if(!Validacoes.VerificarSeDataInicialEhMaiorQueDataFinal(dtpDataInicial.Value, dtpDataFinal.Value)) 
-            {
-                FiltrosPreenchidos();
-                dgvCliente.DataSource = _filtrosController.QueryFiltragemCliente(_filtrosModel);
-            }
+            FiltrosPreenchidos();
+            dgvCliente.DataSource = _filtrosController.QueryFiltragemCliente(_filtrosModel);
+            dgvCliente.Columns["IdCliente"].Visible = false;
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -78,51 +74,5 @@ namespace Augustus_Fashion.View.Relatorios
             telaInicial.ShowDialog();
             this.Close();
         }
-
-        private void btnData_Click(object sender, EventArgs e)
-        {
-            //btnData.Visible = false;
-            //btnValor.Visible = false;
-            //btnBuscar.Visible = true;
-            //label4.Visible = true;
-            //mtDataFinal.Visible = true;
-            //mtDataInicial.Visible = true;
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            //if (mtDataInicial.MaskFull && mtDataFinal.MaskFull)
-            //{
-            //    //dgvCliente.DataSource = _filtrosController.EspecificarData(Convert.ToDateTime(mtDataInicial.Text),
-            //    //Convert.ToDateTime(mtDataFinal.Text));
-
-            //    this.dgvCliente.Columns["IdCliente"].Visible = false;
-            //    this.dgvCliente.Columns["Desconto"].Visible = false;
-            //    this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
-            //}
-        }
-
-        //private void btnValor_Click(object sender, EventArgs e)
-        //{
-        //    btnData.Visible = false;
-        //    btnValor.Visible = false;
-        //    txtValor1.Visible = true;
-        //    txtValor2.Visible = true;
-        //    label4.Visible = true;
-        //    btnBuscar2.Visible = true;
-        //}
-
-        //private void btnBuscar2_Click(object sender, EventArgs e)
-        //{
-        //    if (Validacoes.ValidarNumeric(txtValor1.Text) && Validacoes.ValidarNumeric(txtValor2.Text))
-        //    {
-        //        //dgvCliente.DataSource = _filtrosController.EspecificarValor(Convert.ToDecimal(txtValor1.Text),
-        //        //Convert.ToDecimal(txtValor2.Text));
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Informe apenas Números!");
-        //    }
-        //}
     }
 }

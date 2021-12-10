@@ -29,7 +29,6 @@ namespace Augustus_Fashion.View.Relatorios
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.cbOrdenarPor = new System.Windows.Forms.ComboBox();
@@ -40,7 +39,6 @@ namespace Augustus_Fashion.View.Relatorios
             this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fECHARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
-            this.dudValorInicial = new System.Windows.Forms.DomainUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpDataFinal = new System.Windows.Forms.DateTimePicker();
@@ -49,24 +47,15 @@ namespace Augustus_Fashion.View.Relatorios
             this.cbCrescenteOuDecrescente = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dudCliente = new System.Windows.Forms.DomainUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
+            this.nudValorInicial = new System.Windows.Forms.NumericUpDown();
+            this.nudCliente = new System.Windows.Forms.NumericUpDown();
+            this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudValorInicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvCliente
-            // 
-            this.dgvCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCliente.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCliente.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvCliente.Location = new System.Drawing.Point(25, 140);
-            this.dgvCliente.Name = "dgvCliente";
-            this.dgvCliente.ReadOnly = true;
-            this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(517, 391);
-            this.dgvCliente.TabIndex = 0;
             // 
             // label1
             // 
@@ -176,14 +165,6 @@ namespace Augustus_Fashion.View.Relatorios
             this.label6.TabIndex = 19;
             this.label6.Text = "Relatórios de Clientes";
             // 
-            // dudValorInicial
-            // 
-            this.dudValorInicial.Location = new System.Drawing.Point(573, 324);
-            this.dudValorInicial.Name = "dudValorInicial";
-            this.dudValorInicial.Size = new System.Drawing.Size(154, 20);
-            this.dudValorInicial.TabIndex = 20;
-            this.dudValorInicial.Text = "0";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -267,14 +248,6 @@ namespace Augustus_Fashion.View.Relatorios
             this.label8.TabIndex = 2;
             this.label8.Text = "Qtd Clientes:";
             // 
-            // dudCliente
-            // 
-            this.dudCliente.Location = new System.Drawing.Point(573, 443);
-            this.dudCliente.Name = "dudCliente";
-            this.dudCliente.Size = new System.Drawing.Size(154, 20);
-            this.dudCliente.TabIndex = 20;
-            this.dudCliente.Text = "0";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -285,6 +258,35 @@ namespace Augustus_Fashion.View.Relatorios
             this.label9.TabIndex = 19;
             this.label9.Text = "Filtros";
             // 
+            // nudValorInicial
+            // 
+            this.nudValorInicial.Location = new System.Drawing.Point(571, 324);
+            this.nudValorInicial.Name = "nudValorInicial";
+            this.nudValorInicial.Size = new System.Drawing.Size(156, 20);
+            this.nudValorInicial.TabIndex = 25;
+            // 
+            // nudCliente
+            // 
+            this.nudCliente.Location = new System.Drawing.Point(573, 443);
+            this.nudCliente.Name = "nudCliente";
+            this.nudCliente.Size = new System.Drawing.Size(154, 20);
+            this.nudCliente.TabIndex = 26;
+            // 
+            // dgvCliente
+            // 
+            this.dgvCliente.AllowUserToResizeColumns = false;
+            this.dgvCliente.AllowUserToResizeRows = false;
+            this.dgvCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCliente.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCliente.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvCliente.Location = new System.Drawing.Point(35, 139);
+            this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.ReadOnly = true;
+            this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCliente.Size = new System.Drawing.Size(515, 388);
+            this.dgvCliente.TabIndex = 27;
+            // 
             // RelatorioCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,12 +294,13 @@ namespace Augustus_Fashion.View.Relatorios
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.dgvCliente);
+            this.Controls.Add(this.nudCliente);
+            this.Controls.Add(this.nudValorInicial);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpDataFinal);
             this.Controls.Add(this.dtpDataInicial);
-            this.Controls.Add(this.dudCliente);
-            this.Controls.Add(this.dudValorInicial);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnLimpar);
@@ -311,24 +314,23 @@ namespace Augustus_Fashion.View.Relatorios
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.dgvCliente);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "RelatorioCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Augustus Fashion - Relatório de Clientes";
             this.Load += new System.EventHandler(this.RelatorioCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudValorInicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.ComboBox cbOrdenarPor;
@@ -339,7 +341,6 @@ namespace Augustus_Fashion.View.Relatorios
         private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fECHARToolStripMenuItem;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DomainUpDown dudValorInicial;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpDataFinal;
@@ -348,7 +349,9 @@ namespace Augustus_Fashion.View.Relatorios
         private System.Windows.Forms.ComboBox cbCrescenteOuDecrescente;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DomainUpDown dudCliente;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown nudValorInicial;
+        private System.Windows.Forms.NumericUpDown nudCliente;
+        private System.Windows.Forms.DataGridView dgvCliente;
     }
 }

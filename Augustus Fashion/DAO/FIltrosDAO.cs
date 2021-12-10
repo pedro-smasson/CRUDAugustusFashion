@@ -67,14 +67,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection()) 
                 {
                     conexao.Open();
-                    var listar = conexao.Query<RelatorioClienteModel>(query, new 
-                    {
-                        filtrosClienteModel.IdCliente,
-                        filtrosClienteModel.DataInicial,
-                        filtrosClienteModel.DataFinal,
-                        filtrosClienteModel.Nome,
-                        filtrosClienteModel.QuantidadeClientes
-                    });
+                    var listar = conexao.Query<RelatorioClienteModel>(query, filtrosClienteModel);
                     return listar.ToList();
                 }
             }
