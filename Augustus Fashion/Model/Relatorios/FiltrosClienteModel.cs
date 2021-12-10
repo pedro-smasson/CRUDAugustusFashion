@@ -7,9 +7,10 @@ namespace Augustus_Fashion.Model
     {
         public int IdCliente { get; set; }
         public string Nome { get; set; }
-        public Dinheiro TotalGasto { get; set; }
         public int NumeroDePedidos { get; set; }
+        public Dinheiro TotalBruto { get; set; }
         public decimal Desconto { get; set; }
+        public decimal TotalLiquido { get; set; }
         public DateTime DataPedido { get; set; }
     }
 }

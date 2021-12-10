@@ -53,7 +53,8 @@ namespace Augustus_Fashion.View.Relatorios
             }
             else
             {
-                MessageBox.Show("A Data Inicial é maior que a Data Final!", "Erro!");
+                MessageBox.Show("A Data Inicial é maior que a Data Final!", "Erro!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 dtpDataInicial.Value = DateTime.Today;
             }
         }

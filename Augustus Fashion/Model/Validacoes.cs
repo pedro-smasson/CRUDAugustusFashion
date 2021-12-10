@@ -26,7 +26,7 @@ namespace Augustus_Fashion.Model
         public static bool ValidarCep(this string valor) =>
             new Regex(@"^[0-9]{2}[.][0-9]{3}[-][0-9]{3}$").Match(valor).Success;
 
-        public static bool ValidarComissao(this string valor) =>
+        public static bool ValidarPorcentagem(this string valor) =>
             new Regex(@"^[0-9]+[%]$").Match(valor).Success;
 
         public static bool ValidarCelular(this string valor) =>

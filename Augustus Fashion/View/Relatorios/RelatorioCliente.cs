@@ -13,8 +13,8 @@ namespace Augustus_Fashion.View.Relatorios
         public RelatorioCliente()
         {
             InitializeComponent();
-            cbFiltrosSimples.DropDownWidth = DropDownWidth(cbFiltrosSimples);
-            cbFiltrosAvancados.DropDownWidth = DropDownWidth(cbFiltrosAvancados);
+            cbOrdenarPor.DropDownWidth = DropDownWidth(cbOrdenarPor);
+            cbFiltrarPor.DropDownWidth = DropDownWidth(cbFiltrarPor);
         }
 
         int DropDownWidth(ComboBox comboBox)
@@ -36,132 +36,19 @@ namespace Augustus_Fashion.View.Relatorios
             dgvCliente.DataSource = _clienteController.ListarClientes();
         }
 
-        private void QualFiltroEstaSelecionado() 
+        private void FiltrosPreenchidos() 
         {
-            if(cbFiltrosSimples.Text == "Qtde Pedidos Crescente") 
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = true;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = false;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
-            else if (cbFiltrosSimples.Text == "Qtde Pedidos Descrescente") 
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = true;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = false;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
-            else if (cbFiltrosSimples.Text == "Total Liquido Crescente")
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = true;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
-            else if (cbFiltrosSimples.Text == "Total Liquido Decrescente")
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = true;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
-            else if (cbFiltrosSimples.Text == "Desconto Crescente")
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = false;
-                this.dgvCliente.Columns["Desconto"].Visible = true;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
-            else if (cbFiltrosSimples.Text == "Desconto Decrescente")
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = false;
-                this.dgvCliente.Columns["Desconto"].Visible = true;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
 
-            else if (cbFiltrosAvancados.Text == "Clientes que Mais Compraram")
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = true;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = false;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
-            else if (cbFiltrosAvancados.Text == "Clientes que Menos Compraram")
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = true;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = false;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
-            else if (cbFiltrosAvancados.Text == "5 Clientes que Mais Gastaram")
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = true;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
-            else if (cbFiltrosAvancados.Text == "5 Clientes que Menos Gastaram")
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = true;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
-            else if (cbFiltrosAvancados.Text == "5 Clientes que Mais Compraram")
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = true;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = false;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
-            else if (cbFiltrosAvancados.Text == "5 Clientes que Menos Compraram")
-            {
-                this.dgvCliente.Columns["IdCliente"].Visible = true;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = true;
-                this.dgvCliente.Columns["Nome"].Visible = true;
-                this.dgvCliente.Columns["TotalGasto"].Visible = false;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["DataPedido"].Visible = false;
-            }
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            QualFiltroEstaSelecionado();
+            FiltrosPreenchidos();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            cbFiltrosAvancados.SelectedItem = null;
-            cbFiltrosSimples.SelectedItem = null;
-            mtDataInicial.Text = "";
-            mtDataFinal.Text = "";
-            txtValor1.Text = "";
-            txtValor2.Text = "";
+            
         }
 
         private void fECHARToolStripMenuItem_Click(object sender, EventArgs e)
@@ -179,48 +66,48 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void btnData_Click(object sender, EventArgs e)
         {
-            btnData.Visible = false;
-            btnValor.Visible = false;
-            btnBuscar.Visible = true;
-            label4.Visible = true;
-            mtDataFinal.Visible = true;
-            mtDataInicial.Visible = true;
+            //btnData.Visible = false;
+            //btnValor.Visible = false;
+            //btnBuscar.Visible = true;
+            //label4.Visible = true;
+            //mtDataFinal.Visible = true;
+            //mtDataInicial.Visible = true;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if(mtDataInicial.MaskFull && mtDataFinal.MaskFull)
-            {
-                //dgvCliente.DataSource = _filtrosController.EspecificarData(Convert.ToDateTime(mtDataInicial.Text),
-                //Convert.ToDateTime(mtDataFinal.Text));
+            //if (mtDataInicial.MaskFull && mtDataFinal.MaskFull)
+            //{
+            //    //dgvCliente.DataSource = _filtrosController.EspecificarData(Convert.ToDateTime(mtDataInicial.Text),
+            //    //Convert.ToDateTime(mtDataFinal.Text));
 
-                this.dgvCliente.Columns["IdCliente"].Visible = false;
-                this.dgvCliente.Columns["Desconto"].Visible = false;
-                this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
-            }
+            //    this.dgvCliente.Columns["IdCliente"].Visible = false;
+            //    this.dgvCliente.Columns["Desconto"].Visible = false;
+            //    this.dgvCliente.Columns["NumeroDePedidos"].Visible = false;
+            //}
         }
 
-        private void btnValor_Click(object sender, EventArgs e)
-        {
-            btnData.Visible = false;
-            btnValor.Visible = false;
-            txtValor1.Visible = true;
-            txtValor2.Visible = true;
-            label4.Visible = true;
-            btnBuscar2.Visible = true;
-        }
+        //private void btnValor_Click(object sender, EventArgs e)
+        //{
+        //    btnData.Visible = false;
+        //    btnValor.Visible = false;
+        //    txtValor1.Visible = true;
+        //    txtValor2.Visible = true;
+        //    label4.Visible = true;
+        //    btnBuscar2.Visible = true;
+        //}
 
-        private void btnBuscar2_Click(object sender, EventArgs e)
-        {
-            if(Validacoes.ValidarNumeric(txtValor1.Text) && Validacoes.ValidarNumeric(txtValor2.Text)) 
-            {
-                //dgvCliente.DataSource = _filtrosController.EspecificarValor(Convert.ToDecimal(txtValor1.Text),
-                //Convert.ToDecimal(txtValor2.Text));
-            }
-            else 
-            {
-                MessageBox.Show("Informe apenas Números!");
-            }
-        }
+        //private void btnBuscar2_Click(object sender, EventArgs e)
+        //{
+        //    if (Validacoes.ValidarNumeric(txtValor1.Text) && Validacoes.ValidarNumeric(txtValor2.Text))
+        //    {
+        //        //dgvCliente.DataSource = _filtrosController.EspecificarValor(Convert.ToDecimal(txtValor1.Text),
+        //        //Convert.ToDecimal(txtValor2.Text));
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Informe apenas Números!");
+        //    }
+        //}
     }
 }

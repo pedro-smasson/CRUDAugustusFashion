@@ -1,55 +1,26 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Augustus_Fashion.Model;
+using System;
 
 namespace TestProject1
 {
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void se_o_campo_conter_caracteres_string_entao_campo_eh_valido()
-        {
-            string nome = "teste";
-
-            var variavel = Validacoes.ValidarString(nome);
-
-            Assert.IsTrue(variavel);
-        }
-
         [DataTestMethod]
         [DataRow("hdfhdf", true)]
         [DataRow("56454", false)]
-        public void validar_se_campo_so_contem_letras(string a, bool resultado)
+        public void validar_se_input_tem_caracteres_string(string input, bool resultado)
         {
-            Assert.AreEqual(Validacoes.ValidarString(a), resultado);
-        }
-
-        [TestMethod]
-        public void se_o_campo_conter_numero_entao_campo_eh_valido()
-        {
-            string numero = "1";
-
-            var variavel = Validacoes.ValidarNumeric(numero);
-
-            Assert.IsTrue(variavel);
+            Assert.AreEqual(Validacoes.ValidarString(input), resultado);
         }
 
         [DataTestMethod]
         [DataRow("421", true)]
         [DataRow("teste", false)]
-        public void validar_se_campo_so_contem_numeros(string a, bool resultado)
+        public void validar_se_input_tem_caracteres_numeric(string input, bool resultado)
         {
-            Assert.AreEqual(Validacoes.ValidarNumeric(a), resultado);
-        }
-
-        [TestMethod]
-        public void validar_se_cpf_eh_valido() 
-        {
-            string cpf = "176.789.789-82";
-
-            var variavel = Validacoes.ValidarCpf(cpf);
-
-            Assert.IsTrue(variavel);
+            Assert.AreEqual(Validacoes.ValidarNumeric(input), resultado);
         }
 
         [DataTestMethod]
@@ -57,19 +28,9 @@ namespace TestProject1
         [DataRow("4712894712", false)]
         [DataRow("gyfasgfyus", false)]
         [DataRow("@-,/", false)]
-        public void validar_se_cpf_eh_valido_ou_nao(string a, bool resultado) 
+        public void validar_se_cpf_contem_numeros_pontos_e_hifen(string cpf, bool resultado) 
         {
-            Assert.AreEqual(Validacoes.ValidarCpf(a), resultado);
-        }
-
-        [TestMethod]
-        public void validar_se_email_eh_valido() 
-        {
-            string email = "teste@teste.com";
-
-            var variavel = Validacoes.ValidarEmail(email);
-
-            Assert.IsTrue(variavel);
+            Assert.AreEqual(Validacoes.ValidarCpf(cpf), resultado);
         }
 
         [DataTestMethod]
@@ -78,19 +39,9 @@ namespace TestProject1
         [DataRow("udsfhdsuhgios", false)]
         [DataRow("78523853", false)]
         [DataRow("?!#%", false)]
-        public void validar_se_email_eh_valido_ou_nao(string a, bool resultado) 
+        public void validar_se_email_eh_valido(string email, bool resultado) 
         {
-            Assert.AreEqual(Validacoes.ValidarEmail(a), resultado);
-        }
-
-        [TestMethod]
-        public void validar_se_data_de_nasc_eh_valida() 
-        {
-            string data = "24/10/2077";
-
-            var variavel = Validacoes.ValidarDatas(data);
-
-            Assert.IsTrue(variavel);
+            Assert.AreEqual(Validacoes.ValidarEmail(email), resultado);
         }
 
         [DataTestMethod]
@@ -102,19 +53,9 @@ namespace TestProject1
         [DataRow("242/102/2077", false)]
         [DataRow("242/02/20577", false)]
         [DataRow("22/0h2/20577", false)]
-        public void validar_se_data_de_nasc_eh_valida_ou_nao(string a, bool resultado) 
+        public void validar_se_data_de_nascimento_eh_valida(string data, bool resultado) 
         {
-            Assert.AreEqual(Validacoes.ValidarDatas(a), resultado);
-        }
-
-        [TestMethod]
-        public void validar_se_campo_string_e_numerico_eh_valido()
-        {
-            string campo = "teste 7";
-
-            var variavel = Validacoes.ValidarStringENumeric(campo);
-
-            Assert.IsTrue(variavel);
+            Assert.AreEqual(Validacoes.ValidarDatas(data), resultado);
         }
 
         [DataTestMethod]
@@ -122,40 +63,20 @@ namespace TestProject1
         [DataRow("8498", true)]
         [DataRow("5847gdfgfdgfd", true)]
         [DataRow("@#$%!*&", false)]
-        public void validar_se_campo_string_e_numeric_eh_valido_ou_nao(string a, bool resultado) 
+        public void validar_se_input_contem_caracteres_string_e_numeric(string input, bool resultado) 
         {
-            Assert.AreEqual(Validacoes.ValidarStringENumeric(a), resultado);
-        }
-
-        [TestMethod]
-        public void validar_se_cep_eh_valido() 
-        {
-            string cep = "15706402";
-
-            var variavel = Validacoes.ValidarCep(cep);
-
-            Assert.IsTrue(variavel);
+            Assert.AreEqual(Validacoes.ValidarStringENumeric(input), resultado);
         }
 
         [DataTestMethod]
-        [DataRow("15706402", true)]
-        [DataRow("157064021", false)]
+        [DataRow("15.706-402", true)]
+        [DataRow("15;706-4021", false)]
         [DataRow("1570640", false)]
         [DataRow("gasdgds", false)]
 
-        public void validar_se_cep_eh_valido_ou_nao(string a, bool resultado) 
+        public void validar_se_cep_contem_numeros_ponto_e_hifen(string cep, bool resultado) 
         {
-            Assert.AreEqual(Validacoes.ValidarCep(a), resultado);
-        }
-
-        [TestMethod]
-        public void validar_se_comissao_eh_valida() 
-        {
-            string comissao = "10%";
-
-            var variavel = Validacoes.ValidarComissao(comissao);
-
-            Assert.IsTrue(variavel);
+            Assert.AreEqual(Validacoes.ValidarCep(cep), resultado);
         }
 
         [DataTestMethod]
@@ -163,38 +84,46 @@ namespace TestProject1
         [DataRow("10%", true)]
         [DataRow("100%", true)]
         [DataRow("gdfgdf", false)]
-        public void validar_se_comissao_eh_valida_ou_nao(string a, bool resultado) 
+        public void validar_se_input_contem_numeros_e_porcentagem(string input, bool resultado) 
         {
-            Assert.AreEqual(Validacoes.ValidarComissao(a), resultado);
-        }
-
-        [TestMethod]
-        public void validar_se_celular_eh_valido() 
-        {
-            string celular = "17996331695";
-
-            var variavel = Validacoes.ValidarCelular(celular);
-
-            Assert.IsTrue(variavel);
+            Assert.AreEqual(Validacoes.ValidarPorcentagem(input), resultado);
         }
 
         [DataTestMethod]
         [DataRow("17996331695", true)]
         [DataRow("7774", false)]
         [DataRow("uifdhuigd", false)]
-        public void validar_se_celular_eh_valido_ou_nao(string a, bool resultado)
+        public void validar_se_celular_contem_apenas_caracteres_numericos(string celular, bool resultado)
         {
-            Assert.AreEqual(Validacoes.ValidarCelular(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarCelular(celular), resultado);
+        }
+
+        [TestMethod]
+        public void validar_se_desconto_eh_valido_ou_nao() 
+        {
+            string desconto = "7";
+
+            var teste = Validacoes.ValidarDesconto(Convert.ToDecimal(desconto));
+
+            Assert.IsTrue(teste);
+        }
+
+        [TestMethod]
+        public void verificar_se_fabricante_digitado_eh_valido()
+        {
+            string fabricante = "Junior&Junior";
+
+            var variavel = Validacoes.ValidarFabricante(fabricante);
+
+            Assert.IsTrue(variavel);
         }
 
         [DataTestMethod]
-        [DataRow(9, true)]
-        [DataRow(47, true)]
-        [DataRow(101, false)]
-
-        public void validar_se_desconto_eh_valido_ou_nao(decimal a, bool resultado) 
+        [DataRow("Junior&Junior", true)]
+        [DataRow("Junior111111Junior", false)]
+        public void validar_se_fabricante_eh_valido(string fabricante, bool resultado)
         {
-            Assert.AreEqual(Validacoes.ValidarDesconto(a), resultado);
+            Assert.AreEqual(Validacoes.ValidarFabricante(fabricante), resultado);
         }
     }
 }

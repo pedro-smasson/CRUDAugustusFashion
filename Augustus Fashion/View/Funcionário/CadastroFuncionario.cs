@@ -263,7 +263,7 @@ namespace Augustus_Fashion.View
                 return false;
             }
 
-            else if (!Validacoes.ValidarComissao(comissaoFuncionario.Text))
+            else if (!Validacoes.ValidarPorcentagem(comissaoFuncionario.Text))
             {
                 MessageBox.Show("Comissão inválida");
                 return false;
