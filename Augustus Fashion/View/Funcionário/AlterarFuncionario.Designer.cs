@@ -548,6 +548,7 @@ namespace Augustus_Fashion.View
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.MediumPurple;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hOMEToolStripMenuItem,
             this.FecharToolStripMenuItem});
@@ -636,7 +637,7 @@ namespace Augustus_Fashion.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(785, 570);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnExcluir);

@@ -38,6 +38,7 @@ namespace Augustus_Fashion.View.Pedido
             lblCliente.Text = _pedido.IdCliente.ToString();
             lblFuncionario.Text = _pedido.IdFuncionario.ToString();
             txtTotalVenda.Text = _pedido.PrecoTotal.ToString();
+            txtLucro.Text = _pedido.Lucro.ToString();
         }
 
         private void AlterarDadosDaVenda()

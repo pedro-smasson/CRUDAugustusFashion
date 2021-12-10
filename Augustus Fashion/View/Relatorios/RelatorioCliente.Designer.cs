@@ -60,20 +60,21 @@ namespace Augustus_Fashion.View.Relatorios
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(570, 251);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(524, 191);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 18);
+            this.label1.Size = new System.Drawing.Size(99, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Ordenar Por:";
             // 
             // btnFiltrar
             // 
             this.btnFiltrar.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnFiltrar.Location = new System.Drawing.Point(660, 486);
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnFiltrar.Location = new System.Drawing.Point(643, 383);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(73, 37);
+            this.btnFiltrar.Size = new System.Drawing.Size(91, 37);
             this.btnFiltrar.TabIndex = 3;
             this.btnFiltrar.Text = "FILTRAR";
             this.btnFiltrar.UseVisualStyleBackColor = false;
@@ -82,48 +83,49 @@ namespace Augustus_Fashion.View.Relatorios
             // cbOrdenarPor
             // 
             this.cbOrdenarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbOrdenarPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOrdenarPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbOrdenarPor.FormattingEnabled = true;
             this.cbOrdenarPor.Items.AddRange(new object[] {
             "Quantidade",
             "Desconto",
             "Preço Líquido"});
-            this.cbOrdenarPor.Location = new System.Drawing.Point(573, 272);
+            this.cbOrdenarPor.Location = new System.Drawing.Point(527, 212);
             this.cbOrdenarPor.Name = "cbOrdenarPor";
-            this.cbOrdenarPor.Size = new System.Drawing.Size(152, 21);
+            this.cbOrdenarPor.Size = new System.Drawing.Size(152, 23);
             this.cbOrdenarPor.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(570, 364);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Location = new System.Drawing.Point(661, 255);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 18);
+            this.label2.Size = new System.Drawing.Size(81, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Filtrar Por:";
             // 
             // cbFiltrarPor
             // 
             this.cbFiltrarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFiltrarPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFiltrarPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbFiltrarPor.FormattingEnabled = true;
             this.cbFiltrarPor.Items.AddRange(new object[] {
             "Quantidade",
             "Desconto",
             "Preço Líquido"});
-            this.cbFiltrarPor.Location = new System.Drawing.Point(573, 385);
+            this.cbFiltrarPor.Location = new System.Drawing.Point(664, 276);
             this.cbFiltrarPor.Name = "cbFiltrarPor";
-            this.cbFiltrarPor.Size = new System.Drawing.Size(96, 21);
+            this.cbFiltrarPor.Size = new System.Drawing.Size(102, 23);
             this.cbFiltrarPor.TabIndex = 6;
             // 
             // btnLimpar
             // 
             this.btnLimpar.BackColor = System.Drawing.Color.Snow;
-            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnLimpar.Location = new System.Drawing.Point(581, 486);
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnLimpar.Location = new System.Drawing.Point(546, 383);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(73, 37);
+            this.btnLimpar.Size = new System.Drawing.Size(91, 37);
             this.btnLimpar.TabIndex = 7;
             this.btnLimpar.Text = "LIMPAR";
             this.btnLimpar.UseVisualStyleBackColor = false;
@@ -159,7 +161,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(146, 69);
+            this.label6.Location = new System.Drawing.Point(151, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(251, 29);
             this.label6.TabIndex = 19;
@@ -168,20 +170,20 @@ namespace Augustus_Fashion.View.Relatorios
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(568, 195);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label4.Location = new System.Drawing.Point(652, 127);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 18);
+            this.label4.Size = new System.Drawing.Size(82, 20);
             this.label4.TabIndex = 24;
             this.label4.Text = "Data Final";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(568, 138);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(523, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 18);
+            this.label3.Size = new System.Drawing.Size(88, 20);
             this.label3.TabIndex = 23;
             this.label3.Text = "Data Inicial";
             // 
@@ -190,9 +192,9 @@ namespace Augustus_Fashion.View.Relatorios
             this.dtpDataFinal.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataFinal.Location = new System.Drawing.Point(571, 216);
+            this.dtpDataFinal.Location = new System.Drawing.Point(656, 148);
             this.dtpDataFinal.Name = "dtpDataFinal";
-            this.dtpDataFinal.Size = new System.Drawing.Size(154, 23);
+            this.dtpDataFinal.Size = new System.Drawing.Size(110, 23);
             this.dtpDataFinal.TabIndex = 22;
             // 
             // dtpDataInicial
@@ -200,59 +202,59 @@ namespace Augustus_Fashion.View.Relatorios
             this.dtpDataInicial.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataInicial.Location = new System.Drawing.Point(571, 159);
+            this.dtpDataInicial.Location = new System.Drawing.Point(526, 148);
             this.dtpDataInicial.Name = "dtpDataInicial";
-            this.dtpDataInicial.Size = new System.Drawing.Size(154, 23);
+            this.dtpDataInicial.Size = new System.Drawing.Size(110, 23);
             this.dtpDataInicial.TabIndex = 21;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(572, 303);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.Location = new System.Drawing.Point(526, 255);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 18);
+            this.label5.Size = new System.Drawing.Size(90, 20);
             this.label5.TabIndex = 2;
-            this.label5.Text = "A partir:";
+            this.label5.Text = "A Partir De:";
             // 
             // cbCrescenteOuDecrescente
             // 
             this.cbCrescenteOuDecrescente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCrescenteOuDecrescente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCrescenteOuDecrescente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbCrescenteOuDecrescente.FormattingEnabled = true;
             this.cbCrescenteOuDecrescente.Items.AddRange(new object[] {
             "Crescente",
             "Decrescente"});
-            this.cbCrescenteOuDecrescente.Location = new System.Drawing.Point(675, 385);
+            this.cbCrescenteOuDecrescente.Location = new System.Drawing.Point(685, 212);
             this.cbCrescenteOuDecrescente.Name = "cbCrescenteOuDecrescente";
-            this.cbCrescenteOuDecrescente.Size = new System.Drawing.Size(52, 21);
+            this.cbCrescenteOuDecrescente.Size = new System.Drawing.Size(81, 23);
             this.cbCrescenteOuDecrescente.TabIndex = 6;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(671, 364);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(681, 191);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 18);
+            this.label7.Size = new System.Drawing.Size(61, 20);
             this.label7.TabIndex = 5;
             this.label7.Text = "Ordem:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(572, 422);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(524, 317);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 18);
+            this.label8.Size = new System.Drawing.Size(144, 20);
             this.label8.TabIndex = 2;
-            this.label8.Text = "Qtd Clientes:";
+            this.label8.Text = "Filtrar Qtd Clientes:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(589, 69);
+            this.label9.Location = new System.Drawing.Point(609, 62);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 29);
             this.label9.TabIndex = 19;
@@ -260,16 +262,18 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             // nudValorInicial
             // 
-            this.nudValorInicial.Location = new System.Drawing.Point(571, 324);
+            this.nudValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.nudValorInicial.Location = new System.Drawing.Point(528, 278);
             this.nudValorInicial.Name = "nudValorInicial";
-            this.nudValorInicial.Size = new System.Drawing.Size(156, 20);
+            this.nudValorInicial.Size = new System.Drawing.Size(125, 21);
             this.nudValorInicial.TabIndex = 25;
             // 
             // nudCliente
             // 
-            this.nudCliente.Location = new System.Drawing.Point(573, 443);
+            this.nudCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.nudCliente.Location = new System.Drawing.Point(525, 338);
             this.nudCliente.Name = "nudCliente";
-            this.nudCliente.Size = new System.Drawing.Size(154, 20);
+            this.nudCliente.Size = new System.Drawing.Size(143, 21);
             this.nudCliente.TabIndex = 26;
             // 
             // dgvCliente
@@ -280,11 +284,11 @@ namespace Augustus_Fashion.View.Relatorios
             this.dgvCliente.BackgroundColor = System.Drawing.Color.White;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvCliente.Location = new System.Drawing.Point(35, 139);
+            this.dgvCliente.Location = new System.Drawing.Point(28, 127);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(515, 388);
+            this.dgvCliente.Size = new System.Drawing.Size(476, 293);
             this.dgvCliente.TabIndex = 27;
             // 
             // RelatorioCliente
@@ -293,7 +297,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.nudCliente);
             this.Controls.Add(this.nudValorInicial);

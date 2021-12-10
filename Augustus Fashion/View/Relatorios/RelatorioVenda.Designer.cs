@@ -55,18 +55,18 @@ namespace Augustus_Fashion.View.Relatorios
             this.dgvVenda.BackgroundColor = System.Drawing.Color.White;
             this.dgvVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVenda.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvVenda.Location = new System.Drawing.Point(26, 142);
+            this.dgvVenda.Location = new System.Drawing.Point(28, 135);
             this.dgvVenda.Name = "dgvVenda";
             this.dgvVenda.ReadOnly = true;
             this.dgvVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVenda.Size = new System.Drawing.Size(515, 388);
+            this.dgvVenda.Size = new System.Drawing.Size(515, 274);
             this.dgvVenda.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(577, 311);
+            this.label2.Location = new System.Drawing.Point(574, 304);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 9;
@@ -76,7 +76,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(577, 259);
+            this.label1.Location = new System.Drawing.Point(574, 252);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 7;
@@ -113,9 +113,9 @@ namespace Augustus_Fashion.View.Relatorios
             this.btnLimpar.BackColor = System.Drawing.Color.Snow;
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(565, 467);
+            this.btnLimpar.Location = new System.Drawing.Point(568, 375);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(89, 43);
+            this.btnLimpar.Size = new System.Drawing.Size(89, 34);
             this.btnLimpar.TabIndex = 13;
             this.btnLimpar.Text = "LIMPAR";
             this.btnLimpar.UseVisualStyleBackColor = false;
@@ -126,9 +126,9 @@ namespace Augustus_Fashion.View.Relatorios
             this.btnFiltrar.BackColor = System.Drawing.Color.PaleGreen;
             this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrar.Location = new System.Drawing.Point(660, 467);
+            this.btnFiltrar.Location = new System.Drawing.Point(663, 375);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(89, 43);
+            this.btnFiltrar.Size = new System.Drawing.Size(89, 34);
             this.btnFiltrar.TabIndex = 12;
             this.btnFiltrar.Text = "FILTRAR";
             this.btnFiltrar.UseVisualStyleBackColor = false;
@@ -137,7 +137,7 @@ namespace Augustus_Fashion.View.Relatorios
             // txtIdProduto
             // 
             this.txtIdProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtIdProduto.Location = new System.Drawing.Point(581, 282);
+            this.txtIdProduto.Location = new System.Drawing.Point(578, 275);
             this.txtIdProduto.Name = "txtIdProduto";
             this.txtIdProduto.Size = new System.Drawing.Size(154, 26);
             this.txtIdProduto.TabIndex = 14;
@@ -145,7 +145,7 @@ namespace Augustus_Fashion.View.Relatorios
             // txtNomeProduto
             // 
             this.txtNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtNomeProduto.Location = new System.Drawing.Point(581, 334);
+            this.txtNomeProduto.Location = new System.Drawing.Point(578, 327);
             this.txtNomeProduto.Name = "txtNomeProduto";
             this.txtNomeProduto.Size = new System.Drawing.Size(154, 26);
             this.txtNomeProduto.TabIndex = 15;
@@ -154,7 +154,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             this.dtpDataInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataInicial.Location = new System.Drawing.Point(581, 165);
+            this.dtpDataInicial.Location = new System.Drawing.Point(578, 158);
             this.dtpDataInicial.Name = "dtpDataInicial";
             this.dtpDataInicial.Size = new System.Drawing.Size(154, 23);
             this.dtpDataInicial.TabIndex = 16;
@@ -163,7 +163,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             this.dtpDataFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataFinal.Location = new System.Drawing.Point(581, 222);
+            this.dtpDataFinal.Location = new System.Drawing.Point(578, 215);
             this.dtpDataFinal.Name = "dtpDataFinal";
             this.dtpDataFinal.Size = new System.Drawing.Size(154, 23);
             this.dtpDataFinal.TabIndex = 17;
@@ -172,7 +172,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(577, 142);
+            this.label3.Location = new System.Drawing.Point(574, 135);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 20);
             this.label3.TabIndex = 18;
@@ -182,7 +182,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(577, 199);
+            this.label4.Location = new System.Drawing.Point(574, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 20);
             this.label4.TabIndex = 19;
@@ -192,7 +192,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(612, 71);
+            this.label5.Location = new System.Drawing.Point(609, 57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 29);
             this.label5.TabIndex = 18;
@@ -202,7 +202,7 @@ namespace Augustus_Fashion.View.Relatorios
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(151, 71);
+            this.label6.Location = new System.Drawing.Point(151, 57);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(260, 29);
             this.label6.TabIndex = 18;
@@ -213,7 +213,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 443);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
