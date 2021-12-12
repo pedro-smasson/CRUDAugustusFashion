@@ -117,6 +117,8 @@
     <Compile Include="FluentValidation\TodoODinheiroValidation.cs" />
     <Compile Include="MensagemGlobal\MensagemAlerta.cs" />
     <Compile Include="MensagemGlobal\MensagemErro.cs" />
+    <Compile Include="MensagemGlobal\MensagemInfo.cs" />
+    <Compile Include="MensagemGlobal\MensagemMae.cs" />
     <Compile Include="Model\Cliente\ClienteListagem.cs" />
     <Compile Include="Model\Cliente\ClienteModel.cs" />
     <Compile Include="Model\EnderecoModel.cs" />

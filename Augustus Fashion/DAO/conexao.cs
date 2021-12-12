@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 
 namespace Augustus_Fashion.DAO
 {
-
     class conexao
     {
         const string connString =

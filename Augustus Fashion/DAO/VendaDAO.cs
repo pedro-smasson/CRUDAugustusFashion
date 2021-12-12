@@ -160,9 +160,9 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var a = conexao.Query<PedidoProdutoModel>(query, new { IdPedido = id }).ToList();
+                    var listar = conexao.Query<PedidoProdutoModel>(query, new { IdPedido = id }).ToList();
 
-                    return a;
+                    return listar;
                 }
             }
             catch (Exception ex)
