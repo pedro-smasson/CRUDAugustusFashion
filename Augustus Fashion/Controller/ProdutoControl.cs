@@ -1,72 +1,24 @@
 ﻿using Augustus_Fashion.DAO;
 using Augustus_Fashion.Model.Funcionário;
 using Augustus_Fashion.Model.Produto;
-using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace Augustus_Fashion.Controller
 {
     class ProdutoControl
     {
-        public void CadastrarProduto(ProdutoModel produtoModel)
-        {
-            try
-            {
-                ProdutoDAO.CadastrarProduto(produtoModel);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        public void CadastrarProduto(ProdutoModel produtoModel) => ProdutoDAO.CadastrarProduto(produtoModel);
 
-        public ProdutoModel Buscar(int idProduto)
-        {
+        public ProdutoModel Buscar(int idProduto) => ProdutoDAO.Buscar(idProduto);
 
-            return ProdutoDAO.Buscar(idProduto);
-        }
-
-        public List<ProdutoListagem> BuscarLista(string nomeProduto)
-        {
-            try
-            {
-                var lista = ProdutoDAO.BuscarLista(nomeProduto);
-                return lista;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        public List<ProdutoListagem> BuscarLista(string nomeProduto) => ProdutoDAO.BuscarLista(nomeProduto);
 
         public List<ProdutoListagem> ListarProduto => ProdutoDAO.ListarProduto();
 
         public List<ProdutoListagem> ListarTodosOsProdutos => ProdutoDAO.ListarTodosOsProdutos();
 
-        public void ExcluirProduto(ProdutoModel produtoModel)
-        {
-            try
-            {
-                ProdutoDAO.ExcluirProduto(produtoModel);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        public void ExcluirProduto(ProdutoModel produtoModel) => ProdutoDAO.ExcluirProduto(produtoModel);
 
-        }
-
-        public void AlterarProduto(ProdutoModel produtoModel)
-        {
-            try
-            {
-                ProdutoDAO.AlterarProduto(produtoModel);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        public void AlterarProduto(ProdutoModel produtoModel) => ProdutoDAO.AlterarProduto(produtoModel);
     }
 }

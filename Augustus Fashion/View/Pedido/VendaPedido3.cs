@@ -168,9 +168,9 @@ namespace Augustus_Fashion.View.Pedido
                 vendaControl.CadastrarVenda(_pedido);
                 _mensagemInfo.Mensagem("Venda efetuada com sucesso!");
             }
-            catch (Exception ex)
+            catch
             {
-                _mensagemErro.Mensagem("Falha no Cadastro! " + ex.Message);
+                _mensagemErro.Mensagem("Falha no Cadastro!");
             }
         }
 

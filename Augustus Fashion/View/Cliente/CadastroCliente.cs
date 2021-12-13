@@ -24,7 +24,7 @@ namespace Augustus_Fashion
             Limpar();
         }
 
-        private void Limpar() 
+        private void Limpar()
         {
             nomeCliente.Text = "";
             emailCliente.Text = "";
@@ -69,32 +69,24 @@ namespace Augustus_Fashion
                     _clientemodel.Sexo = "F";
                 else if (sexOtherCliente.Checked == true)
                     _clientemodel.Sexo = "O";
-               
-                try 
-                {
-                    var retornar = new ClienteControl().CadastrarCliente(_clientemodel);
-                    if(retornar == string.Empty) 
-                    {
-                        _mensagemInfo.Mensagem("Cliente Cadastrado com Sucesso!");
 
-                        Limpar();
-                    }
-                    else 
-                    {
-                        MessageBox.Show(retornar);
-                    }
+                try
+                {
+                    new ClienteControl().CadastrarCliente(_clientemodel);
+                    _mensagemInfo.Mensagem("Cliente Cadastrado com Sucesso!");
+
+                    Limpar();
                 }
-                catch 
+                catch
                 {
                     _mensagemErro.Mensagem("Falha no Cadastro!");
                 }
             }
-            
         }
 
         private bool Validar()
         {
-            
+
             if (!Validacoes.ValidarString(nomeCliente.Text))
             {
                 _mensagemErro.Mensagem("Nome inválido");
@@ -112,7 +104,7 @@ namespace Augustus_Fashion
                 _mensagemErro.Mensagem("Data de Nascimento inválida");
                 return false;
             }
-            
+
             else if (!Validacoes.ValidarCpf(cpfCliente.Text))
             {
                 _mensagemErro.Mensagem("CPF inválido");
@@ -179,15 +171,15 @@ namespace Augustus_Fashion
             }
         }
 
-        private bool ValidarSexo() 
+        private bool ValidarSexo()
         {
             if (sexoMascCliente.Checked == true)
-               return true;
+                return true;
             else if (sexoFemCliente.Checked == true)
                 return true;
             else if (sexOtherCliente.Checked == true)
                 return true;
-            else 
+            else
             {
                 return false;
             }

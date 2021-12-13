@@ -1,88 +1,24 @@
 ﻿using Augustus_Fashion.DAO;
 using Augustus_Fashion.Model.Venda;
-using System;
 using System.Collections.Generic;
 
 namespace Augustus_Fashion.Controller
 {
     public class VendaControl
     {
-        public string CadastrarVenda(PedidoModel pedidoModel)
-        {
-            try
-            {
-                var retornarCadastrarVenda = pedidoModel.ValidarDinheiro();
+        public void CadastrarVenda(PedidoModel pedidoModel) => VendaDAO.CadastrarVenda(pedidoModel);
 
-                VendaDAO.CadastrarVenda(pedidoModel);
-                return string.Empty;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        public List<ListagemVendaModel> ListarPedidos() => VendaDAO.ListarPedidos();
 
-        public List<ListagemVendaModel> ListarPedidos()
-        {
-            return VendaDAO.ListarPedidos();
-        }
+        public List<ListagemVendaModel> BuscarLista(string nomeFuncionario, string nomeCliente) =>
+            VendaDAO.BuscarLista(nomeFuncionario, nomeCliente);
 
-        public List<ListagemVendaModel> BuscarLista(string nomeFuncionario, string nomeCliente)
-        {
-            try
-            {
-                var listaPedido = VendaDAO.BuscarLista(nomeFuncionario, nomeCliente);
-                return listaPedido;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        public PedidoModel Buscar(int id) => VendaDAO.Buscar(id);
 
-        public PedidoModel Buscar(int id)
-        {
-            return VendaDAO.Buscar(id);
-        }
+        public List<PedidoProdutoModel> BuscarProdutosDaVenda(int id) => VendaDAO.BuscarProdutos(id);
 
-        public List<PedidoProdutoModel> BuscarProdutosDaVenda(int id)
-        {
-            try
-            {
-                return VendaDAO.BuscarProdutos(id);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        public void AlterarVenda(PedidoModel pedido) => VendaDAO.AlterarVenda(pedido);
 
-        public string AlterarVenda(PedidoModel pedido)
-        {
-            try
-            {
-                var retornarCadastrarVenda = pedido.ValidarDinheiro();
-
-                VendaDAO.AlterarVenda(pedido);
-                return string.Empty;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        public string DesativarVenda(PedidoModel pedido)
-        {
-            try
-            {
-                VendaDAO.DesativarVenda(pedido);
-                return string.Empty;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        public void DesativarVenda(PedidoModel pedido) => VendaDAO.DesativarVenda(pedido);
     }
 }

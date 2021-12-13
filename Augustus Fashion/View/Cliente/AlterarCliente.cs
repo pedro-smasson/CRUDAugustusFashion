@@ -48,7 +48,7 @@ namespace Augustus_Fashion.View
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            if (Validar()) 
+            if (Validar())
             {
                 _clientemodel.Nome = nomeCliente.Text;
                 _clientemodel.Email = emailCliente.Text;
@@ -71,22 +71,15 @@ namespace Augustus_Fashion.View
                 else if (sexOtherCliente.Checked == true)
                     _clientemodel.Sexo = "O";
 
-                try 
+                try
                 {
-                    var retornar = new ClienteControl().AlterarCliente(_clientemodel);
-                    if (retornar == string.Empty)
-                    {
-                        //_clientecontrol.AlterarCliente(_clientemodel);
-                       _mensagemInfo.Mensagem("Cliente Alterado com Sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show(retornar);
-                    }
+                    new ClienteControl().AlterarCliente(_clientemodel);
+                    _mensagemInfo.Mensagem("Cliente Alterado com Sucesso!");
+
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    _mensagemErro.Mensagem("Falha na Alteração!" + ex.Message);
+                    _mensagemErro.Mensagem("Falha na Alteração!");
                 }
 
                 Hide();
@@ -94,7 +87,6 @@ namespace Augustus_Fashion.View
                 listarCliente.ShowDialog();
                 this.Close();
             }
-            
         }
 
         public void ExcluirCliente_Click(object sender, EventArgs e)
@@ -110,14 +102,14 @@ namespace Augustus_Fashion.View
                 this.Close();
             }
 
-            else 
+            else
             {
                 _mensagemErro.Mensagem("Falha na Exclusão");
             }
 
         }
 
-            private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
             telaInicial ti = new telaInicial();
@@ -135,21 +127,21 @@ namespace Augustus_Fashion.View
             btnAlterar.Enabled = true;
         }
 
-        private bool ValidarSexo() 
+        private bool ValidarSexo()
         {
-            if(sexoMascCliente.Checked == true) 
+            if (sexoMascCliente.Checked == true)
             {
                 return true;
             }
-            else if(sexoFemCliente.Checked == true) 
+            else if (sexoFemCliente.Checked == true)
             {
                 return true;
             }
-            else if(sexOtherCliente.Checked == true) 
+            else if (sexOtherCliente.Checked == true)
             {
                 return true;
             }
-            else 
+            else
             {
                 return false;
             }

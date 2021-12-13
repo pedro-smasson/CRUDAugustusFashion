@@ -48,7 +48,7 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            if (!Validacoes.VerificarSeDataInicialEhMaiorQueDataFinal(dtpDataInicial.Value, dtpDataFinal.Value))
+            if (Validacoes.VerificarSeDataInicialEhMaiorQueDataFinal(dtpDataInicial.Value, dtpDataFinal.Value))
             {
                 FiltrosPreenchidos();
                 dgvVenda.DataSource = _filtrosController.QueryFiltragemProduto(_filtrosModel);

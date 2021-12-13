@@ -7,14 +7,10 @@ namespace Augustus_Fashion.Controller
 {
     class FiltrosControl
     {
-        public List<RelatorioProdutosModel> QueryFiltragemProduto(FiltrosProdutoModel filtrosProdutoModel)
-        {
-            return FiltrosDAO.QueryFiltragemProduto(filtrosProdutoModel);
-        }
+        public List<RelatorioProdutosModel> QueryFiltragemProduto(FiltrosProdutoModel filtrosProdutoModel) =>
+            FiltrosDAO.QueryFiltragemProduto(filtrosProdutoModel);
 
-        public List<RelatorioClienteModel> QueryFiltragemCliente(FiltrosClienteModel filtrosClienteModel) 
-        {
-            return FiltrosDAO.QueryFiltragemClientes(filtrosClienteModel);
-        }
+        public List<RelatorioClienteModel> QueryFiltragemCliente(FiltrosClienteModel filtrosClienteModel) =>
+            FiltrosDAO.QueryFiltragemClientes(filtrosClienteModel);
     }
 }
