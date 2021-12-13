@@ -152,7 +152,6 @@ namespace Augustus_Fashion.View
             this.fabricanteProduto.Name = "fabricanteProduto";
             this.fabricanteProduto.Size = new System.Drawing.Size(252, 29);
             this.fabricanteProduto.TabIndex = 4;
-            this.fabricanteProduto.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label6
             // 

@@ -1,5 +1,4 @@
 ﻿using Augustus_Fashion.Controller;
-using Augustus_Fashion.Model.Venda;
 using System;
 using System.Windows.Forms;
 

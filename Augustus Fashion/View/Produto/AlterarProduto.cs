@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model.Produto;
 using System;
 using System.Windows.Forms;
@@ -9,6 +10,8 @@ namespace Augustus_Fashion.View.Produto
     {
         ProdutoControl _produtoControl = new ProdutoControl();
         ProdutoModel _produtoModel = new ProdutoModel();
+        MensagemErro _mensagemErro = new MensagemErro();
+        MensagemInfo _mensagemInfo = new MensagemInfo();
 
         public AlterarProduto()
         {
@@ -33,10 +36,8 @@ namespace Augustus_Fashion.View.Produto
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-           
-
             _produtoControl.ExcluirProduto(_produtoModel);
-            MessageBox.Show("Produto deletado com sucesso!");
+            _mensagemInfo.Mensagem("Produto deletado com sucesso!");
 
             Hide();
             ListarProduto listarProduto = new ListarProduto();
@@ -55,20 +56,20 @@ namespace Augustus_Fashion.View.Produto
             _produtoModel.Estoque = Convert.ToInt32(estoqueProduto.Text);
             _produtoModel.StatusProduto = chkAtivo.Checked;
 
-            try 
+            try
             {
                 _produtoControl.AlterarProduto(_produtoModel);
-                MessageBox.Show("Produto Alterado!");
+                _mensagemInfo.Mensagem("Produto Alterado!");
 
                 Hide();
                 ListarProduto listarProduto = new ListarProduto();
                 listarProduto.ShowDialog();
                 Close();
-            }catch(Exception ex) 
-            {
-                MessageBox.Show("Erro na Alteração! " + ex.Message);
             }
-           
+            catch
+            {
+                _mensagemErro.Mensagem("Erro na Alteração! ");
+            }
         }
 
         private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,44 +84,6 @@ namespace Augustus_Fashion.View.Produto
             telaInicial.ShowDialog();
             Close();
         }
-
-        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            cadastroCliente cadastrarCliente = new cadastroCliente();
-            cadastrarCliente.ShowDialog();
-            Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            CadastroFuncionario cadastrarFuncionario = new CadastroFuncionario();
-            cadastrarFuncionario.ShowDialog();
-            Close();
-        }
-
-        private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarCliente listarCliente = new ListarCliente();
-            listarCliente.ShowDialog();
-            Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarFuncionario listarFuncionario = new ListarFuncionario();
-            listarFuncionario.ShowDialog();
-            Close();
-        }
-
-        private void cAToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;

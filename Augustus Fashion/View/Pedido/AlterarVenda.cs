@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
@@ -14,6 +15,9 @@ namespace Augustus_Fashion.View.Pedido
         PedidoModel _pedido;
         ProdutoControl _produtoControl = new ProdutoControl();
         VendaControl _vendaControl = new VendaControl();
+        MensagemErro _mensagemErro = new MensagemErro();
+        MensagemInfo _mensagemInfo = new MensagemInfo();
+        MensagemAlerta _mensagemAlerta = new MensagemAlerta();
 
         public AlterarVenda(PedidoModel pedido)
         {
@@ -48,11 +52,11 @@ namespace Augustus_Fashion.View.Pedido
                 var vendaControl = new VendaControl();
 
                 vendaControl.AlterarVenda(_pedido);
-                MessageBox.Show("Venda alterada com sucesso!");
+                _mensagemInfo.Mensagem("Venda alterada com sucesso!");
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Falha no Cadastro! " + ex.Message);
+                _mensagemErro.Mensagem("Falha no Cadastro! ");
             }
         }
 
@@ -98,22 +102,22 @@ namespace Augustus_Fashion.View.Pedido
         {
             if (!Validacoes.ValidarDesconto(Convert.ToDecimal(txtDesconto.Text)))
             {
-                MessageBox.Show("Desconto Inválido!");
+                _mensagemErro.Mensagem("Desconto Inválido!");
                 return false;
             }
             if (!Validacoes.ValidarNumeric(txtLucro.Text))
             {
-                MessageBox.Show("Lucro Inválido!");
+                _mensagemErro.Mensagem("Lucro Inválido!");
                 return false;
             }
             if (!Validacoes.ValidarNumeric(txtPrecoLiquido.Text))
             {
-                MessageBox.Show("Preço Líquido Inválido!");
+                _mensagemErro.Mensagem("Preço Líquido Inválido!");
                 return false;
             }
             if (!Validacoes.ValidarNumeric(txtTotalVenda.Text))
             {
-                MessageBox.Show("Total de Venda Inválido!");
+                _mensagemErro.Mensagem("Total de Venda Inválido!");
                 return false;
             }
             return true;
@@ -124,7 +128,7 @@ namespace Augustus_Fashion.View.Pedido
             if (_pedido.Produtos.Any())
                 return true;
 
-            MessageBox.Show("Erro! Carrinho vazio");
+            _mensagemErro.Mensagem("Erro! Carrinho vazio");
             return false;
         }
 
@@ -168,7 +172,7 @@ namespace Augustus_Fashion.View.Pedido
         {
             if (nudQuantidade.Value > estoque)
             {
-                MessageBox.Show("Impossível a Quantidade ser maior que o Estoque!");
+                _mensagemAlerta.Mensagem("Impossível a Quantidade ser maior que o Estoque!");
                 nudQuantidade.Value = SelecionarValorEstoque();
                 return false;
             }
@@ -196,7 +200,7 @@ namespace Augustus_Fashion.View.Pedido
         {
             _vendaControl.DesativarVenda(_pedido);
 
-            MessageBox.Show("Pedido inativado com sucesso!");
+            _mensagemInfo.Mensagem("Pedido inativado com sucesso!");
             this.Hide();
             telaInicial telaInicial = new telaInicial();
             telaInicial.ShowDialog();

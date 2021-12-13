@@ -179,7 +179,6 @@ namespace Augustus_Fashion.View
             this.Name = "telaInicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TELA INICIAL";
-            this.Load += new System.EventHandler(this.TelaInicial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProduto)).EndInit();

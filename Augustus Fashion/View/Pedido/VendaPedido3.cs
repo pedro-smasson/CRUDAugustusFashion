@@ -1,5 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
-using Augustus_Fashion.Model;
+using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
 using Augustus_Fashion.ValueObjects;
@@ -20,6 +20,9 @@ namespace Augustus_Fashion.View.Pedido
     {
         ProdutoControl _produtoControl = new ProdutoControl();
         PedidoModel _pedido;
+        MensagemErro _mensagemErro = new MensagemErro();
+        MensagemInfo _mensagemInfo = new MensagemInfo();
+        MensagemAlerta _mensagemAlerta = new MensagemAlerta();
 
         string[] Scopes = { GmailService.Scope.GmailSend };
         string ApplicationName = "GmailApp";
@@ -42,7 +45,7 @@ namespace Augustus_Fashion.View.Pedido
 
             if (VerificarSeHojeEhAniversarioDoCliente())
             {
-                MessageBox.Show("Hoje é Aniversário deste cliente!");
+                _mensagemInfo.Mensagem("Hoje é Aniversário deste cliente!");
             }
         }
 
@@ -118,7 +121,7 @@ namespace Augustus_Fashion.View.Pedido
         {
             if (Dinheiro.RemoverFormatacao(txtDesconto.Text) > Dinheiro.RemoverFormatacao(txtPrecoLiquido.Text))
             {
-                MessageBox.Show("Impossível o Desconto ser maior que o Preço Líquido!");
+                _mensagemAlerta.Mensagem("Impossível o Desconto ser maior que o Preço Líquido!");
                 txtDesconto.Text = txtPrecoVenda.Text;
                 return false;
             }
@@ -129,7 +132,7 @@ namespace Augustus_Fashion.View.Pedido
         {
             if (nudQuantidade.Value > estoque)
             {
-                MessageBox.Show("Impossível a Quantidade ser maior que o Estoque!");
+                _mensagemAlerta.Mensagem("Impossível a Quantidade ser maior que o Estoque!");
                 nudQuantidade.Value = SelecionarValorEstoque();
                 return false;
             }
@@ -163,11 +166,11 @@ namespace Augustus_Fashion.View.Pedido
                 var vendaControl = new VendaControl();
 
                 vendaControl.CadastrarVenda(_pedido);
-                MessageBox.Show("Venda efetuada com sucesso!");
+                _mensagemInfo.Mensagem("Venda efetuada com sucesso!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Falha no Cadastro! " + ex.Message);
+                _mensagemErro.Mensagem("Falha no Cadastro! " + ex.Message);
             }
         }
 
@@ -177,13 +180,11 @@ namespace Augustus_Fashion.View.Pedido
             if (_pedido.Produtos.Any())
                 return true;
 
-            MessageBox.Show("Erro! Carrinho vazio");
+            _mensagemErro.Mensagem("Erro! Carrinho vazio");
             return false;
 
         }
 
-
-        // MÉTODOS DE CÁLCULO
         private void CalcularLucro()
         {
             txtLucro.Text = _pedido.Lucro.ToString();
@@ -209,8 +210,6 @@ namespace Augustus_Fashion.View.Pedido
             CalcularPrecoLiquido();
         }
 
-
-        // EVENTOS ENVOLVENDO OS MÉTODOS DE CÁLCULO
         private void cbFormaDePagamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             _pedido.FormaDePagamento = cbFormaDePagamento.Text;
@@ -226,13 +225,12 @@ namespace Augustus_Fashion.View.Pedido
             ExibirTotalDaVenda();
         }
 
-
         private bool Validar()
         {
 
             if (String.IsNullOrEmpty(cbFormaDePagamento.Text))
             {
-                MessageBox.Show("Selecione uma Forma de Pagamento válida");
+                _mensagemAlerta.Mensagem("Selecione uma Forma de Pagamento válida");
                 return false;
             }
             return true;
@@ -297,7 +295,7 @@ namespace Augustus_Fashion.View.Pedido
             }
             catch
             {
-                MessageBox.Show("Erro no envio do Email!");
+                _mensagemErro.Mensagem("Erro no envio do Email!");
             }
         }
 

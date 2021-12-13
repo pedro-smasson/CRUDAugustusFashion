@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model.Venda;
 using System;
 using System.Windows.Forms;
@@ -10,6 +11,7 @@ namespace Augustus_Fashion.View.Pedido
         ClienteControl _clientecontrol = new ClienteControl();
 
         PedidoModel _pedido = new PedidoModel();
+        MensagemAlerta _mensagemAlerta = new MensagemAlerta();
 
         public VendaPedido2(int idFuncionario)
         {
@@ -40,7 +42,7 @@ namespace Augustus_Fashion.View.Pedido
         {
             if(txtSelecionado.Text == "") 
             {
-                MessageBox.Show("Selecione o Cliente!");
+                _mensagemAlerta.Mensagem("Selecione o Cliente!");
             }
             else 
             {
@@ -48,8 +50,7 @@ namespace Augustus_Fashion.View.Pedido
                 VendaPedido3 telaVenda3 = new VendaPedido3(_pedido);
                 telaVenda3.ShowDialog();
                 this.Show();
-            }
-            
+            }    
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)

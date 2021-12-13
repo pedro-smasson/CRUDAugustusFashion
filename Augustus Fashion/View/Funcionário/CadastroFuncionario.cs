@@ -1,5 +1,6 @@
-﻿using Augustus_Fashion.Model;
-using Augustus_Fashion.Controller;
+﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.MensagemGlobal;
+using Augustus_Fashion.Model;
 using System;
 using System.Windows.Forms;
 
@@ -9,6 +10,8 @@ namespace Augustus_Fashion.View
     {
         FuncionarioModel _funcmodel = new FuncionarioModel();
         FuncionarioControl _funccontrol = new FuncionarioControl();
+        MensagemErro _mensagemErro = new MensagemErro();
+        MensagemInfo _mensagemInfo = new MensagemInfo();
 
         public CadastroFuncionario()
         {
@@ -20,20 +23,7 @@ namespace Augustus_Fashion.View
             Application.Exit();
         }
 
-        private void fUNCIONÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
-        }
-
-        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            cadastroCliente cc = new cadastroCliente();
-            cc.ShowDialog();
-            this.Close();
-        }
-
-        private void btnLimpar_Click(object sender, EventArgs e)
+        private void Limpar()
         {
             nomeFuncionario.Text = "";
             emailFuncionario.Text = "";
@@ -57,10 +47,15 @@ namespace Augustus_Fashion.View
             sexOtherFuncionario.Checked = false;
         }
 
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            Limpar();
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
 
-            if (Validar()) 
+            if (Validar())
             {
                 _funcmodel.Nome = nomeFuncionario.Text;
                 _funcmodel.Email = emailFuncionario.Text;
@@ -89,34 +84,10 @@ namespace Augustus_Fashion.View
 
 
                 _funccontrol.CadastrarFuncionario(_funcmodel);
-                MessageBox.Show("Funcionário Cadastrado com Sucesso!");
+                _mensagemInfo.Mensagem("Funcionário Cadastrado com Sucesso!");
 
-                nomeFuncionario.Text = "";
-                emailFuncionario.Text = "";
-                datanascFuncionario.Text = "";
-                cpfFuncionario.Text = "";
-                ruaFuncionario.Text = "";
-                bairroFuncionario.Text = "";
-                cepFuncionario.Text = "";
-                numeroFuncionario.Text = "";
-                celularFuncionario.Text = "";
-                cidadeFuncionario.Text = "";
-                estadoFuncionario.Text = "";
-                complementoFuncionario.Text = "";
-                salarioFuncionario.Text = "";
-                comissaoFuncionario.Text = "";
-                agenciaFuncionario.Text = "";
-                numContaFuncionario.Text = "";
-                codContaFuncionario.Text = "";
-                sexoMascFuncionario.Checked = false;
-                sexoFemFuncionario.Checked = false;
-                sexOtherFuncionario.Checked = false;
+                Limpar();
             }
-            
-        }
-
-        private void CadastroFuncionario_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -128,58 +99,9 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
-        private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarCliente lc = new ListarCliente();
-            lc.ShowDialog();
-            this.Close();
-        }
-
-        private void btnAlterar_Click(object sender, EventArgs e)
-        {
-            Hide();
-            AlterarFuncionario af = new AlterarFuncionario();
-            af.ShowDialog();
-            this.Close();
-        }
-
-        private void cLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            AlterarCliente ac = new AlterarCliente();
-            ac.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            AlterarFuncionario af = new AlterarFuncionario();
-            af.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarFuncionario lf = new ListarFuncionario();
-            lf.ShowDialog();
-            this.Close();
-        }
-
         private bool ValidarSexo()
         {
-            if (sexoMascFuncionario.Checked == true)
-                return true;
-            else if (sexoFemFuncionario.Checked == true)
-                return true;
-            else if (sexOtherFuncionario.Checked == true)
-                return true;
-            else
-            {
-                return false;
-            }
+            return sexoMascFuncionario.Checked == true || sexoFemFuncionario.Checked == true || sexOtherFuncionario.Checked == true;
         }
 
         private bool Validar()
@@ -187,110 +109,107 @@ namespace Augustus_Fashion.View
 
             if (!Validacoes.ValidarString(nomeFuncionario.Text))
             {
-                MessageBox.Show("Nome inválido");
+                _mensagemErro.Mensagem("Nome inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarEmail(emailFuncionario.Text))
             {
-                MessageBox.Show("Email inválido");
+                _mensagemErro.Mensagem("Email inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarDatas(datanascFuncionario.Text))
             {
-                MessageBox.Show("Data de Nascimento inválida");
+                _mensagemErro.Mensagem("Data de Nascimento inválida");
                 return false;
             }
 
             else if (!Validacoes.ValidarCpf(cpfFuncionario.Text))
             {
-                MessageBox.Show("CPF inválido");
+                _mensagemErro.Mensagem("CPF inválido");
                 return false;
             }
 
             else if (!ValidarSexo())
             {
-                MessageBox.Show("Sexo inválido");
+                _mensagemErro.Mensagem("Sexo inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarStringENumeric(ruaFuncionario.Text))
             {
-                MessageBox.Show("Rua inválida");
+                _mensagemErro.Mensagem("Rua inválida");
                 return false;
             }
 
             else if (!Validacoes.ValidarString(bairroFuncionario.Text))
             {
-                MessageBox.Show("Bairro inválido");
+                _mensagemErro.Mensagem("Bairro inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarCep(cepFuncionario.Text))
             {
-                MessageBox.Show("CEP inválido");
+                _mensagemErro.Mensagem("CEP inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarNumeric(numeroFuncionario.Text))
             {
-                MessageBox.Show("Número inválido");
+                _mensagemErro.Mensagem("Número inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarCelular(celularFuncionario.Text))
             {
-                MessageBox.Show("Celular inválido");
+                _mensagemErro.Mensagem("Celular inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarString(cidadeFuncionario.Text))
             {
-                MessageBox.Show("Cidade inválida");
+                _mensagemErro.Mensagem("Cidade inválida");
                 return false;
             }
 
             else if (string.IsNullOrEmpty(estadoFuncionario.Text))
             {
-                MessageBox.Show("Estado inválido");
+                _mensagemErro.Mensagem("Estado inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarNumeric(salarioFuncionario.Text))
             {
-                MessageBox.Show("Salário inválido");
+                _mensagemErro.Mensagem("Salário inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarPorcentagem(comissaoFuncionario.Text))
             {
-                MessageBox.Show("Comissão inválida");
+                _mensagemErro.Mensagem("Comissão inválida");
                 return false;
             }
 
             else if (!Validacoes.ValidarNumeric(agenciaFuncionario.Text))
             {
-                MessageBox.Show("Agência inválida");
+                _mensagemErro.Mensagem("Agência inválida");
                 return false;
             }
 
             else if (!Validacoes.ValidarNumeric(numContaFuncionario.Text))
             {
-                MessageBox.Show("Número da Conta inválido");
+                _mensagemErro.Mensagem("Número da Conta inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarNumeric(codContaFuncionario.Text))
             {
-                MessageBox.Show("Código da Conta inválido");
+                _mensagemErro.Mensagem("Código da Conta inválido");
                 return false;
             }
+            return true;
 
-            else
-            {
-                return true;
-            }
         }
     }
 }

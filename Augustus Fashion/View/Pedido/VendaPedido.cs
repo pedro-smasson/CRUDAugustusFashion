@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model.Venda;
 using System;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace Augustus_Fashion.View.Pedido
     public partial class VendaPedido : Form
     {
         FuncionarioControl _funcionariocontrol = new FuncionarioControl();
+        MensagemErro _mensagemErro = new MensagemErro();
 
         PedidoModel _pedido = new PedidoModel();
 
@@ -54,17 +56,16 @@ namespace Augustus_Fashion.View.Pedido
 
         private void btnAvancar_Click(object sender, EventArgs e)
         {
-            if (txtSelecionado.Text == "") 
+            if (txtSelecionado.Text == "")
             {
-                MessageBox.Show("Selecione o Funcionário");
+                _mensagemErro.Mensagem("Selecione o Funcionário");
             }
-            else 
+            else
             {
                 this.Hide();
                 VendaPedido2 telaVenda2 = new VendaPedido2(_pedido.IdFuncionario);
                 telaVenda2.ShowDialog();
                 this.Show();
-                //Close();
             }
         }
 

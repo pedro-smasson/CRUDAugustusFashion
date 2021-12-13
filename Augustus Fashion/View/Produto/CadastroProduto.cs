@@ -1,7 +1,7 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
-using Augustus_Fashion.View.Produto;
 using System;
 using System.Windows.Forms;
 
@@ -11,6 +11,8 @@ namespace Augustus_Fashion.View
     {
         ProdutoModel _produtoModel = new ProdutoModel();
         ProdutoControl _produtoControl = new ProdutoControl();
+        MensagemErro _mensagemErro = new MensagemErro();
+        MensagemInfo _mensagemInfo = new MensagemInfo();
 
         public CadastroProduto()
         {
@@ -32,6 +34,11 @@ namespace Augustus_Fashion.View
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            Limpar();
+        }
+
+        private void Limpar()
+        {
             codProduto.Text = "";
             codBarrasProduto.Text = "";
             nomeProduto.Text = "";
@@ -42,52 +49,44 @@ namespace Augustus_Fashion.View
             chkAtivo.Checked = false;
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private bool Validar() 
+        private bool Validar()
         {
             if (!Validacoes.ValidarNumeric(codBarrasProduto.Text))
             {
-                MessageBox.Show("Informe um Código de Barras válido!");
+                _mensagemErro.Mensagem("Informe um Código de Barras válido!");
                 return false;
             }
             else if (!Validacoes.ValidarNumeric(precoVendaProduto.Text))
             {
-                MessageBox.Show("Informe um Preço de Venda válido!");
+                _mensagemErro.Mensagem("Informe um Preço de Venda válido!");
                 return false;
             }
             else if (!Validacoes.ValidarNumeric(precoCustoProduto.Text))
             {
-                MessageBox.Show("Informe um Preço de Custo válido!");
+                _mensagemErro.Mensagem("Informe um Preço de Custo válido!");
                 return false;
             }
             else if (!Validacoes.ValidarString(nomeProduto.Text))
             {
-                MessageBox.Show("Informe um Nome válido!");
+                _mensagemErro.Mensagem("Informe um Nome válido!");
                 return false;
             }
             else if (!Validacoes.ValidarFabricante(fabricanteProduto.Text))
             {
-                MessageBox.Show("Informe um Fabricante válido!");
+                _mensagemErro.Mensagem("Informe um Fabricante válido!");
                 return false;
             }
             else if (!Validacoes.ValidarNumeric(estoqueProduto.Text))
             {
-                MessageBox.Show("Informe uma quantidade de Estoque válida!");
+                _mensagemErro.Mensagem("Informe uma quantidade de Estoque válida!");
                 return false;
             }
-            else 
-            {
-                return true;
-            } 
+            return true;
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if (Validar()) 
+            if (Validar())
             {
                 _produtoModel.CodBarra = codBarrasProduto.Text;
                 _produtoModel.PrecoVenda = Convert.ToDecimal(precoVendaProduto.Text);
@@ -95,13 +94,13 @@ namespace Augustus_Fashion.View
                 _produtoModel.Nome = nomeProduto.Text;
                 _produtoModel.Fabricante = fabricanteProduto.Text;
                 _produtoModel.Estoque = Convert.ToInt32(estoqueProduto.Text);
-                
+
                 _produtoModel.StatusProduto = chkAtivo.Checked;
 
                 try
                 {
                     _produtoControl.CadastrarProduto(_produtoModel);
-                    MessageBox.Show("Produto Cadastrado com Sucesso!");
+                    _mensagemInfo.Mensagem("Produto Cadastrado com Sucesso!");
 
                     codProduto.Text = "";
                     codBarrasProduto.Text = "";
@@ -112,56 +111,11 @@ namespace Augustus_Fashion.View
                     estoqueProduto.Text = "";
                     chkAtivo.Checked = false;
                 }
-                catch(Exception ex)
+                catch
                 {
-                    MessageBox.Show("Falha no Cadastro!" + ex.Message);
+                    _mensagemErro.Mensagem("Falha no Cadastro!");
                 }
             }
-        }
-
-        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            cadastroCliente cc = new cadastroCliente();
-            cc.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            CadastroFuncionario cf = new CadastroFuncionario();
-            cf.ShowDialog();
-            this.Close();
-        }
-
-        private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarCliente lc = new ListarCliente();
-            lc.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarFuncionario lf = new ListarFuncionario();
-            lf.ShowDialog();
-            this.Close();
-        }
-
-        private void eSTOQUEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarProduto lp = new ListarProduto();
-            lp.ShowDialog();
-            Close();
-        }
-
-        private void cAToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
         }
     }
 }

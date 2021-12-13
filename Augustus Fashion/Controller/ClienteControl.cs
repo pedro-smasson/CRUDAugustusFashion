@@ -1,5 +1,6 @@
 ﻿using Augustus_Fashion.DAO;
 using Augustus_Fashion.Model;
+using Augustus_Fashion.MensagemGlobal;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -11,20 +12,13 @@ namespace Augustus_Fashion.Controller
 
         public string CadastrarCliente(ClienteModel clienteModel)
         {
-            try
-            {
-                var retornarCadastrarCliente = clienteModel.ValidarCliente();
+            var retornarCadastrarCliente = clienteModel.ValidarCliente();
 
-                if (retornarCadastrarCliente == string.Empty)
-                {
-                    ClienteDao.CadastrarCliente(clienteModel);
-                }
-                return retornarCadastrarCliente;
-            }
-            catch (Exception ex)
+            if (retornarCadastrarCliente == string.Empty)
             {
-                throw new Exception(ex.Message);
+                ClienteDao.CadastrarCliente(clienteModel);
             }
+            return retornarCadastrarCliente;
         }
 
         public string AlterarCliente(ClienteModel clienteModel)
@@ -47,21 +41,12 @@ namespace Augustus_Fashion.Controller
 
         public List<ClienteListagem> ListarClientes()
         {
-
             return ClienteDao.ListarCliente();
         }
 
         public void ExcluirCliente(ClienteModel clienteModel)
         {
-            try
-            {
                 ClienteDao.ExcluirCliente(clienteModel);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
 
         public ClienteModel Buscar(int idCliente)
@@ -78,9 +63,8 @@ namespace Augustus_Fashion.Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }
-            return null;
+                throw new Exception(ex.Message);
+            }          
         }
 
         public static ClienteModel BuscarCliente(int idCliente)

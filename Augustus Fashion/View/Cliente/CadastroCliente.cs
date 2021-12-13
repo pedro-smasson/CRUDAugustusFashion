@@ -11,7 +11,6 @@ namespace Augustus_Fashion
     public partial class cadastroCliente : Form
     {
         ClienteModel _clientemodel = new ClienteModel();
-        ClienteControl _clientecontrol = new ClienteControl();
         MensagemInfo _mensagemInfo = new MensagemInfo();
         MensagemErro _mensagemErro = new MensagemErro();
 
@@ -22,7 +21,11 @@ namespace Augustus_Fashion
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            Limpar();
+        }
 
+        private void Limpar() 
+        {
             nomeCliente.Text = "";
             emailCliente.Text = "";
             datanascCliente.Text = "";
@@ -66,7 +69,6 @@ namespace Augustus_Fashion
                     _clientemodel.Sexo = "F";
                 else if (sexOtherCliente.Checked == true)
                     _clientemodel.Sexo = "O";
-
                
                 try 
                 {
@@ -75,22 +77,7 @@ namespace Augustus_Fashion
                     {
                         _mensagemInfo.Mensagem("Cliente Cadastrado com Sucesso!");
 
-                        nomeCliente.Text = "";
-                        emailCliente.Text = "";
-                        datanascCliente.Text = "";
-                        cpfCliente.Text = "";
-                        ruaCliente.Text = "";
-                        bairroCliente.Text = "";
-                        cepCliente.Text = "";
-                        numeroCliente.Text = "";
-                        celularCliente.Text = "";
-                        cidadeCliente.Text = "";
-                        estadoCliente.Text = "";
-                        complementoCliente.Text = "";
-                        valorLimiteCliente.Text = "";
-                        sexoMascCliente.Checked = false;
-                        sexoFemCliente.Checked = false;
-                        sexOtherCliente.Checked = false;
+                        Limpar();
                     }
                     else 
                     {
@@ -206,35 +193,9 @@ namespace Augustus_Fashion
             }
         }
 
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-            Hide();
-            AlterarCliente alc = new AlterarCliente();
-            alc.ShowDialog();
-            this.Close();
-        }
-
         private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void cadastroCliente_Load(object sender, EventArgs e)
-        {
-             
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            CadastroFuncionario cf = new CadastroFuncionario();
-            cf.ShowDialog();
-            this.Close();
-        }
-
-        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
         }
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
@@ -244,38 +205,5 @@ namespace Augustus_Fashion
             ti.ShowDialog();
             this.Close();
         }
-
-        private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarCliente lc = new ListarCliente();
-            lc.ShowDialog();
-            this.Close();
-        }
-
-        private void cLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            AlterarCliente ac = new AlterarCliente();
-            ac.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            AlterarFuncionario af = new AlterarFuncionario();
-            af.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarFuncionario lf = new ListarFuncionario();
-            lf.ShowDialog();
-            this.Close();
-        }
-
     }
 }

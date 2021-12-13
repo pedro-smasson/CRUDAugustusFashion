@@ -1,6 +1,7 @@
-﻿using System;
-using Augustus_Fashion.Controller;
+﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
+using System;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.View
@@ -9,6 +10,8 @@ namespace Augustus_Fashion.View
     {
         FuncionarioModel _funcionariomodel = new FuncionarioModel();
         FuncionarioControl _funcionariocontrol = new FuncionarioControl();
+        MensagemErro _mensagemErro = new MensagemErro();
+        MensagemInfo _mensagemInfo = new MensagemInfo();
 
         public AlterarFuncionario()
         {
@@ -60,51 +63,6 @@ namespace Augustus_Fashion.View
             this.Close();
         }
 
-        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            cadastroCliente cc = new cadastroCliente();
-            cc.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            CadastroFuncionario cf = new CadastroFuncionario();
-            cf.ShowDialog();
-            this.Close();
-        }
-
-        private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarCliente lc = new ListarCliente();
-            lc.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarFuncionario lf = new ListarFuncionario();
-            lf.ShowDialog();
-            this.Close();
-        }
-
-        private void cLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            AlterarCliente ac = new AlterarCliente();
-            ac.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
-        }
-
         private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -112,26 +70,25 @@ namespace Augustus_Fashion.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (Validar())
+            try
             {
                 _funcionariocontrol.ExcluirFuncionario(_funcionariomodel);
-                MessageBox.Show("Funcionário deletado com sucesso!");
+                _mensagemInfo.Mensagem("Funcionário deletado com sucesso!");
 
                 Hide();
                 ListarFuncionario listarFuncionario = new ListarFuncionario();
                 listarFuncionario.ShowDialog();
                 this.Close();
             }
-
-            else
+            catch
             {
-                MessageBox.Show("Falha na Exclusão");
+                _mensagemErro.Mensagem("Falha na Exclusão");
             }
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            
+
             if (Validar())
             {
                 _funcionariomodel.Nome = nomeFuncionario.Text;
@@ -158,19 +115,24 @@ namespace Augustus_Fashion.View
                     _funcionariomodel.Sexo = "F";
                 else if (sexOtherFuncionario.Checked == true)
                     _funcionariomodel.Sexo = "O";
+                try
+                {
+                    _funcionariocontrol.AlterarFuncionario(_funcionariomodel);
+                    _mensagemInfo.Mensagem("Funcionário Alterado com Sucesso!");
 
-                _funcionariocontrol.AlterarFuncionario(_funcionariomodel);
-                MessageBox.Show("Funcionário Alterado com Sucesso!");
-
-                Hide();
-                ListarFuncionario lc = new ListarFuncionario();
-                lc.ShowDialog();
-                this.Close();
+                    Hide();
+                    ListarFuncionario lc = new ListarFuncionario();
+                    lc.ShowDialog();
+                    this.Close();
+                }
+                catch
+                {
+                    _mensagemErro.Mensagem("Erro no Banco de Dados!");
+                }
             }
-
-            else 
+            else
             {
-                MessageBox.Show("Corrija os Campos Incorretos!");
+                _mensagemErro.Mensagem("Corrija os Campos Incorretos!");
             }
 
         }
@@ -179,94 +141,90 @@ namespace Augustus_Fashion.View
 
             if (string.IsNullOrEmpty(nomeFuncionario.Text))
             {
-                MessageBox.Show("Nome inválido");
+                _mensagemErro.Mensagem("Nome inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(emailFuncionario.Text))
             {
-                MessageBox.Show("Email inválido");
+                _mensagemErro.Mensagem("Email inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(datanascFuncionario.Text))
             {
-                MessageBox.Show("Data de Nascimento inválida");
+                _mensagemErro.Mensagem("Data de Nascimento inválida");
                 return false;
             }
             else if (string.IsNullOrEmpty(cpfFuncionario.Text))
             {
-                MessageBox.Show("CPF inválido");
+                _mensagemErro.Mensagem("CPF inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(sexoFuncionario.Text))
             {
-                MessageBox.Show("Sexo inválido");
+                _mensagemErro.Mensagem("Sexo inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(ruaFuncionario.Text))
             {
-                MessageBox.Show("Rua inválida");
+                _mensagemErro.Mensagem("Rua inválida");
                 return false;
             }
             else if (string.IsNullOrEmpty(bairroFuncionario.Text))
             {
-                MessageBox.Show("Bairro inválido");
+                _mensagemErro.Mensagem("Bairro inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(cepFuncionario.Text))
             {
-                MessageBox.Show("CEP inválido");
+                _mensagemErro.Mensagem("CEP inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(numeroFuncionario.Text))
             {
-                MessageBox.Show("Número inválido");
+                _mensagemErro.Mensagem("Número inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(celularFuncionario.Text))
             {
-                MessageBox.Show("Celular inválido");
+                _mensagemErro.Mensagem("Celular inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(cidadeFuncionario.Text))
             {
-                MessageBox.Show("Cidade inválida");
+                _mensagemErro.Mensagem("Cidade inválida");
                 return false;
             }
             else if (string.IsNullOrEmpty(estadoFuncionario.Text))
             {
-                MessageBox.Show("Estado inválido");
+                _mensagemErro.Mensagem("Estado inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(salarioFuncionario.Text))
             {
-                MessageBox.Show("Salário inválido");
+                _mensagemErro.Mensagem("Salário inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(comissaoFuncionario.Text))
             {
-                MessageBox.Show("Comissão inválida");
+                _mensagemErro.Mensagem("Comissão inválida");
                 return false;
             }
             else if (string.IsNullOrEmpty(agenciaFuncionario.Text))
             {
-                MessageBox.Show("Agência inválida");
+                _mensagemErro.Mensagem("Agência inválida");
                 return false;
             }
             else if (string.IsNullOrEmpty(numContaFuncionario.Text))
             {
-                MessageBox.Show("Número da Conta inválido");
+                _mensagemErro.Mensagem("Número da Conta inválido");
                 return false;
             }
             else if (string.IsNullOrEmpty(codContaFuncionario.Text))
             {
-                MessageBox.Show("Código da Conta inválido");
+                _mensagemErro.Mensagem("Código da Conta inválido");
                 return false;
             }
-
-            else
-            {
-                return true;
-            }
+            return true;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
 using System;
 using System.Windows.Forms;
@@ -10,6 +11,7 @@ namespace Augustus_Fashion.View.Relatorios
         ProdutoControl _produtoController;
         FiltrosControl _filtrosController;
         FiltrosProdutoModel _filtrosModel = new FiltrosProdutoModel();
+        MensagemErro _mensagemErro = new MensagemErro();
 
         public RelatorioVenda()
         {
@@ -53,16 +55,22 @@ namespace Augustus_Fashion.View.Relatorios
             }
             else
             {
-                MessageBox.Show("A Data Inicial é maior que a Data Final!", "Erro!", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                _mensagemErro.Mensagem("A Data Inicial é maior que a Data Final!");
                 dtpDataInicial.Value = DateTime.Today;
             }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            Limpar();
+        }
+
+        private void Limpar()
+        {
             txtIdProduto.Text = "";
-            txtIdProduto.Text = "";
+            txtNomeProduto.Text = "";
+            dtpDataInicial.Value = DateTime.Today;
+            dtpDataFinal.Value = DateTime.Today;
         }
     }
 }

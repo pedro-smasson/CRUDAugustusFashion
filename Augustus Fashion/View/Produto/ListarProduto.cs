@@ -44,52 +44,7 @@ namespace Augustus_Fashion.View.Produto
             Application.Exit();
         }
 
-        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            cadastroCliente cc = new cadastroCliente();
-            cc.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            CadastroFuncionario cf = new CadastroFuncionario();
-            cf.ShowDialog();
-            this.Close();
-        }
-
-        private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarCliente lc = new ListarCliente();
-            lc.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarFuncionario lf = new ListarFuncionario();
-            lf.ShowDialog();
-            this.Close();
-        }
-
-        private void lISTAGEMToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
-        }
-
-        private void cADASTROToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            CadastroProduto cp = new CadastroProduto();
-            cp.ShowDialog();
-            Close();
-        }
-
-        public int SelecionarProdutoModel() 
+        public int SelecionarProdutoModel()
         {
             int id = Convert.ToInt32(dgvProduto.SelectedRows[0].Cells[0].Value);
             return id;
@@ -104,12 +59,10 @@ namespace Augustus_Fashion.View.Produto
             alterarProduto.ShowDialog();
         }
 
-        public bool VerificarInatividadeDoProduto() 
+        public bool VerificarInatividadeDoProduto()
         {
-            if(_produtoModel.StatusProduto == false) 
+            if (_produtoModel.StatusProduto == false)
             {
-                //this.dgvProduto.Columns["Status"].Visible = false;
-                //dgvProduto.DataSource = 
                 return true;
             }
             return false;

@@ -15,7 +15,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             Hide();
             cadastroCliente cadastroCliente = new cadastroCliente();
             cadastroCliente.ShowDialog();
-            Close();   
+            Close();
         }
 
         private void pctLista_Click(object sender, EventArgs e)

@@ -520,7 +520,6 @@ namespace Augustus_Fashion
             this.Name = "cadastroCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CADASTRO DE CLIENTES";
-            this.Load += new System.EventHandler(this.cadastroCliente_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBoxCliente.ResumeLayout(false);

@@ -1,5 +1,6 @@
 ﻿using Augustus_Fashion.Controller;
 using Augustus_Fashion.Model;
+using Augustus_Fashion.MensagemGlobal;
 using System;
 using System.Windows.Forms;
 
@@ -9,6 +10,8 @@ namespace Augustus_Fashion.View
     {
         ClienteModel _clientemodel = new ClienteModel();
         ClienteControl _clientecontrol = new ClienteControl();
+        MensagemErro _mensagemErro = new MensagemErro();
+        MensagemInfo _mensagemInfo = new MensagemInfo();
 
         public AlterarCliente()
         {
@@ -74,7 +77,7 @@ namespace Augustus_Fashion.View
                     if (retornar == string.Empty)
                     {
                         //_clientecontrol.AlterarCliente(_clientemodel);
-                        MessageBox.Show("Cliente Alterado com Sucesso!");
+                       _mensagemInfo.Mensagem("Cliente Alterado com Sucesso!");
                     }
                     else
                     {
@@ -83,7 +86,7 @@ namespace Augustus_Fashion.View
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Falha na Alteração!" + ex.Message);
+                    _mensagemErro.Mensagem("Falha na Alteração!" + ex.Message);
                 }
 
                 Hide();
@@ -99,7 +102,7 @@ namespace Augustus_Fashion.View
             if (Validar())
             {
                 _clientecontrol.ExcluirCliente(_clientemodel);
-                MessageBox.Show("Cliente deletado com sucesso!");
+                _mensagemInfo.Mensagem("Cliente deletado com sucesso!");
 
                 Hide();
                 ListarCliente listarCliente = new ListarCliente();
@@ -109,7 +112,7 @@ namespace Augustus_Fashion.View
 
             else 
             {
-                MessageBox.Show("Falha na Exclusão");
+                _mensagemErro.Mensagem("Falha na Exclusão");
             }
 
         }
@@ -127,54 +130,9 @@ namespace Augustus_Fashion.View
             Application.Exit();
         }
 
-        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            cadastroCliente cc = new cadastroCliente();
-            cc.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            CadastroFuncionario cf = new CadastroFuncionario();
-            cf.ShowDialog();
-            this.Close();
-        }
-
-        private void cLIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarCliente lc = new ListarCliente();
-            lc.ShowDialog();
-            this.Close();
-        }
-
         private void AlterarCliente_Load(object sender, EventArgs e)
         {
             btnAlterar.Enabled = true;
-        }
-
-        private void cLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
-        }
-
-        private void fUNCIONÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Hide();
-            AlterarFuncionario af = new AlterarFuncionario();
-            af.ShowDialog();
-            this.Close();
-        }
-
-        private void fUNCIONÁRIOSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Hide();
-            ListarFuncionario lf = new ListarFuncionario();
-            lf.ShowDialog();
-            this.Close();
         }
 
         private bool ValidarSexo() 
@@ -202,79 +160,79 @@ namespace Augustus_Fashion.View
 
             if (!Validacoes.ValidarString(nomeCliente.Text))
             {
-                MessageBox.Show("Nome inválido");
+                _mensagemErro.Mensagem("Nome inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarEmail(emailCliente.Text))
             {
-                MessageBox.Show("Email inválido");
+                _mensagemErro.Mensagem("Email inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarDatas(datanascCliente.Text))
             {
-                MessageBox.Show("Data de Nascimento inválida");
+                _mensagemErro.Mensagem("Data de Nascimento inválida");
                 return false;
             }
 
             else if (!Validacoes.ValidarCpf(cpfCliente.Text))
             {
-                MessageBox.Show("CPF inválido");
+                _mensagemErro.Mensagem("CPF inválido");
                 return false;
             }
 
             else if (!ValidarSexo())
             {
-                MessageBox.Show("Sexo inválido");
+                _mensagemErro.Mensagem("Sexo inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarStringENumeric(ruaCliente.Text))
             {
-                MessageBox.Show("Rua inválida");
+                _mensagemErro.Mensagem("Rua inválida");
                 return false;
             }
 
             else if (!Validacoes.ValidarString(bairroCliente.Text))
             {
-                MessageBox.Show("Bairro inválido");
+                _mensagemErro.Mensagem("Bairro inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarCep(cepCliente.Text))
             {
-                MessageBox.Show("CEP inválido");
+                _mensagemErro.Mensagem("CEP inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarNumeric(numeroCliente.Text))
             {
-                MessageBox.Show("Número inválido");
+                _mensagemErro.Mensagem("Número inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarCelular(celularCliente.Text))
             {
-                MessageBox.Show("Celular inválido");
+                _mensagemErro.Mensagem("Celular inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarString(cidadeCliente.Text))
             {
-                MessageBox.Show("Cidade inválida");
+                _mensagemErro.Mensagem("Cidade inválida");
                 return false;
             }
 
             else if (string.IsNullOrEmpty(estadoCliente.Text))
             {
-                MessageBox.Show("Estado inválido");
+                _mensagemErro.Mensagem("Estado inválido");
                 return false;
             }
 
             else if (!Validacoes.ValidarNumeric(valorLimiteCliente.Text))
             {
-                MessageBox.Show("Valor limite inválido");
+                _mensagemErro.Mensagem("Valor limite inválido");
                 return false;
             }
 
