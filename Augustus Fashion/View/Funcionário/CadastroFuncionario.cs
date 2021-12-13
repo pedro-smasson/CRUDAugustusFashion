@@ -82,13 +82,11 @@ namespace Augustus_Fashion.View
                 else
                     _funcmodel.Sexo = "O";
 
-
                 _funccontrol.CadastrarFuncionario(_funcmodel);
                 _mensagemInfo.Mensagem("Funcionário Cadastrado com Sucesso!");
 
                 Limpar();
             }
-
         }
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
@@ -209,7 +207,6 @@ namespace Augustus_Fashion.View
                 return false;
             }
             return true;
-
         }
     }
 }

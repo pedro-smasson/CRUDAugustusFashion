@@ -32,10 +32,7 @@ namespace Augustus_Fashion.View.Relatorios
             return maiorTamanho;
         }
 
-        private void RelatorioCliente_Load(object sender, EventArgs e)
-        {
-            dgvCliente.DataSource = _clienteController.ListarClientes();
-        }
+        private void RelatorioCliente_Load(object sender, EventArgs e) => dgvCliente.DataSource = _clienteController.ListarClientes();
 
         private void FiltrosPreenchidos()
         {
@@ -57,10 +54,7 @@ namespace Augustus_Fashion.View.Relatorios
             dgvCliente.Columns["IdCliente"].Visible = false;
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            Limpar();
-        }
+        private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
 
         private void Limpar()
         {
@@ -73,10 +67,7 @@ namespace Augustus_Fashion.View.Relatorios
             nudValorInicial.Value = 0;
         }
 
-        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {

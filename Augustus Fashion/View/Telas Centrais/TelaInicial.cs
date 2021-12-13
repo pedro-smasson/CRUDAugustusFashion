@@ -7,10 +7,11 @@ namespace Augustus_Fashion.View
 
     public partial class telaInicial : Form
     {
-        public telaInicial()
-        {
-            InitializeComponent();
-        }
+        public telaInicial() => InitializeComponent();
+
+        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e) => this.Refresh();
 
         private void pbCliente_Click(object sender, EventArgs e)
         {
@@ -42,21 +43,6 @@ namespace Augustus_Fashion.View
             TelaPedido telaPedido = new TelaPedido();
             telaPedido.ShowDialog();
             Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
         }
     }
 }

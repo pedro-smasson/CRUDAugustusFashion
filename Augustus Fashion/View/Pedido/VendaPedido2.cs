@@ -40,17 +40,14 @@ namespace Augustus_Fashion.View.Pedido
 
         private void btnAvancar_Click(object sender, EventArgs e)
         {
-            if(txtSelecionado.Text == "") 
+            if (txtSelecionado.Text == "")
             {
                 _mensagemAlerta.Mensagem("Selecione o Cliente!");
             }
-            else 
-            {
-                this.Hide();
-                VendaPedido3 telaVenda3 = new VendaPedido3(_pedido);
-                telaVenda3.ShowDialog();
-                this.Show();
-            }    
+            this.Hide();
+            VendaPedido3 telaVenda3 = new VendaPedido3(_pedido);
+            telaVenda3.ShowDialog();
+            this.Show();
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)

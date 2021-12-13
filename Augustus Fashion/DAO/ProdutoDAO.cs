@@ -22,7 +22,8 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
-                        conexao.Execute(queryProduto, new {
+                        conexao.Execute(queryProduto, new
+                        {
                             CodBarra = produto.CodBarra,
                             Nome = produto.Nome,
                             PrecoVenda = produto.PrecoVenda.RetornarValorEmDecimal(),
@@ -133,7 +134,7 @@ namespace Augustus_Fashion.DAO
                 var conexao = new conexao().Connection();
                 {
                     conexao.Open();
-                    conexao.Query<ProdutoModel>(query, new {IdProduto = produtoModel.IdProduto});
+                    conexao.Query<ProdutoModel>(query, new { IdProduto = produtoModel.IdProduto });
                 }
             }
             catch (Exception ex)
@@ -153,7 +154,7 @@ namespace Augustus_Fashion.DAO
                 var conexao = new conexao().Connection();
                 {
                     conexao.Open();
-                    conexao.Query<ProdutoModel>(query, new 
+                    conexao.Query<ProdutoModel>(query, new
                     {
                         IdProduto = produto.IdProduto,
                         CodBarra = produto.CodBarra,

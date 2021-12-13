@@ -18,36 +18,35 @@ namespace Augustus_Fashion.View
             InitializeComponent();
         }
 
-        public void dadosDe(FuncionarioModel func)
+        public void dadosDe(FuncionarioModel funcionarioModel)
         {
-            idFuncionario.Text = func.IdPessoa.ToString();
-            nomeFuncionario.Text = func.Nome;
-            emailFuncionario.Text = func.Email;
-            datanascFuncionario.Text = func.Nascimento.ToString();
-            cpfFuncionario.Text = func.Cpf.ToString();
-            ruaFuncionario.Text = func.Endereco.Rua;
-            bairroFuncionario.Text = func.Endereco.Bairro;
-            cepFuncionario.Text = func.Endereco.Cep.ToString();
-            numeroFuncionario.Text = func.Endereco.Numero;
-            celularFuncionario.Text = func.Celular;
-            cidadeFuncionario.Text = func.Endereco.Cidade;
-            estadoFuncionario.Text = func.Endereco.Estado;
-            complementoFuncionario.Text = func.Endereco.Complemento;
-            salarioFuncionario.Text = func.Salario;
-            comissaoFuncionario.Text = func.Comissao;
-            agenciaFuncionario.Text = func.Agencia;
-            numContaFuncionario.Text = func.NumConta;
-            codContaFuncionario.Text = func.CodConta;
+            idFuncionario.Text = funcionarioModel.IdPessoa.ToString();
+            nomeFuncionario.Text = funcionarioModel.Nome;
+            emailFuncionario.Text = funcionarioModel.Email;
+            datanascFuncionario.Text = funcionarioModel.Nascimento.ToString();
+            cpfFuncionario.Text = funcionarioModel.Cpf.ToString();
+            ruaFuncionario.Text = funcionarioModel.Endereco.Rua;
+            bairroFuncionario.Text = funcionarioModel.Endereco.Bairro;
+            cepFuncionario.Text = funcionarioModel.Endereco.Cep.ToString();
+            numeroFuncionario.Text = funcionarioModel.Endereco.Numero;
+            celularFuncionario.Text = funcionarioModel.Celular;
+            cidadeFuncionario.Text = funcionarioModel.Endereco.Cidade;
+            estadoFuncionario.Text = funcionarioModel.Endereco.Estado;
+            complementoFuncionario.Text = funcionarioModel.Endereco.Complemento;
+            salarioFuncionario.Text = funcionarioModel.Salario;
+            comissaoFuncionario.Text = funcionarioModel.Comissao;
+            agenciaFuncionario.Text = funcionarioModel.Agencia;
+            numContaFuncionario.Text = funcionarioModel.NumConta;
+            codContaFuncionario.Text = funcionarioModel.CodConta;
 
-            if (func.Sexo == "M")
+            if (funcionarioModel.Sexo == "M")
                 sexoMascFuncionario.Checked = true;
-            else if (func.Sexo == "F")
+            else if (funcionarioModel.Sexo == "F")
                 sexoFemFuncionario.Checked = true;
-            else if (func.Sexo == "O")
+            else if (funcionarioModel.Sexo == "O")
                 sexOtherFuncionario.Checked = true;
 
-            _funcionariomodel = func;
-
+            _funcionariomodel = funcionarioModel;
         }
 
         private void AlterarFuncionario_Load(object sender, EventArgs e)

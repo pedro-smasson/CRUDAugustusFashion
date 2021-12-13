@@ -86,7 +86,6 @@ namespace Augustus_Fashion
 
         private bool Validar()
         {
-
             if (!Validacoes.ValidarString(nomeCliente.Text))
             {
                 _mensagemErro.Mensagem("Nome inválido");
@@ -164,25 +163,15 @@ namespace Augustus_Fashion
                 _mensagemErro.Mensagem("Valor limite inválido");
                 return false;
             }
-
-            else
-            {
-                return true;
-            }
+            return true;
         }
 
         private bool ValidarSexo()
         {
-            if (sexoMascCliente.Checked == true)
+            if (sexoMascCliente.Checked == true || sexoFemCliente.Checked == true || sexOtherCliente.Checked == true)
                 return true;
-            else if (sexoFemCliente.Checked == true)
-                return true;
-            else if (sexOtherCliente.Checked == true)
-                return true;
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         private void FecharToolStripMenuItem_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace Augustus_Fashion.View.Pedido
         FuncionarioControl _funcionariocontrol = new FuncionarioControl();
         MensagemErro _mensagemErro = new MensagemErro();
 
-        PedidoModel _pedido = new PedidoModel();
+        PedidoModel _pedidoModel = new PedidoModel();
 
         public VendaPedido()
         {
@@ -41,17 +41,12 @@ namespace Augustus_Fashion.View.Pedido
             this.dgvFuncionario.Columns["Endereco"].Visible = false;
         }
 
-        private void txtSelecionado_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgvFuncionario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var nome = dgvFuncionario.SelectedRows[0].Cells[1].Value;
             txtSelecionado.Text = nome.ToString();
 
-            _pedido.IdFuncionario = (int)dgvFuncionario.SelectedRows[0].Cells[0].Value;
+            _pedidoModel.IdFuncionario = (int)dgvFuncionario.SelectedRows[0].Cells[0].Value;
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)
@@ -60,13 +55,10 @@ namespace Augustus_Fashion.View.Pedido
             {
                 _mensagemErro.Mensagem("Selecione o Funcionário");
             }
-            else
-            {
-                this.Hide();
-                VendaPedido2 telaVenda2 = new VendaPedido2(_pedido.IdFuncionario);
-                telaVenda2.ShowDialog();
-                this.Show();
-            }
+            this.Hide();
+            VendaPedido2 telaVenda2 = new VendaPedido2(_pedidoModel.IdFuncionario);
+            telaVenda2.ShowDialog();
+            this.Show();
         }
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)

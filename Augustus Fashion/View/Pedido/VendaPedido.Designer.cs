@@ -96,7 +96,6 @@ namespace Augustus_Fashion.View.Pedido
             this.txtSelecionado.ReadOnly = true;
             this.txtSelecionado.Size = new System.Drawing.Size(202, 29);
             this.txtSelecionado.TabIndex = 7;
-            this.txtSelecionado.TextChanged += new System.EventHandler(this.txtSelecionado_TextChanged);
             // 
             // btnAvancar
             // 

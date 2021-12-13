@@ -15,10 +15,7 @@ namespace Augustus_Fashion.View.Produto
             InitializeComponent();
         }
 
-        private void ListarProduto_Load(object sender, EventArgs e)
-        {
-            dgvProduto.DataSource = _produtoControl.ListarProduto;
-        }
+        private void ListarProduto_Load(object sender, EventArgs e) => dgvProduto.DataSource = _produtoControl.ListarProduto;
 
         private void buscarNome_Click(object sender, EventArgs e)
         {
@@ -39,10 +36,7 @@ namespace Augustus_Fashion.View.Produto
             Close();
         }
 
-        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
         public int SelecionarProdutoModel()
         {

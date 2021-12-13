@@ -56,7 +56,7 @@ namespace Augustus_Fashion.View.Pedido
             }
             catch
             {
-                _mensagemErro.Mensagem("Falha no Cadastro! ");
+                _mensagemErro.Mensagem("Falha no Cadastro!");
             }
         }
 
@@ -208,10 +208,13 @@ namespace Augustus_Fashion.View.Pedido
         }
 
         public int SelecionarValorEstoque() => (int)dgvProduto.SelectedRows[0].Cells[4].Value;
+
         private void CalcularLucro() => txtLucro.Text = _pedido.Lucro.ToString();
 
         private void txtPrecoVenda_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
+
         private void nudQuantidade_KeyUp(object sender, KeyEventArgs e) => CalcularPrecoLiquido();
+
         private void txtDesconto_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
 
         private void btnVoltar_Click(object sender, EventArgs e) => this.DialogResult = DialogResult.OK;

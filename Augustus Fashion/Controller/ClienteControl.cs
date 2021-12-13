@@ -1,13 +1,11 @@
 ﻿using Augustus_Fashion.DAO;
 using Augustus_Fashion.Model;
-using System;
 using System.Collections.Generic;
 
 namespace Augustus_Fashion.Controller
 {
     public class ClienteControl
     {
-
         public void CadastrarCliente(ClienteModel clienteModel) => ClienteDao.CadastrarCliente(clienteModel);
 
         public void AlterarCliente(ClienteModel clienteModel) => ClienteDao.AlterarCliente(clienteModel);

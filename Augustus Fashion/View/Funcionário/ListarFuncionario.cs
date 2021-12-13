@@ -50,11 +50,11 @@ namespace Augustus_Fashion.View
 
         private void dgvFuncionario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            AlterarFuncionario af = new AlterarFuncionario();
+            AlterarFuncionario alterarFuncionario = new AlterarFuncionario();
             var id = SelecionarFuncionarioModel();
             var cliente = _funcionariocontrol.Buscar(id);
-            af.dadosDe(cliente);
-            af.Show();
+            alterarFuncionario.dadosDe(cliente);
+            alterarFuncionario.Show();
         }
     }
 }

@@ -125,7 +125,7 @@ namespace Augustus_Fashion.DAO
                             else
                             {
                                 conexao.Execute(queryVendaJaExistente, new
-                                {                           
+                                {
                                     carrinho.IdPedido,
                                     carrinho.IdProduto,
                                     carrinho.IdVenda,

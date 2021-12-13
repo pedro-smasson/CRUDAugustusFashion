@@ -60,10 +60,7 @@ namespace Augustus_Fashion.View.Pedido
             }
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
+        private void btnVoltar_Click(object sender, EventArgs e) => this.DialogResult = DialogResult.OK;
 
         private void dgvProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -158,7 +155,6 @@ namespace Augustus_Fashion.View.Pedido
             }
         }
 
-
         private void CadastrarVenda()
         {
             try
@@ -176,18 +172,11 @@ namespace Augustus_Fashion.View.Pedido
 
         private bool ValidarProdutosDoPedido()
         {
-
             if (_pedido.Produtos.Any())
                 return true;
 
             _mensagemErro.Mensagem("Erro! Carrinho vazio");
             return false;
-
-        }
-
-        private void CalcularLucro()
-        {
-            txtLucro.Text = _pedido.Lucro.ToString();
         }
 
         private void CalcularPrecoLiquido()
@@ -195,35 +184,21 @@ namespace Augustus_Fashion.View.Pedido
             var precoLiquido = (Dinheiro.RemoverFormatacao(txtPrecoVenda.Text) - Dinheiro.RemoverFormatacao(txtDesconto.Text)) * nudQuantidade.Value;
             txtPrecoLiquido.Text = precoLiquido.ToString("c");
         }
-        private void ExibirTotalDaVenda()
-        {
-            txtTotalVenda.Text = _pedido.PrecoASerExibidoNoFinal().ToString();
-        }
 
-        private void txtDesconto_TextChanged(object sender, EventArgs e)
-        {
-            CalcularPrecoLiquido();
-        }
+        private void CalcularLucro() => txtLucro.Text = _pedido.Lucro.ToString();
 
-        private void txtPrecoVenda_TextChanged(object sender, EventArgs e)
-        {
-            CalcularPrecoLiquido();
-        }
+        private void ExibirTotalDaVenda() => txtTotalVenda.Text = _pedido.PrecoASerExibidoNoFinal().ToString();
 
-        private void cbFormaDePagamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _pedido.FormaDePagamento = cbFormaDePagamento.Text;
-        }
+        private void txtDesconto_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
 
-        private void txtDesconto_KeyUp(object sender, KeyEventArgs e)
-        {
-            CalcularPrecoLiquido();
-        }
+        private void txtPrecoVenda_TextChanged(object sender, EventArgs e) => CalcularPrecoLiquido();
 
-        private void txtTotalVenda_TextChanged(object sender, EventArgs e)
-        {
-            ExibirTotalDaVenda();
-        }
+        private void cbFormaDePagamento_SelectedIndexChanged(object sender, EventArgs e) 
+            => _pedido.FormaDePagamento = cbFormaDePagamento.Text;
+
+        private void txtDesconto_KeyUp(object sender, KeyEventArgs e) => CalcularPrecoLiquido();
+
+        private void txtTotalVenda_TextChanged(object sender, EventArgs e) => ExibirTotalDaVenda();
 
         private bool Validar()
         {

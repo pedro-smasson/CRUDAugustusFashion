@@ -19,10 +19,7 @@ namespace Augustus_Fashion.View
             InitializeComponent();
         }
 
-        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -32,10 +29,7 @@ namespace Augustus_Fashion.View
             Close();
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            Limpar();
-        }
+        private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
 
         private void Limpar()
         {

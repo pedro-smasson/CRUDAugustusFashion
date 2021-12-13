@@ -31,7 +31,6 @@ namespace Augustus_Fashion.View.Produto
             chkAtivo.Checked = produto.StatusProduto;
 
             _produtoModel = produto;
-
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

@@ -28,15 +28,9 @@ namespace Augustus_Fashion.View.Relatorios
             this.Close();
         }
 
-        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
-        private void RelatorioVenda_Load(object sender, EventArgs e)
-        {
-            dgvVenda.DataSource = _produtoController.ListarProduto;
-        }
+        private void RelatorioVenda_Load(object sender, EventArgs e) => dgvVenda.DataSource = _produtoController.ListarProduto;
 
         private void FiltrosPreenchidos()
         {
@@ -53,17 +47,11 @@ namespace Augustus_Fashion.View.Relatorios
                 FiltrosPreenchidos();
                 dgvVenda.DataSource = _filtrosController.QueryFiltragemProduto(_filtrosModel);
             }
-            else
-            {
-                _mensagemErro.Mensagem("A Data Inicial é maior que a Data Final!");
-                dtpDataInicial.Value = DateTime.Today;
-            }
+            _mensagemErro.Mensagem("A Data Inicial é maior que a Data Final!");
+            dtpDataInicial.Value = DateTime.Today;
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            Limpar();
-        }
+        private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
 
         private void Limpar()
         {

@@ -41,7 +41,6 @@ namespace Augustus_Fashion.View.Pedido
                 dgvPedido.DataSource = _vendaControl.ListarPedidos();
                 txtBuscarNomeCliente.Text = "";
             }
-
         }
 
         private void dgvPedido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

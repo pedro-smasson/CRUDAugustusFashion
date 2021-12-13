@@ -7,10 +7,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
 {
     public partial class TelaPedido : Form
     {
-        public TelaPedido()
-        {
-            InitializeComponent();
-        }
+        public TelaPedido() => InitializeComponent();
 
         private void pctCadastro_Click(object sender, EventArgs e)
         {

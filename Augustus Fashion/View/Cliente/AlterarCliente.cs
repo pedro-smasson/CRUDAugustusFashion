@@ -77,7 +77,7 @@ namespace Augustus_Fashion.View
                     _mensagemInfo.Mensagem("Cliente Alterado com Sucesso!");
 
                 }
-                catch 
+                catch
                 {
                     _mensagemErro.Mensagem("Falha na Alteração!");
                 }
@@ -101,11 +101,7 @@ namespace Augustus_Fashion.View
                 listarCliente.ShowDialog();
                 this.Close();
             }
-
-            else
-            {
-                _mensagemErro.Mensagem("Falha na Exclusão");
-            }
+            _mensagemErro.Mensagem("Falha na Exclusão");
 
         }
 
@@ -129,22 +125,10 @@ namespace Augustus_Fashion.View
 
         private bool ValidarSexo()
         {
-            if (sexoMascCliente.Checked == true)
-            {
+            if (sexoMascCliente.Checked == true || sexoFemCliente.Checked == true || sexOtherCliente.Checked == true)
                 return true;
-            }
-            else if (sexoFemCliente.Checked == true)
-            {
-                return true;
-            }
-            else if (sexOtherCliente.Checked == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         private bool Validar()
