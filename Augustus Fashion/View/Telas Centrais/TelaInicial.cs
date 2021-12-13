@@ -48,5 +48,15 @@ namespace Augustus_Fashion.View
         {
             Application.Exit();
         }
+
+        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
+        }
     }
 }

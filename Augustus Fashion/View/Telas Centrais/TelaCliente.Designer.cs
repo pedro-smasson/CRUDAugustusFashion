@@ -29,30 +29,21 @@ namespace Augustus_Fashion.View.Telas_Centrais
         /// </summary>
         private void InitializeComponent()
         {
-            this.label9 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCliente));
             this.pctLista = new System.Windows.Forms.PictureBox();
             this.pctCadastro = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pctLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCadastro)).BeginInit();
             this.SuspendLayout();
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Cambria", 28F);
-            this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(80, 23);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(314, 44);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Augustu\'s Fashion";
-            // 
             // pctLista
             // 
-            this.pctLista.Image = global::Augustus_Fashion.Properties.Resources.listar;
-            this.pctLista.Location = new System.Drawing.Point(283, 102);
+            this.pctLista.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLista.BackgroundImage")));
+            this.pctLista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pctLista.Location = new System.Drawing.Point(326, 138);
             this.pctLista.Name = "pctLista";
             this.pctLista.Size = new System.Drawing.Size(128, 128);
             this.pctLista.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -62,8 +53,9 @@ namespace Augustus_Fashion.View.Telas_Centrais
             // 
             // pctCadastro
             // 
-            this.pctCadastro.Image = global::Augustus_Fashion.Properties.Resources.cadastrar;
-            this.pctCadastro.Location = new System.Drawing.Point(60, 102);
+            this.pctCadastro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctCadastro.BackgroundImage")));
+            this.pctCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pctCadastro.Location = new System.Drawing.Point(139, 138);
             this.pctCadastro.Name = "pctCadastro";
             this.pctCadastro.Size = new System.Drawing.Size(128, 128);
             this.pctCadastro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -75,21 +67,33 @@ namespace Augustus_Fashion.View.Telas_Centrais
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.Location = new System.Drawing.Point(20, 249);
+            this.label1.Location = new System.Drawing.Point(142, 111);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 24);
+            this.label1.Size = new System.Drawing.Size(125, 24);
             this.label1.TabIndex = 22;
-            this.label1.Text = "CADASTRAR CLIENTE";
+            this.label1.Text = "CADASTRAR";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label2.Location = new System.Drawing.Point(269, 249);
+            this.label2.Location = new System.Drawing.Point(353, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 24);
+            this.label2.Size = new System.Drawing.Size(74, 24);
             this.label2.TabIndex = 23;
-            this.label2.Text = "LISTAR CLIENTE";
+            this.label2.Text = "LISTAR";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 28F);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(131, 32);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(323, 46);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Augustu\'s Fashion";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TelaCliente
             // 
@@ -97,12 +101,12 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(464, 305);
+            this.ClientSize = new System.Drawing.Size(584, 311);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pctLista);
             this.Controls.Add(this.pctCadastro);
-            this.Controls.Add(this.label9);
             this.MaximizeBox = false;
             this.Name = "TelaCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -115,11 +119,10 @@ namespace Augustus_Fashion.View.Telas_Centrais
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pctCadastro;
         private System.Windows.Forms.PictureBox pctLista;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
     }
 }
