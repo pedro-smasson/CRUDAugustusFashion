@@ -46,9 +46,21 @@ namespace Augustus_Fashion.View.Relatorios
             {
                 FiltrosPreenchidos();
                 dgvVenda.DataSource = _filtrosController.QueryFiltragemProduto(_filtrosModel);
+
+                dgvVenda.Columns[0].HeaderText = "ID Produto";
+                dgvVenda.Columns[1].HeaderText = "Nome";
+                dgvVenda.Columns[2].HeaderText = "Quantidade";
+                dgvVenda.Columns[3].HeaderText = "Total Bruto";
+                dgvVenda.Columns[4].HeaderText = "Total Desconto";
+                dgvVenda.Columns[5].HeaderText = "Total Líquido";
+                dgvVenda.Columns[6].HeaderText = "Preço de Custo";
+                dgvVenda.Columns[7].HeaderText = "Lucro Total";
             }
+            else 
+            {
             _mensagemErro.Mensagem("A Data Inicial é maior que a Data Final!");
             dtpDataInicial.Value = DateTime.Today;
+            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e) => Limpar();

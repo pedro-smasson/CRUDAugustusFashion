@@ -52,6 +52,12 @@ namespace Augustus_Fashion.View.Relatorios
             FiltrosPreenchidos();
             dgvCliente.DataSource = _filtrosController.QueryFiltragemCliente(_filtrosModel);
             dgvCliente.Columns["IdCliente"].Visible = false;
+
+            dgvCliente.Columns[1].HeaderText = "Nome";
+            dgvCliente.Columns[2].HeaderText = "Número de Pedidos";
+            dgvCliente.Columns[3].HeaderText = "Total Bruto";
+            dgvCliente.Columns[4].HeaderText = "Total Desconto";
+            dgvCliente.Columns[5].HeaderText = "Total Gasto";
         }
 
         private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
