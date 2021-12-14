@@ -82,7 +82,7 @@ namespace Augustus_Fashion.DAO
             var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)
             values (@IdPedido, @IdProduto, @PrecoLiquidoTotal, @QuantidadeProduto, @Desconto, @PrecoFinal)";
 
-            var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProdutoTotalDoPedido where IdProduto = @IdProduto";
+            var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProduto where IdProduto = @IdProduto";
 
             try
             {
@@ -93,15 +93,15 @@ namespace Augustus_Fashion.DAO
                     {
                         conexao.Execute(queryPedido, new
                         {
-                            IdPedido = pedido.IdPedido,
-                            IdFuncionario = pedido.IdFuncionario,
-                            IdCliente = pedido.IdCliente,
+                            pedido.IdPedido,
+                            pedido.IdFuncionario,
+                            pedido.IdCliente,
                             PrecoBrutoTotalDoPedido = pedido.PrecoBrutoTotalDoPedido.RetornarValorEmDecimal(),
                             PrecoLiquidoTotalDoPedido = pedido.PrecoLiquidoTotalDoPedido.RetornarValorEmDecimal(),
                             DescontoTotalDoPedido = pedido.DescontoTotalDoPedido.RetornarValorEmDecimal(),
                             PrecoTotal = pedido.PrecoTotal.RetornarValorEmDecimal(),
-                            FormaDePagamento = pedido.FormaDePagamento,
-                            QuantidadeProdutoTotalDoPedido = pedido.QuantidadeProdutoTotalDoPedido,
+                            pedido.FormaDePagamento,
+                            pedido.QuantidadeProdutoTotalDoPedido,
                             Lucro = pedido.Lucro.RetornarValorEmDecimal(),
                         }, transacao);
 
@@ -112,13 +112,12 @@ namespace Augustus_Fashion.DAO
                                 carrinho.IdPedido = pedido.IdPedido;
                                 conexao.Execute(queryVenda, new
                                 {
-                                    IdPedido = carrinho.IdPedido,
-                                    IdProduto = carrinho.IdProduto,
-                                    IdVenda = carrinho.IdVenda,
+                                    carrinho.IdPedido,
+                                    carrinho.IdProduto,
                                     PrecoLiquidoTotal = carrinho.PrecoLiquidoUnitario.RetornarValorEmDecimal(),
-                                    QuantidadeProduto = carrinho.QuantidadeProduto,
+                                    carrinho.QuantidadeProduto,
                                     Desconto = carrinho.DescontoUnitario.RetornarValorEmDecimal(),
-                                    PrecoFinal = carrinho.PrecoLiquidoTotal.RetornarValorEmDecimal(),
+                                    PrecoFinal = carrinho.PrecoLiquidoTotal.RetornarValorEmDecimal()
                                 }, transacao);
                                 conexao.Execute(queryAlterarEstoque, carrinho, transacao);
                             }
@@ -133,6 +132,7 @@ namespace Augustus_Fashion.DAO
                                     carrinho.QuantidadeProduto,
                                     Desconto = carrinho.DescontoUnitario.RetornarValorEmDecimal(),
                                     PrecoFinal = carrinho.PrecoLiquidoTotal.RetornarValorEmDecimal(),
+                                    QuantidadeProdutoTotalDoPedido = carrinho.QuantidadeProduto
                                 }, transacao);
                                 conexao.Execute(queryAlterarEstoque, carrinho, transacao);
                             }
@@ -149,7 +149,7 @@ namespace Augustus_Fashion.DAO
 
         public static List<PedidoProdutoModel> BuscarProdutos(int id)
         {
-            var query = @"select p.Nome as NomeProduto, p.PrecoCusto as PrecoCustoUnitario, v.Total as PrecoLiquidoUnitario,
+            var query = @"select p.IdProduto, p.Nome as NomeProduto, p.PrecoCusto as PrecoCustoUnitario, v.Total as PrecoLiquidoUnitario,
             v.QuantidadeProduto, v.Desconto as DescontoUnitario, v.PrecoVenda as PrecoBrutoUnitario
             from Venda v
             inner join Produto as p on v.IdProduto = p.IdProduto

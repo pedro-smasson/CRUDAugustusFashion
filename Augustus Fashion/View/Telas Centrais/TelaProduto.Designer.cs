@@ -110,7 +110,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.MaximizeBox = false;
             this.Name = "TelaProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TelaProduto";
+            this.Text = "Augustu\'s Fashion - Tela Produto";
             ((System.ComponentModel.ISupportInitialize)(this.pctLista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCadastro)).EndInit();
             this.ResumeLayout(false);

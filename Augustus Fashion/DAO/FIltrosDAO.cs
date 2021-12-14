@@ -46,7 +46,7 @@ namespace Augustus_Fashion.DAO
 
         public static List<RelatorioClienteModel> QueryFiltragemClientes(FiltrosClienteModel filtrosClienteModel) 
         {
-            var query = @"select";
+            var query = @"select ";
 
             query += filtrosClienteModel.Top();
 

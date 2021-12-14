@@ -579,7 +579,7 @@ namespace Augustus_Fashion.View.Pedido
             this.Controls.Add(this.txtProduto);
             this.Name = "VendaPedido3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VendaPedido3";
+            this.Text = "Augustu\'s Fashion - Finalizar Venda";
             this.Load += new System.EventHandler(this.VendaPedido3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();

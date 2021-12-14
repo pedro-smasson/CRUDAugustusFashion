@@ -151,7 +151,7 @@ namespace Augustus_Fashion.View
             this.MaximizeBox = false;
             this.Name = "ListarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LISTAR CLIENTE";
+            this.Text = "Augustu\'s Fashion - Listar Clientes";
             this.Load += new System.EventHandler(this.ListarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.crudDataSet)).EndInit();

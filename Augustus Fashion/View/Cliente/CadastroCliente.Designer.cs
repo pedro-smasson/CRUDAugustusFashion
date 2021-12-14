@@ -519,7 +519,7 @@ namespace Augustus_Fashion
             this.MaximizeBox = false;
             this.Name = "cadastroCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CADASTRO DE CLIENTES";
+            this.Text = "Augustu\'s Fashion - Cadastrar Clientes";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBoxCliente.ResumeLayout(false);

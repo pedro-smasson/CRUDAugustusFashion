@@ -148,7 +148,7 @@ namespace Augustus_Fashion.View.Pedido
             this.Controls.Add(this.buscarId);
             this.Name = "ListagemPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LISTAR PEDIDO";
+            this.Text = "Augustu\'s Fashion - Listar Pedidos";
             this.Load += new System.EventHandler(this.ListagemPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
             this.menuStrip1.ResumeLayout(false);

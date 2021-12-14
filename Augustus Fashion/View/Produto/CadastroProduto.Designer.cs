@@ -292,7 +292,7 @@ namespace Augustus_Fashion.View
             this.MaximizeBox = false;
             this.Name = "CadastroProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CadastroProduto";
+            this.Text = "Augustu\'s Fashion - Cadastro Produto";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

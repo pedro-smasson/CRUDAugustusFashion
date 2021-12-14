@@ -110,7 +110,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.MaximizeBox = false;
             this.Name = "TelaFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TelaFuncionario";
+            this.Text = "Augustu\'s Fashion - Tela Funcionário";
             ((System.ComponentModel.ISupportInitialize)(this.pctLista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

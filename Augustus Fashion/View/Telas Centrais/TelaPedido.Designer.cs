@@ -167,7 +167,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.MaximizeBox = false;
             this.Name = "TelaPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TelaPedido";
+            this.Text = "Augustu\'s Fashion - Tela Pedido";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLista)).EndInit();

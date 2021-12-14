@@ -150,7 +150,7 @@ namespace Augustus_Fashion.View
             this.MaximizeBox = false;
             this.Name = "ListarFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LISTAR FUNCIONÁRIO";
+            this.Text = "Augustu\'s Fashion - Listar Funcionários";
             this.Load += new System.EventHandler(this.ListarFuncionario_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

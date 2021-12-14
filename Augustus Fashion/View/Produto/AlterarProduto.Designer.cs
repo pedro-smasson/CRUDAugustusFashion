@@ -333,7 +333,7 @@ namespace Augustus_Fashion.View.Produto
             this.MaximizeBox = false;
             this.Name = "AlterarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AlterarProduto";
+            this.Text = "Augustu\'s Fashion - Alterar Produto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

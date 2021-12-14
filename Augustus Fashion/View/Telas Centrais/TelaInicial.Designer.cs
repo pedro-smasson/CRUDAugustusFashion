@@ -207,7 +207,7 @@ namespace Augustus_Fashion.View
             this.MaximizeBox = false;
             this.Name = "telaInicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TELA INICIAL";
+            this.Text = "Augustu\'s Fashion - Tela Inicial";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProduto)).EndInit();

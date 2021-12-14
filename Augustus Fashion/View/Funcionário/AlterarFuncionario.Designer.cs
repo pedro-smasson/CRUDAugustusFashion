@@ -651,7 +651,7 @@ namespace Augustus_Fashion.View
             this.MaximizeBox = false;
             this.Name = "AlterarFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ALTERAR FUNCIONÁRIOS";
+            this.Text = "Augustu\'s Fashion - Alterar Funcionários";
             this.Load += new System.EventHandler(this.AlterarFuncionario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

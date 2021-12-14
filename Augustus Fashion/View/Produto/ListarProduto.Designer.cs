@@ -126,7 +126,7 @@ namespace Augustus_Fashion.View.Produto
             this.MaximizeBox = false;
             this.Name = "ListarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ListarProduto";
+            this.Text = "Augustu\'s Fashion - Listar Produto";
             this.Load += new System.EventHandler(this.ListarProduto_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

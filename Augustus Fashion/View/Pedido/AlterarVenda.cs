@@ -23,9 +23,6 @@ namespace Augustus_Fashion.View.Pedido
         {
             InitializeComponent();
             _pedido = pedido;
-
-            //var obterLucro = (Dinheiro)_produtoControl.ObterLucro(_pedido.IdPedido);
-            //_pedido.Lucro = obterLucro.RetornarValorEmDecimal();
         }
 
         public void DadosDaVenda()
@@ -59,7 +56,7 @@ namespace Augustus_Fashion.View.Pedido
             }
             catch
             {
-                _mensagemErro.Mensagem("Falha no Cadastro!");
+                _mensagemErro.Mensagem("Falha na alteração!");
             }
         }
 

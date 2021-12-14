@@ -30,7 +30,10 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void fECHARToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
-        private void RelatorioVenda_Load(object sender, EventArgs e) => dgvVenda.DataSource = _produtoController.ListarProduto();
+        private void RelatorioVenda_Load(object sender, EventArgs e) 
+        {
+
+        }
 
         private void FiltrosPreenchidos()
         {

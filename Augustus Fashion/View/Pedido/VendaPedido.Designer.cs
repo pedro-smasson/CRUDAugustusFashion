@@ -175,7 +175,7 @@ namespace Augustus_Fashion.View.Pedido
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "VendaPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VENDA";
+            this.Text = "Augustu\'s Fashion - Venda ";
             this.Load += new System.EventHandler(this.VendaPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();

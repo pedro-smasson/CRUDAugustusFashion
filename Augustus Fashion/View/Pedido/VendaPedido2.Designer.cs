@@ -160,7 +160,7 @@ namespace Augustus_Fashion.View.Pedido
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "VendaPedido2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VendaPedido2";
+            this.Text = "Augustu\'s Fashion - Venda";
             this.Load += new System.EventHandler(this.VendaPedido2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();

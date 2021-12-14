@@ -1,4 +1,4 @@
-﻿        using Augustus_Fashion.ValueObjects;
+﻿using Augustus_Fashion.ValueObjects;
 
 namespace Augustus_Fashion.Model.Venda
 {
@@ -24,7 +24,6 @@ namespace Augustus_Fashion.Model.Venda
         public Dinheiro PrecoBrutoUnitario { get; set; }
         public Dinheiro PrecoBrutoTotal { get => PrecoBrutoUnitario.RetornarValorEmDecimal() * QuantidadeProduto; set { } } 
         
-
         public Dinheiro PrecoLiquidoUnitario
         { 
             get => PrecoBrutoUnitario.RetornarValorEmDecimal(); set { }

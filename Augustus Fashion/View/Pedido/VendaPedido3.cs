@@ -230,48 +230,52 @@ namespace Augustus_Fashion.View.Pedido
 
         public void EnviarEmail()
         {
-            UserCredential credencial;
-            using (FileStream stream = new FileStream(Application.StartupPath + @"/arquivoimportante.json", FileMode.Open, FileAccess.Read))
+            if(MessageBox.Show("Deseja enviar um Email com os dados da compra?", "Aviso!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                == DialogResult.Yes) 
             {
-                string caminho = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                caminho = Path.Combine(caminho, ".credentials/gmail-dotnet-quickstart.json");
-                credencial = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.FromStream(stream).Secrets, Scopes,
-                "user", CancellationToken.None, new FileDataStore(caminho, true)).Result;
-            }
-            dgvCarrinho.DataSource = null;
-            dgvCarrinho.AutoGenerateColumns = false;
-
-            var source = new BindingSource
-            {
-                DataSource = _pedido.Produtos
-            };
-
-            dgvCarrinho.DataSource = source;
-            try
-            {
-                string mensagem =
-                $"To: {ClienteControl.BuscarCliente(_pedido.IdCliente).Email}\r\n" +
-                $"Subject: {"A Augustus Fashion agradece!"}\r\n" +
-                $"Content-Type: text/html;charset=utf-8\r\n\r\n<h1>{$"Olá, {ClienteControl.BuscarCliente(_pedido.IdCliente).Nome}! Obrigado pela preferência :D<br><br> Seu Pedido feito em {_pedido.DataPedido.Day}/{_pedido.DataPedido.Month} de {_pedido.DataPedido.Year}, é o seguinte:"}</h1><ol>";
-
-                mensagem += "<table border=\"1\"> <tr> <th> Nome </th> <th >Quantidade </th> <th> Preço Unitário </th> <th> Preço Total </th> </tr>";
-
-                foreach (var produto in _pedido.Produtos)
+                UserCredential credencial;
+                using (FileStream stream = new FileStream(Application.StartupPath + @"/arquivoimportante.json", FileMode.Open, FileAccess.Read))
                 {
-                    mensagem += $"<tr> <td> {produto.NomeProduto} </td> <td> {produto.QuantidadeProduto} </td> <td> {produto.PrecoBrutoUnitario} </td>" +
-                    $"<td> {produto.PrecoLiquidoTotal} </td> </tr>";
+                    string caminho = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                    caminho = Path.Combine(caminho, ".credentials/gmail-dotnet-quickstart.json");
+                    credencial = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.FromStream(stream).Secrets, Scopes,
+                    "user", CancellationToken.None, new FileDataStore(caminho, true)).Result;
                 }
-                mensagem += "</table>";
+                dgvCarrinho.DataSource = null;
+                dgvCarrinho.AutoGenerateColumns = false;
 
-                var service = new GmailService(new BaseClientService.Initializer() { HttpClientInitializer = credencial, ApplicationName = ApplicationName });
-                var msg = new Google.Apis.Gmail.v1.Data.Message();
-                msg.Raw = Base64UrlEncode(mensagem.ToString());
-                service.Users.Messages.Send(msg, "me").Execute();
-                MessageBox.Show("Email enviado com sucesso!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch
-            {
-                _mensagemErro.Mensagem("Erro no envio do Email!");
+                var source = new BindingSource
+                {
+                    DataSource = _pedido.Produtos
+                };
+
+                dgvCarrinho.DataSource = source;
+                try
+                {
+                    string mensagem =
+                    $"To: {ClienteControl.BuscarCliente(_pedido.IdCliente).Email}\r\n" +
+                    $"Subject: {"A Augustus Fashion agradece!"}\r\n" +
+                    $"Content-Type: text/html;charset=utf-8\r\n\r\n<h1>{$"Olá, {ClienteControl.BuscarCliente(_pedido.IdCliente).Nome}!<br><br> Seu Pedido feito em {_pedido.DataPedido.Day}/{_pedido.DataPedido.Month} de {_pedido.DataPedido.Year}, é o seguinte:"}</h1><ol>";
+
+                    mensagem += "<table border=\"1\"> <tr> <th> Nome </th> <th >Quantidade </th> <th> Preço Unitário </th> <th> Preço Total </th> </tr>";
+
+                    foreach (var produto in _pedido.Produtos)
+                    {
+                        mensagem += $"<tr> <td> {produto.NomeProduto} </td> <td> {produto.QuantidadeProduto} </td> <td> {produto.PrecoBrutoUnitario} </td>" +
+                        $"<td> {produto.PrecoLiquidoTotal} </td> </tr>";
+                    }
+                    mensagem += "</table>";
+
+                    var service = new GmailService(new BaseClientService.Initializer() { HttpClientInitializer = credencial, ApplicationName = ApplicationName });
+                    var msg = new Google.Apis.Gmail.v1.Data.Message();
+                    msg.Raw = Base64UrlEncode(mensagem.ToString());
+                    service.Users.Messages.Send(msg, "me").Execute();
+                    _mensagemInfo.Mensagem("Email enviado com sucesso!");
+                }
+                catch
+                {
+                    _mensagemErro.Mensagem("Erro no envio do Email!");
+                }
             }
         }
 

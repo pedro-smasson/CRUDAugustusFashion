@@ -611,7 +611,7 @@ namespace Augustus_Fashion.View
             this.MaximizeBox = false;
             this.Name = "CadastroFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CADASTRO DE FUNCIONÁRIOS";
+            this.Text = "Augustu\'s Fashion - Cadastrar Funcionários";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBoxFuncionario.ResumeLayout(false);

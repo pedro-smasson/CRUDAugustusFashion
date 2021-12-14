@@ -32,7 +32,10 @@ namespace Augustus_Fashion.View.Relatorios
             return maiorTamanho;
         }
 
-        private void RelatorioCliente_Load(object sender, EventArgs e) => dgvCliente.DataSource = _clienteController.ListarClientes();
+        private void RelatorioCliente_Load(object sender, EventArgs e) 
+        {
+
+        }
 
         private void FiltrosPreenchidos()
         {

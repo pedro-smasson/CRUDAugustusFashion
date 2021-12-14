@@ -559,7 +559,7 @@ namespace Augustus_Fashion.View
             this.MaximizeBox = false;
             this.Name = "AlterarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ALTERAR CLIENTE";
+            this.Text = "Augustu\'s Fashion -  Alterar Clientes";
             this.Load += new System.EventHandler(this.AlterarCliente_Load);
             this.groupBoxCliente.ResumeLayout(false);
             this.groupBoxCliente.PerformLayout();
