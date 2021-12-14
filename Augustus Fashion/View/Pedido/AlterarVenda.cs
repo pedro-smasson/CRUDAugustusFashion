@@ -41,7 +41,7 @@ namespace Augustus_Fashion.View.Pedido
             this.dgvCarrinho.Columns["PrecoLiquidoUnitario"].Visible = false;
             this.dgvCarrinho.Columns["PrecoLiquidoTotal"].Visible = true;
 
-            //txtLucro.Text = _pedido.Lucro.ToString();
+            txtLucro.Text = _pedido.Lucro.ToString();
             cbFormaDePagamento.Text = _pedido.FormaDePagamento.ToString();
             lblCliente.Text = _pedido.IdCliente.ToString();
             lblFuncionario.Text = _pedido.IdFuncionario.ToString();

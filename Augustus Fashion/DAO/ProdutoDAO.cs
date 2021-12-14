@@ -25,13 +25,13 @@ namespace Augustus_Fashion.DAO
                     {
                         conexao.Execute(queryProduto, new
                         {
-                            CodBarra = produto.CodBarra,
-                            Nome = produto.Nome,
+                            produto.CodBarra,
+                            produto.Nome,
                             PrecoVenda = produto.PrecoVenda.RetornarValorEmDecimal(),
                             PrecoCusto = produto.PrecoCusto.RetornarValorEmDecimal(),
-                            Estoque = produto.Estoque,
-                            StatusProduto = produto.StatusProduto,
-                            Fabricante = produto.Fabricante,
+                            produto.Estoque,
+                            produto.StatusProduto,
+                            produto.Fabricante,
                         }, transacao);
                         transacao.Commit();
                     }
@@ -66,7 +66,7 @@ namespace Augustus_Fashion.DAO
         public static List<ProdutoListagem> ListarTodosOsProdutos()
         {
 
-            var query = @"select IdProduto, Nome, PrecoVenda, Estoque, Fabricante, StatusProduto from Produto";
+            var query = @"select IdProduto, Nome, PrecoVenda, Estoque, Fabricante, StatusProduto, PrecoCusto from Produto";
 
             try
             {

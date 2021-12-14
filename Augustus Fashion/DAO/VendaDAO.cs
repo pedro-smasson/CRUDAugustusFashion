@@ -149,8 +149,8 @@ namespace Augustus_Fashion.DAO
 
         public static List<PedidoProdutoModel> BuscarProdutos(int id)
         {
-            var query = @"select p.Nome as NomeProduto, v.Total as PrecoLiquidoUnitario, v.QuantidadeProduto,
-            v.Desconto as DescontoUnitario, v.PrecoVenda as PrecoBrutoUnitario
+            var query = @"select p.Nome as NomeProduto, p.PrecoCusto as PrecoCustoUnitario, v.Total as PrecoLiquidoUnitario,
+            v.QuantidadeProduto, v.Desconto as DescontoUnitario, v.PrecoVenda as PrecoBrutoUnitario
             from Venda v
             inner join Produto as p on v.IdProduto = p.IdProduto
             where v.IdPedido = @IdPedido";
@@ -160,9 +160,7 @@ namespace Augustus_Fashion.DAO
                 using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
-                    var listar = conexao.Query<PedidoProdutoModel>(query, new { IdPedido = id }).ToList();
-
-                    return listar;
+                    return conexao.Query<PedidoProdutoModel>(query, new { IdPedido = id }).ToList();
                 }
             }
             catch (Exception ex)
