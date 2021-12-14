@@ -203,12 +203,14 @@ namespace Augustus_Fashion.View.Pedido
             this.NomeProduto.DataPropertyName = "NomeProduto";
             this.NomeProduto.HeaderText = "Nome";
             this.NomeProduto.Name = "NomeProduto";
+            this.NomeProduto.ReadOnly = true;
             // 
             // IdProduto
             // 
             this.IdProduto.DataPropertyName = "IdProduto";
             this.IdProduto.HeaderText = "IdProduto";
             this.IdProduto.Name = "IdProduto";
+            this.IdProduto.ReadOnly = true;
             this.IdProduto.Visible = false;
             // 
             // PrecoLiquidoTotal
@@ -216,12 +218,14 @@ namespace Augustus_Fashion.View.Pedido
             this.PrecoLiquidoTotal.DataPropertyName = "PrecoLiquidoTotal";
             this.PrecoLiquidoTotal.HeaderText = "Preço Final";
             this.PrecoLiquidoTotal.Name = "PrecoLiquidoTotal";
+            this.PrecoLiquidoTotal.ReadOnly = true;
             // 
             // QuantidadeProduto
             // 
             this.QuantidadeProduto.DataPropertyName = "QuantidadeProduto";
             this.QuantidadeProduto.HeaderText = "Quantidade";
             this.QuantidadeProduto.Name = "QuantidadeProduto";
+            this.QuantidadeProduto.ReadOnly = true;
             // 
             // label4
             // 
@@ -409,6 +413,7 @@ namespace Augustus_Fashion.View.Pedido
             this.label11.Size = new System.Drawing.Size(92, 20);
             this.label11.TabIndex = 39;
             this.label11.Text = "Lucro Total:";
+            this.label11.Visible = false;
             // 
             // txtLucro
             // 
@@ -420,6 +425,7 @@ namespace Augustus_Fashion.View.Pedido
             this.txtLucro.ReadOnly = true;
             this.txtLucro.Size = new System.Drawing.Size(159, 22);
             this.txtLucro.TabIndex = 40;
+            this.txtLucro.Visible = false;
             // 
             // label12
             // 

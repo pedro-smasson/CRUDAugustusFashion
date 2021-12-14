@@ -174,6 +174,7 @@ namespace Augustus_Fashion.View.Pedido
             this.txtLucro.ReadOnly = true;
             this.txtLucro.Size = new System.Drawing.Size(159, 22);
             this.txtLucro.TabIndex = 76;
+            this.txtLucro.Visible = false;
             // 
             // label11
             // 
@@ -184,6 +185,7 @@ namespace Augustus_Fashion.View.Pedido
             this.label11.Size = new System.Drawing.Size(92, 20);
             this.label11.TabIndex = 75;
             this.label11.Text = "Lucro Total:";
+            this.label11.Visible = false;
             // 
             // label9
             // 
@@ -589,7 +591,7 @@ namespace Augustus_Fashion.View.Pedido
             this.Controls.Add(this.txtProduto);
             this.Name = "AlterarVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AlterarVenda";
+            this.Text = "Augustus Fashion - Alterar Venda";
             this.Load += new System.EventHandler(this.AlterarVenda_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

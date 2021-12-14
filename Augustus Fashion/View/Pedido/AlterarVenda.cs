@@ -23,6 +23,9 @@ namespace Augustus_Fashion.View.Pedido
         {
             InitializeComponent();
             _pedido = pedido;
+
+            //var obterLucro = (Dinheiro)_produtoControl.ObterLucro(_pedido.IdPedido);
+            //_pedido.Lucro = obterLucro.RetornarValorEmDecimal();
         }
 
         public void DadosDaVenda()
@@ -38,11 +41,11 @@ namespace Augustus_Fashion.View.Pedido
             this.dgvCarrinho.Columns["PrecoLiquidoUnitario"].Visible = false;
             this.dgvCarrinho.Columns["PrecoLiquidoTotal"].Visible = true;
 
+            //txtLucro.Text = _pedido.Lucro.ToString();
             cbFormaDePagamento.Text = _pedido.FormaDePagamento.ToString();
             lblCliente.Text = _pedido.IdCliente.ToString();
             lblFuncionario.Text = _pedido.IdFuncionario.ToString();
             txtTotalVenda.Text = _pedido.PrecoTotal.ToString();
-            txtLucro.Text = _pedido.Lucro.ToString();
         }
 
         private void AlterarDadosDaVenda()
@@ -140,7 +143,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private void AlterarVenda_Load(object sender, EventArgs e)
         {
-            dgvProduto.DataSource = _produtoControl.ListarProduto;
+            dgvProduto.DataSource = _produtoControl.ListarProduto();
             dgvProduto.Columns["PrecoCusto"].Visible = false;
 
             txtDesconto.Text = (0).ToString();
@@ -191,7 +194,7 @@ namespace Augustus_Fashion.View.Pedido
 
             if (txtProduto.Text == "%")
             {
-                dgvProduto.DataSource = _produtoControl.ListarProduto;
+                dgvProduto.DataSource = _produtoControl.ListarProduto();
                 txtProduto.Text = "";
             }
         }

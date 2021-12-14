@@ -49,7 +49,8 @@ namespace Augustus_Fashion.Model.Venda
 
         public Dinheiro Lucro 
         {
-            get => Produtos.Sum(produto => (produto.PrecoLiquidoTotal.RetornarValorEmDecimal() - produto.PrecoCustoUnitario.RetornarValorEmDecimal()));
+            get => Produtos.Sum(produto => (produto.PrecoLiquidoTotal.RetornarValorEmDecimal()
+            - produto.PrecoCustoUnitario.RetornarValorEmDecimal()));
         }
 
         public Dinheiro PrecoASerExibidoNoFinal() 

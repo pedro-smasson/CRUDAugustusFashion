@@ -2,7 +2,7 @@
 
 namespace Augustus_Fashion.Model.Funcionário
 {
-    class ProdutoListagem
+    public class ProdutoListagem
     {
         public int IdProduto { get; set; }
         public string Nome { get; set; }

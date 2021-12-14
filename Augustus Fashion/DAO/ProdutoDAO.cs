@@ -1,5 +1,6 @@
 ﻿using Augustus_Fashion.Model.Funcionário;
 using Augustus_Fashion.Model.Produto;
+using Augustus_Fashion.ValueObjects;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -44,9 +45,9 @@ namespace Augustus_Fashion.DAO
 
         public static List<ProdutoListagem> ListarProduto()
         {
-
-            var query = @"select IdProduto, Nome, PrecoVenda, Estoque, Fabricante, StatusProduto, PrecoCusto from Produto where 
-            StatusProduto = '1'";
+            var query = @"select IdProduto, Nome, PrecoVenda, Estoque, Fabricante,
+            StatusProduto, PrecoCusto from Produto
+            where StatusProduto = '1'";
 
             try
             {
@@ -170,6 +171,26 @@ namespace Augustus_Fashion.DAO
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+
+        public static decimal ObterLucro(int idPedido)
+        {
+            string query = @"SELECT Lucro from Pedido where IdPedido = @idPedido";
+
+            try
+            {
+                using (var conexao = new conexao().Connection()) 
+                {
+                    conexao.Open();
+                    var a = conexao.Query<decimal>(query, new { idPedido }).FirstOrDefault();
+                    return a;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message) ;
             }
         }
     }

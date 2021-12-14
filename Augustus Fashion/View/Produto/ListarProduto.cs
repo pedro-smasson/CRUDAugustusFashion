@@ -15,7 +15,7 @@ namespace Augustus_Fashion.View.Produto
             InitializeComponent();
         }
 
-        private void ListarProduto_Load(object sender, EventArgs e) => dgvProduto.DataSource = _produtoControl.ListarProduto;
+        private void ListarProduto_Load(object sender, EventArgs e) => dgvProduto.DataSource = _produtoControl.ListarProduto();
 
         private void buscarNome_Click(object sender, EventArgs e)
         {
@@ -23,7 +23,7 @@ namespace Augustus_Fashion.View.Produto
 
             if (txtNome.Text == "%")
             {
-                dgvProduto.DataSource = _produtoControl.ListarTodosOsProdutos;
+                dgvProduto.DataSource = _produtoControl.ListarTodosOsProdutos();
                 txtNome.Text = "";
             }
         }

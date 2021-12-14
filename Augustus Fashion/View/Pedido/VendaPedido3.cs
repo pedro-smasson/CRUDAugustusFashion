@@ -35,8 +35,9 @@ namespace Augustus_Fashion.View.Pedido
 
         private void VendaPedido3_Load(object sender, EventArgs e)
         {
-            dgvProduto.DataSource = _produtoControl.ListarProduto;
-            dgvProduto.Columns["PrecoCusto"].Visible = false;
+            dgvProduto.DataSource = _produtoControl.ListarProduto();
+            dgvProduto.Columns[2].HeaderText = "Preço de Venda";
+            dgvProduto.Columns[3].HeaderText = "Preço Custo";
 
             txtDesconto.Text = ("R$ " + 0).ToString();
 
@@ -55,7 +56,7 @@ namespace Augustus_Fashion.View.Pedido
 
             if (txtProduto.Text == "%")
             {
-                dgvProduto.DataSource = _produtoControl.ListarProduto;
+                dgvProduto.DataSource = _produtoControl.ListarProduto();
                 txtProduto.Text = "";
             }
         }
