@@ -8,15 +8,6 @@ namespace Augustus_Fashion.Model
         public decimal Limite { get; set; }
         public decimal LimiteGasto { get; set; }
 
-        public bool CalcularSeClienteTemLimiteDisponivel()
-        {
-            if (Limite > LimiteGasto)
-            {
-                return true;
-            }
-            return false;
-        }
-
         public string ValidarCliente()
         {
             var resultado = new ClienteValidation().Validate(this);

@@ -18,6 +18,8 @@ namespace Augustus_Fashion.DAO
             var queryVenda = @"insert into Venda (IdPedido, IdProduto, PrecoVenda, QuantidadeProduto, Desconto, Total)
             values (@IdPedido, @IdProduto, @PrecoLiquidoUnitario, @QuantidadeProduto, @DescontoUnitario, @PrecoLiquidoTotal)";
 
+            var queryLimite = @"update Cliente set LimiteGasto += @PrecoTotal where IdCliente = @IdCliente";
+
             var queryAlterarEstoque = @"update Produto set Estoque -= @QuantidadeProdutoTotalDoPedido where IdProduto = @IdProduto";
 
             try
@@ -55,6 +57,14 @@ namespace Augustus_Fashion.DAO
 
                             }, transacao);
                             conexao.Execute(queryAlterarEstoque, new { pedidoProduto.IdProduto, pedido.QuantidadeProdutoTotalDoPedido }, transacao);
+                        }
+                        if (pedido.FormaDePagamento == "Á Prazo") 
+                        {
+                            conexao.Execute(queryLimite, new 
+                            { 
+                                pedido.IdCliente, 
+                                PrecoTotal = pedido.PrecoTotal.RetornarValorEmDecimal()
+                            }, transacao);
                         }
                         transacao.Commit();
                     }

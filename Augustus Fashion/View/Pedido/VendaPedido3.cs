@@ -147,9 +147,8 @@ namespace Augustus_Fashion.View.Pedido
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             _pedido.DataPedido = DateTime.Today;
-            if (ValidarProdutosDoPedido() && ValidarFormaDePagamentoDoPedido())
+            if (ValidarProdutosDoPedido() && ValidarFormaDePagamentoDoPedido() && VerificarCompraAPrazo())
             {
-                VerificarCompraAPrazo();
                 CadastrarVenda();
                 EnviarEmail();
 
@@ -169,19 +168,19 @@ namespace Augustus_Fashion.View.Pedido
                 vendaControl.CadastrarVenda(_pedido);
                 _mensagemInfo.Mensagem("Venda efetuada com sucesso!");
             }
-            catch
+            catch(Exception ex)
             {
-                _mensagemErro.Mensagem("Falha no Cadastro! Erro de Banco de Dados");
+                _mensagemErro.Mensagem("Falha no Cadastro! Erro de Banco de Dados" + ex.Message);
             }
         }
 
-        private void VerificarCompraAPrazo()
+        private bool VerificarCompraAPrazo()
         {
             if(cbFormaDePagamento.Text == "Á Prazo")
             {
-                _clienteModel.CalcularSeClienteTemLimiteDisponivel();
-                _clienteModel.LimiteGasto += Convert.ToDecimal(txtTotalVenda.Text);
+               return _pedido.CalcularSeClienteTemLimiteDisponivel(Dinheiro.RemoverFormatacao(txtTotalVenda.Text));
             }
+            return true;
         }
 
         private bool ValidarProdutosDoPedido()

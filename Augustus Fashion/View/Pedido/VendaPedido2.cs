@@ -1,5 +1,6 @@
 ﻿using Augustus_Fashion.Controller;
 using Augustus_Fashion.MensagemGlobal;
+using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Venda;
 using System;
 using System.Windows.Forms;
@@ -9,7 +10,6 @@ namespace Augustus_Fashion.View.Pedido
     public partial class VendaPedido2 : Form
     {
         ClienteControl _clientecontrol = new ClienteControl();
-
         PedidoModel _pedido = new PedidoModel();
         MensagemAlerta _mensagemAlerta = new MensagemAlerta();
 
@@ -21,13 +21,15 @@ namespace Augustus_Fashion.View.Pedido
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
         }
 
         private void VendaPedido2_Load(object sender, EventArgs e)
         {
             dgvCliente.DataSource = _clientecontrol.ListarClientes();
-            this.dgvCliente.Columns["Endereco"].Visible = false;
+            dgvCliente.Columns["Endereco"].Visible = false;
+            dgvCliente.Columns["Limite"].Visible = false;
+            dgvCliente.Columns["LimiteGasto"].Visible = false;
         }
 
         private void dgvCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -36,6 +38,8 @@ namespace Augustus_Fashion.View.Pedido
             txtSelecionado.Text = nome.ToString();
 
             _pedido.IdCliente = (int)dgvCliente.SelectedRows[0].Cells[0].Value;
+            _pedido.Limite = (decimal)dgvCliente.SelectedRows[0].Cells[5].Value;
+            _pedido.LimiteGasto = (decimal)dgvCliente.SelectedRows[0].Cells[6].Value;
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)
