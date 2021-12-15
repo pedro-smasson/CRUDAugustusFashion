@@ -13,27 +13,24 @@ namespace Augustus_Fashion.View
         MensagemErro _mensagemErro = new MensagemErro();
         MensagemInfo _mensagemInfo = new MensagemInfo();
 
-        public AlterarCliente()
-        {
-            InitializeComponent();
-        }
+        public AlterarCliente() => InitializeComponent();
 
-        public void dadosDe(ClienteModel cliente)
+        public void DadosDoCliente(ClienteModel cliente)
         {
             idCliente.Text = cliente.IdPessoa.ToString();
             nomeCliente.Text = cliente.Nome;
             emailCliente.Text = cliente.Email;
-            datanascCliente.Text = cliente.Nascimento.ToString();
-            cpfCliente.Text = cliente.Cpf.ToString();
             ruaCliente.Text = cliente.Endereco.Rua;
             bairroCliente.Text = cliente.Endereco.Bairro;
-            cepCliente.Text = cliente.Endereco.Cep.ToString();
             numeroCliente.Text = cliente.Endereco.Numero;
             celularCliente.Text = cliente.Celular;
             cidadeCliente.Text = cliente.Endereco.Cidade;
             estadoCliente.Text = cliente.Endereco.Estado;
             complementoCliente.Text = cliente.Endereco.Complemento;
+            cpfCliente.Text = cliente.Cpf.ToString();
+            cepCliente.Text = cliente.Endereco.Cep.ToString();
             valorLimiteCliente.Text = cliente.Limite.ToString();
+            datanascCliente.Text = cliente.Nascimento.ToString();
 
             if (cliente.Sexo == "M")
                 sexoMascCliente.Checked = true;
@@ -43,7 +40,6 @@ namespace Augustus_Fashion.View
                 sexOtherCliente.Checked = true;
 
             _clientemodel = cliente;
-
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -73,9 +69,8 @@ namespace Augustus_Fashion.View
 
                 try
                 {
-                    new ClienteControl().AlterarCliente(_clientemodel);
+                    _clientecontrol.AlterarCliente(_clientemodel);
                     _mensagemInfo.Mensagem("Cliente Alterado com Sucesso!");
-
                 }
                 catch
                 {
@@ -85,7 +80,7 @@ namespace Augustus_Fashion.View
                 Hide();
                 ListarCliente listarCliente = new ListarCliente();
                 listarCliente.ShowDialog();
-                this.Close();
+                Close();
             }
         }
 
@@ -99,10 +94,9 @@ namespace Augustus_Fashion.View
                 Hide();
                 ListarCliente listarCliente = new ListarCliente();
                 listarCliente.ShowDialog();
-                this.Close();
+                Close();
             }
             _mensagemErro.Mensagem("Falha na Exclusão");
-
         }
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,18 +104,12 @@ namespace Augustus_Fashion.View
             Hide();
             telaInicial ti = new telaInicial();
             ti.ShowDialog();
-            this.Close();
+            Close();
         }
 
-        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
-        private void AlterarCliente_Load(object sender, EventArgs e)
-        {
-            btnAlterar.Enabled = true;
-        }
+        private void AlterarCliente_Load(object sender, EventArgs e) => btnAlterar.Enabled = true;
 
         private bool ValidarSexo()
         {
@@ -133,7 +121,6 @@ namespace Augustus_Fashion.View
 
         private bool Validar()
         {
-
             if (!Validacoes.ValidarString(nomeCliente.Text))
             {
                 _mensagemErro.Mensagem("Nome inválido");
@@ -208,9 +195,6 @@ namespace Augustus_Fashion.View
             return true;
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
+        private void btnVoltar_Click(object sender, EventArgs e) => this.DialogResult = DialogResult.OK;
     }
 }

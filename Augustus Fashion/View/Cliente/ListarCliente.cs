@@ -8,15 +8,9 @@ namespace Augustus_Fashion.View
     {
         ClienteControl _clientecontrol = new ClienteControl();
 
-        public ListarCliente()
-        {
-            InitializeComponent();
-        }
+        public ListarCliente() => InitializeComponent();
 
-        private void ListarCliente_Load(object sender, EventArgs e)
-        {
-            dgvCliente.DataSource = _clientecontrol.ListarClientes();
-        }
+        private void ListarCliente_Load(object sender, EventArgs e) => dgvCliente.DataSource = _clientecontrol.ListarClientes();
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -29,17 +23,14 @@ namespace Augustus_Fashion.View
             }
         }
 
-        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
             telaInicial ti = new telaInicial();
             ti.ShowDialog();
-            this.Close();
+            Close();
         }
 
         public int SelecionarClienteModel()
@@ -53,7 +44,7 @@ namespace Augustus_Fashion.View
             AlterarCliente alterarCliente = new AlterarCliente();
             var id = SelecionarClienteModel();
             var cliente = _clientecontrol.Buscar(id);
-            alterarCliente.dadosDe(cliente);
+            alterarCliente.DadosDoCliente(cliente);
             alterarCliente.ShowDialog();
         }
     }

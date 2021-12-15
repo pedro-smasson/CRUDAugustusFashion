@@ -176,6 +176,7 @@ namespace Augustus_Fashion
             this.valorLimiteCliente.Name = "valorLimiteCliente";
             this.valorLimiteCliente.Size = new System.Drawing.Size(143, 29);
             this.valorLimiteCliente.TabIndex = 14;
+            this.valorLimiteCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.valorLimiteCliente_KeyPress);
             // 
             // label13
             // 

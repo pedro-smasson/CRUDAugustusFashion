@@ -14,15 +14,9 @@ namespace Augustus_Fashion
         MensagemInfo _mensagemInfo = new MensagemInfo();
         MensagemErro _mensagemErro = new MensagemErro();
 
-        public cadastroCliente()
-        {
-            InitializeComponent();
-        }
+        public cadastroCliente() => InitializeComponent();
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            Limpar();
-        }
+        private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
 
         private void Limpar()
         {
@@ -48,7 +42,6 @@ namespace Augustus_Fashion
         {
             if (Validar())
             {
-
                 _clientemodel.Nome = nomeCliente.Text;
                 _clientemodel.Email = emailCliente.Text;
                 _clientemodel.Nascimento = Convert.ToDateTime(datanascCliente.Text);
@@ -168,17 +161,17 @@ namespace Augustus_Fashion
             return false;
         }
 
-        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
             telaInicial ti = new telaInicial();
             ti.ShowDialog();
-            this.Close();
+            Close();
         }
+
+        private void valorLimiteCliente_KeyPress(object sender, KeyPressEventArgs e) =>
+            e.Handled = !(char.IsDigit(e.KeyChar) || e.KeyChar == ',');
     }
 }
