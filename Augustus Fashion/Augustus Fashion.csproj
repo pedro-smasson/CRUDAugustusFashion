@@ -84,21 +84,6 @@
     <Compile Include="Controller\FuncionarioControl.cs" />
     <Compile Include="Controller\ProdutoControl.cs" />
     <Compile Include="Controller\VendaControl.cs" />
-    <Compile Include="crudDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>crudDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="crudDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>crudDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="crudDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>crudDataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\conexao.cs" />
     <Compile Include="DAO\FiltrosDAO.cs" />
@@ -340,39 +325,6 @@
     <EmbeddedResource Include="View\Telas Centrais\TelaProduto.resx">
       <DependentUpon>TelaProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="crudDataSet.xsc">
-      <DependentUpon>crudDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="crudDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>crudDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="crudDataSet.xss">
-      <DependentUpon>crudDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="crudDataSet1.xsc">
-      <DependentUpon>crudDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="crudDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>crudDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="crudDataSet1.xss">
-      <DependentUpon>crudDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="crudDataSet2.xsc">
-      <DependentUpon>crudDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="crudDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>crudDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="crudDataSet2.xss">
-      <DependentUpon>crudDataSet2.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

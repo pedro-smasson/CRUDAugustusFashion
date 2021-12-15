@@ -1,5 +1,6 @@
 ﻿using Augustus_Fashion.Controller;
 using Augustus_Fashion.MensagemGlobal;
+using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
 using Augustus_Fashion.ValueObjects;
@@ -18,6 +19,7 @@ namespace Augustus_Fashion.View.Pedido
 {
     public partial class VendaPedido3 : Form
     {
+        ClienteModel _clienteModel = new ClienteModel();
         ProdutoControl _produtoControl = new ProdutoControl();
         PedidoModel _pedido;
         MensagemErro _mensagemErro = new MensagemErro();
@@ -82,14 +84,15 @@ namespace Augustus_Fashion.View.Pedido
             if (VerificarSePrecoLiquidoEhNegativo())
             {
 
-                PedidoProdutoModel produtoPedido = new PedidoProdutoModel();
-
-                produtoPedido.IdProduto = Convert.ToInt32(lblIdProduto.Text);
-                produtoPedido.NomeProduto = txtSelecionado.Text;
-                produtoPedido.DescontoUnitario = Dinheiro.RemoverFormatacao(txtDesconto.Text);
-                produtoPedido.QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value);
-                produtoPedido.PrecoBrutoUnitario = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text);
-                produtoPedido.PrecoCustoUnitario = Dinheiro.RemoverFormatacao(txtPrecoCusto.Text);
+                PedidoProdutoModel produtoPedido = new PedidoProdutoModel
+                {
+                    IdProduto = Convert.ToInt32(lblIdProduto.Text),
+                    NomeProduto = txtSelecionado.Text,
+                    DescontoUnitario = Dinheiro.RemoverFormatacao(txtDesconto.Text),
+                    QuantidadeProduto = Convert.ToInt32(nudQuantidade.Value),
+                    PrecoBrutoUnitario = Dinheiro.RemoverFormatacao(txtPrecoVenda.Text),
+                    PrecoCustoUnitario = Dinheiro.RemoverFormatacao(txtPrecoCusto.Text)
+                };
 
                 _pedido.AdicionarProduto(produtoPedido);
 
@@ -144,8 +147,9 @@ namespace Augustus_Fashion.View.Pedido
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             _pedido.DataPedido = DateTime.Today;
-            if (ValidarProdutosDoPedido() && Validar())
+            if (ValidarProdutosDoPedido() && ValidarFormaDePagamentoDoPedido())
             {
+                VerificarCompraAPrazo();
                 CadastrarVenda();
                 EnviarEmail();
 
@@ -168,6 +172,15 @@ namespace Augustus_Fashion.View.Pedido
             catch
             {
                 _mensagemErro.Mensagem("Falha no Cadastro! Erro de Banco de Dados");
+            }
+        }
+
+        private void VerificarCompraAPrazo()
+        {
+            if(cbFormaDePagamento.Text == "Á Prazo")
+            {
+                _clienteModel.CalcularSeClienteTemLimiteDisponivel();
+                _clienteModel.LimiteGasto += Convert.ToDecimal(txtTotalVenda.Text);
             }
         }
 
@@ -201,7 +214,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private void txtTotalVenda_TextChanged(object sender, EventArgs e) => ExibirTotalDaVenda();
 
-        private bool Validar()
+        private bool ValidarFormaDePagamentoDoPedido()
         {
 
             if (String.IsNullOrEmpty(cbFormaDePagamento.Text))

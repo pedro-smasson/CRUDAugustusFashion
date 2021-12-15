@@ -12,7 +12,7 @@ namespace Augustus_Fashion.DAO
         {
             var queryPessoa = @"insert into Pessoa output inserted.IdPessoa values(@Nome, @Sexo, @Nascimento, @Celular,
             @Email, @Cpf)";
-            var queryCliente = @"insert into Cliente (IdPessoa, Limite) values(@IdPessoa, @Limite)";
+            var queryCliente = @"insert into Cliente (IdPessoa, Limite, LimiteGasto) values(@IdPessoa, @Limite, @LimiteGasto)";
             var queryEndereco = @"insert into Endereco (IdPessoa, Cep, Rua, Numero, Bairro, Cidade, Estado, Complemento)
             values(@IdPessoa, @Cep, @Rua, @Numero, @Bairro, @Cidade, @Estado, @Complemento)";
 
@@ -40,6 +40,7 @@ namespace Augustus_Fashion.DAO
                         {
                             cliente.IdPessoa,
                             cliente.Limite,
+                            cliente.LimiteGasto
                         }, transacao);
                         conexao.Execute(queryEndereco, new
                         {
@@ -68,7 +69,7 @@ namespace Augustus_Fashion.DAO
         {
             var queryPessoa = @"update Pessoa set Nome = @Nome, Sexo = @Sexo, Nascimento = @Nascimento,
             Celular = @Celular, Email = @Email, Cpf = @Cpf where IdPessoa = @IdPessoa";
-            var queryCliente = @"update Cliente set Limite = @Limite where IdPessoa = @IdPessoa";
+            var queryCliente = @"update Cliente set Limite = @Limite, LimiteGasto = @LimiteGasto where IdPessoa = @IdPessoa";
             var queryEndereco = @"update Endereco set Cep = @Cep, Rua = @Rua, Numero = @Numero, Bairro = @Bairro,
             Cidade = @Cidade, Estado = @Estado, Complemento = @Complemento where IdPessoa = @IdPessoa";
 
@@ -92,7 +93,8 @@ namespace Augustus_Fashion.DAO
                         conexao.Execute(queryCliente, new
                         {
                             cliente.IdPessoa,
-                            cliente.Limite
+                            cliente.Limite,
+                            cliente.LimiteGasto
                         }, transacao);
                         conexao.Execute(queryEndereco, new
                         {
@@ -146,7 +148,7 @@ namespace Augustus_Fashion.DAO
 
         public static List<ClienteListagem> ListarCliente()
         {
-            var query = @"select c.IdCliente, c.Limite,
+            var query = @"select c.IdCliente, c.Limite, c.LimiteGasto,
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
             c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
             Pessoa p inner join Cliente c on c.IdPessoa = p.IdPessoa
@@ -169,7 +171,7 @@ namespace Augustus_Fashion.DAO
 
         public static ClienteModel Buscar(int idCliente)
         {
-            var query = @"select c.IdCliente, c.Limite,
+            var query = @"select c.IdCliente, c.Limite, c.LimiteGasto,
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
             c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
             Pessoa p inner join Cliente c on p.IdPessoa = c.IdPessoa
@@ -193,7 +195,7 @@ namespace Augustus_Fashion.DAO
 
         public static List<ClienteListagem> BuscarLista(string nomeCliente)
         {
-            var query = @"select c.IdCliente, c.Limite,
+            var query = @"select c.IdCliente, c.Limite, c.LimiteGasto
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
             c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento 
             from Pessoa p inner join Cliente c on c.IdPessoa = p.IdPessoa

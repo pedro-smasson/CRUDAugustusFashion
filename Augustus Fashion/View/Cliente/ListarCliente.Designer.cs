@@ -32,8 +32,6 @@ namespace Augustus_Fashion.View
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarCliente));
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.crudDataSet = new Augustus_Fashion.crudDataSet();
-            this.clienteTableAdapter = new Augustus_Fashion.crudDataSetTableAdapters.clienteTableAdapter();
             this.buscarNome = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -42,7 +40,6 @@ namespace Augustus_Fashion.View
             this.FecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.crudDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
@@ -50,16 +47,6 @@ namespace Augustus_Fashion.View
             // clienteBindingSource
             // 
             this.clienteBindingSource.DataMember = "cliente";
-            this.clienteBindingSource.DataSource = this.crudDataSet;
-            // 
-            // crudDataSet
-            // 
-            this.crudDataSet.DataSetName = "crudDataSet";
-            this.crudDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clienteTableAdapter
-            // 
-            this.clienteTableAdapter.ClearBeforeFill = true;
             // 
             // buscarNome
             // 
@@ -154,7 +141,6 @@ namespace Augustus_Fashion.View
             this.Text = "Augustu\'s Fashion - Listar Clientes";
             this.Load += new System.EventHandler(this.ListarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.crudDataSet)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
@@ -164,9 +150,7 @@ namespace Augustus_Fashion.View
         }
 
         #endregion
-        private crudDataSet crudDataSet;
         private System.Windows.Forms.BindingSource clienteBindingSource;
-        private crudDataSetTableAdapters.clienteTableAdapter clienteTableAdapter;
         private System.Windows.Forms.Button buscarNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;

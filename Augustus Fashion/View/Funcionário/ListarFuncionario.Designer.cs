@@ -38,12 +38,9 @@ namespace Augustus_Fashion.View
             this.label1 = new System.Windows.Forms.Label();
             this.buscarNome = new System.Windows.Forms.Button();
             this.funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.crudDataSet2 = new Augustus_Fashion.crudDataSet2();
-            this.funcionarioTableAdapter = new Augustus_Fashion.crudDataSet2TableAdapters.funcionarioTableAdapter();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.crudDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,17 +102,6 @@ namespace Augustus_Fashion.View
             // funcionarioBindingSource
             // 
             this.funcionarioBindingSource.DataMember = "funcionario";
-            this.funcionarioBindingSource.DataSource = this.crudDataSet2;
-            // 
-            // crudDataSet2
-            // 
-            this.crudDataSet2.DataSetName = "crudDataSet2";
-            this.crudDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // funcionarioTableAdapter
-            // 
-            this.funcionarioTableAdapter.ClearBeforeFill = true;
-            // 
             // dgvFuncionario
             // 
             this.dgvFuncionario.AllowUserToAddRows = false;
@@ -155,7 +141,6 @@ namespace Augustus_Fashion.View
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.crudDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -170,9 +155,7 @@ namespace Augustus_Fashion.View
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buscarNome;
-        private crudDataSet2 crudDataSet2;
         private System.Windows.Forms.BindingSource funcionarioBindingSource;
-        private crudDataSet2TableAdapters.funcionarioTableAdapter funcionarioTableAdapter;
         private System.Windows.Forms.DataGridView dgvFuncionario;
     }
 }

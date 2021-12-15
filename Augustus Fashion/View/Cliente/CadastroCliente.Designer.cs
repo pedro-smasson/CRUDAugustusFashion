@@ -172,7 +172,7 @@ namespace Augustus_Fashion
             // valorLimiteCliente
             // 
             this.valorLimiteCliente.Location = new System.Drawing.Point(613, 162);
-            this.valorLimiteCliente.MaxLength = 6;
+            this.valorLimiteCliente.MaxLength = 50;
             this.valorLimiteCliente.Name = "valorLimiteCliente";
             this.valorLimiteCliente.Size = new System.Drawing.Size(143, 29);
             this.valorLimiteCliente.TabIndex = 14;

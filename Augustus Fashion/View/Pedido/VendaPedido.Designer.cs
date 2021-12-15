@@ -133,6 +133,7 @@ namespace Augustus_Fashion.View.Pedido
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.MediumPurple;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hOMEToolStripMenuItem,
             this.fECHARToolStripMenuItem});
@@ -160,7 +161,7 @@ namespace Augustus_Fashion.View.Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(607, 380);
             this.Controls.Add(this.txtFuncionario);
             this.Controls.Add(this.btnAvancar);

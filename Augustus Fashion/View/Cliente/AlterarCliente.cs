@@ -33,7 +33,7 @@ namespace Augustus_Fashion.View
             cidadeCliente.Text = cliente.Endereco.Cidade;
             estadoCliente.Text = cliente.Endereco.Estado;
             complementoCliente.Text = cliente.Endereco.Complemento;
-            valorLimiteCliente.Text = cliente.Limite;
+            valorLimiteCliente.Text = cliente.Limite.ToString();
 
             if (cliente.Sexo == "M")
                 sexoMascCliente.Checked = true;
@@ -62,7 +62,7 @@ namespace Augustus_Fashion.View
                 _clientemodel.Endereco.Estado = estadoCliente.Text;
                 _clientemodel.Endereco.Complemento = complementoCliente.Text;
                 _clientemodel.Celular = celularCliente.Text;
-                _clientemodel.Limite = valorLimiteCliente.Text;
+                _clientemodel.Limite = Convert.ToDecimal(valorLimiteCliente.Text);
 
                 if (sexoMascCliente.Checked == true)
                     _clientemodel.Sexo = "M";
@@ -205,17 +205,7 @@ namespace Augustus_Fashion.View
                 _mensagemErro.Mensagem("Estado inválido");
                 return false;
             }
-
-            else if (!Validacoes.ValidarNumeric(valorLimiteCliente.Text))
-            {
-                _mensagemErro.Mensagem("Valor limite inválido");
-                return false;
-            }
-
-            else
-            {
-                return true;
-            }
+            return true;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

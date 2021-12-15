@@ -61,7 +61,7 @@ namespace Augustus_Fashion
                 _clientemodel.Endereco.Estado = estadoCliente.Text;
                 _clientemodel.Endereco.Complemento = complementoCliente.Text;
                 _clientemodel.Celular = celularCliente.Text;
-                _clientemodel.Limite = valorLimiteCliente.Text;
+                _clientemodel.Limite = Convert.ToDecimal(valorLimiteCliente.Text);
 
                 if (sexoMascCliente.Checked == true)
                     _clientemodel.Sexo = "M";
@@ -155,12 +155,6 @@ namespace Augustus_Fashion
             else if (string.IsNullOrEmpty(estadoCliente.Text))
             {
                 _mensagemErro.Mensagem("Estado inválido");
-                return false;
-            }
-
-            else if (!Validacoes.ValidarNumeric(valorLimiteCliente.Text))
-            {
-                _mensagemErro.Mensagem("Valor limite inválido");
                 return false;
             }
             return true;
