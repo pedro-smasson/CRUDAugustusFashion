@@ -323,7 +323,6 @@ namespace Augustus_Fashion.View.Relatorios
             this.Name = "RelatorioCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Augustus Fashion - Relatório de Clientes";
-            this.Load += new System.EventHandler(this.RelatorioCliente_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudValorInicial)).EndInit();

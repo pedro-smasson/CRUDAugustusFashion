@@ -198,6 +198,8 @@ namespace Augustus_Fashion.View.Pedido
 
         private void btnInativar_Click(object sender, EventArgs e)
         {
+            try 
+            {
             _vendaControl.DesativarVenda(_pedido);
 
             _mensagemInfo.Mensagem("Pedido inativado com sucesso!");
@@ -205,6 +207,11 @@ namespace Augustus_Fashion.View.Pedido
             telaInicial telaInicial = new telaInicial();
             telaInicial.ShowDialog();
             this.Close();
+            }
+            catch 
+            {
+                _mensagemErro.Mensagem("Falha na inativação do pedido!");
+            }
         }
 
         public int SelecionarValorEstoque() => (int)dgvProduto.SelectedRows[0].Cells[4].Value;

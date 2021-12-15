@@ -27,11 +27,11 @@ namespace Augustus_Fashion.DAO
                     {
                         int id = conexao.ExecuteScalar<int>(queryPessoa, new
                         {
-                            Nome = funcionario.Nome,
-                            Sexo = funcionario.Sexo,
-                            Nascimento = funcionario.Nascimento,
-                            Celular = funcionario.Celular,
-                            Email = funcionario.Email,
+                            funcionario.Nome,
+                            funcionario.Sexo,
+                            funcionario.Nascimento,
+                            funcionario.Celular,
+                            funcionario.Email,
                             Cpf = funcionario.Cpf.LimparCpfFormatado(),
                         }, transacao);
 
@@ -41,15 +41,15 @@ namespace Augustus_Fashion.DAO
                         conexao.Execute(queryfuncionario, funcionario, transacao);
                         conexao.Execute(queryEndereco, new
                         {
-                            IdPessoa = funcionario.IdPessoa,
-                            IdEndereco = funcionario.Endereco.IdEndereco,
+                            funcionario.IdPessoa,
+                            funcionario.Endereco.IdEndereco,
+                            funcionario.Endereco.Rua,
+                            funcionario.Endereco.Numero,
+                            funcionario.Endereco.Bairro,
+                            funcionario.Endereco.Cidade,
+                            funcionario.Endereco.Estado,
+                            funcionario.Endereco.Complemento,
                             Cep = funcionario.Endereco.Cep.LimparCepFormatado(),
-                            Rua = funcionario.Endereco.Rua,
-                            Numero = funcionario.Endereco.Numero,
-                            Bairro = funcionario.Endereco.Bairro,
-                            Cidade = funcionario.Endereco.Cidade,
-                            Estado = funcionario.Endereco.Estado,
-                            Complemento = funcionario.Endereco.Complemento,
                         }, transacao);
 
                         transacao.Commit();
@@ -80,27 +80,27 @@ namespace Augustus_Fashion.DAO
                     {
                         conexao.Execute(queryPessoa, new
                         {
-                            Nome = funcionario.Nome,
-                            Sexo = funcionario.Sexo,
-                            Nascimento = funcionario.Nascimento,
-                            Celular = funcionario.Celular,
-                            Email = funcionario.Email,
+                            funcionario.Nome,
+                            funcionario.Sexo,
+                            funcionario.Nascimento,
+                            funcionario.Celular,
+                            funcionario.Email,
+                            funcionario.IdPessoa,
                             Cpf = funcionario.Cpf.LimparCpfFormatado(),
-                            IdPessoa = funcionario.IdPessoa,
                         }, transacao);
 
                         conexao.Execute(queryFuncionario, funcionario, transacao);
                         conexao.Execute(queryEndereco, new
                         {
-                            IdPessoa = funcionario.IdPessoa,
-                            IdEndereco = funcionario.Endereco.IdEndereco,
+                            funcionario.IdPessoa,
+                            funcionario.Endereco.IdEndereco,
+                            funcionario.Endereco.Rua,
+                            funcionario.Endereco.Numero,
+                            funcionario.Endereco.Bairro,
+                            funcionario.Endereco.Cidade,
+                            funcionario.Endereco.Estado,
+                            funcionario.Endereco.Complemento,
                             Cep = funcionario.Endereco.Cep.LimparCepFormatado(),
-                            Rua = funcionario.Endereco.Rua,
-                            Numero = funcionario.Endereco.Numero,
-                            Bairro = funcionario.Endereco.Bairro,
-                            Cidade = funcionario.Endereco.Cidade,
-                            Estado = funcionario.Endereco.Estado,
-                            Complemento = funcionario.Endereco.Complemento,
                         }, transacao);
 
                         transacao.Commit();
@@ -151,9 +151,9 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
-                        conexao.Execute(queryEndereco, new { IdPessoa = funcionario.IdPessoa }, transacao);
-                        conexao.Execute(queryFuncionario, new { IdPessoa = funcionario.IdPessoa }, transacao);
-                        conexao.Execute(queryPessoa, new { IdPessoa = funcionario.IdPessoa }, transacao);
+                        conexao.Execute(queryEndereco, new { funcionario.IdPessoa }, transacao);
+                        conexao.Execute(queryFuncionario, new { funcionario.IdPessoa }, transacao);
+                        conexao.Execute(queryPessoa, new { funcionario.IdPessoa }, transacao);
 
                         transacao.Commit();
                     }

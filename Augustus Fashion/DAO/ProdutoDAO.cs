@@ -1,6 +1,5 @@
 ﻿using Augustus_Fashion.Model.Funcionário;
 using Augustus_Fashion.Model.Produto;
-using Augustus_Fashion.ValueObjects;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -27,11 +26,11 @@ namespace Augustus_Fashion.DAO
                         {
                             produto.CodBarra,
                             produto.Nome,
-                            PrecoVenda = produto.PrecoVenda.RetornarValorEmDecimal(),
-                            PrecoCusto = produto.PrecoCusto.RetornarValorEmDecimal(),
                             produto.Estoque,
                             produto.StatusProduto,
                             produto.Fabricante,
+                            PrecoVenda = produto.PrecoVenda.RetornarValorEmDecimal(),
+                            PrecoCusto = produto.PrecoCusto.RetornarValorEmDecimal(),
                         }, transacao);
                         transacao.Commit();
                     }
@@ -135,7 +134,7 @@ namespace Augustus_Fashion.DAO
                 var conexao = new conexao().Connection();
                 {
                     conexao.Open();
-                    conexao.Query<ProdutoModel>(query, new { IdProduto = produtoModel.IdProduto });
+                    conexao.Query<ProdutoModel>(query, new { produtoModel.IdProduto });
                 }
             }
             catch (Exception ex)
@@ -157,40 +156,20 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     conexao.Query<ProdutoModel>(query, new
                     {
-                        IdProduto = produto.IdProduto,
-                        CodBarra = produto.CodBarra,
-                        Nome = produto.Nome,
+                        produto.IdProduto,
+                        produto.CodBarra,
+                        produto.Nome,
+                        produto.Estoque,
+                        produto.StatusProduto,
+                        produto.Fabricante,
                         PrecoVenda = produto.PrecoVenda.RetornarValorEmDecimal(),
                         PrecoCusto = produto.PrecoCusto.RetornarValorEmDecimal(),
-                        Estoque = produto.Estoque,
-                        StatusProduto = produto.StatusProduto,
-                        Fabricante = produto.Fabricante,
                     });
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-            }
-        }
-
-        public static decimal ObterLucro(int idPedido)
-        {
-            string query = @"SELECT Lucro from Pedido where IdPedido = @idPedido";
-
-            try
-            {
-                using (var conexao = new conexao().Connection()) 
-                {
-                    conexao.Open();
-                    var a = conexao.Query<decimal>(query, new { idPedido }).FirstOrDefault();
-                    return a;
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message) ;
             }
         }
     }

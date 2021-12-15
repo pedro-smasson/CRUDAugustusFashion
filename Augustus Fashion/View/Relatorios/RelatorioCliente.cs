@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
 using System;
 using System.Windows.Forms;
@@ -7,9 +8,9 @@ namespace Augustus_Fashion.View.Relatorios
 {
     public partial class RelatorioCliente : Form
     {
-        ClienteControl _clienteController = new ClienteControl();
         FiltrosControl _filtrosController = new FiltrosControl();
         FiltrosClienteModel _filtrosModel = new FiltrosClienteModel();
+        MensagemErro _mensagemErro = new MensagemErro();
 
         public RelatorioCliente()
         {
@@ -32,11 +33,6 @@ namespace Augustus_Fashion.View.Relatorios
             return maiorTamanho;
         }
 
-        private void RelatorioCliente_Load(object sender, EventArgs e) 
-        {
-
-        }
-
         private void FiltrosPreenchidos()
         {
             _filtrosModel.OrdenarPor = (Enums.EnumOrdenarPor)cbOrdenarPor.SelectedIndex;
@@ -52,15 +48,22 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            FiltrosPreenchidos();
-            dgvCliente.DataSource = _filtrosController.QueryFiltragemCliente(_filtrosModel);
-            dgvCliente.Columns["IdCliente"].Visible = false;
+            try 
+            {
+                FiltrosPreenchidos();
+                dgvCliente.DataSource = _filtrosController.QueryFiltragemCliente(_filtrosModel);
+                dgvCliente.Columns["IdCliente"].Visible = false;
 
-            dgvCliente.Columns[1].HeaderText = "Nome";
-            dgvCliente.Columns[2].HeaderText = "Número de Pedidos";
-            dgvCliente.Columns[3].HeaderText = "Total Bruto";
-            dgvCliente.Columns[4].HeaderText = "Total Desconto";
-            dgvCliente.Columns[5].HeaderText = "Total Gasto";
+                dgvCliente.Columns[1].HeaderText = "Nome";
+                dgvCliente.Columns[2].HeaderText = "Número de Pedidos";
+                dgvCliente.Columns[3].HeaderText = "Total Bruto";
+                dgvCliente.Columns[4].HeaderText = "Total Desconto";
+                dgvCliente.Columns[5].HeaderText = "Total Gasto";
+            }
+            catch 
+            {
+                _mensagemErro.Mensagem("Erro na filtragem!");
+            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e) => Limpar();

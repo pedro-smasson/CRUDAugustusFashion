@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.MensagemGlobal;
 using System;
 using System.Windows.Forms;
 
@@ -7,6 +8,7 @@ namespace Augustus_Fashion.View.Pedido
     public partial class ListagemPedido : Form
     {
         VendaControl _vendaControl = new VendaControl();
+        MensagemErro _mensagemErro = new MensagemErro();
 
         public ListagemPedido()
         {
@@ -28,6 +30,8 @@ namespace Augustus_Fashion.View.Pedido
 
         private void buscarId_Click(object sender, EventArgs e)
         {
+            try 
+            {
             dgvPedido.DataSource = _vendaControl.BuscarLista(txtBuscarNomeFuncionario.Text,
             txtBuscarNomeCliente.Text);
 
@@ -40,6 +44,11 @@ namespace Augustus_Fashion.View.Pedido
             {
                 dgvPedido.DataSource = _vendaControl.ListarPedidos();
                 txtBuscarNomeCliente.Text = "";
+            }
+            }
+            catch 
+            {
+                _mensagemErro.Mensagem("Falha na Listagem dos Pedidos! Erro de Banco de Dados");
             }
         }
 

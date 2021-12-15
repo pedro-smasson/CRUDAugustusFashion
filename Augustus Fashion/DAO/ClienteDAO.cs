@@ -22,37 +22,36 @@ namespace Augustus_Fashion.DAO
                 {
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
-
                     {
                         int id = conexao.ExecuteScalar<int>(queryPessoa, new
                         {
-                            Nome = cliente.Nome,
-                            Sexo = cliente.Sexo,
-                            Nascimento = cliente.Nascimento,
-                            Celular = cliente.Celular,
-                            Email = cliente.Email,
+                            cliente.Nome,
+                            cliente.Sexo,
+                            cliente.Nascimento,
+                            cliente.Celular,
+                            cliente.Email,
                             Cpf = cliente.Cpf.LimparCpfFormatado(),
                         }, transacao);
 
                         cliente.IdPessoa = id;
                         cliente.Endereco.IdPessoa = id;
 
-                        conexao.Execute(queryCliente, new 
+                        conexao.Execute(queryCliente, new
                         {
                             cliente.IdPessoa,
                             cliente.Limite,
                         }, transacao);
                         conexao.Execute(queryEndereco, new
                         {
-                            IdPessoa = cliente.IdPessoa,
-                            IdEndereco = cliente.Endereco.IdEndereco,
+                            cliente.IdPessoa,
+                            cliente.Endereco.IdEndereco,
+                            cliente.Endereco.Rua,
+                            cliente.Endereco.Numero,
+                            cliente.Endereco.Bairro,
+                            cliente.Endereco.Cidade,
+                            cliente.Endereco.Estado,
+                            cliente.Endereco.Complemento,
                             Cep = cliente.Endereco.Cep.LimparCepFormatado(),
-                            Rua = cliente.Endereco.Rua,
-                            Numero = cliente.Endereco.Numero,
-                            Bairro = cliente.Endereco.Bairro,
-                            Cidade = cliente.Endereco.Cidade,
-                            Estado = cliente.Endereco.Estado,
-                            Complemento = cliente.Endereco.Complemento,
                         }, transacao);
 
                         transacao.Commit();
@@ -82,31 +81,30 @@ namespace Augustus_Fashion.DAO
                     {
                         conexao.Execute(queryPessoa, new
                         {
-                            Nome = cliente.Nome,
-                            Sexo = cliente.Sexo,
-                            Nascimento = cliente.Nascimento,
-                            Celular = cliente.Celular,
-                            Email = cliente.Email,
-                            Cpf = cliente.Cpf.LimparCpfFormatado(),
-                            IdPessoa = cliente.IdPessoa
+                            cliente.Nome,
+                            cliente.Sexo,
+                            cliente.Nascimento,
+                            cliente.Celular,
+                            cliente.Email,
+                            cliente.IdPessoa,
+                            Cpf = cliente.Cpf.LimparCpfFormatado()
                         }, transacao);
-
-                        conexao.Execute(queryCliente, new 
+                        conexao.Execute(queryCliente, new
                         {
                             cliente.IdPessoa,
                             cliente.Limite
                         }, transacao);
                         conexao.Execute(queryEndereco, new
                         {
-                            IdPessoa = cliente.IdPessoa,
-                            IdEndereco = cliente.Endereco.IdEndereco,
+                            cliente.IdPessoa,
+                            cliente.Endereco.IdEndereco,
+                            cliente.Endereco.Rua,
+                            cliente.Endereco.Numero,
+                            cliente.Endereco.Bairro,
+                            cliente.Endereco.Cidade,
+                            cliente.Endereco.Estado,
+                            cliente.Endereco.Complemento,
                             Cep = cliente.Endereco.Cep.LimparCepFormatado(),
-                            Rua = cliente.Endereco.Rua,
-                            Numero = cliente.Endereco.Numero,
-                            Bairro = cliente.Endereco.Bairro,
-                            Cidade = cliente.Endereco.Cidade,
-                            Estado = cliente.Endereco.Estado,
-                            Complemento = cliente.Endereco.Complemento,
                         }, transacao);
 
                         transacao.Commit();
@@ -121,7 +119,6 @@ namespace Augustus_Fashion.DAO
 
         public static void ExcluirCliente(ClienteModel cliente)
         {
-
             var queryEndereco = @"delete from Endereco where IdPessoa = @IdPessoa";
             var queryCliente = @"delete from Cliente where IdPessoa = @IdPessoa";
             var queryPessoa = @"delete from Pessoa where IdPessoa = @IdPessoa";
@@ -133,9 +130,9 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
-                        conexao.Execute(queryEndereco, new { IdPessoa = cliente.IdPessoa }, transacao);
-                        conexao.Execute(queryCliente, new { IdPessoa = cliente.IdPessoa }, transacao);
-                        conexao.Execute(queryPessoa, new { IdPessoa = cliente.IdPessoa }, transacao);
+                        conexao.Execute(queryEndereco, new { cliente.IdPessoa }, transacao);
+                        conexao.Execute(queryCliente, new { cliente.IdPessoa }, transacao);
+                        conexao.Execute(queryPessoa, new { cliente.IdPessoa }, transacao);
 
                         transacao.Commit();
                     }
@@ -149,7 +146,6 @@ namespace Augustus_Fashion.DAO
 
         public static List<ClienteListagem> ListarCliente()
         {
-
             var query = @"select c.IdCliente, c.Limite,
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
             c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento from
@@ -171,7 +167,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static ClienteModel Buscar(int id)
+        public static ClienteModel Buscar(int idCliente)
         {
             var query = @"select c.IdCliente, c.Limite,
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
@@ -186,7 +182,7 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
 
                     return conexao.Query(query, (ClienteModel clienteModel, EnderecoModel enderecoModel)
-                    => MapearBusca(clienteModel, enderecoModel), splitOn: "IdPessoa", param: new { IdCliente = id }).FirstOrDefault();
+                    => MapearBusca(clienteModel, enderecoModel), splitOn: "IdPessoa", param: new { IdCliente = idCliente }).FirstOrDefault();
                 }
             }
             catch (Exception ex)
@@ -195,7 +191,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<ClienteListagem> BuscarLista(string nome)
+        public static List<ClienteListagem> BuscarLista(string nomeCliente)
         {
             var query = @"select c.IdCliente, c.Limite,
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
@@ -210,7 +206,7 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
 
                     return conexao.Query(query, (ClienteListagem clienteListagem, EnderecoModel enderecoModel)
-                     => Mapear(clienteListagem, enderecoModel), new { Nome = nome }, splitOn: "IdPessoa").ToList();
+                     => Mapear(clienteListagem, enderecoModel), new { Nome = nomeCliente }, splitOn: "IdPessoa").ToList();
                 }
             }
             catch (Exception ex)

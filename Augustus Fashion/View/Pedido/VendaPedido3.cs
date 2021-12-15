@@ -167,7 +167,7 @@ namespace Augustus_Fashion.View.Pedido
             }
             catch
             {
-                _mensagemErro.Mensagem("Falha no Cadastro!");
+                _mensagemErro.Mensagem("Falha no Cadastro! Erro de Banco de Dados");
             }
         }
 

@@ -30,10 +30,10 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     var listar = conexao.Query<RelatorioProdutosModel>(query, new
                     {
-                        IdProduto = filtrosProdutoModel.IdProduto,
+                        filtrosProdutoModel.IdProduto,
                         DataInicial = filtrosProdutoModel.DataInicial.Date,
                         DataFinal = filtrosProdutoModel.DataFinal.Date,
-                        NomeProduto = filtrosProdutoModel.NomeProduto
+                        filtrosProdutoModel.NomeProduto
                     });
                     return listar.ToList();
                 }
@@ -44,7 +44,7 @@ namespace Augustus_Fashion.DAO
             }
         }
 
-        public static List<RelatorioClienteModel> QueryFiltragemClientes(FiltrosClienteModel filtrosClienteModel) 
+        public static List<RelatorioClienteModel> QueryFiltragemClientes(FiltrosClienteModel filtrosClienteModel)
         {
             var query = @"select ";
 
@@ -60,18 +60,18 @@ namespace Augustus_Fashion.DAO
 
             query += filtrosClienteModel.Having();
             query += filtrosClienteModel.OrderBy();
-            query += filtrosClienteModel.OrdemCrescenteOuDecrescente();           
+            query += filtrosClienteModel.OrdemCrescenteOuDecrescente();
 
-            try 
+            try
             {
-                using (var conexao = new conexao().Connection()) 
+                using (var conexao = new conexao().Connection())
                 {
                     conexao.Open();
                     var listar = conexao.Query<RelatorioClienteModel>(query, filtrosClienteModel);
                     return listar.ToList();
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

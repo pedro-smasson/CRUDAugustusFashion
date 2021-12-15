@@ -8,8 +8,8 @@ namespace Augustus_Fashion.View
 {
     public partial class CadastroFuncionario : Form
     {
-        FuncionarioModel _funcmodel = new FuncionarioModel();
-        FuncionarioControl _funccontrol = new FuncionarioControl();
+        FuncionarioModel _funcionarioModel = new FuncionarioModel();
+        FuncionarioControl _funcionarioControl = new FuncionarioControl();
         MensagemErro _mensagemErro = new MensagemErro();
         MensagemInfo _mensagemInfo = new MensagemInfo();
 
@@ -54,46 +54,52 @@ namespace Augustus_Fashion.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-
-            if (Validar())
+            try 
             {
-                _funcmodel.Nome = nomeFuncionario.Text;
-                _funcmodel.Email = emailFuncionario.Text;
-                _funcmodel.Nascimento = Convert.ToDateTime(datanascFuncionario.Text);
-                _funcmodel.Cpf = cpfFuncionario.Text;
-                _funcmodel.Endereco.Rua = ruaFuncionario.Text;
-                _funcmodel.Endereco.Bairro = bairroFuncionario.Text;
-                _funcmodel.Endereco.Cep = cepFuncionario.Text;
-                _funcmodel.Endereco.Numero = numeroFuncionario.Text;
-                _funcmodel.Endereco.Cidade = cidadeFuncionario.Text;
-                _funcmodel.Endereco.Estado = estadoFuncionario.Text;
-                _funcmodel.Endereco.Complemento = complementoFuncionario.Text;
-                _funcmodel.Celular = celularFuncionario.Text;
-                _funcmodel.Salario = salarioFuncionario.Text;
-                _funcmodel.Agencia = agenciaFuncionario.Text;
-                _funcmodel.Comissao = comissaoFuncionario.Text;
-                _funcmodel.NumConta = numContaFuncionario.Text;
-                _funcmodel.CodConta = codContaFuncionario.Text;
+                if (Validar())
+                {
+                    _funcionarioModel.Nome = nomeFuncionario.Text;
+                    _funcionarioModel.Email = emailFuncionario.Text;
+                    _funcionarioModel.Nascimento = Convert.ToDateTime(datanascFuncionario.Text);
+                    _funcionarioModel.Cpf = cpfFuncionario.Text;
+                    _funcionarioModel.Endereco.Rua = ruaFuncionario.Text;
+                    _funcionarioModel.Endereco.Bairro = bairroFuncionario.Text;
+                    _funcionarioModel.Endereco.Cep = cepFuncionario.Text;
+                    _funcionarioModel.Endereco.Numero = numeroFuncionario.Text;
+                    _funcionarioModel.Endereco.Cidade = cidadeFuncionario.Text;
+                    _funcionarioModel.Endereco.Estado = estadoFuncionario.Text;
+                    _funcionarioModel.Endereco.Complemento = complementoFuncionario.Text;
+                    _funcionarioModel.Celular = celularFuncionario.Text;
+                    _funcionarioModel.Salario = salarioFuncionario.Text;
+                    _funcionarioModel.Agencia = agenciaFuncionario.Text;
+                    _funcionarioModel.Comissao = comissaoFuncionario.Text;
+                    _funcionarioModel.NumConta = numContaFuncionario.Text;
+                    _funcionarioModel.CodConta = codContaFuncionario.Text;
 
-                if (sexoMascFuncionario.Checked == true)
-                    _funcmodel.Sexo = "M";
-                else if (sexoFemFuncionario.Checked == true)
-                    _funcmodel.Sexo = "F";
-                else
-                    _funcmodel.Sexo = "O";
+                    if (sexoMascFuncionario.Checked == true)
+                        _funcionarioModel.Sexo = "M";
+                    else if (sexoFemFuncionario.Checked == true)
+                        _funcionarioModel.Sexo = "F";
+                    else
+                        _funcionarioModel.Sexo = "O";
 
-                _funccontrol.CadastrarFuncionario(_funcmodel);
-                _mensagemInfo.Mensagem("Funcionário Cadastrado com Sucesso!");
+                    _funcionarioControl.CadastrarFuncionario(_funcionarioModel);
+                    _mensagemInfo.Mensagem("Funcionário Cadastrado com Sucesso!");
 
-                Limpar();
+                    Limpar();
+                }
+            }
+            catch 
+            {
+                _mensagemErro.Mensagem("Falha no cadastro!");
             }
         }
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            telaInicial ti = new telaInicial();
-            ti.ShowDialog();
+            telaInicial telaInicial = new telaInicial();
+            telaInicial.ShowDialog();
             this.Close();
         }
 

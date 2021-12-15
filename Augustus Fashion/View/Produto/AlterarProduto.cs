@@ -35,6 +35,8 @@ namespace Augustus_Fashion.View.Produto
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            try 
+            {
             _produtoControl.ExcluirProduto(_produtoModel);
             _mensagemInfo.Mensagem("Produto deletado com sucesso!");
 
@@ -42,6 +44,11 @@ namespace Augustus_Fashion.View.Produto
             ListarProduto listarProduto = new ListarProduto();
             listarProduto.ShowDialog();
             Close();
+            }
+            catch 
+            {
+                _mensagemErro.Mensagem("Falha na exclusão! Erro de Banco de Dados");
+            }
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -67,7 +74,7 @@ namespace Augustus_Fashion.View.Produto
             }
             catch
             {
-                _mensagemErro.Mensagem("Erro na Alteração! ");
+                _mensagemErro.Mensagem("Falha na Alteração!");
             }
         }
 

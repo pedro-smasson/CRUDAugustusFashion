@@ -81,7 +81,7 @@ namespace Augustus_Fashion.View
             }
             catch
             {
-                _mensagemErro.Mensagem("Falha na Exclusão");
+                _mensagemErro.Mensagem("Falha na Exclusão! Erro de Banco de Dados");
             }
         }
 
@@ -126,7 +126,7 @@ namespace Augustus_Fashion.View
                 }
                 catch
                 {
-                    _mensagemErro.Mensagem("Erro no Banco de Dados!");
+                    _mensagemErro.Mensagem("Falha na alteração! Erro de Banco de Dados");
                 }
             }
             else
