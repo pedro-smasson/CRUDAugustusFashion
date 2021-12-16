@@ -1,7 +1,10 @@
 ﻿using Augustus_Fashion.Controller;
 using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
+using Augustus_Fashion.Model.Relatorios;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.View.Relatorios
@@ -46,12 +49,22 @@ namespace Augustus_Fashion.View.Relatorios
             _filtrosModel.APartir = nudValorInicial.Value;
         }
 
+        private void Totalizadores(List<RelatorioClienteModel> total)
+        {
+            lblNumeroDePedidos.Text = total.Sum(x => (x.NumeroDePedidos)).ToString();
+            lblTotalBruto.Text = total.Sum(x => (x.TotalBruto.RetornarValorEmDecimal())).ToString("c");
+            lblTotalGasto.Text = total.Sum(x => (x.TotalGasto.RetornarValorEmDecimal())).ToString("c");
+            lblTotalDesconto.Text = total.Sum(x => (x.TotalDesconto)).ToString();
+        }
+
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             try 
             {
                 FiltrosPreenchidos();
-                dgvCliente.DataSource = _filtrosController.QueryFiltragemCliente(_filtrosModel);
+                var filtrarCliente = _filtrosController.QueryFiltragemCliente(_filtrosModel);
+                dgvCliente.DataSource = filtrarCliente;
+                Totalizadores(filtrarCliente);
                 dgvCliente.Columns["IdCliente"].Visible = false;
 
                 dgvCliente.Columns[1].HeaderText = "Nome";

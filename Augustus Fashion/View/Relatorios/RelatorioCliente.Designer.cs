@@ -51,6 +51,14 @@ namespace Augustus_Fashion.View.Relatorios
             this.nudValorInicial = new System.Windows.Forms.NumericUpDown();
             this.nudCliente = new System.Windows.Forms.NumericUpDown();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblNumeroDePedidos = new System.Windows.Forms.Label();
+            this.lblTotalDesconto = new System.Windows.Forms.Label();
+            this.lblTotalGasto = new System.Windows.Forms.Label();
+            this.lblTotalBruto = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudValorInicial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCliente)).BeginInit();
@@ -291,13 +299,101 @@ namespace Augustus_Fashion.View.Relatorios
             this.dgvCliente.Size = new System.Drawing.Size(476, 293);
             this.dgvCliente.TabIndex = 27;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label10.Location = new System.Drawing.Point(24, 462);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(107, 20);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "N de Pedidos:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label12.Location = new System.Drawing.Point(247, 462);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(121, 20);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Total Desconto:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label13.Location = new System.Drawing.Point(247, 513);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(96, 20);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Total Gasto:";
+            // 
+            // lblNumeroDePedidos
+            // 
+            this.lblNumeroDePedidos.AutoSize = true;
+            this.lblNumeroDePedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblNumeroDePedidos.Location = new System.Drawing.Point(137, 462);
+            this.lblNumeroDePedidos.Name = "lblNumeroDePedidos";
+            this.lblNumeroDePedidos.Size = new System.Drawing.Size(18, 20);
+            this.lblNumeroDePedidos.TabIndex = 32;
+            this.lblNumeroDePedidos.Text = "0";
+            // 
+            // lblTotalDesconto
+            // 
+            this.lblTotalDesconto.AutoSize = true;
+            this.lblTotalDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblTotalDesconto.Location = new System.Drawing.Point(374, 462);
+            this.lblTotalDesconto.Name = "lblTotalDesconto";
+            this.lblTotalDesconto.Size = new System.Drawing.Size(18, 20);
+            this.lblTotalDesconto.TabIndex = 34;
+            this.lblTotalDesconto.Text = "0";
+            // 
+            // lblTotalGasto
+            // 
+            this.lblTotalGasto.AutoSize = true;
+            this.lblTotalGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblTotalGasto.Location = new System.Drawing.Point(349, 513);
+            this.lblTotalGasto.Name = "lblTotalGasto";
+            this.lblTotalGasto.Size = new System.Drawing.Size(18, 20);
+            this.lblTotalGasto.TabIndex = 35;
+            this.lblTotalGasto.Text = "0";
+            // 
+            // lblTotalBruto
+            // 
+            this.lblTotalBruto.AutoSize = true;
+            this.lblTotalBruto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblTotalBruto.Location = new System.Drawing.Point(121, 513);
+            this.lblTotalBruto.Name = "lblTotalBruto";
+            this.lblTotalBruto.Size = new System.Drawing.Size(18, 20);
+            this.lblTotalBruto.TabIndex = 36;
+            this.lblTotalBruto.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label11.Location = new System.Drawing.Point(24, 513);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(91, 20);
+            this.label11.TabIndex = 37;
+            this.label11.Text = "Total Bruto:";
+            // 
             // RelatorioCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lblTotalBruto);
+            this.Controls.Add(this.lblTotalGasto);
+            this.Controls.Add(this.lblTotalDesconto);
+            this.Controls.Add(this.lblNumeroDePedidos);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.nudCliente);
             this.Controls.Add(this.nudValorInicial);
@@ -356,5 +452,13 @@ namespace Augustus_Fashion.View.Relatorios
         private System.Windows.Forms.NumericUpDown nudValorInicial;
         private System.Windows.Forms.NumericUpDown nudCliente;
         private System.Windows.Forms.DataGridView dgvCliente;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblNumeroDePedidos;
+        private System.Windows.Forms.Label lblTotalDesconto;
+        private System.Windows.Forms.Label lblTotalGasto;
+        private System.Windows.Forms.Label lblTotalBruto;
+        private System.Windows.Forms.Label label11;
     }
 }
