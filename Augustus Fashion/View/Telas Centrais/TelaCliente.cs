@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Augustus_Fashion.InstanciarTela;
 
 namespace Augustus_Fashion.View.Telas_Centrais
 {
@@ -22,5 +23,14 @@ namespace Augustus_Fashion.View.Telas_Centrais
             listarCliente.ShowDialog();
             Close();
         }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Instanciar.TelaInicial();
+            Close();
+        }
+
+        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
     }
 }

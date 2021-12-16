@@ -39,10 +39,14 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.pctLista = new System.Windows.Forms.PictureBox();
             this.pctCadastro = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fECHARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCadastro)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -148,6 +152,32 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.label9.Text = "Augustu\'s Fashion";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.MediumPurple;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hOMEToolStripMenuItem,
+            this.fECHARToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(584, 24);
+            this.menuStrip1.TabIndex = 34;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // hOMEToolStripMenuItem
+            // 
+            this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
+            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.hOMEToolStripMenuItem.Text = "HOME";
+            this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
+            // 
+            // fECHARToolStripMenuItem
+            // 
+            this.fECHARToolStripMenuItem.Name = "fECHARToolStripMenuItem";
+            this.fECHARToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.fECHARToolStripMenuItem.Text = "FECHAR";
+            this.fECHARToolStripMenuItem.Click += new System.EventHandler(this.fECHARToolStripMenuItem_Click);
+            // 
             // TelaPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +185,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -172,6 +203,8 @@ namespace Augustus_Fashion.View.Telas_Centrais
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctLista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCadastro)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,5 +221,8 @@ namespace Augustus_Fashion.View.Telas_Centrais
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fECHARToolStripMenuItem;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.Model.Produto;
 using System;
 using System.Windows.Forms;
@@ -31,8 +32,7 @@ namespace Augustus_Fashion.View.Produto
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            telaInicial ti = new telaInicial();
-            ti.ShowDialog();
+            Instanciar.TelaInicial();
             Close();
         }
 

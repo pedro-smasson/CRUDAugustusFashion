@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
 using System;
@@ -13,15 +14,9 @@ namespace Augustus_Fashion.View
         MensagemErro _mensagemErro = new MensagemErro();
         MensagemInfo _mensagemInfo = new MensagemInfo();
 
-        public CadastroFuncionario()
-        {
-            InitializeComponent();
-        }
+        public CadastroFuncionario() => InitializeComponent();
 
-        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
         private void Limpar()
         {
@@ -47,10 +42,7 @@ namespace Augustus_Fashion.View
             sexOtherFuncionario.Checked = false;
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            Limpar();
-        }
+        private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -98,9 +90,8 @@ namespace Augustus_Fashion.View
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            telaInicial telaInicial = new telaInicial();
-            telaInicial.ShowDialog();
-            this.Close();
+            Instanciar.TelaInicial();
+            Close();
         }
 
         private bool ValidarSexo()

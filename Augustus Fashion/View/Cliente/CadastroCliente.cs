@@ -1,7 +1,7 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
-using Augustus_Fashion.View;
 using System;
 using System.Windows.Forms;
 
@@ -166,8 +166,7 @@ namespace Augustus_Fashion
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            telaInicial ti = new telaInicial();
-            ti.ShowDialog();
+            Instanciar.TelaInicial();
             Close();
         }
 

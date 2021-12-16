@@ -100,7 +100,7 @@ namespace Augustus_Fashion.View
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label4.Location = new System.Drawing.Point(447, 361);
+            this.label4.Location = new System.Drawing.Point(463, 361);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 24);
             this.label4.TabIndex = 26;
@@ -111,7 +111,7 @@ namespace Augustus_Fashion.View
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(422, 388);
+            this.pictureBox1.Location = new System.Drawing.Point(435, 388);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;

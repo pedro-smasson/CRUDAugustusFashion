@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.InstanciarTela;
 using System;
 using System.Windows.Forms;
 
@@ -8,10 +9,7 @@ namespace Augustus_Fashion.View
     {
         FuncionarioControl _funcionariocontrol = new FuncionarioControl();
 
-        public ListarFuncionario()
-        {
-            InitializeComponent();
-        }
+        public ListarFuncionario() => InitializeComponent();
 
         private void ListarFuncionario_Load(object sender, EventArgs e)
         {
@@ -32,9 +30,8 @@ namespace Augustus_Fashion.View
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            telaInicial ti = new telaInicial();
-            ti.ShowDialog();
-            this.Close();
+            Instanciar.TelaInicial();
+            Close();
         }
 
         private void FecharToolStripMenuItem_Click(object sender, EventArgs e)

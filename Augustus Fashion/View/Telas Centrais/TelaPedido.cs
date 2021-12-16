@@ -1,4 +1,5 @@
-﻿using Augustus_Fashion.View.Pedido;
+﻿using Augustus_Fashion.InstanciarTela;
+using Augustus_Fashion.View.Pedido;
 using Augustus_Fashion.View.Relatorios;
 using System;
 using System.Windows.Forms;
@@ -40,5 +41,14 @@ namespace Augustus_Fashion.View.Telas_Centrais
             relatorioVenda.ShowDialog();
             Close();
         }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Instanciar.TelaInicial();
+            Close();
+        }
+
+        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
     }
 }

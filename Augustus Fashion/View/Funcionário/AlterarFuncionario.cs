@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
 using System;
@@ -13,10 +14,8 @@ namespace Augustus_Fashion.View
         MensagemErro _mensagemErro = new MensagemErro();
         MensagemInfo _mensagemInfo = new MensagemInfo();
 
-        public AlterarFuncionario()
-        {
-            InitializeComponent();
-        }
+        public AlterarFuncionario() => InitializeComponent();
+
 
         public void dadosDe(FuncionarioModel funcionarioModel)
         {
@@ -49,23 +48,16 @@ namespace Augustus_Fashion.View
             _funcionariomodel = funcionarioModel;
         }
 
-        private void AlterarFuncionario_Load(object sender, EventArgs e)
-        {
-            btnAlterar.Enabled = true;
-        }
+        private void AlterarFuncionario_Load(object sender, EventArgs e) => btnAlterar.Enabled = true;
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            telaInicial ti = new telaInicial();
-            ti.ShowDialog();
-            this.Close();
+            Instanciar.TelaInicial();
+            Close();
         }
 
-        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -226,9 +218,6 @@ namespace Augustus_Fashion.View
             return true;
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
+        private void btnVoltar_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
     }
 }

@@ -195,7 +195,7 @@ namespace Augustus_Fashion.DAO
 
         public static List<ClienteListagem> BuscarLista(string nomeCliente)
         {
-            var query = @"select c.IdCliente, c.Limite, c.LimiteGasto
+            var query = $@"select c.IdCliente, c.Limite, c.LimiteGasto,
             c.IdPessoa, p.IdPessoa, p.Nome, p.Sexo, p.Nascimento, p.Celular, p.Email, p.Cpf,
             c.IdPessoa, e.IdEndereco, e.Cep, e.Rua, e.Cidade, e.Numero, e.Bairro, e.Estado, e.Complemento 
             from Pessoa p inner join Cliente c on c.IdPessoa = p.IdPessoa

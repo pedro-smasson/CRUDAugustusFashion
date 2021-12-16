@@ -3,6 +3,7 @@ using Augustus_Fashion.Model;
 using Augustus_Fashion.MensagemGlobal;
 using System;
 using System.Windows.Forms;
+using Augustus_Fashion.InstanciarTela;
 
 namespace Augustus_Fashion.View
 {
@@ -71,39 +72,44 @@ namespace Augustus_Fashion.View
                 {
                     _clientecontrol.AlterarCliente(_clientemodel);
                     _mensagemInfo.Mensagem("Cliente Alterado com Sucesso!");
+
+                    Hide();
+                    ListarCliente listarCliente = new ListarCliente();
+                    listarCliente.ShowDialog();
+                    Close();
                 }
                 catch
                 {
                     _mensagemErro.Mensagem("Falha na Alteração!");
                 }
-
-                Hide();
-                ListarCliente listarCliente = new ListarCliente();
-                listarCliente.ShowDialog();
-                Close();
             }
         }
 
         public void ExcluirCliente_Click(object sender, EventArgs e)
         {
-            if (Validar())
+            try
             {
-                _clientecontrol.ExcluirCliente(_clientemodel);
-                _mensagemInfo.Mensagem("Cliente deletado com sucesso!");
+                if (Validar())
+                {
+                    _clientecontrol.ExcluirCliente(_clientemodel);
+                    _mensagemInfo.Mensagem("Cliente deletado com sucesso!");
 
-                Hide();
-                ListarCliente listarCliente = new ListarCliente();
-                listarCliente.ShowDialog();
-                Close();
+                    Hide();
+                    ListarCliente listarCliente = new ListarCliente();
+                    listarCliente.ShowDialog();
+                    Close();
+                }
             }
-            _mensagemErro.Mensagem("Falha na Exclusão");
+            catch
+            {
+                _mensagemErro.Mensagem("O cliente está vinculado a uma compra, impossível excluir!");
+            }
         }
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            telaInicial ti = new telaInicial();
-            ti.ShowDialog();
+            Instanciar.TelaInicial();
             Close();
         }
 
@@ -195,6 +201,6 @@ namespace Augustus_Fashion.View
             return true;
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e) => this.DialogResult = DialogResult.OK;
+        private void btnVoltar_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
     }
 }

@@ -100,6 +100,7 @@
     <Compile Include="FluentValidation\LimiteValidation.cs" />
     <Compile Include="FluentValidation\PessoaValidation.cs" />
     <Compile Include="FluentValidation\TodoODinheiroValidation.cs" />
+    <Compile Include="InstanciarTela\Instanciar.cs" />
     <Compile Include="MensagemGlobal\MensagemAlerta.cs" />
     <Compile Include="MensagemGlobal\MensagemErro.cs" />
     <Compile Include="MensagemGlobal\MensagemInfo.cs" />

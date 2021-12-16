@@ -4,14 +4,13 @@ using System.Windows.Forms;
 
 namespace Augustus_Fashion.View
 {
-
     public partial class telaInicial : Form
     {
         public telaInicial() => InitializeComponent();
 
         private void fECHARToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
-        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e) => this.Refresh();
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e) => Refresh();
 
         private void pbCliente_Click(object sender, EventArgs e)
         {

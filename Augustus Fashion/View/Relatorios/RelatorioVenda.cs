@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
 using System;
@@ -22,18 +23,12 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            telaInicial telaInicial = new telaInicial();
-            telaInicial.ShowDialog();
-            this.Close();
+            Hide();
+            Instanciar.TelaInicial();
+            Close();
         }
 
         private void fECHARToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
-
-        private void RelatorioVenda_Load(object sender, EventArgs e) 
-        {
-
-        }
 
         private void FiltrosPreenchidos()
         {
@@ -45,7 +40,7 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 if (Validacoes.VerificarSeDataInicialEhMaiorQueDataFinal(dtpDataInicial.Value, dtpDataFinal.Value))
                 {
@@ -67,10 +62,10 @@ namespace Augustus_Fashion.View.Relatorios
                     dtpDataInicial.Value = DateTime.Today;
                 }
             }
-            catch 
+            catch
             {
                 _mensagemErro.Mensagem("Erro na filtragem!");
-            }  
+            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e) => Limpar();

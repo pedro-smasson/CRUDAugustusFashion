@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model.Venda;
 using System;
@@ -64,14 +65,10 @@ namespace Augustus_Fashion.View.Pedido
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            telaInicial telaInicial = new telaInicial();
-            telaInicial.ShowDialog();
-            this.Close();
+            Instanciar.TelaInicial();
+            Close();
         }
 
-        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void fECHARToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
     }
 }

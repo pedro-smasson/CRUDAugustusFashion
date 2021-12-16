@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Relatorios;
@@ -59,21 +60,29 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
-                FiltrosPreenchidos();
-                var filtrarCliente = _filtrosController.QueryFiltragemCliente(_filtrosModel);
-                dgvCliente.DataSource = filtrarCliente;
-                Totalizadores(filtrarCliente);
-                dgvCliente.Columns["IdCliente"].Visible = false;
+                if (Validacoes.VerificarSeDataInicialEhMaiorQueDataFinal(dtpDataInicial.Value, dtpDataFinal.Value))
+                {
+                    FiltrosPreenchidos();
+                    var filtrarCliente = _filtrosController.QueryFiltragemCliente(_filtrosModel);
+                    dgvCliente.DataSource = filtrarCliente;
+                    Totalizadores(filtrarCliente);
+                    dgvCliente.Columns["IdCliente"].Visible = false;
 
-                dgvCliente.Columns[1].HeaderText = "Nome";
-                dgvCliente.Columns[2].HeaderText = "Número de Pedidos";
-                dgvCliente.Columns[3].HeaderText = "Total Bruto";
-                dgvCliente.Columns[4].HeaderText = "Total Desconto";
-                dgvCliente.Columns[5].HeaderText = "Total Gasto";
+                    dgvCliente.Columns[1].HeaderText = "Nome";
+                    dgvCliente.Columns[2].HeaderText = "Número de Pedidos";
+                    dgvCliente.Columns[3].HeaderText = "Total Bruto";
+                    dgvCliente.Columns[4].HeaderText = "Total Desconto";
+                    dgvCliente.Columns[5].HeaderText = "Total Gasto";
+                }
+                else
+                {
+                    _mensagemErro.Mensagem("A Data Inicial é maior que a Data Final!");
+                    dtpDataInicial.Value = DateTime.Today;
+                }
             }
-            catch 
+            catch
             {
                 _mensagemErro.Mensagem("Erro na filtragem!");
             }
@@ -96,10 +105,9 @@ namespace Augustus_Fashion.View.Relatorios
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            telaInicial telaInicial = new telaInicial();
-            telaInicial.ShowDialog();
-            this.Close();
+            Hide();
+            Instanciar.TelaInicial();
+            Close();
         }
     }
 }

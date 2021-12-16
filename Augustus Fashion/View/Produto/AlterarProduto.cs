@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model.Produto;
 using System;
@@ -13,10 +14,7 @@ namespace Augustus_Fashion.View.Produto
         MensagemErro _mensagemErro = new MensagemErro();
         MensagemInfo _mensagemInfo = new MensagemInfo();
 
-        public AlterarProduto()
-        {
-            InitializeComponent();
-        }
+        public AlterarProduto() => InitializeComponent();
 
         public void dadosDe(ProdutoModel produto)
         {
@@ -35,17 +33,17 @@ namespace Augustus_Fashion.View.Produto
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
-            _produtoControl.ExcluirProduto(_produtoModel);
-            _mensagemInfo.Mensagem("Produto deletado com sucesso!");
+                _produtoControl.ExcluirProduto(_produtoModel);
+                _mensagemInfo.Mensagem("Produto deletado com sucesso!");
 
-            Hide();
-            ListarProduto listarProduto = new ListarProduto();
-            listarProduto.ShowDialog();
-            Close();
+                Hide();
+                ListarProduto listarProduto = new ListarProduto();
+                listarProduto.ShowDialog();
+                Close();
             }
-            catch 
+            catch
             {
                 _mensagemErro.Mensagem("Falha na exclusão! Erro de Banco de Dados");
             }
@@ -78,21 +76,17 @@ namespace Augustus_Fashion.View.Produto
             }
         }
 
-        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
         private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
-            telaInicial telaInicial = new telaInicial();
-            telaInicial.ShowDialog();
+            Instanciar.TelaInicial();
             Close();
         }
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
         }
     }
 }

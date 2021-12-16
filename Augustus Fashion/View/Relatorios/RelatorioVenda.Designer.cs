@@ -232,7 +232,6 @@ namespace Augustus_Fashion.View.Relatorios
             this.Name = "RelatorioVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Augustus Fashion - Relatório de Vendas e Produtos";
-            this.Load += new System.EventHandler(this.RelatorioVenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
