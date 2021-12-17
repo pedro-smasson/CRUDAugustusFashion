@@ -53,7 +53,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label2.Location = new System.Drawing.Point(315, 98);
+            this.label2.Location = new System.Drawing.Point(315, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 24);
             this.label2.TabIndex = 28;
@@ -63,7 +63,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.Location = new System.Drawing.Point(109, 98);
+            this.label1.Location = new System.Drawing.Point(109, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(200, 24);
             this.label1.TabIndex = 27;
@@ -73,7 +73,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label3.Location = new System.Drawing.Point(331, 406);
+            this.label3.Location = new System.Drawing.Point(331, 411);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 48);
             this.label3.TabIndex = 32;
@@ -84,7 +84,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label4.Location = new System.Drawing.Point(143, 406);
+            this.label4.Location = new System.Drawing.Point(143, 411);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 48);
             this.label4.TabIndex = 31;
@@ -95,7 +95,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(326, 275);
+            this.pictureBox1.Location = new System.Drawing.Point(326, 280);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -108,7 +108,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.ErrorImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(139, 275);
+            this.pictureBox2.Location = new System.Drawing.Point(139, 280);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(128, 128);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -120,7 +120,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             // 
             this.pctLista.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLista.BackgroundImage")));
             this.pctLista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pctLista.Location = new System.Drawing.Point(326, 125);
+            this.pctLista.Location = new System.Drawing.Point(326, 130);
             this.pctLista.Name = "pctLista";
             this.pctLista.Size = new System.Drawing.Size(128, 128);
             this.pctLista.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -132,7 +132,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             // 
             this.pctCadastro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctCadastro.BackgroundImage")));
             this.pctCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pctCadastro.Location = new System.Drawing.Point(139, 125);
+            this.pctCadastro.Location = new System.Drawing.Point(139, 130);
             this.pctCadastro.Name = "pctCadastro";
             this.pctCadastro.Size = new System.Drawing.Size(128, 128);
             this.pctCadastro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -145,7 +145,7 @@ namespace Augustus_Fashion.View.Telas_Centrais
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 28F);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(131, 22);
+            this.label9.Location = new System.Drawing.Point(131, 28);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(323, 46);
             this.label9.TabIndex = 33;

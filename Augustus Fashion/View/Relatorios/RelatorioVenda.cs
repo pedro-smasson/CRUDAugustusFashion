@@ -2,7 +2,10 @@
 using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
+using Augustus_Fashion.Model.Relatorios;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Augustus_Fashion.View.Relatorios
@@ -45,16 +48,16 @@ namespace Augustus_Fashion.View.Relatorios
                 if (Validacoes.VerificarSeDataInicialEhMaiorQueDataFinal(dtpDataInicial.Value, dtpDataFinal.Value))
                 {
                     FiltrosPreenchidos();
-                    dgvVenda.DataSource = _filtrosController.QueryFiltragemProduto(_filtrosModel);
-
+                    var filtrarProduto =  _filtrosController.QueryFiltragemProduto(_filtrosModel);
+                    dgvVenda.DataSource = filtrarProduto;
+                    Totalizadores(filtrarProduto);
                     dgvVenda.Columns[0].HeaderText = "ID Produto";
                     dgvVenda.Columns[1].HeaderText = "Nome";
                     dgvVenda.Columns[2].HeaderText = "Quantidade";
-                    dgvVenda.Columns[3].HeaderText = "Total Bruto";
-                    dgvVenda.Columns[4].HeaderText = "Total Desconto";
-                    dgvVenda.Columns[5].HeaderText = "Total Líquido";
-                    dgvVenda.Columns[6].HeaderText = "Preço de Custo";
-                    dgvVenda.Columns[7].HeaderText = "Lucro Total";
+                    dgvVenda.Columns[3].HeaderText = "Total Desconto";
+                    dgvVenda.Columns[4].HeaderText = "Total Líquido";
+                    dgvVenda.Columns[5].HeaderText = "Preço de Custo";
+                    dgvVenda.Columns[6].HeaderText = "Lucro Total";
                 }
                 else
                 {
@@ -66,6 +69,14 @@ namespace Augustus_Fashion.View.Relatorios
             {
                 _mensagemErro.Mensagem("Erro na filtragem!");
             }
+        }
+
+        private void Totalizadores(List<RelatorioProdutosModel> total)
+        {
+            lblDesconto.Text = total.Sum(x => (x.Desconto)).ToString();
+            lblLucroTotal.Text = total.Sum(x => (x.Lucro.RetornarValorEmDecimal())).ToString();
+            lblQuantidade.Text = total.Sum(x => (x.Quantidade)).ToString();
+            lblTotalLiquido.Text = total.Sum(x => x.TotalLiquido.RetornarValorEmDecimal()).ToString();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e) => Limpar();

@@ -45,6 +45,14 @@ namespace Augustus_Fashion.View.Relatorios
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblQuantidade = new System.Windows.Forms.Label();
+            this.lblDesconto = new System.Windows.Forms.Label();
+            this.lblTotalLiquido = new System.Windows.Forms.Label();
+            this.lblLucroTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -208,12 +216,100 @@ namespace Augustus_Fashion.View.Relatorios
             this.label6.TabIndex = 18;
             this.label6.Text = "Relatórios de Produtos";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(24, 440);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 20);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Quantidade:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(24, 494);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 20);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Total Desconto:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(297, 440);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 20);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Total Líquido:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label10.Location = new System.Drawing.Point(297, 494);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(92, 20);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Lucro Total:";
+            // 
+            // lblQuantidade
+            // 
+            this.lblQuantidade.AutoSize = true;
+            this.lblQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblQuantidade.Location = new System.Drawing.Point(126, 440);
+            this.lblQuantidade.Name = "lblQuantidade";
+            this.lblQuantidade.Size = new System.Drawing.Size(18, 20);
+            this.lblQuantidade.TabIndex = 24;
+            this.lblQuantidade.Text = "0";
+            // 
+            // lblDesconto
+            // 
+            this.lblDesconto.AutoSize = true;
+            this.lblDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblDesconto.Location = new System.Drawing.Point(151, 494);
+            this.lblDesconto.Name = "lblDesconto";
+            this.lblDesconto.Size = new System.Drawing.Size(18, 20);
+            this.lblDesconto.TabIndex = 25;
+            this.lblDesconto.Text = "0";
+            // 
+            // lblTotalLiquido
+            // 
+            this.lblTotalLiquido.AutoSize = true;
+            this.lblTotalLiquido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblTotalLiquido.Location = new System.Drawing.Point(406, 440);
+            this.lblTotalLiquido.Name = "lblTotalLiquido";
+            this.lblTotalLiquido.Size = new System.Drawing.Size(18, 20);
+            this.lblTotalLiquido.TabIndex = 26;
+            this.lblTotalLiquido.Text = "0";
+            // 
+            // lblLucroTotal
+            // 
+            this.lblLucroTotal.AutoSize = true;
+            this.lblLucroTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblLucroTotal.Location = new System.Drawing.Point(395, 494);
+            this.lblLucroTotal.Name = "lblLucroTotal";
+            this.lblLucroTotal.Size = new System.Drawing.Size(18, 20);
+            this.lblLucroTotal.TabIndex = 27;
+            this.lblLucroTotal.Text = "0";
+            // 
             // RelatorioVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(784, 443);
+            this.ClientSize = new System.Drawing.Size(784, 543);
+            this.Controls.Add(this.lblLucroTotal);
+            this.Controls.Add(this.lblTotalLiquido);
+            this.Controls.Add(this.lblDesconto);
+            this.Controls.Add(this.lblQuantidade);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -258,5 +354,13 @@ namespace Augustus_Fashion.View.Relatorios
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblQuantidade;
+        private System.Windows.Forms.Label lblDesconto;
+        private System.Windows.Forms.Label lblTotalLiquido;
+        private System.Windows.Forms.Label lblLucroTotal;
     }
 }

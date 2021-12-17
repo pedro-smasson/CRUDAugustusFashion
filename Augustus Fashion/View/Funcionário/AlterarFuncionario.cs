@@ -73,7 +73,7 @@ namespace Augustus_Fashion.View
             }
             catch
             {
-                _mensagemErro.Mensagem("Falha na Exclusão! Erro de Banco de Dados");
+                _mensagemErro.Mensagem("O funcionário está vinculado a uma compra, impossível excluir!");
             }
         }
 

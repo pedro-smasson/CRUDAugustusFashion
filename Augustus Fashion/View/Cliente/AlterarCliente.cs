@@ -20,7 +20,6 @@ namespace Augustus_Fashion.View
         {
             idCliente.Text = cliente.IdPessoa.ToString();
             nomeCliente.Text = cliente.Nome;
-            emailCliente.Text = cliente.Email;
             ruaCliente.Text = cliente.Endereco.Rua;
             bairroCliente.Text = cliente.Endereco.Bairro;
             numeroCliente.Text = cliente.Endereco.Numero;
@@ -47,27 +46,7 @@ namespace Augustus_Fashion.View
         {
             if (Validar())
             {
-                _clientemodel.Nome = nomeCliente.Text;
-                _clientemodel.Email = emailCliente.Text;
-                _clientemodel.Nascimento = Convert.ToDateTime(datanascCliente.Text);
-                _clientemodel.Cpf = cpfCliente.Text;
-                _clientemodel.Endereco.Rua = ruaCliente.Text;
-                _clientemodel.Endereco.Bairro = bairroCliente.Text;
-                _clientemodel.Endereco.Cep = cepCliente.Text;
-                _clientemodel.Endereco.Numero = numeroCliente.Text;
-                _clientemodel.Endereco.Cidade = cidadeCliente.Text;
-                _clientemodel.Endereco.Estado = estadoCliente.Text;
-                _clientemodel.Endereco.Complemento = complementoCliente.Text;
-                _clientemodel.Celular = celularCliente.Text;
-                _clientemodel.Limite = Convert.ToDecimal(valorLimiteCliente.Text);
-
-                if (sexoMascCliente.Checked == true)
-                    _clientemodel.Sexo = "M";
-                else if (sexoFemCliente.Checked == true)
-                    _clientemodel.Sexo = "F";
-                else if (sexOtherCliente.Checked == true)
-                    _clientemodel.Sexo = "O";
-
+                PreencherCamposDaModelCliente(_clientemodel);
                 try
                 {
                     _clientecontrol.AlterarCliente(_clientemodel);
@@ -83,6 +62,30 @@ namespace Augustus_Fashion.View
                     _mensagemErro.Mensagem("Falha na Alteração!");
                 }
             }
+        }
+
+        private void PreencherCamposDaModelCliente(ClienteModel clientemodel)
+        {
+            _clientemodel.Nome = nomeCliente.Text;
+            _clientemodel.Email = emailCliente.Text;
+            _clientemodel.Cpf = cpfCliente.Text;
+            _clientemodel.Endereco.Rua = ruaCliente.Text;
+            _clientemodel.Endereco.Bairro = bairroCliente.Text;
+            _clientemodel.Endereco.Cep = cepCliente.Text;
+            _clientemodel.Endereco.Numero = numeroCliente.Text;
+            _clientemodel.Endereco.Cidade = cidadeCliente.Text;
+            _clientemodel.Endereco.Estado = estadoCliente.Text;
+            _clientemodel.Endereco.Complemento = complementoCliente.Text;
+            _clientemodel.Celular = celularCliente.Text;
+            _clientemodel.Nascimento = Convert.ToDateTime(datanascCliente.Text);
+            _clientemodel.Limite = Convert.ToDecimal(valorLimiteCliente.Text);
+
+            if (sexoMascCliente.Checked == true)
+                _clientemodel.Sexo = "M";
+            else if (sexoFemCliente.Checked == true)
+                _clientemodel.Sexo = "F";
+            else if (sexOtherCliente.Checked == true)
+                _clientemodel.Sexo = "O";
         }
 
         public void ExcluirCliente_Click(object sender, EventArgs e)

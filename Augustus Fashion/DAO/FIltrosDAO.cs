@@ -11,16 +11,16 @@ namespace Augustus_Fashion.DAO
     {
         public static List<RelatorioProdutosModel> QueryFiltragemProduto(FiltrosProdutoModel filtrosProdutoModel)
         {
-            var query = @" select pro.Nome, Sum(p.QuantidadeProduto) as Quantidade, Sum(p.TotalBruto) as TotalBruto,
-            Sum(p.Desconto * p.QuantidadeProduto) as Desconto, Sum(p.TotalLiquido) as TotalLiquido,
-            Sum(pro.PrecoCusto) as PrecoCusto, Sum(p.Lucro) as Lucro, pro.IdProduto from Pedido p
+            var query = @" select pro.Nome, Sum(p.QuantidadeProduto) as Quantidade, Sum(p.TotalBruto) as TotalLiquido,
+            Sum(p.Desconto * p.QuantidadeProduto) as Desconto,
+            pro.PrecoCusto as PrecoCusto, Sum(p.Lucro) as Lucro, pro.IdProduto from Pedido p
 			inner join Cliente c on c.IdCliente = p.IdCliente
             inner join Pessoa pec on pec.IdPessoa = c.IdPessoa 
 			inner join Venda v on v.IdPedido = p.IdPedido
 			inner join Produto pro on pro.IdProduto = v.IdProduto";
 
             query += filtrosProdutoModel.Where();
-            query += @" group by pro.Nome, pro.IdProduto ";
+            query += @" group by pro.Nome, pro.IdProduto, pro.PrecoCusto ";
             query += filtrosProdutoModel.Having();
 
             try
