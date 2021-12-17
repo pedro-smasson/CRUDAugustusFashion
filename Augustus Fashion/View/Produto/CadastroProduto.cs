@@ -15,10 +15,7 @@ namespace Augustus_Fashion.View
         MensagemErro _mensagemErro = new MensagemErro();
         MensagemInfo _mensagemInfo = new MensagemInfo();
 
-        public CadastroProduto()
-        {
-            InitializeComponent();
-        }
+        public CadastroProduto() => InitializeComponent();
 
         private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
@@ -29,19 +26,7 @@ namespace Augustus_Fashion.View
             Close();
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
-
-        private void Limpar()
-        {
-            codProduto.Text = "";
-            codBarrasProduto.Text = "";
-            nomeProduto.Text = "";
-            fabricanteProduto.Text = "";
-            precoVendaProduto.Text = "";
-            precoCustoProduto.Text = "";
-            estoqueProduto.Text = "";
-            chkAtivo.Checked = false;
-        }
+        private void btnLimpar_Click(object sender, EventArgs e) => Instanciar.LimparCampos(this);
 
         private bool Validar()
         {
@@ -95,15 +80,7 @@ namespace Augustus_Fashion.View
                 {
                     _produtoControl.CadastrarProduto(_produtoModel);
                     _mensagemInfo.Mensagem("Produto Cadastrado com Sucesso!");
-
-                    codProduto.Text = "";
-                    codBarrasProduto.Text = "";
-                    nomeProduto.Text = "";
-                    fabricanteProduto.Text = "";
-                    precoVendaProduto.Text = "";
-                    precoCustoProduto.Text = "";
-                    estoqueProduto.Text = "";
-                    chkAtivo.Checked = false;
+                    Instanciar.LimparCampos(this);
                 }
                 catch
                 {

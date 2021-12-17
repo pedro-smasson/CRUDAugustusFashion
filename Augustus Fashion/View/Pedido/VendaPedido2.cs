@@ -30,6 +30,7 @@ namespace Augustus_Fashion.View.Pedido
             dgvCliente.Columns["Endereco"].Visible = false;
             dgvCliente.Columns["Limite"].Visible = false;
             dgvCliente.Columns["LimiteGasto"].Visible = false;
+            btnAvancar.Enabled = false;
         }
 
         private void dgvCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -40,6 +41,7 @@ namespace Augustus_Fashion.View.Pedido
             _pedido.IdCliente = (int)dgvCliente.SelectedRows[0].Cells[0].Value;
             _pedido.Limite = (decimal)dgvCliente.SelectedRows[0].Cells[5].Value;
             _pedido.LimiteGasto = (decimal)dgvCliente.SelectedRows[0].Cells[6].Value;
+            btnAvancar.Enabled = true;
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)

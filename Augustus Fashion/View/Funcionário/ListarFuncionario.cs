@@ -11,10 +11,8 @@ namespace Augustus_Fashion.View
 
         public ListarFuncionario() => InitializeComponent();
 
-        private void ListarFuncionario_Load(object sender, EventArgs e)
-        {
+        private void ListarFuncionario_Load(object sender, EventArgs e) =>
             dgvFuncionario.DataSource = _funcionariocontrol.ListarFuncionarios();
-        }
 
         private void buscarNome_Click_1(object sender, EventArgs e)
         {
@@ -34,10 +32,7 @@ namespace Augustus_Fashion.View
             Close();
         }
 
-        private void FecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
         public int SelecionarFuncionarioModel()
         {

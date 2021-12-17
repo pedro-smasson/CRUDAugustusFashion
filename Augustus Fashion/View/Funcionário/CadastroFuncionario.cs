@@ -18,31 +18,7 @@ namespace Augustus_Fashion.View
 
         private void FecharToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
-        private void Limpar()
-        {
-            nomeFuncionario.Text = "";
-            emailFuncionario.Text = "";
-            datanascFuncionario.Text = "";
-            cpfFuncionario.Text = "";
-            ruaFuncionario.Text = "";
-            bairroFuncionario.Text = "";
-            cepFuncionario.Text = "";
-            numeroFuncionario.Text = "";
-            celularFuncionario.Text = "";
-            cidadeFuncionario.Text = "";
-            estadoFuncionario.Text = "";
-            complementoFuncionario.Text = "";
-            salarioFuncionario.Text = "";
-            comissaoFuncionario.Text = "";
-            agenciaFuncionario.Text = "";
-            numContaFuncionario.Text = "";
-            codContaFuncionario.Text = "";
-            sexoMascFuncionario.Checked = false;
-            sexoFemFuncionario.Checked = false;
-            sexOtherFuncionario.Checked = false;
-        }
-
-        private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
+        private void btnLimpar_Click(object sender, EventArgs e) => Instanciar.LimparCampos(this);
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -78,7 +54,7 @@ namespace Augustus_Fashion.View
                     _funcionarioControl.CadastrarFuncionario(_funcionarioModel);
                     _mensagemInfo.Mensagem("Funcionário Cadastrado com Sucesso!");
 
-                    Limpar();
+                    Instanciar.LimparCampos(this);
                 }
             }
             catch 

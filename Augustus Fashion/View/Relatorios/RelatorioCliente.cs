@@ -88,18 +88,7 @@ namespace Augustus_Fashion.View.Relatorios
             }
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
-
-        private void Limpar()
-        {
-            dtpDataInicial.Value = DateTime.Today;
-            dtpDataFinal.Value = DateTime.Today;
-            cbCrescenteOuDecrescente.Text = "";
-            cbFiltrarPor.Text = "";
-            cbOrdenarPor.Text = "";
-            nudCliente.Value = 0;
-            nudValorInicial.Value = 0;
-        }
+        private void btnLimpar_Click(object sender, EventArgs e) => Instanciar.LimparCampos(this);
 
         private void fECHARToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 

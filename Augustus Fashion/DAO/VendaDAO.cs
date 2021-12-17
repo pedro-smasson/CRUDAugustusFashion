@@ -84,6 +84,8 @@ namespace Augustus_Fashion.DAO
             Lucro = @Lucro
             where IdPedido = @IdPedido";
 
+            var queryDelete = @"delete Venda where IdPedido = @IdPedido";
+
             var queryVendaJaExistente = @"update Venda set IdPedido = @IdPedido, IdProduto = @IdProduto, 
             PrecoVenda = @PrecoLiquidoUnitario, QuantidadeProduto = @QuantidadeProduto, Desconto = @DescontoUnitario,
             Total = @PrecoLiquidoTotal
@@ -101,6 +103,7 @@ namespace Augustus_Fashion.DAO
                     conexao.Open();
                     using (var transacao = conexao.BeginTransaction())
                     {
+                        conexao.Execute(queryDelete, new { pedido.IdPedido }, transacao);
                         conexao.Execute(queryPedido, new
                         {
                             pedido.IdPedido,
@@ -114,6 +117,7 @@ namespace Augustus_Fashion.DAO
                             PrecoTotal = pedido.PrecoTotal.RetornarValorEmDecimal(),
                             Lucro = pedido.Lucro.RetornarValorEmDecimal(),
                         }, transacao);
+
 
                         foreach (var carrinho in pedido.Produtos)
                         {

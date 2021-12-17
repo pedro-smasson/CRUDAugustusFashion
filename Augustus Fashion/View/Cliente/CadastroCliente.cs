@@ -16,27 +16,7 @@ namespace Augustus_Fashion
 
         public cadastroCliente() => InitializeComponent();
 
-        private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
-
-        private void Limpar()
-        {
-            nomeCliente.Text = "";
-            emailCliente.Text = "";
-            datanascCliente.Text = "";
-            cpfCliente.Text = "";
-            ruaCliente.Text = "";
-            bairroCliente.Text = "";
-            cepCliente.Text = "";
-            numeroCliente.Text = "";
-            celularCliente.Text = "";
-            cidadeCliente.Text = "";
-            estadoCliente.Text = "";
-            complementoCliente.Text = "";
-            valorLimiteCliente.Text = "";
-            sexoMascCliente.Checked = false;
-            sexoFemCliente.Checked = false;
-            sexOtherCliente.Checked = false;
-        }
+        private void btnLimpar_Click(object sender, EventArgs e) => Instanciar.LimparCampos(this);
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -68,7 +48,7 @@ namespace Augustus_Fashion
                     new ClienteControl().CadastrarCliente(_clientemodel);
                     _mensagemInfo.Mensagem("Cliente Cadastrado com Sucesso!");
 
-                    Limpar();
+                    Instanciar.LimparCampos(this);
                 }
                 catch
                 {

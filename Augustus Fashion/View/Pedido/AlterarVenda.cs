@@ -1,4 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
+using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.MensagemGlobal;
 using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
@@ -93,8 +94,7 @@ namespace Augustus_Fashion.View.Pedido
 
             AlterarDadosDaVenda();
             Hide();
-            telaInicial telaInicial = new telaInicial();
-            telaInicial.ShowDialog();
+            Instanciar.TelaInicial();
             Close();
         }
 
@@ -140,6 +140,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private void AlterarVenda_Load(object sender, EventArgs e)
         {
+            btnAdicionar.Enabled = false;
             dgvProduto.DataSource = _produtoControl.ListarProduto();
             dgvProduto.Columns["PrecoCusto"].Visible = false;
 
@@ -151,6 +152,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private void dgvProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnAdicionar.Enabled = true;
             var nome = dgvProduto.SelectedRows[0].Cells[1].Value;
             var precovenda = dgvProduto.SelectedRows[0].Cells[2].Value;
             var produto = BuscarModelProdutoSelecionado();
@@ -203,10 +205,10 @@ namespace Augustus_Fashion.View.Pedido
             _vendaControl.DesativarVenda(_pedido);
 
             _mensagemInfo.Mensagem("Pedido inativado com sucesso!");
-            this.Hide();
+            Hide();
             telaInicial telaInicial = new telaInicial();
             telaInicial.ShowDialog();
-            this.Close();
+            Close();
             }
             catch 
             {

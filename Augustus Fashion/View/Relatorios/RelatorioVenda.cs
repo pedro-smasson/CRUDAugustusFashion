@@ -48,7 +48,7 @@ namespace Augustus_Fashion.View.Relatorios
                 if (Validacoes.VerificarSeDataInicialEhMaiorQueDataFinal(dtpDataInicial.Value, dtpDataFinal.Value))
                 {
                     FiltrosPreenchidos();
-                    var filtrarProduto =  _filtrosController.QueryFiltragemProduto(_filtrosModel);
+                    var filtrarProduto = _filtrosController.QueryFiltragemProduto(_filtrosModel);
                     dgvVenda.DataSource = filtrarProduto;
                     Totalizadores(filtrarProduto);
                     dgvVenda.Columns[0].HeaderText = "ID Produto";
@@ -79,14 +79,6 @@ namespace Augustus_Fashion.View.Relatorios
             lblTotalLiquido.Text = total.Sum(x => x.TotalLiquido.RetornarValorEmDecimal()).ToString();
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e) => Limpar();
-
-        private void Limpar()
-        {
-            txtIdProduto.Text = "";
-            txtNomeProduto.Text = "";
-            dtpDataInicial.Value = DateTime.Today;
-            dtpDataFinal.Value = DateTime.Today;
-        }
+        private void btnLimpar_Click(object sender, EventArgs e) => Instanciar.LimparCampos(this);
     }
 }

@@ -19,7 +19,6 @@ namespace Augustus_Fashion.View.Pedido
 {
     public partial class VendaPedido3 : Form
     {
-        ClienteModel _clienteModel = new ClienteModel();
         ProdutoControl _produtoControl = new ProdutoControl();
         PedidoModel _pedido;
         MensagemErro _mensagemErro = new MensagemErro();
@@ -46,6 +45,8 @@ namespace Augustus_Fashion.View.Pedido
             lblCliente.Text = _pedido.IdCliente.ToString();
             lblFuncionario.Text = _pedido.IdFuncionario.ToString();
 
+            btnAdicionar.Enabled = false;
+
             if (VerificarSeHojeEhAniversarioDoCliente())
             {
                 _mensagemInfo.Mensagem("Hoje é Aniversário deste cliente!");
@@ -67,6 +68,7 @@ namespace Augustus_Fashion.View.Pedido
 
         private void dgvProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnAdicionar.Enabled = true;
             var nome = dgvProduto.SelectedRows[0].Cells[1].Value;
             var precovenda = dgvProduto.SelectedRows[0].Cells[2].Value;
             var produto = BuscarModelProdutoSelecionado();

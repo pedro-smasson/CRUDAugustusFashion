@@ -40,6 +40,7 @@ namespace Augustus_Fashion.View.Pedido
         {
             dgvFuncionario.DataSource = _funcionariocontrol.ListarFuncionarios();
             this.dgvFuncionario.Columns["Endereco"].Visible = false;
+            btnAvancar.Enabled = false;
         }
 
         private void dgvFuncionario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -48,6 +49,7 @@ namespace Augustus_Fashion.View.Pedido
             txtSelecionado.Text = nome.ToString();
 
             _pedidoModel.IdFuncionario = (int)dgvFuncionario.SelectedRows[0].Cells[0].Value;
+            btnAvancar.Enabled = true;
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)

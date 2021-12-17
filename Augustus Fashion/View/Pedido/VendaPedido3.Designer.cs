@@ -375,7 +375,7 @@ namespace Augustus_Fashion.View.Pedido
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.LavenderBlush;
+            this.label13.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label13.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label13.Location = new System.Drawing.Point(447, 338);
             this.label13.Name = "label13";
