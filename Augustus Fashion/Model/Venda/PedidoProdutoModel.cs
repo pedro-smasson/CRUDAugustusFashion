@@ -37,6 +37,5 @@ namespace Augustus_Fashion.Model.Venda
         {
             get => (PrecoLiquidoUnitario.RetornarValorEmDecimal() * QuantidadeProduto); set { }
         }
-
     }
 }

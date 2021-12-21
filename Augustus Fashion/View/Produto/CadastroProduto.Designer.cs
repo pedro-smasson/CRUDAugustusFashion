@@ -185,6 +185,7 @@ namespace Augustus_Fashion.View
             // 
             this.nomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.nomeProduto.Location = new System.Drawing.Point(247, 42);
+            this.nomeProduto.MaxLength = 50;
             this.nomeProduto.Name = "nomeProduto";
             this.nomeProduto.Size = new System.Drawing.Size(252, 29);
             this.nomeProduto.TabIndex = 3;

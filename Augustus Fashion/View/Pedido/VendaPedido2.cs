@@ -50,10 +50,10 @@ namespace Augustus_Fashion.View.Pedido
             {
                 _mensagemAlerta.Mensagem("Selecione o Cliente!");
             }
-            this.Hide();
+            Hide();
             VendaPedido3 telaVenda3 = new VendaPedido3(_pedido);
             telaVenda3.ShowDialog();
-            this.Show();
+            Show();
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)

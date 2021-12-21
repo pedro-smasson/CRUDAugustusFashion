@@ -30,20 +30,23 @@ namespace Augustus_Fashion.View.Pedido
         {
             dgvCarrinho.DataSource = _pedido.Produtos;
 
-            this.dgvCarrinho.Columns["IdPedido"].Visible = false;
-            this.dgvCarrinho.Columns["IdVenda"].Visible = false;
-            this.dgvCarrinho.Columns["PrecoCustoUnitario"].Visible = false;
-            this.dgvCarrinho.Columns["DescontoUnitario"].Visible = false;
-            this.dgvCarrinho.Columns["PrecoBrutoUnitario"].Visible = false;
-            this.dgvCarrinho.Columns["PrecoBrutoTotal"].Visible = false;
-            this.dgvCarrinho.Columns["PrecoLiquidoUnitario"].Visible = false;
-            this.dgvCarrinho.Columns["PrecoLiquidoTotal"].Visible = true;
+            dgvCarrinho.Columns["IdPedido"].Visible = false;
+            dgvCarrinho.Columns["IdVenda"].Visible = false;
+            dgvCarrinho.Columns["PrecoCustoUnitario"].Visible = false;
+            dgvCarrinho.Columns["DescontoUnitario"].Visible = false;
+            dgvCarrinho.Columns["PrecoBrutoUnitario"].Visible = false;
+            dgvCarrinho.Columns["PrecoBrutoTotal"].Visible = true;
+            dgvCarrinho.Columns["PrecoLiquidoUnitario"].Visible = false;
+            dgvCarrinho.Columns["PrecoLiquidoTotal"].Visible = false;
+            dgvCarrinho.Columns["PrecoCustoTotal"].Visible = false;
+            dgvCarrinho.Columns["DescontoTotal"].Visible = false;
+            dgvCarrinho.Columns["PrecoBrutoTotal"].HeaderText = "Preço Final";
 
             txtLucro.Text = _pedido.Lucro.ToString();
             cbFormaDePagamento.Text = _pedido.FormaDePagamento.ToString();
             lblCliente.Text = _pedido.IdCliente.ToString();
             lblFuncionario.Text = _pedido.IdFuncionario.ToString();
-            txtTotalVenda.Text = _pedido.PrecoTotal.ToString();
+            txtTotalVenda.Text = _pedido.PrecoBrutoTotalDoPedido.ToString();
         }
 
         private void AlterarDadosDaVenda()
