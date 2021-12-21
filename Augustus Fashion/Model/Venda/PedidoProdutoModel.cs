@@ -19,6 +19,7 @@ namespace Augustus_Fashion.Model.Venda
 
         public Dinheiro PrecoCustoUnitario { get; set; }
         public Dinheiro PrecoCustoTotal
+
         {
             get => PrecoCustoUnitario.RetornarValorEmDecimal() * QuantidadeProduto;
         }
@@ -33,6 +34,7 @@ namespace Augustus_Fashion.Model.Venda
         { 
             get => PrecoBrutoUnitario.RetornarValorEmDecimal() - DescontoUnitario.RetornarValorEmDecimal(); set { }
         }
+
         public Dinheiro PrecoLiquidoTotal
         {
             get => (PrecoLiquidoUnitario.RetornarValorEmDecimal() * QuantidadeProduto); set { }

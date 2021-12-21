@@ -73,6 +73,11 @@ namespace Augustus_Fashion.Model.Venda
             return Produtos.Sum(produto => produto.PrecoLiquidoTotal.RetornarValorEmDecimal());
         }
 
+        public Dinheiro PrecoASerExibidoNoFinalDaAlteracaoDePedidos()
+        {
+            return Produtos.Sum(produto => produto.PrecoBrutoTotal.RetornarValorEmDecimal());
+        }
+
         public List<PedidoProdutoModel> Produtos { get; set; }
 
         public void AdicionarProduto(PedidoProdutoModel produto) => Produtos.Add(produto);

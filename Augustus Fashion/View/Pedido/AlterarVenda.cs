@@ -87,7 +87,7 @@ namespace Augustus_Fashion.View.Pedido
 
             CalcularLucro();
             CalcularPrecoLiquido();
-            txtTotalVenda.Text = _pedido.PrecoASerExibidoNoFinal().ToString();
+            txtTotalVenda.Text = _pedido.PrecoASerExibidoNoFinalDaAlteracaoDePedidos().ToString();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
