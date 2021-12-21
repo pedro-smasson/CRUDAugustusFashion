@@ -55,7 +55,7 @@ namespace Augustus_Fashion.View.Relatorios
                     dgvVenda.Columns[1].HeaderText = "Nome";
                     dgvVenda.Columns[2].HeaderText = "Quantidade";
                     dgvVenda.Columns[3].HeaderText = "Total Desconto";
-                    dgvVenda.Columns[4].HeaderText = "Total Líquido";
+                    dgvVenda.Columns[4].HeaderText = "Total Bruto";
                     dgvVenda.Columns[5].HeaderText = "Preço de Custo";
                     dgvVenda.Columns[6].HeaderText = "Lucro Total";
                 }
@@ -76,7 +76,7 @@ namespace Augustus_Fashion.View.Relatorios
             lblDesconto.Text = total.Sum(x => (x.Desconto)).ToString();
             lblLucroTotal.Text = total.Sum(x => (x.Lucro.RetornarValorEmDecimal())).ToString();
             lblQuantidade.Text = total.Sum(x => (x.Quantidade)).ToString();
-            lblTotalLiquido.Text = total.Sum(x => x.TotalLiquido.RetornarValorEmDecimal()).ToString();
+            lblTotalBruto.Text = total.Sum(x => x.TotalBruto.RetornarValorEmDecimal()).ToString();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e) => Instanciar.LimparCampos(this);

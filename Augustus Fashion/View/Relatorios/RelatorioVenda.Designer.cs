@@ -51,7 +51,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.label10 = new System.Windows.Forms.Label();
             this.lblQuantidade = new System.Windows.Forms.Label();
             this.lblDesconto = new System.Windows.Forms.Label();
-            this.lblTotalLiquido = new System.Windows.Forms.Label();
+            this.lblTotalBruto = new System.Windows.Forms.Label();
             this.lblLucroTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenda)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -242,9 +242,9 @@ namespace Augustus_Fashion.View.Relatorios
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label9.Location = new System.Drawing.Point(297, 440);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 20);
+            this.label9.Size = new System.Drawing.Size(91, 20);
             this.label9.TabIndex = 22;
-            this.label9.Text = "Total Líquido:";
+            this.label9.Text = "Total Bruto:";
             // 
             // label10
             // 
@@ -276,15 +276,15 @@ namespace Augustus_Fashion.View.Relatorios
             this.lblDesconto.TabIndex = 25;
             this.lblDesconto.Text = "0";
             // 
-            // lblTotalLiquido
+            // lblTotalBruto
             // 
-            this.lblTotalLiquido.AutoSize = true;
-            this.lblTotalLiquido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblTotalLiquido.Location = new System.Drawing.Point(406, 440);
-            this.lblTotalLiquido.Name = "lblTotalLiquido";
-            this.lblTotalLiquido.Size = new System.Drawing.Size(18, 20);
-            this.lblTotalLiquido.TabIndex = 26;
-            this.lblTotalLiquido.Text = "0";
+            this.lblTotalBruto.AutoSize = true;
+            this.lblTotalBruto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblTotalBruto.Location = new System.Drawing.Point(406, 440);
+            this.lblTotalBruto.Name = "lblTotalBruto";
+            this.lblTotalBruto.Size = new System.Drawing.Size(18, 20);
+            this.lblTotalBruto.TabIndex = 26;
+            this.lblTotalBruto.Text = "0";
             // 
             // lblLucroTotal
             // 
@@ -303,7 +303,7 @@ namespace Augustus_Fashion.View.Relatorios
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(784, 543);
             this.Controls.Add(this.lblLucroTotal);
-            this.Controls.Add(this.lblTotalLiquido);
+            this.Controls.Add(this.lblTotalBruto);
             this.Controls.Add(this.lblDesconto);
             this.Controls.Add(this.lblQuantidade);
             this.Controls.Add(this.label10);
@@ -360,7 +360,7 @@ namespace Augustus_Fashion.View.Relatorios
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblQuantidade;
         private System.Windows.Forms.Label lblDesconto;
-        private System.Windows.Forms.Label lblTotalLiquido;
+        private System.Windows.Forms.Label lblTotalBruto;
         private System.Windows.Forms.Label lblLucroTotal;
     }
 }

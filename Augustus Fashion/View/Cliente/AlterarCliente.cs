@@ -26,6 +26,7 @@ namespace Augustus_Fashion.View
             celularCliente.Text = cliente.Celular;
             cidadeCliente.Text = cliente.Endereco.Cidade;
             estadoCliente.Text = cliente.Endereco.Estado;
+            emailCliente.Text = cliente.Email;
             complementoCliente.Text = cliente.Endereco.Complemento;
             cpfCliente.Text = cliente.Cpf.ToString();
             cepCliente.Text = cliente.Endereco.Cep.ToString();

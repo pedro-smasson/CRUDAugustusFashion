@@ -413,7 +413,6 @@ namespace Augustus_Fashion.View.Pedido
             this.label11.Size = new System.Drawing.Size(92, 20);
             this.label11.TabIndex = 39;
             this.label11.Text = "Lucro Total:";
-            this.label11.Visible = false;
             // 
             // txtLucro
             // 
@@ -425,7 +424,6 @@ namespace Augustus_Fashion.View.Pedido
             this.txtLucro.ReadOnly = true;
             this.txtLucro.Size = new System.Drawing.Size(159, 22);
             this.txtLucro.TabIndex = 40;
-            this.txtLucro.Visible = false;
             // 
             // label12
             // 

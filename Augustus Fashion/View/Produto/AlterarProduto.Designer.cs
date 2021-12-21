@@ -147,6 +147,7 @@ namespace Augustus_Fashion.View.Produto
             this.precoCustoProduto.Name = "precoCustoProduto";
             this.precoCustoProduto.Size = new System.Drawing.Size(173, 29);
             this.precoCustoProduto.TabIndex = 6;
+            this.precoCustoProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.precoCustoProduto_KeyPress);
             // 
             // precoVendaProduto
             // 
@@ -155,6 +156,7 @@ namespace Augustus_Fashion.View.Produto
             this.precoVendaProduto.Name = "precoVendaProduto";
             this.precoVendaProduto.Size = new System.Drawing.Size(173, 29);
             this.precoVendaProduto.TabIndex = 5;
+            this.precoVendaProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.precoVendaProduto_KeyPress);
             // 
             // nomeProduto
             // 

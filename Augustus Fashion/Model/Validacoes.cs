@@ -11,6 +11,9 @@ namespace Augustus_Fashion.Model
         public static bool ValidarNumeric(this string valor) => 
             new Regex(@"^[0-9,.]+$").Match(valor).Success;
 
+        public static bool ValidarPreco(this string valor) =>
+            new Regex(@"^[R][$][0-9,.]+$").Match(valor).Success;
+
         public static bool ValidarCpf(this string valor) => 
             new Regex(@"^[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}$").Match(valor).Success;
 
@@ -39,6 +42,6 @@ namespace Augustus_Fashion.Model
             new Regex(@"^[a-zA-ZÀ-úÀ-ÿ\s\W]+$").Match(valor).Success;
 
         public static bool VerificarSeDataInicialEhMaiorQueDataFinal(DateTime input1,
-            DateTime input2) => DateTime.Compare(input1, input2) < 0;
+            DateTime input2) => DateTime.Compare(input1, input2) <= 0;
     }
 }

@@ -63,10 +63,10 @@ namespace Augustus_Fashion
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cpfCliente = new System.Windows.Forms.MaskedTextBox();
-            this.datanascCliente = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.nomeCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.datanascCliente = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             this.groupBoxCliente.SuspendLayout();
             this.enderecoCliente.SuspendLayout();
@@ -125,13 +125,13 @@ namespace Augustus_Fashion
             // 
             // groupBoxCliente
             // 
+            this.groupBoxCliente.Controls.Add(this.datanascCliente);
             this.groupBoxCliente.Controls.Add(this.enderecoCliente);
             this.groupBoxCliente.Controls.Add(this.sexoCliente);
             this.groupBoxCliente.Controls.Add(this.emailCliente);
             this.groupBoxCliente.Controls.Add(this.label4);
             this.groupBoxCliente.Controls.Add(this.label3);
             this.groupBoxCliente.Controls.Add(this.cpfCliente);
-            this.groupBoxCliente.Controls.Add(this.datanascCliente);
             this.groupBoxCliente.Controls.Add(this.label2);
             this.groupBoxCliente.Controls.Add(this.nomeCliente);
             this.groupBoxCliente.Controls.Add(this.label1);
@@ -466,15 +466,6 @@ namespace Augustus_Fashion
             this.cpfCliente.Size = new System.Drawing.Size(136, 29);
             this.cpfCliente.TabIndex = 4;
             // 
-            // datanascCliente
-            // 
-            this.datanascCliente.Location = new System.Drawing.Point(406, 39);
-            this.datanascCliente.Mask = "00/00/0000";
-            this.datanascCliente.Name = "datanascCliente";
-            this.datanascCliente.Size = new System.Drawing.Size(108, 29);
-            this.datanascCliente.TabIndex = 3;
-            this.datanascCliente.ValidatingType = typeof(System.DateTime);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -502,6 +493,14 @@ namespace Augustus_Fashion
             this.label1.Size = new System.Drawing.Size(153, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome do Cliente: ";
+            // 
+            // datanascCliente
+            // 
+            this.datanascCliente.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datanascCliente.Location = new System.Drawing.Point(406, 42);
+            this.datanascCliente.Name = "datanascCliente";
+            this.datanascCliente.Size = new System.Drawing.Size(173, 29);
+            this.datanascCliente.TabIndex = 10;
             // 
             // cadastroCliente
             // 
@@ -562,7 +561,6 @@ namespace Augustus_Fashion
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox cpfCliente;
-        private System.Windows.Forms.MaskedTextBox datanascCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox nomeCliente;
         private System.Windows.Forms.Label label1;
@@ -573,6 +571,7 @@ namespace Augustus_Fashion
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ToolStripMenuItem FecharToolStripMenuItem;
         private System.Windows.Forms.TextBox valorLimiteCliente;
+        private System.Windows.Forms.DateTimePicker datanascCliente;
     }
 }
 

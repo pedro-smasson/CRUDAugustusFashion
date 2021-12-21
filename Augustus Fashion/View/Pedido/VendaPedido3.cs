@@ -1,6 +1,5 @@
 ﻿using Augustus_Fashion.Controller;
 using Augustus_Fashion.MensagemGlobal;
-using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
 using Augustus_Fashion.Model.Venda;
 using Augustus_Fashion.ValueObjects;

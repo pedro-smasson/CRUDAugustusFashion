@@ -27,7 +27,7 @@ namespace Augustus_Fashion.ValueObjects
             string dinheiroFormatado = param;
 
             dinheiroFormatado = new string((from c in dinheiroFormatado where char.IsDigit(c) || c == ',' || c == '.' select c).ToArray());
-            return dinheiroFormatado;
+            return dinheiroFormatado == "" ? "0": dinheiroFormatado;
         }
 
         public override string ToString()

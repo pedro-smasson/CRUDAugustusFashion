@@ -1,6 +1,7 @@
 ﻿using Augustus_Fashion.Controller;
 using Augustus_Fashion.InstanciarTela;
 using Augustus_Fashion.MensagemGlobal;
+using Augustus_Fashion.Model;
 using Augustus_Fashion.Model.Produto;
 using System;
 using System.Windows.Forms;
@@ -45,7 +46,7 @@ namespace Augustus_Fashion.View.Produto
             }
             catch
             {
-                _mensagemErro.Mensagem("Falha na exclusão! Erro de Banco de Dados");
+                _mensagemErro.Mensagem("Falha na exclusão! Tente novamente");
             }
         }
 
@@ -60,19 +61,27 @@ namespace Augustus_Fashion.View.Produto
             _produtoModel.Estoque = Convert.ToInt32(estoqueProduto.Text);
             _produtoModel.StatusProduto = chkAtivo.Checked;
 
-            try
+            if (Validar())
             {
-                _produtoControl.AlterarProduto(_produtoModel);
-                _mensagemInfo.Mensagem("Produto Alterado!");
+                try
+                {
 
-                Hide();
-                ListarProduto listarProduto = new ListarProduto();
-                listarProduto.ShowDialog();
-                Close();
+                    _produtoControl.AlterarProduto(_produtoModel);
+                    _mensagemInfo.Mensagem("Produto Alterado!");
+
+                    Hide();
+                    ListarProduto listarProduto = new ListarProduto();
+                    listarProduto.ShowDialog();
+                    Close();
+                }
+                catch
+                {
+                    _mensagemErro.Mensagem("Falha na Alteração!");
+                }
             }
-            catch
+            else 
             {
-                _mensagemErro.Mensagem("Falha na Alteração!");
+                _mensagemErro.Mensagem("Erro nos valores!");
             }
         }
 
@@ -87,6 +96,27 @@ namespace Augustus_Fashion.View.Produto
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+        }
+
+        private bool Validar()
+        {   
+            return _produtoModel.PrecoCusto.RetornarValorEmDecimal() > 0 && _produtoModel.PrecoVenda.RetornarValorEmDecimal() > 0;
+        }
+
+        private void precoVendaProduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void precoCustoProduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

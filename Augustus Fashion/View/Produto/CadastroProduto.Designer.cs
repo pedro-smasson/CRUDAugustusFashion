@@ -167,6 +167,7 @@ namespace Augustus_Fashion.View
             // 
             this.precoCustoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.precoCustoProduto.Location = new System.Drawing.Point(10, 250);
+            this.precoCustoProduto.MaxLength = 10;
             this.precoCustoProduto.Name = "precoCustoProduto";
             this.precoCustoProduto.Size = new System.Drawing.Size(173, 29);
             this.precoCustoProduto.TabIndex = 6;
@@ -175,6 +176,7 @@ namespace Augustus_Fashion.View
             // 
             this.precoVendaProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.precoVendaProduto.Location = new System.Drawing.Point(10, 182);
+            this.precoVendaProduto.MaxLength = 10;
             this.precoVendaProduto.Name = "precoVendaProduto";
             this.precoVendaProduto.Size = new System.Drawing.Size(173, 29);
             this.precoVendaProduto.TabIndex = 5;

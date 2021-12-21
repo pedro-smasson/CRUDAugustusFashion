@@ -11,8 +11,8 @@ namespace Augustus_Fashion.DAO
     {
         public static List<RelatorioProdutosModel> QueryFiltragemProduto(FiltrosProdutoModel filtrosProdutoModel)
         {
-            var query = @" select pro.Nome, Sum(p.QuantidadeProduto) as Quantidade, Sum(p.TotalBruto) as TotalLiquido,
-            Sum(p.Desconto * p.QuantidadeProduto) as Desconto,
+            var query = @" select pro.Nome, Sum(v.QuantidadeProduto) as Quantidade, Sum(p.TotalBruto) as TotalBruto,
+            Sum(v.Desconto * v.QuantidadeProduto) as Desconto,
             pro.PrecoCusto as PrecoCusto, Sum(p.Lucro) as Lucro, pro.IdProduto from Pedido p
 			inner join Cliente c on c.IdCliente = p.IdCliente
             inner join Pessoa pec on pec.IdPessoa = c.IdPessoa 
@@ -55,7 +55,7 @@ namespace Augustus_Fashion.DAO
             from Pedido p
             inner join Cliente c on c.IdCliente = p.IdCliente
             inner join Pessoa pec on pec.IdPessoa = c.IdPessoa
-            where c.IdCliente = p.IdCliente
+            where c.IdCliente = p.IdCliente and p.DataPedido between @DataInicial and @DataFinal + ' 23:59' 
             group by c.IdPessoa, pec.Nome";
 
             query += filtrosClienteModel.Having();

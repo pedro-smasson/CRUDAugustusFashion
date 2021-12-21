@@ -130,6 +130,11 @@ namespace Augustus_Fashion
                 _mensagemErro.Mensagem("Estado inválido");
                 return false;
             }
+            else if (string.IsNullOrEmpty(valorLimiteCliente.Text)) 
+            {
+                _mensagemErro.Mensagem("Limite inválido!");
+                return false;
+            }
             return true;
         }
 
