@@ -11,4 +11,5 @@ deve ser capaz de gerenciar os clientes e funcionários da loja, além de detalh
 - Microsoft SQL Server
 - Dapper
 - Fluent Validation
+- C# Unit Tests
 - Git
